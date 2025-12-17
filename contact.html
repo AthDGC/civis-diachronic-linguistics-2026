@@ -1,160 +1,382 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - CIVIS Diachronic Linguistics 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="Contact information for Diachronic Linguistics in the 21st Century 2026">
+    <title>Contact | Diachronic Linguistics 2026</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+        
+        .contact-section {
+            padding: 4rem 0;
+        }
+        
+        .contact-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-card h2 {
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-item {
+            background-color: #f9fafb;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item h3 {
+            font-size: 1.125rem;
+            margin-bottom: 1rem;
+            color: #2563eb;
+        }
+        
+        .contact-item a {
+            color: #2563eb;
+            font-weight: 500;
+            word-break: break-all;
+        }
+        
+        .contact-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .info-box {
+            background-color: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+        
+        .faq-item {
+            background-color: #f9fafb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .faq-item h3 {
+            color: #2563eb;
+            margin-bottom: 0.75rem;
+            font-size: 1.125rem;
+        }
+        
+        .organization-info {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-top: 2rem;
+        }
+        
+        .organization-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="index.html">CIVIS Diachronic Linguistics 2026</a>
+                <h1>Diachronic Linguistics 2026</h1>
+                <p class="nav-subtitle">CIVIS Blended Intensive Programme</p>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="program.html">Program</a></li>
-                <li><a href="speakers.html">Speakers</a></li>
-                <li><a href="registration.html">Registration</a></li>
+                <li><a href="speakers.html">Professors</a></li>
                 <li><a href="venue.html">Venue</a></li>
+                <li><a href="registration.html">Apply</a></li>
                 <li><a href="contact.html" class="active">Contact</a></li>
             </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <header class="page-header">
         <div class="container">
-            <h1>Contact Us</h1>
-            <p>Get in touch with the organizers</p>
+            <h1>Get in Touch</h1>
+            <p>We're here to answer your questions about the programme</p>
         </div>
-    </section>
+    </header>
 
-    <!-- Main Content -->
-    <section class="section">
+    <!-- Contact Section -->
+    <section class="contact-section">
         <div class="container">
-            <div class="info-box">
-                <h3>Program Director</h3>
-                <p><strong>Prof. Nikolaos Lavidas</strong></p>
-                <p>National and Kapodistrian University of Athens</p>
-                <p>Department of English Language and Literature</p>
-                <p style="margin-top: 1rem;"><strong>Email:</strong> <a
-                        href="mailto:nlavidas@enl.uoa.gr">nlavidas@enl.uoa.gr</a></p>
-            </div>
+            
+            <!-- Main Contact Info -->
+            <div class="contact-card">
+                <h2>Contact Information</h2>
+                <p>For any inquiries about the Diachronic Linguistics in the 21st Century 2026 programme, please reach out to us using the contact information below.</p>
 
-            <h2 class="section-title">Frequently Asked Questions</h2>
-
-            <div class="card">
-                <h3>When will I hear back about my application?</h3>
-                <p>Application decisions are typically sent within 2-3 weeks of the deadline. You will receive an email
-                    confirmation once your application has been reviewed.</p>
-            </div>
-
-            <div class="card">
-                <h3>Can I attend without presenting at the workshop?</h3>
-                <p>All participants are expected to present their research at the workshop/poster session. This is an
-                    integral part of the learning experience and ECTS credit requirements.</p>
-            </div>
-
-            <div class="card">
-                <h3>Are meals included?</h3>
-                <p>Coffee breaks during sessions and welcome/farewell receptions are included. Lunch and dinner are not
-                    included, but Naxos offers many excellent and affordable dining options.</p>
-            </div>
-
-            <div class="card">
-                <h3>What level of Greek/Latin knowledge is required?</h3>
-                <p>No prior knowledge of ancient languages is required. The summer school welcomes students at all
-                    levels, from beginners to advanced. Classes are tailored to accommodate different proficiency
-                    levels.</p>
-            </div>
-
-            <div class="card">
-                <h3>Can I extend my stay in Naxos?</h3>
-                <p>Absolutely! Many participants arrive early or stay longer to enjoy the island. The summer school
-                    officially runs July 20-25, but you're welcome to extend your visit.</p>
-            </div>
-
-            <div class="card">
-                <h3>Is financial aid available?</h3>
-                <p>The summer school itself is free (no registration fee). However, participants are responsible for
-                    travel and accommodation. We recommend checking with your home institution for travel grants or
-                    scholarships.</p>
-            </div>
-
-            <div class="card">
-                <h3>What technical equipment do I need?</h3>
-                <p>Please bring a laptop for computational workshops and accessing digital resources. We recommend
-                    having Python installed for programming sessions.</p>
-            </div>
-
-            <h2 class="section-title">Connect With Us</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Website</h3>
-                    <p><a href="https://conferences.uoa.gr/event/92/" target="_blank">Official Conference Page</a></p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <h3>Email</h3>
+                        <a href="mailto:nlavidas@enl.uoa.gr">nlavidas@enl.uoa.gr</a>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">Programme Coordinator: Prof. Nikolaos Lavidas</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">🌐</div>
+                        <h3>CIVIS Course Page</h3>
+                        <a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank">Visit CIVIS Website</a>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">Official course information and updates</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📚</div>
+                        <h3>Moodle Platform</h3>
+                        <a href="https://moodle.civis.eu/" target="_blank">moodle.civis.eu</a>
+                        <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">Course materials (available after acceptance)</p>
+                    </div>
                 </div>
 
-                <div class="card">
-                    <h3>Research Network</h3>
-                    <p><a href="https://athdgc.github.io/" target="_blank">AthDGC Research Network</a></p>
-                </div>
-
-                <div class="card">
-                    <h3>University</h3>
-                    <p><a href="https://en.uoa.gr/" target="_blank">University of Athens</a></p>
+                <div class="info-box" style="margin-top: 2rem;">
+                    <strong>⏱️ Response Time:</strong> We aim to respond to all inquiries within 2-3 business days. During peak application periods (September-October), responses may take slightly longer.
                 </div>
             </div>
 
-            <h2 class="section-title">Organizing Institution</h2>
-            <p><strong>National and Kapodistrian University of Athens</strong></p>
-            <p>Department of English Language and Literature</p>
-            <p>University Campus, Zografou 157 84</p>
-            <p>Athens, Greece</p>
+            <!-- FAQ Section -->
+            <div class="contact-card">
+                <h2>Frequently Asked Questions</h2>
+                <p>Find quick answers to common questions about the programme.</p>
 
-            <h2 class="section-title">Collaborating Institutions</h2>
-            <ul style="padding-left: 2rem; line-height: 2; margin: 2rem 0;">
-                <li><strong>Arizona State University</strong>, USA</li>
-                <li><strong>University of Osnabrück</strong>, Germany</li>
-                <li><strong>University of Cambridge</strong>, United Kingdom</li>
-                <li><strong>CIVIS European University Alliance</strong></li>
-            </ul>
+                <div class="faq-item" style="margin-top: 2rem;">
+                    <h3>When is the application deadline?</h3>
+                    <p>The application deadline is <strong>30 October 2025</strong>. Applications submitted after this date will not be considered.</p>
+                </div>
 
-            <h2 class="section-title">Funding</h2>
-            <div class="info-box">
-                <p>This program is supported by the research project:</p>
-                <p style="margin-top: 1rem;"><strong>"A Corpus-based Valency Lexicon for a Contrastive and Diachronic
-                        Study of Ancient & Medieval Languages"</strong></p>
-                <p style="margin-top: 1rem;">Funded by the <strong>Hellenic Foundation for Research and Innovation
-                        (HFRI)</strong> (Grant No. 20577) within the 3rd Call for HFRI Research Projects to Support
-                    Faculty Members and Researchers.</p>
+                <div class="faq-item">
+                    <h3>Can I apply if I have no prior experience with computational linguistics?</h3>
+                    <p>Yes! The programme is designed to welcome students from diverse backgrounds. No prior computational experience is required. We will guide you through all necessary technical skills during the course.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Is the mobility grant guaranteed for all accepted students?</h3>
+                    <p>Selected students will receive support from an Erasmus+ grant for physical mobility to Greece. Grant allocation is based on academic merit, motivation, and financial need, and is subject to availability of Erasmus+ funding.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What if I can't attend some of the online sessions synchronously?</h3>
+                    <p>All online sessions will be recorded and made available for asynchronous viewing. However, participation in live sessions is encouraged for optimal learning and interaction with instructors and peers.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Will I receive ECTS credits for completing the programme?</h3>
+                    <p>Yes, the programme awards 6 ECTS credits. However, recognition of these credits depends on your home university's policies. We recommend checking with your university's international office before applying.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>Can I apply if I'm from a non-CIVIS university?</h3>
+                    <p>Unfortunately, this programme is only open to students enrolled at CIVIS member universities. The 11 CIVIS partner universities are: Aix-Marseille Université, Eberhard Karls Universität Tübingen, National and Kapodistrian University of Athens, Sapienza Università di Roma, Stockholm University, Universidad Autónoma de Madrid, University of Bucharest, University of Glasgow, and Paris Lodron University of Salzburg.</p>
+                </div>
+
+                <div class="faq-item">
+                    <h3>What programming languages or software will we use?</h3>
+                    <p>We will primarily work with Python for NLP tasks, along with various computational linguistics tools and frameworks. All necessary software is free and open-source. Detailed technical requirements will be provided to accepted students before the course begins.</p>
+                </div>
+
+                <div class="info-box" style="margin-top: 2rem;">
+                    <strong>📋 More Questions?</strong> If your question isn't answered here, please email us at <a href="mailto:nlavidas@enl.uoa.gr">nlavidas@enl.uoa.gr</a>
+                </div>
             </div>
 
-            <div style="text-align: center; margin: 4rem 0;">
-                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Ready to apply?</p>
-                <a href="https://mobility.civis.eu/templates/66d6b5539a52af7f3c7784d6/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=66e321443b5d007343274fe6"
-                    class="btn btn-primary" target="_blank" style="font-size: 1.2rem; padding: 1.5rem 3rem;">APPLY
-                    NOW</a>
+            <!-- Organization Info -->
+            <div class="contact-card">
+                <h2>Organizing Institution</h2>
+                
+                <div class="organization-info">
+                    <h3>National and Kapodistrian University of Athens</h3>
+                    <p>Department of Language-Linguistics<br>
+                    Faculty of English<br>
+                    School of Philosophy</p>
+                    
+                    <p style="margin-top: 1.5rem;">
+                    <strong>Address:</strong><br>
+                    University Campus, Zografou<br>
+                    157 84 Athens, Greece
+                    </p>
+                    
+                    <p style="margin-top: 1.5rem;">
+                    <strong>Website:</strong> <a href="https://www.uoa.gr/" target="_blank" style="color: white; text-decoration: underline;">www.uoa.gr</a>
+                    </p>
+                </div>
+
+                <p style="margin-top: 2rem;">This programme is organized in collaboration with CIVIS partner universities and is co-funded by the European Union through the Erasmus+ programme.</p>
             </div>
+
+            <!-- CIVIS Alliance Info -->
+            <div class="contact-card">
+                <h2>About CIVIS Alliance</h2>
+                <p>CIVIS is a European Civic University Alliance bringing together universities from across Europe to create an innovative and interdisciplinary space for students, academics, and citizens.</p>
+
+                <div class="contact-grid" style="margin-top: 2rem;">
+                    <div class="contact-item">
+                        <div class="contact-icon">🔗</div>
+                        <h3>CIVIS Website</h3>
+                        <a href="https://civis.eu/" target="_blank">civis.eu</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📘</div>
+                        <h3>CIVIS Courses</h3>
+                        <a href="https://civis.eu/en/learn/civis-courses" target="_blank">Browse All Courses</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">ℹ️</div>
+                        <h3>About BIPs</h3>
+                        <a href="https://civis.eu/en/learn/course-types/blended-intensive-programmes" target="_blank">Learn More</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Social Media & Updates -->
+            <div class="contact-card">
+                <h2>Stay Connected</h2>
+                <p>Follow CIVIS on social media to stay updated on this course and other opportunities:</p>
+
+                <div class="contact-grid" style="margin-top: 2rem;">
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <h3>Social Media</h3>
+                        <p>Follow CIVIS Alliance for news and updates about the programme and other opportunities</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📬</div>
+                        <h3>Newsletter</h3>
+                        <p>Subscribe to the CIVIS newsletter to receive updates about courses and events</p>
+                        <a href="https://civis.eu/en/get-informed/newsletters" target="_blank" style="margin-top: 0.5rem; display: inline-block;">Subscribe</a>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📰</div>
+                        <h3>News & Events</h3>
+                        <p>Check the latest news and events from CIVIS</p>
+                        <a href="https://civis.eu/en/get-informed/news" target="_blank" style="margin-top: 0.5rem; display: inline-block;">Visit News Page</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Important Links -->
+            <div class="contact-card">
+                <h2>Useful Links</h2>
+                <ul style="margin-left: 2rem; line-height: 2;">
+                    <li><a href="index.html">Programme Homepage</a></li>
+                    <li><a href="program.html">Programme Structure & Schedule</a></li>
+                    <li><a href="speakers.html">Meet the Professors</a></li>
+                    <li><a href="venue.html">Venue Information (Naxos)</a></li>
+                    <li><a href="registration.html">Application Information</a></li>
+                    <li><a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank">Official CIVIS Course Page</a></li>
+                    <li><a href="https://moodle.civis.eu/" target="_blank">CIVIS Moodle Platform</a></li>
+                    <li><a href="https://civis.eu/en/privacy-policy" target="_blank">Privacy Policy</a></li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>Licensed under the MIT License</p>
-            <p style="margin-top: 1rem;">
-                <a href="https://athdgc.github.io/">AthDGC Research Network</a> |
-                <a href="https://en.uoa.gr/">University of Athens</a>
-            </p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <p>CIVIS Blended Intensive Programme: Diachronic Linguistics in the 21st Century is organized by the National and Kapodistrian University of Athens in collaboration with CIVIS partner universities.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="program.html">Program</a></li>
+                        <li><a href="speakers.html">Professors</a></li>
+                        <li><a href="venue.html">Venue</a></li>
+                        <li><a href="registration.html">Apply</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>External Links</h3>
+                    <ul>
+                        <li><a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank">CIVIS Course Page</a></li>
+                        <li><a href="https://moodle.civis.eu/" target="_blank">CIVIS Moodle</a></li>
+                        <li><a href="https://civis.eu/" target="_blank">CIVIS Alliance</a></li>
+                        <li><a href="https://www.uoa.gr/" target="_blank">University of Athens</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:nlavidas@enl.uoa.gr">nlavidas@enl.uoa.gr</a></p>
+                    <p>Follow CIVIS on social media for updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logos">
+                    <p>Co-funded by the European Union</p>
+                </div>
+                <p class="copyright">&copy; 2025 National and Kapodistrian University of Athens. All rights reserved.</p>
+                <p class="disclaimer">Views and opinions expressed do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither can be held responsible for them.</p>
+            </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
 </html>

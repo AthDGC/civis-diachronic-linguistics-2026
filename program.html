@@ -1,295 +1,450 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program - CIVIS Diachronic Linguistics 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="Programme structure and schedule for Diachronic Linguistics in the 21st Century 2026">
+    <title>Program | Diachronic Linguistics 2026</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.25rem;
+            opacity: 0.95;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .program-overview {
+            padding: 4rem 0;
+            background-color: #f9fafb;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .overview-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .overview-card h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        .phase-section {
+            padding: 4rem 0;
+        }
+        
+        .phase-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .phase-header h2 {
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+        
+        .phase-date {
+            font-size: 1.25rem;
+            opacity: 0.95;
+        }
+        
+        .schedule-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .schedule-card h3 {
+            color: #2563eb;
+            margin-bottom: 1rem;
+        }
+        
+        .schedule-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .schedule-item {
+            padding: 1rem;
+            border-left: 4px solid #2563eb;
+            margin-bottom: 1rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+        }
+        
+        .schedule-item strong {
+            color: #2563eb;
+        }
+        
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: #2563eb;
+            font-weight: 600;
+        }
+        
+        .back-link:hover {
+            text-decoration: underline;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .info-box h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="index.html">CIVIS Diachronic Linguistics 2026</a>
+                <h1>Diachronic Linguistics 2026</h1>
+                <p class="nav-subtitle">CIVIS Blended Intensive Programme</p>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="program.html" class="active">Program</a></li>
-                <li><a href="speakers.html">Speakers</a></li>
-                <li><a href="registration.html">Registration</a></li>
+                <li><a href="speakers.html">Professors</a></li>
                 <li><a href="venue.html">Venue</a></li>
+                <li><a href="registration.html">Apply</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
-    <!-- Program Header -->
-    <section class="page-header">
+    <!-- Page Header -->
+    <header class="page-header">
         <div class="container">
-            <h1>Program Schedule</h1>
-            <p>April 7 - July 25, 2025 | Online Spring School + Naxos Summer School</p>
+            <h1>Programme Structure</h1>
+            <p>A comprehensive blended learning journey combining online learning with an immersive on-site experience</p>
+        </div>
+    </header>
+
+    <!-- Program Overview -->
+    <section class="program-overview">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Course Overview</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>📚 Total Workload</h3>
+                    <p><strong>180 hours</strong></p>
+                    <p>6 ECTS credits</p>
+                    <p>Recognition depends on your home university</p>
+                </div>
+                <div class="overview-card">
+                    <h3>🌐 Format</h3>
+                    <p><strong>Blended Learning</strong></p>
+                    <p>Combining online instruction with physical mobility</p>
+                    <p>Interactive and collaborative throughout</p>
+                </div>
+                <div class="overview-card">
+                    <h3>💬 Language</h3>
+                    <p><strong>English (B2 level)</strong></p>
+                    <p>All instruction in English</p>
+                    <p>International learning environment</p>
+                </div>
+                <div class="overview-card">
+                    <h3>💰 Funding</h3>
+                    <p><strong>Erasmus+ Grant</strong></p>
+                    <p>Mobility grant available for selected students</p>
+                    <p>Covers physical mobility to Greece</p>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <section class="section">
+    <!-- Phase 1: Spring School -->
+    <section class="phase-section" style="background-color: #f9fafb;">
         <div class="container">
-            <h2 class="section-title">Daily Schedule</h2>
+            <a href="index.html" class="back-link">← Back to Home</a>
+            
+            <div class="phase-header">
+                <h2>Phase 1: Intensive Digital Foundations</h2>
+                <p class="phase-date">📅 20-24 April 2026 (Online)</p>
+            </div>
 
-            <!-- Day 1 -->
-            <div class="program-day">
-                <h3>Sunday, July 20, 2026 - Arrival & Welcome</h3>
-                <div class="schedule-item">
-                    <div class="time">14:00 - 18:00</div>
-                    <div class="activity">
-                        <h4>Registration & Check-in</h4>
-                        <p>Participants arrive and check into accommodation</p>
-                    </div>
+            <div class="schedule-card">
+                <h3>Week-Long Intensive Spring School</h3>
+                <p>Immerse yourself in cutting-edge computational historical linguistics with expert-led instruction and interactive learning.</p>
+                
+                <ul class="schedule-list">
+                    <li class="schedule-item">
+                        <strong>Computational Historical Linguistics Intensive</strong>
+                        <p>Master AI-powered tools and techniques for linguistic analysis. Learn how to leverage machine learning algorithms and NLP tools for historical text processing.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Expert-Led Lectures</strong>
+                        <p>Learn from pioneers in digital humanities and language evolution. Engage with leading researchers from CIVIS universities on cutting-edge topics in diachronic linguistics.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Interactive Masterclasses</strong>
+                        <p>Develop advanced methodological skills for describing, analyzing, and explaining language change through computational approaches. Hands-on sessions with real linguistic data.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Introduction to Digital Corpora</strong>
+                        <p>Explore major historical linguistic databases and learn corpus creation and annotation techniques.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-box">
+                <h3>💡 Learning Format</h3>
+                <p>All sessions will be conducted online via video conferencing platforms. Interactive elements include live Q&A, breakout rooms for group work, and hands-on coding exercises. Recordings will be available for those who cannot attend synchronously.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 2: Workshops -->
+    <section class="phase-section">
+        <div class="container">
+            <div class="phase-header" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <h2>Phase 2: Applied Project Work</h2>
+                <p class="phase-date">📅 May 2026 (Online)</p>
+            </div>
+
+            <div class="schedule-card">
+                <h3>Collaborative Workshops & Mini-Projects</h3>
+                <p>Put theory into practice through hands-on digital workshops. Work directly with instructors and international peers on real computational linguistics projects.</p>
+                
+                <ul class="schedule-list">
+                    <li class="schedule-item">
+                        <strong>Collaborative Online Workshops</strong>
+                        <p>Weekly synchronous sessions to work with instructors and fellow students. Dates to be announced after the Spring School.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>'From Texts to Grammar' Mini-Projects</strong>
+                        <p>Apply computational tools to real historical texts in guided project work:</p>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Build custom NLP pipelines for historical language processing</li>
+                            <li>Create digital grammatical models from raw textual data</li>
+                            <li>Use machine learning to track linguistic patterns across centuries</li>
+                            <li>Develop your own computational analysis of language development</li>
+                        </ul>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Individual/Team Project Development</strong>
+                        <p>Work independently or in small groups on your chosen research project with ongoing instructor support.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Peer Review Sessions</strong>
+                        <p>Present work-in-progress to fellow students and receive constructive feedback.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-box" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h3>🔬 Project Options</h3>
+                <p>Students can choose from various project types based on their interests and background:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li>Corpus analysis projects</li>
+                    <li>Digital text analysis with computational tools</li>
+                    <li>Collaborative case studies in language change</li>
+                    <li>Development of annotation schemes for historical texts</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Phase 3: Summer School -->
+    <section class="phase-section" style="background-color: #f9fafb;">
+        <div class="container">
+            <div class="phase-header" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                <h2>Phase 3: Immersive Summer Experience</h2>
+                <p class="phase-date">📅 20-24 July 2026 (Naxos, Greece)</p>
+            </div>
+
+            <div class="schedule-card">
+                <h3>40 Hours of Face-to-Face Learning on Naxos</h3>
+                <p><strong>Where Digital Innovation Meets Mediterranean Inspiration</strong></p>
+                <p>Complete your interdisciplinary journey with five transformative days on the stunning island of Naxos, Cyclades, where ancient heritage provides the perfect backdrop for cutting-edge computational linguistics.</p>
+                
+                <ul class="schedule-list">
+                    <li class="schedule-item">
+                        <strong>Monday-Friday: Daily Intensive Sessions</strong>
+                        <p>8 hours per day of concentrated learning and project work</p>
+                        <ul style="margin-left: 2rem; margin-top: 0.5rem;">
+                            <li>Morning sessions: Lectures and demonstrations</li>
+                            <li>Afternoon sessions: Hands-on workshops and project work</li>
+                            <li>Evening sessions: Networking and informal discussions</li>
+                        </ul>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Collaborative Research Labs</strong>
+                        <p>Work alongside international peers and leading experts in dedicated computational linguistics facilities. Real-time problem-solving with immediate expert feedback.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Project Presentations</strong>
+                        <p>Present your completed mini-projects to the group. Choose from poster presentations, team research presentations, or methodological demonstrations.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Keynote Lectures</strong>
+                        <p>Special lectures from distinguished visitors and CIVIS faculty on cutting-edge topics in computational historical linguistics.</p>
+                    </li>
+                    <li class="schedule-item">
+                        <strong>Networking & Innovation Sessions</strong>
+                        <p>Connect with the next generation of digital humanities researchers. Build lasting international collaborations.</p>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="info-box" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                <h3>💰 Mobility Grant</h3>
+                <p><strong>Selected students will be supported by an Erasmus+ grant for physical mobility to Greece.</strong></p>
+                <p>The grant helps cover:</p>
+                <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                    <li>Travel expenses to and from Naxos</li>
+                    <li>Accommodation during the summer school</li>
+                    <li>Course materials and facilities</li>
+                </ul>
+                <p style="margin-top: 1rem;"><strong>Note:</strong> Grant allocation is competitive and based on academic merit, motivation, and financial need.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Important Dates -->
+    <section class="phase-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Important Dates</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <h3>📝 Application Deadline</h3>
+                    <p><strong>30 October 2025</strong></p>
+                    <p>Submit your application via the CIVIS mobility platform</p>
                 </div>
-                <div class="schedule-item">
-                    <div class="time">19:00 - 21:00</div>
-                    <div class="activity">
-                        <h4>Welcome Reception</h4>
-                        <p>Informal gathering, orientation, and meet & greet</p>
-                        <p class="location">Location: Hotel Terrace</p>
-                    </div>
+                <div class="overview-card">
+                    <h3>📧 Acceptance Notification</h3>
+                    <p><strong>Mid-November 2025</strong></p>
+                    <p>Selected students will be notified by email</p>
+                </div>
+                <div class="overview-card">
+                    <h3>🌱 Spring School</h3>
+                    <p><strong>20-24 April 2026</strong></p>
+                    <p>Online intensive week</p>
+                </div>
+                <div class="overview-card">
+                    <h3>☀️ Summer School</h3>
+                    <p><strong>20-24 July 2026</strong></p>
+                    <p>On-site in Naxos, Greece</p>
                 </div>
             </div>
 
-            <!-- Day 2 -->
-            <div class="program-day">
-                <h3>Monday, July 21, 2026 - Theoretical Foundations</h3>
-                <div class="schedule-item">
-                    <div class="time">09:00 - 10:30</div>
-                    <div class="activity">
-                        <h4>Opening Lecture: Introduction to Diachronic Linguistics</h4>
-                        <p class="speaker">Prof. Nikolaos Lavidas (University of Athens)</p>
-                        <p>Historical overview and methodological approaches</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">10:30 - 11:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">11:00 - 12:30</div>
-                    <div class="activity">
-                        <h4>Lecture: Comparing Diachronies Across Languages</h4>
-                        <p class="speaker">International Faculty</p>
-                        <p>Cross-linguistic perspectives on language change</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">12:30 - 14:00</div>
-                    <div class="activity">Lunch Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">14:00 - 15:30</div>
-                    <div class="activity">
-                        <h4>Workshop: Corpus Methods in Historical Linguistics</h4>
-                        <p>Hands-on introduction to digital corpus tools</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">15:30 - 16:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">16:00 - 17:30</div>
-                    <div class="activity">
-                        <h4>Student Presentations (Session 1)</h4>
-                        <p>Research presentations by participants</p>
-                    </div>
-                </div>
+            <div class="info-box" style="margin-top: 3rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                <h3>📖 Course Materials</h3>
+                <p>All course materials, readings, and resources will be available on the CIVIS Moodle platform: <a href="https://moodle.civis.eu/" target="_blank" style="color: white; text-decoration: underline;">https://moodle.civis.eu/</a></p>
+                <p style="margin-top: 1rem;">Access will be granted after acceptance to the programme.</p>
             </div>
+        </div>
+    </section>
 
-            <!-- Day 3 -->
-            <div class="program-day">
-                <h3>Tuesday, July 22, 2026 - Ancient Languages</h3>
-                <div class="schedule-item">
-                    <div class="time">09:00 - 10:30</div>
-                    <div class="activity">
-                        <h4>Lecture: Greek Diachrony from Ancient to Modern</h4>
-                        <p class="speaker">Faculty</p>
-                        <p>3000 years of Greek language evolution</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">10:30 - 11:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">11:00 - 12:30</div>
-                    <div class="activity">
-                        <h4>Lecture: Latin and Romance Languages</h4>
-                        <p class="speaker">International Faculty</p>
-                        <p>From Latin to modern Romance languages</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">12:30 - 14:00</div>
-                    <div class="activity">Lunch Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">14:00 - 17:30</div>
-                    <div class="activity">
-                        <h4>Excursion: Naxos Archaeological Sites</h4>
-                        <p>Visit to Temple of Apollo and Archaeological Museum</p>
-                        <p class="note">Optional cultural activity</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">19:00</div>
-                    <div class="activity">
-                        <h4>Group Dinner</h4>
-                        <p class="location">Traditional Taverna</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 4 -->
-            <div class="program-day">
-                <h3>Wednesday, July 23, 2026 - Medieval Languages</h3>
-                <div class="schedule-item">
-                    <div class="time">09:00 - 10:30</div>
-                    <div class="activity">
-                        <h4>Lecture: Medieval Greek and Byzantine Texts</h4>
-                        <p class="speaker">Faculty</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">10:30 - 11:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">11:00 - 12:30</div>
-                    <div class="activity">
-                        <h4>Lecture: Old English and Germanic Languages</h4>
-                        <p class="speaker">International Faculty</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">12:30 - 14:00</div>
-                    <div class="activity">Lunch Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">14:00 - 15:30</div>
-                    <div class="activity">
-                        <h4>Workshop: Text Analysis and Morphological Annotation</h4>
-                        <p>Practical session on medieval text analysis</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">15:30 - 16:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">16:00 - 17:30</div>
-                    <div class="activity">
-                        <h4>Student Presentations (Session 2)</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 5 -->
-            <div class="program-day">
-                <h3>Thursday, July 24, 2026 - Computational Methods</h3>
-                <div class="schedule-item">
-                    <div class="time">09:00 - 10:30</div>
-                    <div class="activity">
-                        <h4>Lecture: AI and Machine Learning in Historical Linguistics</h4>
-                        <p class="speaker">Faculty</p>
-                        <p>Modern computational approaches to diachronic analysis</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">10:30 - 11:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">11:00 - 12:30</div>
-                    <div class="activity">
-                        <h4>Workshop: Python for Historical Corpus Analysis</h4>
-                        <p>Hands-on programming session</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">12:30 - 14:00</div>
-                    <div class="activity">Lunch Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">14:00 - 15:30</div>
-                    <div class="activity">
-                        <h4>Lecture: Digital Humanities and Open Science</h4>
-                        <p class="speaker">International Faculty</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">15:30 - 16:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">16:00 - 17:30</div>
-                    <div class="activity">
-                        <h4>Student Presentations (Session 3)</h4>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Day 6 -->
-            <div class="program-day">
-                <h3>Friday, July 25, 2026 - Closing Day</h3>
-                <div class="schedule-item">
-                    <div class="time">09:00 - 10:30</div>
-                    <div class="activity">
-                        <h4>Round Table: Future Directions in Diachronic Linguistics</h4>
-                        <p>Discussion with all faculty and participants</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">10:30 - 11:00</div>
-                    <div class="activity">Coffee Break</div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">11:00 - 12:00</div>
-                    <div class="activity">
-                        <h4>Closing Ceremony & Certificate Distribution</h4>
-                        <p>Concluding remarks and certificates</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">12:00 - 13:00</div>
-                    <div class="activity">
-                        <h4>Farewell Reception</h4>
-                        <p class="location">Hotel Terrace</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time">14:00</div>
-                    <div class="activity">
-                        <h4>Departure</h4>
-                        <p>Check-out and travel arrangements</p>
-                    </div>
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Join Us?</h2>
+                <p>Application deadline: <strong>30 October 2025</strong></p>
+                <div class="cta-buttons">
+                    <a href="registration.html" class="btn btn-primary btn-large">Apply Now</a>
+                    <a href="index.html" class="btn btn-secondary btn-large">Back to Home</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>Licensed under the MIT License</p>
-            <p style="margin-top: 1rem;">
-                <a href="https://athdgc.github.io/">AthDGC Research Network</a> |
-                <a href="https://en.uoa.gr/">University of Athens</a>
-            </p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <p>CIVIS Blended Intensive Programme: Diachronic Linguistics in the 21st Century is organized by the National and Kapodistrian University of Athens in collaboration with CIVIS partner universities.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="program.html">Program</a></li>
+                        <li><a href="speakers.html">Professors</a></li>
+                        <li><a href="venue.html">Venue</a></li>
+                        <li><a href="registration.html">Apply</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>External Links</h3>
+                    <ul>
+                        <li><a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank">CIVIS Course Page</a></li>
+                        <li><a href="https://moodle.civis.eu/" target="_blank">CIVIS Moodle</a></li>
+                        <li><a href="https://civis.eu/" target="_blank">CIVIS Alliance</a></li>
+                        <li><a href="https://www.uoa.gr/" target="_blank">University of Athens</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:nlavidas@enl.uoa.gr">nlavidas@enl.uoa.gr</a></p>
+                    <p>Follow CIVIS on social media for updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logos">
+                    <p>Co-funded by the European Union</p>
+                </div>
+                <p class="copyright">&copy; 2025 National and Kapodistrian University of Athens. All rights reserved.</p>
+                <p class="disclaimer">Views and opinions expressed do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither can be held responsible for them.</p>
+            </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
 </html>

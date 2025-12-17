@@ -1,592 +1,469 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIVIS: Diachronic Linguistics in the 21st Century</title>
-    <meta name="description"
-        content="CIVIS Blended Learning Course combining online Spring School and intensive Summer School in Naxos, Greece. April-July 2025.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="CIVIS Blended Intensive Programme: Diachronic Linguistics in the 21st Century (2026) - Where modern methodology meets historical transformation">
+    <meta name="keywords" content="diachronic linguistics, computational linguistics, CIVIS, language change, historical linguistics, AI linguistics, NLP, digital humanities">
+    <meta name="author" content="National and Kapodistrian University of Athens">
+    <title>Diachronic Linguistics in the 21st Century 2026 | CIVIS BIP</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="images.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --primary: #1B5E20;
-            --primary-light: #2E7D32;
-            --accent: #4CAF50;
-            --civis-blue: #1B5E20;
-            --text-dark: #1f2937;
-            --text-light: #6b7280;
-            --bg-light: #E8F5E9;
-        }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            color: var(--text-dark);
-            line-height: 1.6;
-        }
-
-        /* Hero Section */
-        .hero {
-            background: rgba(13, 71, 161, 0.9),
-                url('https://images.pexels.com/photos/161477/greek-white-building-santorini-greece-161477.jpeg?auto=compress&cs=tinysrgb&w=1920') center/cover;
-            color: white;
-            padding: 8rem 2rem 6rem;
-            text-align: center;
-        }
-
-        .hero .civis-badge {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            font-weight: 900;
-            margin-bottom: 1rem;
-            letter-spacing: -1px;
-        }
-
-        .hero .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .hero .dates {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-        }
-
-        .hero .apply-btn {
-            display: inline-block;
-            background: white;
-            color: var(--primary);
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.1rem;
-            text-decoration: none;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-        }
-
-        .hero .apply-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Alert Banner */
-        .alert {
-            background: #FFF3CD;
-            border-left: 4px solid #FF9800;
-            padding: 1.5rem 2rem;
-            margin: 2rem auto;
-            max-width: 1200px;
-            border-radius: 8px;
-        }
-
-        .alert strong {
-            color: #E65100;
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-
-        /* Sections */
-        .section {
-            margin-bottom: 4rem;
-        }
-
-        .section-title {
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--primary);
-            margin-bottom: 1.5rem;
-        }
-
-        .section-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            color: var(--text-dark);
-        }
-
-        /* Info Cards */
-        .info-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin: 3rem 0;
-        }
-
-        .info-card {
-            background: var(--bg-light);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 2px solid var(--accent);
-        }
-
-        .info-card h3 {
-            color: var(--primary);
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .info-card p {
-            color: var(--text-dark);
-            line-height: 1.7;
-        }
-
-        /* Program Components */
-        .program-components {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin: 2rem 0;
-        }
-
-        .component {
-            background: white;
-            border: 2px solid var(--primary-light);
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
-        }
-
-        .component-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .component h3 {
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-        }
-
-        /* Eligibility Box */
-        .eligibility-box {
-            background: linear-gradient(135deg, #e8eaf6 0%, var(--bg-light) 100%);
-            border-radius: 20px;
-            padding: 3rem;
-            margin: 3rem 0;
-        }
-
-        .eligibility-box ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .eligibility-box li {
-            padding: 1rem 0;
-            padding-left: 2rem;
-            position: relative;
-            font-size: 1.1rem;
-        }
-
-        .eligibility-box li:before {
-            content: "•";
-            position: absolute;
-            left: 0;
-            color: var(--primary);
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: var(--primary);
-            color: white;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-radius: 20px;
-            margin: 4rem 0;
-        }
-
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-section .cta-btn {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 50px;
-            font-weight: 700;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .cta-section .cta-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-        }
-
-        /* Footer */
-        footer {
-            background: var(--text-dark);
-            color: white;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="index.html">CIVIS Diachronic Linguistics 2026</a>
+                <h1>Diachronic Linguistics 2026</h1>
+                <p class="nav-subtitle">CIVIS Blended Intensive Programme</p>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="program.html">Program</a></li>
-                <li><a href="speakers.html">Speakers</a></li>
-                <li><a href="registration.html">Registration</a></li>
+                <li><a href="speakers.html">Professors</a></li>
                 <li><a href="venue.html">Venue</a></li>
+                <li><a href="registration.html">Apply</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <div class="civis-badge">CIVIS European University</div>
-        <h1>Diachronic Linguistics<br>in the 21st Century</h1>
-        <div class="subtitle">Blended Learning Course | 5th Edition</div>
-        <div class="dates">April 7 - July 25, 2025</div>
-        <a href="https://mobility.civis.eu/templates/66d6b5539a52af7f3c7784d6/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=66e321443b5d007343274fe6"
-            class="apply-btn" target="_blank">APPLY NOW</a>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <span class="hero-badge">6th Edition | 2026</span>
+                <h1 class="hero-title">Diachronic Linguistics in the 21st Century</h1>
+                <p class="hero-subtitle">Language Change Unveiled: Where Modern Methodology Meets Historical Transformation</p>
+                <p class="hero-description">Discover the tools that reveal how yesterday's languages became today's through AI-powered analysis, computational modeling, and digital innovation.</p>
+                <div class="hero-dates">
+                    <div class="date-item">
+                        <strong>Spring School:</strong> 20-24 April 2026 (Online)
+                    </div>
+                    <div class="date-item">
+                        <strong>Summer School:</strong> 20-24 July 2026 (Naxos, Greece)
+                    </div>
+                    <div class="date-item">
+                        <strong>Application Deadline:</strong> 30 October 2025
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="registration.html" class="btn btn-primary">Apply Now</a>
+                    <a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank" class="btn btn-secondary">CIVIS Course Page</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Key Information Section -->
+    <section class="key-info">
+        <div class="container">
+            <div class="info-grid">
+                <div class="info-card">
+                    <div class="info-icon">📚</div>
+                    <h3>6 ECTS Credits</h3>
+                    <p>180 hours total workload</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🌍</div>
+                    <h3>CIVIS Alliance</h3>
+                    <p>11 European Universities</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">💰</div>
+                    <h3>Mobility Grant</h3>
+                    <p>Erasmus+ funding available</p>
+                </div>
+                <div class="info-card">
+                    <div class="info-icon">🎓</div>
+                    <h3>All Levels Welcome</h3>
+                    <p>BA, MA, PhD students</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Alert -->
-    <div class="alert">
-        <strong>Application Deadline:</strong> October 31, 2024 | <strong>Selected students</strong> will receive grants
-        for physical mobility to Greece!
-    </div>
-
-    <!-- Main Content -->
-    <div class="container">
-        <!-- About Section -->
-        <section class="section">
-            <h2 class="section-title">About the Program</h2>
-            <div class="section-content">
-                <p>
-                    <strong>Diachronic Linguistics in the 21st Century</strong> is a comprehensive blended-learning
-                    programme
-                    combining online and face-to-face instruction. This CIVIS course brings together students from
-                    across
-                    Europe for an intensive study of historical linguistics, ancient languages, and modern computational
-                    methods.
-                </p>
-                <p style="margin-top: 1.5rem;">
-                    The program consists of an <strong>online Spring School in April</strong>, continuous online
-                    workshops, and
-                    culminates in an intensive <strong>40-hour face-to-face Summer School</strong> on the beautiful
-                    island of Naxos, Greece in July
-                    2025.
-                </p>
-                <p style="margin-top: 1.5rem;">
-                    <strong>5th Edition:</strong> This is the 5th successful edition of this CIVIS Blended Learning
-                    Course.
-                    Previous editions have welcomed students from across the CIVIS network, creating a vibrant
-                    international
-                    community of scholars interested in diachronic linguistics.
-                </p>
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Decoding Language Evolution: An Interdisciplinary Journey</h2>
+                <p class="section-intro">This cutting-edge CIVIS Blended Intensive Programme revolutionizes historical linguistics through AI-powered analysis, computational modeling, and digital innovation.</p>
             </div>
-        </section>
-
-        <!-- Faculty & Program Directors -->
-        <section class="section">
-            <h2 class="section-title">Program Leadership</h2>
-            <div class="section-content">
-                <div
-                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 1.5rem;">
-                    <div
-                        style="padding: 1.5rem; background: #f8f9fa; border-left: 4px solid var(--primary); border-radius: 8px;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">Course Coordinator</h4>
-                        <p style="font-weight: 600; margin-bottom: 0.3rem;">Prof. Nikolaos Lavidas</p>
-                        <p style="font-size: 0.9rem; color: #666;">National and Kapodistrian University of Athens</p>
-                    </div>
-                    <div
-                        style="padding: 1.5rem; background: #f8f9fa; border-left: 4px solid var(--primary); border-radius: 8px;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">CIVIS Alliance</h4>
-                        <p style="font-size: 0.9rem; color: #666;">Collaborative program across CIVIS member
-                            universities<br>
-                            European Civic University network</p>
-                    </div>
-                    <div
-                        style="padding: 1.5rem; background: #f8f9fa; border-left: 4px solid var(--primary); border-radius: 8px;">
-                        <h4 style="color: var(--primary); margin-bottom: 0.5rem;">International Experts</h4>
-                        <p style="font-size: 0.9rem; color: #666;">Guest lecturers from leading European
-                            universities<br>
-                            Specialists in historical linguistics</p>
-                    </div>
+            
+            <div class="about-grid">
+                <div class="about-card">
+                    <h3>🤖 Where Computation Meets Language History</h3>
+                    <p>Discover how machine learning algorithms, statistical models, and digital tools are transforming our understanding of how languages evolve. Move beyond traditional approaches to harness the power of big data in linguistic research.</p>
                 </div>
-                <p style="margin-top: 2rem; padding: 1.5rem; background: var(--bg-light); border-radius: 8px;">
-                    <strong>AthDGC Project Team:</strong> Nikolaos Lavidas (Principal Investigator), Kiki Nikiforidou,
-                    Vassiliki Geka, Vassileios Symeonidis, Sofia Chionidi, Anastasia Tsiropina, Eleni Plakoutsi,
-                    Theodoros Michalareas, Evangelos Argyropoulos
-                </p>
-            </div>
-        </section>
-
-        <!-- Program Components -->
-        <div class="program-components">
-            <div class="component">
-                <h3>Spring School</h3>
-                <p>Intensive online classes<br>April 2025</p>
-            </div>
-            <div class="component">
-                <h3>Online Workshops</h3>
-                <p>Continuous learning<br>April-July 2025</p>
-            </div>
-            <div class="component">
-                <h3>Summer School</h3>
-                <p>40 hours face-to-face<br>Naxos, Greece | July 2025</p>
+                
+                <div class="about-card highlight">
+                    <h3>💡 The Heart of the Programme: Hands-On Digital Projects</h3>
+                    <p>Engage in <strong>small-scale linguistic and computational historical linguistic projects</strong> that put you at the forefront of digital humanities research. Work with:</p>
+                    <ul>
+                        <li>Natural language processing tools for historical texts</li>
+                        <li>Statistical modeling of language change patterns</li>
+                        <li>AI-assisted analysis of linguistic evolution</li>
+                        <li>Digital corpus creation and annotation</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card">
+                    <h3>📊 Methodological Innovation</h3>
+                    <p>Through intensive project work, develop <strong>advanced expertise in the methodology of describing, analyzing, and explaining grammar and language development</strong> using:</p>
+                    <ul>
+                        <li>Computational parsing techniques</li>
+                        <li>Machine learning for pattern recognition in historical data</li>
+                        <li>Network analysis for tracking linguistic diffusion</li>
+                        <li>Quantitative methods for modeling language change</li>
+                    </ul>
+                </div>
+                
+                <div class="about-card">
+                    <h3>🔬 Digital Tools, Real Insights</h3>
+                    <p>Master the intersection of digital heritage databases, computational linguistics, and AI technologies. Learn to transform historical texts into structured data that reveals hidden patterns of linguistic evolution.</p>
+                    <p class="about-highlight"><strong>This program prepares you to lead the digital revolution in historical linguistics—where algorithms meet ancient and medieval languages to unlock the secrets of language change.</strong></p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Key Information -->
-        <div class="info-grid">
-            <div class="info-card">
-                <h3>Target Audience</h3>
-                <p>Open to advanced <strong>Bachelor's, Master's, and PhD students</strong> at CIVIS member universities
-                    with previous knowledge in:</p>
-                <ul style="margin-top: 1rem; padding-left: 1.5rem;">
-                    <li>Humanities</li>
-                    <li>Linguistics</li>
-                    <li>Languages</li>
-                </ul>
-            </div>
-
-            <div class="info-card">
-                <h3>Mobility Grant</h3>
-                <p><strong>Selected students will be supported by a grant</strong> for physical mobility to Greece
-                    during the Summer School component.</p>
-                <p style="margin-top: 0.5rem; font-size: 0.9rem; color: var(--text-light);">Erasmus+ funding available
-                </p>
-            </div>
-
-            <div class="info-card">
-                <h3>CIVIS Network</h3>
-                <p>Part of the <strong>CIVIS European Civic University</strong> alliance bringing together leading
-                    universities across Europe.</p>
-                <p style="margin-top: 0.5rem;"><a href="https://civis.eu/" target="_blank"
-                        style="color: var(--primary);">Learn about CIVIS →</a></p>
+    <!-- Main Topics Section -->
+    <section class="topics-section">
+        <div class="container">
+            <h2>Main Topics Addressed</h2>
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-number">01</div>
+                    <h3>Computational Historical Linguistics: 'From Texts to Grammar'</h3>
+                    <p>Transform raw historical texts into analyzable data using NLP tools, machine learning algorithms, and automated parsing systems. Learn to extract grammatical patterns and track linguistic evolution through computational modeling.</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-number">02</div>
+                    <h3>Next-Generation Methodologies for Language Change Analysis</h3>
+                    <p>Master cutting-edge approaches that combine AI-driven pattern recognition with digital corpus analysis to describe, analyze, and explain how languages transform. Apply quantitative methods, network theory, and computational simulation to decode the mechanics of linguistic evolution.</p>
+                </div>
+                <div class="topic-card">
+                    <div class="topic-number">03</div>
+                    <h3>Contemporary Theoretical Frameworks in Diachronic Linguistics</h3>
+                    <p>Explore how modern linguistic theory integrates with computational approaches to illuminate language change. From models enhanced by big data to AI-assisted reconstruction of linguistic prehistory. Discover theoretical innovations reshaping our understanding of how languages evolve.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <!-- CIVIS University Images -->
-        <section class="section">
-            <h2 class="section-title">CIVIS European University Alliance</h2>
-            <div class="image-grid">
-                <div class="image-card">
-                    <img src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=600"
-                        alt="European university">
-                    <div class="image-caption">CIVIS brings together leading European universities</div>
+    <!-- Learning Outcomes Section -->
+    <section class="outcomes-section">
+        <div class="container">
+            <h2>Learning Outcomes</h2>
+            <div class="outcomes-grid">
+                <div class="outcome-card">
+                    <div class="outcome-icon">🎯</div>
+                    <h3>Advanced Computational Expertise</h3>
+                    <p>Master cutting-edge descriptive and analytical frameworks powered by AI and machine learning. You'll gain sophisticated skills in grammatical analysis and discover how computational models reveal the intricate relationships between social dynamics, language contact, and linguistic evolution.</p>
                 </div>
-                <div class="image-card">
-                    <img src="https://images.pexels.com/photos/256455/pexels-photo-256455.jpeg?auto=compress&cs=tinysrgb&w=600"
-                        alt="Research and Learning">
-                    <div class="image-caption">Blended learning: online and face-to-face instruction</div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">💻</div>
+                    <h3>Digital Research Proficiency</h3>
+                    <p>Become fluent in computational and statistical methodologies for analyzing historical linguistic data. Learn to navigate the complex challenges of integrating digital heritage databases with linguistic research, transforming historical texts into quantifiable patterns of change.</p>
                 </div>
-                <div class="image-card">
-                    <img src="https://images.pexels.com/photos/161477/greek-white-building-santorini-greece-161477.jpeg?auto=compress&cs=tinysrgb&w=600"
-                        alt="Greece Summer School">
-                    <div class="image-caption">Summer School in beautiful Naxos, Greece</div>
+                <div class="outcome-card">
+                    <div class="outcome-icon">🚀</div>
+                    <h3>Innovation at the Intersection</h3>
+                    <p>This CIVIS programme positions you at the forefront of a linguistic revolution where:</p>
+                    <ul>
+                        <li><strong>Modern linguistic theory</strong> meets <strong>computational power</strong></li>
+                        <li><strong>AI-driven analysis</strong> unlocks patterns in language evolution</li>
+                        <li><strong>Statistical modeling</strong> transforms how we understand linguistic change</li>
+                        <li><strong>Digital heritage tools</strong> breathe new life into historical data</li>
+                    </ul>
                 </div>
-            </div>
-        </section>
-
-        <!-- Eligibility -->
-        <section class="section">
-            <div class="eligibility-box">
-                <h2 class="section-title">Eligibility Requirements</h2>
-                <ul>
-                    <li>Must be a fully enrolled student at a CIVIS member university</li>
-                    <li>Enrollment must be current during the programme dates (April-July 2025)</li>
-                    <li>Previous knowledge in Humanities, Linguistics, or Languages required</li>
-                    <li>Advanced Bachelor's, Master's, or PhD level</li>
-                </ul>
-                <p style="margin-top: 2rem; text-align: center;">
-                    <a href="https://civis.eu/en/learn/course-types/blended-intensive-programmes/" target="_blank"
-                        style="color: var(--primary); font-weight: 600; text-decoration: underline;">
-                        Learn more about eligibility criteria →
-                    </a>
-                </p>
-            </div>
-        </section>
-
-        <!-- Previous Editions -->
-        <section class="section">
-            <h2 class="section-title">Program History</h2>
-            <div class="section-content">
-                <p>
-                    This is the <strong>5th edition</strong> of our successful CIVIS Blended Learning Course.
-                    Previous editions have welcomed students from across the CIVIS network and beyond, creating a
-                    vibrant
-                    international community of scholars interested in diachronic linguistics.
-                </p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://conferences.uoa.gr/event/92/page/715-previous-years" target="_blank"
-                        style="color: var(--primary); font-weight: 600;">
-                        View previous years →
-                    </a>
-                </p>
-            </div>
-        </section>
-
-        <!-- Integration with Naxos -->
-        <section class="section">
-            <h2 class="section-title">Summer School in Naxos</h2>
-            <div class="section-content">
-                <p>
-                    The face-to-face component takes place during the <strong>10th Naxos Summer School on Diachronic
-                        Linguistics</strong>,
-                    offering an intensive and immersive experience on the beautiful Greek island of Naxos.
-                </p>
-                <p style="margin-top: 1rem;">
-                    Students will benefit from 40 hours of in-person instruction, workshops, networking opportunities,
-                    and the unique cultural experience of studying in the Cyclades.
-                </p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank"
-                        style="color: var(--primary); font-weight: 600;">
-                        Learn about the Naxos Summer School →
-                    </a>
-                </p>
-            </div>
-        </section>
-
-        <!-- Program Images -->
-        <section class="section">
-            <h2 class="section-title">Learning Environment</h2>
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem;">
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <img src="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Ancient manuscripts" style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 1rem; background: white;">
-                        <p style="text-align: center; color: #666;">Study of historical texts and manuscripts</p>
-                    </div>
-                </div>
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <img src="https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Library research" style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 1rem; background: white;">
-                        <p style="text-align: center; color: #666;">Rich linguistic resources and libraries</p>
-                    </div>
-                </div>
-                <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <img src="https://images.pexels.com/photos/1285625/pexels-photo-1285625.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Greece landscape" style="width: 100%; height: 250px; object-fit: cover;">
-                    <div style="padding: 1rem; background: white;">
-                        <p style="text-align: center; color: #666;">Beautiful setting in Greece</p>
-                    </div>
+                <div class="outcome-card highlight">
+                    <div class="outcome-icon">⭐</div>
+                    <h3>Your Competitive Edge</h3>
+                    <p>Interdisciplinary skills that define the future of linguistics, where traditional scholarship is enhanced by computational innovation, and where yesterday's texts become tomorrow's data-driven insights.</p>
+                    <p><strong>You won't just study language change—you'll master the digital methodologies that are revolutionizing how we decode linguistic development.</strong></p>
                 </div>
             </div>
-        </section>
-
-        <!-- CTA -->
-        <div class="cta-section">
-            <h2>Join the CIVIS Community!</h2>
-            <p style="font-size: 1.2rem; margin-bottom: 2rem; opacity: 0.95;">
-                Applications open for the 5th edition of this transformative programme
-            </p>
-            <a href="https://mobility.civis.eu/templates/66d6b5539a52af7f3c7784d6/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=66e321443b5d007343274fe6"
-                class="cta-btn" target="_blank">SUBMIT YOUR APPLICATION</a>
-            <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
-                Deadline: October 31, 2024
-            </p>
         </div>
+    </section>
 
-        <!-- Contact -->
-        <section class="section">
-            <h2 class="section-title">Contact Information</h2>
-            <div class="section-content">
-                <p><strong>Course Coordinator:</strong> Prof. Nikolaos Lavidas</p>
-                <p><strong>Institution:</strong> National and Kapodistrian University of Athens</p>
-                <p><strong>Email:</strong> <a href="mailto:nlavidas@enl.uoa.gr"
-                        style="color: var(--primary);">nlavidas@enl.uoa.gr</a></p>
-                <p style="margin-top: 1.5rem;">
-                    <a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century"
-                        style="color: var(--primary); font-weight: 600;" target="_blank">
-                        Official CIVIS Course Page →
-                    </a>
-                </p>
-            </div>
-        </section>
+    <!-- Programme Structure Section -->
+    <section class="structure-section">
+        <div class="container">
+            <h2>Programme Structure</h2>
+            
+            <div class="structure-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker spring"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">20-24 April 2026</span>
+                        <h3>Phase 1: Intensive Digital Foundations (Online)</h3>
+                        <p>Immerse yourself in a week of cutting-edge instruction combining:</p>
+                        <ul>
+                            <li><strong>Computational Historical Linguistics Intensive</strong> - Master AI-powered tools for linguistic analysis</li>
+                            <li><strong>Expert-Led Lectures</strong> - Learn from pioneers in digital humanities and language evolution</li>
+                            <li><strong>Interactive Masterclasses</strong> - Develop advanced methodological skills for describing, analyzing, and explaining language change through computational approaches</li>
+                        </ul>
+                    </div>
+                </div>
 
-        <!-- Visual Identity -->
-        <section class="section">
-            <h2 class="section-title">CIVIS Academic Excellence</h2>
-            <div
-                style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto;">
-                <div style="text-align: center;">
-                    <img src="https://images.pexels.com/photos/267669/pexels-photo-267669.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="European Academic Collaboration"
-                        style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.95rem;">European Academic
-                        Collaboration</p>
+                <div class="timeline-item">
+                    <div class="timeline-marker workshops"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">May 2026</span>
+                        <h3>Phase 2: Applied Project Work (Online)</h3>
+                        <p>Put theory into practice through hands-on digital workshops featuring:</p>
+                        <ul>
+                            <li><strong>Collaborative Online Workshops</strong> - Work directly with instructors and peers</li>
+                            <li><strong>'From Texts to Grammar' Mini-Projects</strong> - Apply computational tools to real historical texts:
+                                <ul>
+                                    <li>Build custom NLP pipelines for historical language processing</li>
+                                    <li>Create digital grammatical models from raw textual data</li>
+                                    <li>Use machine learning to track linguistic patterns across centuries</li>
+                                    <li>Develop your own computational analysis of language development</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div style="text-align: center;">
-                    <img src="https://images.pexels.com/photos/1370296/pexels-photo-1370296.jpeg?auto=compress&cs=tinysrgb&w=800"
-                        alt="Linguistic Research"
-                        style="width: 100%; height: 300px; object-fit: cover; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
-                    <p style="margin-top: 1rem; color: var(--text-light); font-size: 0.95rem;">Linguistic Research</p>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker summer"></div>
+                    <div class="timeline-content">
+                        <span class="timeline-date">20-24 July 2026</span>
+                        <h3>Phase 3: Immersive Summer Experience (Naxos, Greece)</h3>
+                        <p><strong>Where Digital Innovation Meets Mediterranean Inspiration</strong></p>
+                        <p>Complete your interdisciplinary journey with <strong>five transformative days on the stunning island of Naxos, Cyclades</strong>, where ancient heritage provides the perfect backdrop for cutting-edge computational linguistics.</p>
+                        <p>The physical part of the course consists of <strong>40 Hours of Face-to-Face Learning</strong> and is structured as follows:</p>
+                        <ul>
+                            <li><strong>Hands-on Sessions</strong> - Engage in concentrated sessions that bring your virtual projects to life</li>
+                            <li><strong>Collaborative Research Labs</strong> - Work alongside international peers and leading experts in dedicated computational linguistics facilities</li>
+                            <li><strong>Real-Time Project Development</strong> - Apply AI and digital tools to live case studies with immediate expert feedback</li>
+                            <li><strong>Networking & Innovation Sessions</strong> - Connect with the next generation of digital humanities researchers</li>
+                        </ul>
+                        <div class="mobility-grant">
+                            <strong>💰 Mobility Grant Available:</strong> Selected students will be supported by an Erasmus+ grant for physical mobility to Greece.
+                        </div>
+                    </div>
                 </div>
             </div>
-        </section>
-    </div>
+        </div>
+    </section>
+
+    <!-- Assessment Section -->
+    <section class="assessment-section">
+        <div class="container">
+            <h2>Assessment & ECTS</h2>
+            <div class="assessment-intro">
+                <p>All assessments meet European academic standards while fostering a supportive environment where curiosity thrives. <strong>Come as you are, leave as a diachronic linguist!</strong></p>
+            </div>
+
+            <div class="assessment-grid">
+                <div class="assessment-card">
+                    <h3>1. Core Component: Active Participation and Engagement</h3>
+                    <p>Join vibrant discussions and collaborative sessions! We value your unique perspective and encourage questions at every level. Assessment focuses on your growth and engagement rather than perfection—every voice matters in our learning community.</p>
+                </div>
+
+                <div class="assessment-card">
+                    <h3>2. Research-Based Project Work</h3>
+                    <p><strong>Choose the format that best suits YOUR strengths:</strong></p>
+                    <ul>
+                        <li><strong>Poster Presentation</strong> - Share your discoveries visually (we provide templates and guidance!)</li>
+                        <li><strong>Team Research Presentation</strong> - Present findings with supportive peers (15-20 minutes, informal atmosphere)</li>
+                        <li><strong>Methodological Demonstration</strong> - Show off the cool tools you've learned (technical support always available)</li>
+                    </ul>
+                </div>
+
+                <div class="assessment-card">
+                    <h3>3. Portfolio of Practical Assignments</h3>
+                    <p><strong>Build confidence through hands-on practice:</strong></p>
+                    <ul>
+                        <li><strong>Corpus Analysis Project</strong> - Explore linguistic data with step-by-step guidance</li>
+                        <li><strong>Digital Text Analysis</strong> - Discover patterns in historical texts (starter code provided!)</li>
+                        <li><strong>Collaborative Case Study</strong> - Solve puzzles together</li>
+                        <li><strong>Supplementary Components</strong> (optional for extra credit): Quizzes, book reviews, or blog posts—choose what interests you!</li>
+                    </ul>
+                </div>
+
+                <div class="assessment-support">
+                    <h3>Level-Specific Support</h3>
+                    <div class="support-grid">
+                        <div class="support-item">
+                            <strong>📘 Undergraduate students (6 ECTS):</strong> We provide frameworks, examples, and continuous mentorship
+                        </div>
+                        <div class="support-item">
+                            <strong>📗 Graduate students (6 ECTS):</strong> Opportunities to mentor peers while developing your own research
+                        </div>
+                        <div class="support-item">
+                            <strong>✅ No prior computational experience required</strong>
+                        </div>
+                        <div class="support-item">
+                            <strong>🎯 Multiple assessment options</strong> mean you can showcase your strengths
+                        </div>
+                        <div class="support-item">
+                            <strong>🤝 Supportive peer community</strong> and dedicated instructor guidance
+                        </div>
+                        <div class="support-item">
+                            <strong>💡 Mistakes are learning opportunities,</strong> not failures
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="requirements-section">
+        <div class="container">
+            <h2>Who Can Apply?</h2>
+            <div class="requirements-content">
+                <div class="requirement-box">
+                    <h3>Eligibility</h3>
+                    <p>The programme is open to <strong>Bachelor's, Master's and PhD students</strong> at <a href="https://civis.eu/en/discover-civis/the-civis-alliance" target="_blank">CIVIS member universities</a> with theoretical knowledge or training background in areas related to:</p>
+                    <ul class="requirement-list">
+                        <li>Linguistics</li>
+                        <li>Philology</li>
+                        <li>Literature</li>
+                        <li>Culture</li>
+                        <li>History</li>
+                        <li>Archaeology</li>
+                        <li>Digital Humanities</li>
+                        <li>Computer Science</li>
+                        <li>Anthropology</li>
+                        <li>Related fields</li>
+                    </ul>
+                </div>
+
+                <div class="requirement-box">
+                    <h3>Prerequisites</h3>
+                    <ul>
+                        <li>Basic knowledge of historical linguistics <strong>preferred but not required</strong></li>
+                        <li>Open to motivated students from any humanities or social sciences background with interest in language evolution</li>
+                        <li>Good level of written and spoken English (<strong>B2 level</strong>)</li>
+                        <li>Must be a fully enrolled student at a CIVIS home university at the time of undertaking the programme</li>
+                    </ul>
+                </div>
+
+                <div class="civis-universities">
+                    <h3>CIVIS Partner Universities</h3>
+                    <div class="universities-grid">
+                        <div class="university">🇫🇷 Aix-Marseille Université</div>
+                        <div class="university">🇩🇪 Eberhard Karls Universität Tübingen</div>
+                        <div class="university">🇬🇷 National and Kapodistrian University of Athens</div>
+                        <div class="university">🇮🇹 Sapienza Università di Roma</div>
+                        <div class="university">🇸🇪 Stockholm University</div>
+                        <div class="university">🇪🇸 Universidad Autónoma de Madrid</div>
+                        <div class="university">🇷🇴 University of Bucharest</div>
+                        <div class="university">🇬🇧 University of Glasgow</div>
+                        <div class="university">🇦🇹 Paris Lodron University of Salzburg</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Understanding of Language Evolution?</h2>
+                <p>Application deadline: <strong>30 October 2025</strong></p>
+                <div class="cta-buttons">
+                    <a href="registration.html" class="btn btn-primary btn-large">Apply Now</a>
+                    <a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank" class="btn btn-secondary btn-large">Learn More on CIVIS</a>
+                </div>
+                <p class="cta-note">Course Moodle page will be available at: <a href="https://moodle.civis.eu/" target="_blank">https://moodle.civis.eu/</a></p>
+            </div>
+        </div>
+    </section>
 
     <!-- Footer -->
-    <footer>
-        <p>Licensed under the <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"
-                style="color: white; text-decoration: underline;">CC BY 4.0</a> License</p>
-        <p style="margin-top: 1rem;">
-            <a href="https://conferences.uoa.gr/event/92/" target="_blank">Official Conference Page</a> |
-            <a href="https://civis.eu/" target="_blank">CIVIS Network</a> |
-            <a href="https://athdgc.github.io/" target="_blank">AthDGC Research</a>
-        </p>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <p>CIVIS Blended Intensive Programme: Diachronic Linguistics in the 21st Century is organized by the National and Kapodistrian University of Athens in collaboration with CIVIS partner universities.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="program.html">Program</a></li>
+                        <li><a href="speakers.html">Professors</a></li>
+                        <li><a href="venue.html">Venue</a></li>
+                        <li><a href="registration.html">Apply</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>External Links</h3>
+                    <ul>
+                        <li><a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank">CIVIS Course Page</a></li>
+                        <li><a href="https://moodle.civis.eu/" target="_blank">CIVIS Moodle</a></li>
+                        <li><a href="https://civis.eu/" target="_blank">CIVIS Alliance</a></li>
+                        <li><a href="https://www.uoa.gr/" target="_blank">University of Athens</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:nlavidas@enl.uoa.gr">nlavidas@enl.uoa.gr</a></p>
+                    <p>Follow CIVIS on social media for updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logos">
+                    <p>Co-funded by the European Union</p>
+                </div>
+                <p class="copyright">&copy; 2025 National and Kapodistrian University of Athens. All rights reserved.</p>
+                <p class="disclaimer">Views and opinions expressed do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither can be held responsible for them.</p>
+            </div>
+        </div>
     </footer>
-</body>
 
+    <script>
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Sticky navigation
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
 </html>

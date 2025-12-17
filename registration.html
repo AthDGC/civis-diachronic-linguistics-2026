@@ -1,156 +1,399 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration - CIVIS Diachronic Linguistics 2026</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <meta name="description" content="Apply to Diachronic Linguistics in the 21st Century 2026 - Application information and eligibility">
+    <title>Apply | Diachronic Linguistics 2026</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        .page-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 8rem 0 4rem;
+            margin-top: 70px;
+            text-align: center;
+        }
+        
+        .page-header h1 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header .deadline {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 1.5rem;
+            padding: 1rem 2rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            border-radius: 1rem;
+            display: inline-block;
+        }
+        
+        .registration-section {
+            padding: 4rem 0;
+        }
+        
+        .registration-card {
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .registration-card h2 {
+            color: #2563eb;
+            margin-bottom: 1.5rem;
+        }
+        
+        .registration-card h3 {
+            color: #2563eb;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .requirements-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .requirements-list li {
+            padding: 1rem;
+            margin-bottom: 0.5rem;
+            background-color: #f9fafb;
+            border-left: 4px solid #2563eb;
+            border-radius: 0.5rem;
+        }
+        
+        .requirements-list li::before {
+            content: "✓";
+            color: #10b981;
+            font-weight: bold;
+            margin-right: 0.5rem;
+        }
+        
+        .application-steps {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+        
+        .application-steps li {
+            counter-increment: step-counter;
+            position: relative;
+            padding: 1.5rem 1.5rem 1.5rem 4rem;
+            margin-bottom: 1rem;
+            background-color: #f9fafb;
+            border-radius: 0.5rem;
+        }
+        
+        .application-steps li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2.5rem;
+            height: 2.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 3rem;
+            border-radius: 1rem;
+            text-align: center;
+            margin-top: 3rem;
+        }
+        
+        .cta-box h2 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+        
+        .cta-box .btn {
+            margin-top: 1.5rem;
+        }
+        
+        .universities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .university-item {
+            background-color: #f9fafb;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+        }
+        
+        .selection-criteria {
+            background-color: #fff7ed;
+            border-left: 4px solid #f59e0b;
+            padding: 2rem;
+            border-radius: 0.5rem;
+            margin: 2rem 0;
+        }
+        
+        .selection-criteria h3 {
+            color: #f59e0b;
+            margin-top: 0;
+        }
+        
+        .info-highlight {
+            background-color: #dbeafe;
+            border-left: 4px solid #2563eb;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1.5rem 0;
+        }
+    </style>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
-                <a href="index.html">CIVIS Diachronic Linguistics 2026</a>
+                <h1>Diachronic Linguistics 2026</h1>
+                <p class="nav-subtitle">CIVIS Blended Intensive Programme</p>
             </div>
-            <ul class="nav-menu">
+            <ul class="nav-menu" id="navMenu">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="program.html">Program</a></li>
-                <li><a href="speakers.html">Speakers</a></li>
-                <li><a href="registration.html" class="active">Registration</a></li>
+                <li><a href="speakers.html">Professors</a></li>
                 <li><a href="venue.html">Venue</a></li>
+                <li><a href="registration.html" class="active">Apply</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
+            <div class="nav-toggle" id="navToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
         </div>
     </nav>
 
     <!-- Page Header -->
-    <section class="page-header">
+    <header class="page-header">
         <div class="container">
-            <h1>Registration Information</h1>
-            <p>Join us in Naxos for an intensive week of learning</p>
+            <h1>Apply Now</h1>
+            <p>Join the 2026 cohort of computational historical linguists</p>
+            <div class="deadline">
+                Application Deadline: 30 October 2025
+            </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Main Content -->
-    <section class="section">
+    <!-- Registration Section -->
+    <section class="registration-section">
         <div class="container">
-            <div class="info-box">
-                <h3>Application Now Open!</h3>
-                <p><strong>Application Deadline:</strong> October 31, 2024</p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://mobility.civis.eu/templates/66d6b5539a52af7f3c7784d6/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=66e321443b5d007343274fe6"
-                        class="btn" target="_blank">APPLY NOW</a>
-                </p>
+            
+            <!-- Eligibility -->
+            <div class="registration-card">
+                <h2>Who Can Apply?</h2>
+                <p>The programme is open to <strong>Bachelor's, Master's and PhD students</strong> at CIVIS member universities.</p>
+                
+                <h3>Academic Background</h3>
+                <ul class="requirements-list">
+                    <li>Theoretical knowledge or training background in: Linguistics, Philology, Literature, Culture, History, Archaeology, Digital Humanities, Computer Science, Anthropology, or related fields</li>
+                    <li>Basic knowledge of historical linguistics <strong>preferred but not required</strong></li>
+                    <li>Motivated students from any humanities or social sciences background with interest in language evolution are welcome</li>
+                    <li>Good level of written and spoken English (<strong>B2 level</strong>)</li>
+                </ul>
+
+                <div class="info-highlight">
+                    <strong>💡 No prior computational experience required!</strong> We will guide you through all necessary technical skills during the course.
+                </div>
+
+                <h3>Enrollment Status</h3>
+                <ul class="requirements-list">
+                    <li>Must be a fully enrolled student at a CIVIS home university at the time of undertaking the programme</li>
+                    <li>Applications are only available for students from the 11 CIVIS member universities</li>
+                </ul>
+
+                <h3>CIVIS Partner Universities</h3>
+                <div class="universities-grid">
+                    <div class="university-item">🇫🇷 Aix-Marseille Université</div>
+                    <div class="university-item">🇩🇪 Eberhard Karls Universität Tübingen</div>
+                    <div class="university-item">🇬🇷 National and Kapodistrian University of Athens</div>
+                    <div class="university-item">🇮🇹 Sapienza Università di Roma</div>
+                    <div class="university-item">🇸🇪 Stockholm University</div>
+                    <div class="university-item">🇪🇸 Universidad Autónoma de Madrid</div>
+                    <div class="university-item">🇷🇴 University of Bucharest</div>
+                    <div class="university-item">🇬🇧 University of Glasgow</div>
+                    <div class="university-item">🇦🇹 Paris Lodron University of Salzburg</div>
+                </div>
+
+                <p style="margin-top: 2rem;"><strong>Note:</strong> To be eligible for Erasmus+ funding, you must be a fully enrolled student at your CIVIS home university. <a href="https://civis.eu/en/learn/course-types/blended-intensive-programmes" target="_blank">Learn more about eligibility criteria</a>.</p>
             </div>
 
-            <h2 class="section-title">Eligibility</h2>
-            <p>The summer school is open to:</p>
-            <ul style="margin: 2rem 0; padding-left: 2rem; line-height: 2;">
-                <li><strong>Advanced Bachelor's students</strong> in Linguistics, Languages, Classics, or related fields
-                </li>
-                <li><strong>Master's students</strong> focusing on historical linguistics</li>
-                <li><strong>PhD candidates</strong> conducting research in diachronic linguistics</li>
-                <li><strong>Early career researchers</strong> and postdoctoral fellows</li>
-            </ul>
+            <!-- Application Process -->
+            <div class="registration-card">
+                <h2>How to Apply</h2>
+                <p>Complete your application in three simple steps:</p>
 
-            <h2 class="section-title">ECTS Credits</h2>
-            <p>Students will be able to earn <strong>up to 6 ECTS credits</strong> from the summer school upon
-                successful completion of:</p>
-            <ul style="margin: 2rem 0; padding-left: 2rem; line-height: 2;">
-                <li>Active participation in all lectures and workshops</li>
-                <li>Presentation at the workshop/poster session</li>
-                <li>Final project or paper submission</li>
-            </ul>
-            <p><em>ECTS approval: 8-2-2021 - law: a90.4692/2020</em></p>
+                <ol class="application-steps">
+                    <li>
+                        <strong>Prepare Your Documents</strong>
+                        <p>You will need:</p>
+                        <ul style="margin-top: 0.5rem; margin-left: 1.5rem;">
+                            <li>Academic CV (curriculum vitae)</li>
+                            <li>Motivation letter (500-750 words)</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <strong>Complete the Online Application Form</strong>
+                        <p>Fill in the application via the CIVIS mobility platform. Provide accurate information about your academic background and motivation for joining the programme.</p>
+                    </li>
+                    <li>
+                        <strong>Submit Before the Deadline</strong>
+                        <p>Ensure your application is submitted by <strong>30 October 2025</strong>. Late applications will not be considered.</p>
+                    </li>
+                </ol>
 
-            <h2 class="section-title">Fees & Costs</h2>
-            <div class="card-grid">
-                <div class="card">
-                    <h3>Registration Fee</h3>
-                    <p><strong>Free for accepted participants</strong></p>
-                    <p style="margin-top: 1rem;">No registration fee required. Participants cover their own travel and
-                        accommodation costs.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Accommodation</h3>
-                    <p><strong>Participant Responsibility</strong></p>
-                    <p style="margin-top: 1rem;">Estimated cost: €400-600 for the week. We provide accommodation
-                        recommendations and assistance with booking.</p>
-                </div>
-
-                <div class="card">
-                    <h3>Travel</h3>
-                    <p><strong>Self-Funded</strong></p>
-                    <p style="margin-top: 1rem;">Participants arrange and fund their own travel to Naxos. Ferry from
-                        Athens (Piraeus) or direct flights available.</p>
+                <div class="info-highlight">
+                    <strong>📝 Tips for Your Motivation Letter:</strong>
+                    <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                        <li>Clearly articulate your interest in language change and digital humanities</li>
+                        <li>Explain how this programme aligns with your academic trajectory and career aspirations</li>
+                        <li>Demonstrate openness to cross-disciplinary learning</li>
+                        <li>Highlight any unique perspectives you bring to collaborative learning</li>
+                        <li>Show appreciation for international learning environments</li>
+                    </ul>
                 </div>
             </div>
 
-            <h2 class="section-title">What's Included</h2>
-            <div class="info-box">
-                <ul style="padding-left: 2rem; line-height: 2;">
-                    <li>All lectures and workshops</li>
-                    <li>Course materials and access to digital resources</li>
-                    <li>Welcome and farewell receptions</li>
-                    <li>Coffee breaks during sessions</li>
-                    <li>Certificate of completion</li>
-                    <li>ECTS credits (upon successful completion)</li>
+            <!-- Selection Process -->
+            <div class="registration-card">
+                <h2>Selection Process</h2>
+                
+                <div class="selection-criteria">
+                    <h3>Evaluation Criteria</h3>
+                    <p>Student applications will be evaluated based on the following criteria:</p>
+                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
+                        <li><strong>Motivation and Academic Interest:</strong> Clear articulation of interest in language change and digital humanities; alignment with applicant's academic trajectory and career aspirations</li>
+                        <li><strong>Academic Background:</strong> Relevant academic preparation from any humanities or social sciences field; demonstrated capacity for critical thinking and research</li>
+                        <li><strong>Interdisciplinary Potential:</strong> Openness to cross-disciplinary learning; appreciation for collaborative, international learning environments</li>
+                        <li><strong>Diversity and Perspective:</strong> Unique perspectives that enrich collective learning; communication skills adequate for international collaboration</li>
+                    </ul>
+                </div>
+
+                <p><strong>Important:</strong> We aim to admit all qualified candidates who demonstrate genuine interest and basic academic preparation. Technical prerequisites are not required, as computational skills will be developed during the program.</p>
+                
+                <p><strong>Strong motivation and clear interest in the program's themes can compensate for limited prior exposure to linguistics or digital methods.</strong> We encourage applications from all humanities and social sciences backgrounds.</p>
+
+                <h3>Timeline</h3>
+                <ul class="requirements-list">
+                    <li><strong>30 October 2025:</strong> Application deadline</li>
+                    <li><strong>Mid-November 2025:</strong> Acceptance notifications sent</li>
+                    <li><strong>Late November 2025:</strong> Confirmation deadline for accepted students</li>
+                    <li><strong>December 2025 - March 2026:</strong> Pre-course preparation and orientation</li>
+                    <li><strong>20-24 April 2026:</strong> Spring School begins</li>
                 </ul>
             </div>
 
-            <h2 class="section-title">Optional Activities (Additional Fees)</h2>
-            <ul style="margin: 2rem 0; padding-left: 2rem; line-height: 2;">
-                <li><strong>Archaeological site excursion</strong> - Details to be announced</li>
-                <li><strong>Group dinners</strong> - Traditional Greek taverna meals</li>
-                <li><strong>Social activities</strong> - Beach outings, village tours</li>
-            </ul>
+            <!-- Funding Information -->
+            <div class="registration-card">
+                <h2>Erasmus+ Mobility Grant</h2>
+                <p>Selected students will be supported by an Erasmus+ grant for physical mobility to Greece for the summer school (20-24 July 2026).</p>
 
-            <h2 class="section-title">Application Process</h2>
-            <ol style="margin: 2rem 0; padding-left: 2rem; line-height: 2;">
-                <li><strong>Submit application</strong> via the online form</li>
-                <li><strong>Include:</strong> CV, statement of interest, academic transcript</li>
-                <li><strong>Wait for confirmation</strong> - Decisions sent via email</li>
-                <li><strong>Confirm participation</strong> and arrange travel/accommodation</li>
-                <li><strong>Prepare research</strong> for workshop presentation</li>
-            </ol>
+                <h3>What the Grant Covers</h3>
+                <ul class="requirements-list">
+                    <li>Travel expenses to and from Naxos, Greece</li>
+                    <li>Accommodation during the 5-day summer school</li>
+                    <li>Course materials and access to facilities</li>
+                    <li>Some meals and social activities</li>
+                </ul>
 
-            <div style="text-align: center; margin: 4rem 0;">
-                <a href="https://mobility.civis.eu/templates/66d6b5539a52af7f3c7784d6/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=66e321443b5d007343274fe6"
-                    class="btn btn-primary" target="_blank" style="font-size: 1.2rem; padding: 1.5rem 3rem;">APPLY
-                    NOW</a>
+                <div class="info-highlight">
+                    <strong>Note:</strong> Grant allocation is competitive and based on academic merit, motivation, and financial need. Specific grant amounts vary by country of origin according to Erasmus+ regulations.
+                </div>
             </div>
 
-            <h2 class="section-title">CIVIS Connection</h2>
-            <div class="info-box">
-                <h3>Collaboration with CIVIS Blended Learning Course</h3>
-                <p>The 10th Naxos Summer School collaborates with the <strong>CIVIS Blended Learning Course: Diachronic
-                        Linguistics in the 21st century</strong>.</p>
-                <p style="margin-top: 1rem;">CIVIS students can combine online Spring School (April 2026) with our
-                    Summer School in Naxos (July 2026) for a comprehensive learning experience.</p>
-                <p style="margin-top: 1rem;">
-                    <a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century"
-                        target="_blank">Learn more about CIVIS Course</a>
-                </p>
+            <!-- GDPR Notice -->
+            <div class="registration-card">
+                <h2>Data Protection & Privacy</h2>
+                <p>The CIVIS alliance and its member universities will treat the information you provide with respect. By applying to this course, you agree that we may process your information in accordance with relevant data protection regulations.</p>
+                <p>Please refer to our <a href="https://civis.eu/en/privacy-policy" target="_blank">privacy policy</a> for more information on our privacy practices.</p>
             </div>
+
+            <!-- CTA Box -->
+            <div class="cta-box">
+                <h2>Ready to Start Your Application?</h2>
+                <p style="font-size: 1.125rem; margin-bottom: 0;">Applications close on <strong>30 October 2025</strong></p>
+                <a href="https://mobility.civis.eu/templates/68b54d3e5d69358fb78a7bbc/start?context%5Btype%5D=Institutions%3A%3AClassOf&context%5Bid%5D=68b1a3739a52af2f76a8141d" target="_blank" class="btn btn-primary btn-large">Apply on CIVIS Platform</a>
+                <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.9;">You will be redirected to the CIVIS mobility platform</p>
+            </div>
+
         </div>
     </section>
 
     <!-- Footer -->
-    <footer>
+    <footer class="footer">
         <div class="container">
-            <p>Licensed under the MIT License</p>
-            <p style="margin-top: 1rem;">
-                <a href="https://athdgc.github.io/">AthDGC Research Network</a> |
-                <a href="https://en.uoa.gr/">University of Athens</a>
-            </p>
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>About</h3>
+                    <p>CIVIS Blended Intensive Programme: Diachronic Linguistics in the 21st Century is organized by the National and Kapodistrian University of Athens in collaboration with CIVIS partner universities.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="program.html">Program</a></li>
+                        <li><a href="speakers.html">Professors</a></li>
+                        <li><a href="venue.html">Venue</a></li>
+                        <li><a href="registration.html">Apply</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>External Links</h3>
+                    <ul>
+                        <li><a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version" target="_blank">CIVIS Course Page</a></li>
+                        <li><a href="https://moodle.civis.eu/" target="_blank">CIVIS Moodle</a></li>
+                        <li><a href="https://civis.eu/" target="_blank">CIVIS Alliance</a></li>
+                        <li><a href="https://www.uoa.gr/" target="_blank">University of Athens</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <p>Email: <a href="mailto:nlavidas@enl.uoa.gr">nlavidas@enl.uoa.gr</a></p>
+                    <p>Follow CIVIS on social media for updates</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-logos">
+                    <p>Co-funded by the European Union</p>
+                </div>
+                <p class="copyright">&copy; 2025 National and Kapodistrian University of Athens. All rights reserved.</p>
+                <p class="disclaimer">Views and opinions expressed do not necessarily reflect those of the European Union or the European Education and Culture Executive Agency (EACEA). Neither can be held responsible for them.</p>
+            </div>
         </div>
     </footer>
-</body>
 
+    <script>
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+    </script>
+</body>
 </html>
