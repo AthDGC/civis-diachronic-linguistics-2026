@@ -1,0 +1,2025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVL-CDSAML Corpus: Retranslations Across Millennia</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap');
+    
+    :root {
+      --primary-deep: #1e3c72;
+      --primary-mid: #2a5298;
+      --primary-light: #3d6cb3;
+      --gold: #d4af37;
+      --gold-light: #e4c767;
+      --terracotta: #c17f59;
+      --terracotta-light: #d49a7a;
+      --parchment: #f8f6f1;
+      --parchment-dark: #e8e4dc;
+      --text-dark: #1a1a1a;
+      --text-muted: #5a5a5a;
+      --white: #ffffff;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: #1a1a2e;
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    
+    .slide {
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding: 50px 70px;
+      position: relative;
+    }
+    
+    .slide--title {
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-mid) 50%, var(--primary-deep) 100%);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    
+    .slide--section {
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-mid) 100%);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    
+    .slide--question {
+      background: linear-gradient(145deg, var(--gold) 0%, var(--terracotta) 100%);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .slide--content {
+      background: var(--parchment);
+    }
+    
+    .slide--ending {
+      background: linear-gradient(135deg, var(--primary-deep) 0%, var(--primary-mid) 50%, #152a54 100%);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+    }
+    
+    h1 {
+      font-family: 'Crimson Pro', Georgia, serif;
+      font-weight: 700;
+      font-size: 2.25rem;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+    }
+    
+    h2 { font-family: 'Crimson Pro', Georgia, serif; font-weight: 600; font-size: 1.5rem; color: var(--primary-deep); }
+    h3 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 1.1rem; color: var(--terracotta); margin-bottom: 0.5rem; }
+    
+    p, li { font-size: 1rem; line-height: 1.65; margin-bottom: 0.5rem; }
+    
+    .slide--title h1 { color: white; font-size: 2.5rem; max-width: 850px; }
+    .slide--title .subtitle { color: var(--gold); font-size: 1.15rem; max-width: 750px; margin-bottom: 1.5rem; }
+    .slide--title .authors { color: rgba(255,255,255,0.9); font-size: 0.95rem; }
+    .slide--title .institution { color: var(--gold); font-size: 0.85rem; margin-top: 0.5rem; }
+    .slide--title .university { color: rgba(255,255,255,0.7); font-size: 0.8rem; }
+    .slide--title .event { position: absolute; bottom: 30px; color: rgba(255,255,255,0.8); font-size: 0.85rem; }
+    .slide--title .event strong { color: var(--gold); }
+    
+    .accent-bar { width: 6px; height: 50px; background: var(--gold); margin-bottom: 1.25rem; }
+    .title-underline { width: 70px; height: 4px; background: var(--gold); margin-top: 0.4rem; }
+    .divider { width: 100px; height: 2px; background: rgba(255,255,255,0.3); margin: 1.25rem 0; }
+    
+    .slide-header { margin-bottom: 1.5rem; }
+    .slide-header h1 { color: var(--primary-deep); }
+    
+    .slide--question h1 { color: var(--text-dark); font-size: 1.75rem; max-width: 650px; }
+    .slide--question .label { color: rgba(0,0,0,0.5); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 0.75rem; }
+    
+    .question-box { background: rgba(255,255,255,0.4); padding: 1.25rem 1.75rem; border-radius: 8px; max-width: 550px; margin-top: 1.5rem; text-align: left; }
+    .question-box p { font-size: 0.95rem; color: var(--text-dark); }
+    
+    .slide--section h1 { color: white; font-size: 2.25rem; }
+    .slide--section p { color: rgba(255,255,255,0.85); font-size: 1rem; max-width: 650px; }
+    .slide--section strong { color: var(--gold); }
+    
+    .slide-body { flex: 1; overflow-y: auto; }
+    
+    .content-list { list-style: none; padding: 0; margin: 0.75rem 0; }
+    .content-list li { margin-bottom: 0.6rem; padding-left: 1.25rem; position: relative; }
+    .content-list li::before { content: "•"; position: absolute; left: 0; color: var(--primary-deep); font-weight: bold; }
+    
+    .code-block { background: #2d2d2d; color: #f8f8f2; padding: 0.75rem 1rem; border-radius: 5px; font-family: 'Courier New', monospace; font-size: 0.85rem; overflow-x: auto; white-space: pre; margin: 0.75rem 0; }
+    
+    code { background: rgba(0,0,0,0.08); padding: 0.15rem 0.35rem; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 0.9em; }
+    
+    strong { color: var(--primary-deep); }
+    em { font-style: italic; }
+    
+    .slide-number { position: absolute; bottom: 15px; right: 30px; font-size: 0.75rem; color: rgba(0,0,0,0.25); }
+    .slide--title .slide-number, .slide--section .slide-number, .slide--question .slide-number, .slide--ending .slide-number { color: rgba(255,255,255,0.25); }
+    
+    @media print {
+      .slide { page-break-after: always; height: 100vh; width: 100vw; }
+    }
+    
+    @media (max-width: 1024px) {
+      .slide { padding: 30px 40px; }
+      h1 { font-size: 1.75rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="slides-container">
+
+    <section class="slide slide--title">
+      <div class="accent-bar"></div>
+      <h1>Retranslations Across Millennia:<br> A Diachronic Contrastive Corpus for Studying Interlingual and Intralingual Language Contact</h1>
+      
+      <div class="divider"></div>
+      <p class="authors">Nikolaos Lavidas,<br>Theodoros Michalaeras,<br>Vassilios Symeonidis,</p>
+      <p class="institution">Athens Digital Glossa Chronos (AthDGC)</p>
+      <p class="university">National and Kapodistrian University of Athens</p>
+      <p class="event"><strong>DELPHI Workshop 2025</strong> · November 26-29, 2025 · Delphi, Greece</p>
+      <span class="slide-number">1</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What does this presentation research focus on?</h1>
+      <div class="question-box">
+        <p>• What is the main architectural framework?</p>
+<p>• How does it support linguistic research?</p>
+<p>• What makes this approach unique?</p>
+      </div>
+      <span class="slide-number">2</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Textual Foundation &amp; Computational Architecture</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>A comprehensive approach to diachronic valency research</strong>
+
+<p>The CVL-CDSAML project represents a novel integration of traditional philological expertise with modern computational linguistics. This corpus contains carefully curated historical texts that enable systematic analysis of how verb valency patterns evolve over time. The architecture supports both qualitative philological analysis and quantitative computational extraction of linguistic patterns.</p>
+      </div>
+      <span class="slide-number">3</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Why do we need a comprehensive foundation for diachronic research?</h1>
+      <div class="question-box">
+        <p>• What challenges do historical linguists face?</p>
+<p>• How does text quality affect research outcomes?</p>
+<p>• What factors must be controlled?</p>
+      </div>
+      <span class="slide-number">4</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Introduction: The Need for a Comprehensive Foundation</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <p>Diachronic linguistic analysis requires careful consideration of multiple elements:</p>
+<ul class="content-list">
+<li><strong>Text selection</strong> and preparation</li>
+<li>Assessment of <strong>historical evidence</strong></li>
+<li>Understanding <strong>language development</strong> contexts</li>
+<li>Recognition of <strong>external factors</strong> influencing linguistic change</li>
+</ul>
+<p>Studying language change over millennia demands rigorous methodology in selecting and preparing texts. The CVL-CDSAML corpus addresses this need by establishing clear criteria for text inclusion and implementing systematic quality control measures. This foundation ensures that observed linguistic patterns reflect genuine historical developments rather than inconsistent data.</p>
+      </div>
+      <span class="slide-number">5</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What exactly is the CVL-CDSAML Corpus?</h1>
+      <div class="question-box">
+        <p>• What does CVL-CDSAML stand for?</p>
+<p>• How many texts does it contain?</p>
+<p>• What time period does it cover?</p>
+      </div>
+      <span class="slide-number">6</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>What is the CVL-CDSAML Corpus?</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <ul class="content-list">
+<li><strong>Purpose:</strong> Foundation for a diachronic valency lexicon project</li>
+<li><strong>Scope:</strong> historical texts covering <strong>three millennia</strong> of Greek language development</li>
+<li><strong>Inclusion:</strong> Parallel traditions from <strong>Germanic</strong> and <strong>Romance</strong> languages</li>
+<li><strong>Approach:</strong> Enables study of both internal and external language interactions</li>
+</ul>
+<p>The CVL-CDSAML (Corpus for Valency Lexicon - Corpus of Diachronic and Synchronic Analyses of Multiple Languages) serves as the textual database for extracting valency information across languages and time periods. Each text is digitally encoded with linguistic annotations that enable automatic extraction of verb-argument structures. The corpus architecture supports both synchronic comparison across languages and diachronic tracking of changes within individual languages.</p>
+      </div>
+      <span class="slide-number">7</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What research questions can this corpus address?</h1>
+      <div class="question-box">
+        <p>• Internal vs. external language development</p>
+<p>• Genre and register effects</p>
+<p>• Historical transmission problems</p>
+      </div>
+      <span class="slide-number">8</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Research Context &amp; Methodology</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<p>The corpus allows researchers to analyze:</p>
+
+<ul class="content-list">
+<li><strong>Internal language development</strong> patterns</li>
+<li><strong>External language interactions</strong> through contact</li>
+<li><strong>Genre effects</strong> on linguistic features</li>
+<li><strong>Register variations</strong> across time periods</li>
+<li><strong>Transmission problems</strong> in historical linguistic evidence</li>
+</ul>
+
+<p>The corpus is structured to allow comparison of the same text (e.g., Genesis 1) across five Greek translations spanning 2000 years, enabling precise tracking of how specific verbs like <em>ποιέω</em> &quot;to make&quot; change their argument structures over time.</p>
+      </div>
+      <span class="slide-number">9</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Who funds this research and what is the timeline?</h1>
+      <div class="question-box">
+        <p>• Which foundation supports the project?</p>
+<p>• What is the funding period?</p>
+<p>• What makes this project competitive?</p>
+      </div>
+      <span class="slide-number">10</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Funding and Project Timeline</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Hellenic Foundation for Research &amp; Innovation (H.F.R.I.):</strong>
+
+<ul class="content-list">
+<li><strong>ELIDEK Excellence</strong> grant program</li>
+<li><strong>2024-2025</strong> funding period</li>
+<li>Competitive <strong>national grant</strong></li>
+<li>Recognition of project <strong>significance</strong></li>
+</ul>
+
+<p>The H.F.R.I. ELIDEK Excellence grant provides substantial support for ambitious research projects in Greece. This competitive funding recognizes the innovative combination of traditional philological - linguistic methods with computational approaches. The grant enables hiring of researchers, acquisition of digital resources, and development of the computational infrastructure necessary for corpus processing and valency extraction.</p>
+      </div>
+      <span class="slide-number">11</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What translation theory underlies this research?</h1>
+      <div class="question-box">
+        <p>• What is LCTT theory?</p>
+<p>• How does translation affect language change?</p>
+<p>• What is &quot;translationese&quot;?</p>
+      </div>
+      <span class="slide-number">12</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Language Contact Through Translation (LCTT)</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <strong>A Key Theoretical Framework:</strong>
+<ul class="content-list">
+<li>Translation as a venue for <strong>language contact</strong> - Translations may introduce <strong>source language features</strong> into target languages- Creates a controlled environment for studying <strong>contact-induced change</strong>- Distinguishes between <strong>direct</strong> and <strong>indirect</strong> contact effects</li>
+</ul>
+<p>LCTT theory, as developed by McLaughlin (2011) and others, provides a framework for understanding how translations serve as a unique form of language contact. Unlike spoken contact situations, translation creates a textual interface where source language structures may influence target language productions. This &quot;translationese&quot; effect can be measured and tracked over time, revealing patterns of influence that may eventually enter the (standard) target language.</p>
+      </div>
+      <span class="slide-number">13</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What types of influential texts are included?</h1>
+      <div class="question-box">
+        <p>• What genres are represented?</p>
+<p>• Why are these texts &quot;influential&quot;?</p>
+<p>• What languages do they come from?</p>
+      </div>
+      <span class="slide-number">14</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Influential Texts in the Corpus</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <strong>Biblical and Religious Texts:</strong>
+<ul class="content-list">
+<li>Hebrew Bible / Old Testament - Greek New Testament - Septuagint (Greek translation of Hebrew scriptures)</li>
+</ul>
+<strong>Historical and Literary Works:</strong>
+<ul class="content-list">
+<li>Homer&#x27;s <em>Iliad</em> and <em>Odyssey</em> - Herodotus&#x27; <em>Histories</em> - Byzantine chronicles</li>
+</ul>
+<strong>Why &quot;Influential&quot;?</strong>
+<p>These texts shaped language use across centuries through liturgical reading, educational curricula, and cultural prestige. Their translation and retranslation created chains of linguistic influence traceable through the corpus.</p>
+      </div>
+      <span class="slide-number">15</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>How does the corpus handle multiple translations?</h1>
+      <div class="question-box">
+        <p>• What is &quot;retranslation&quot;?</p>
+<p>• Why translate the same text multiple times?</p>
+<p>• What can we learn from comparing translations?</p>
+      </div>
+      <span class="slide-number">16</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Multiple Translations and Retranslations</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <strong>The corpus includes:</strong>
+<ul class="content-list">
+<li><strong>Original source texts</strong> (Hebrew, Classical Greek) - <strong>Multiple translations</strong> of the same source into different target languages - <strong>Retranslations</strong> within the same language at different time periods</li>
+</ul>
+<strong>Example: Genesis 1</strong>
+<ul class="content-list">
+<li>Hebrew original - Septuagint (Greek, 150 BCE) - Byzantine Greek paraphrase - Modern Greek translation (20th century)</li>
+</ul>
+<p>This structure enables tracking of how the same semantic content is expressed differently across time and languages.</p>
+      </div>
+      <span class="slide-number">17</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What is the difference between passive and active retranslation?</h1>
+      <div class="question-box">
+        <p>• What motivates retranslation?</p>
+<p>• When does the original translation become obsolete?</p>
+<p>• What role do ideological factors play?</p>
+      </div>
+      <span class="slide-number">18</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Types of Retranslation</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <strong>Passive Retranslation:</strong>
+<ul class="content-list">
+<li>Occurs when earlier translation is no longer accessible or intelligible - Language change makes original translation obsolete - Example: Modern Greek translations of the Septuagint</li>
+</ul>
+<strong>Active Retranslation:</strong>
+<ul class="content-list">
+<li>New translations created while earlier versions still accessible - Motivated by doctrinal, stylistic, or interpretive differences</li>
+</ul>
+
+<p>Example: Multiple English Bible versions in the 20th century</p>
+<p>Both types provide valuable data for understanding language change and translation practices.</p>
+      </div>
+      <span class="slide-number">19</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What specific retranslation examples does the corpus include?</h1>
+      <div class="question-box">
+        <p>• What Greek translations are included?</p>
+<p>• What time span do they cover?</p>
+<p>• How do they differ linguistically?</p>
+      </div>
+      <span class="slide-number">20</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Greek Biblical Retranslations in the Corpus</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Old Testament Translations:</strong>
+<ul class="content-list">
+<li><strong>Septuagint</strong> (c. 150 BCE) - <strong>Aquila&#x27;s translation</strong> (2nd century CE) - <strong>Byzantine paraphrases</strong> (Medieval period) - <strong>Modern Greek versions</strong> (19th-20th century)</li>
+</ul>
+
+<strong>New Testament:</strong>
+<ul class="content-list">
+<li><strong>Original Greek</strong> (1st-2nd century CE) - <strong>Byzantine textual tradition</strong> - <strong>Modern Greek adaptations</strong></li>
+</ul>
+
+<p>This range enables tracking of Greek language development from Hellenistic through Byzantine to Modern periods.</p>
+      </div>
+      <span class="slide-number">21</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What is intralingual vs. interlingual translation?</h1>
+      <div class="question-box">
+        <p>• Translation within the same language vs. between languages</p>
+<p>• When is intralingual translation necessary?</p>
+<p>• What linguistic changes does it reveal?</p>
+      </div>
+      <span class="slide-number">22</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Intralingual and Interlingual Translation</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Interlingual Translation:</strong>
+<ul class="content-list">
+<li>Translation <strong>between different languages</strong> - Example: Hebrew → Greek (Septuagint) - Reveals cross-linguistic contact effects</li>
+</ul>
+
+<strong>Intralingual Translation:</strong>
+<ul class="content-list">
+<li>Translation <strong>within the same language</strong> across time periods - Example: Koine Greek → Modern Greek - Reveals internal language change patterns</li>
+</ul>
+
+<p>The corpus systematically includes both types to distinguish contact-induced change from natural language evolution.</p>
+      </div>
+      <span class="slide-number">23</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Why is intralingual translation linguistically significant?</h1>
+      <div class="question-box">
+        <p>• What changes between language stages?</p>
+<p>• How do translators update archaic features?</p>
+<p>• What remains constant despite time?</p>
+      </div>
+      <span class="slide-number">24</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Significance of Intralingual Translation</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Intralingual translation reveals:</strong>
+<ul class="content-list">
+<li><strong>Grammatical changes</strong> (case system simplification) - <strong>Lexical changes</strong> (obsolete vocabulary replacement) - <strong>Syntactic changes</strong> (word order preferences) - <strong>Stylistic changes</strong> (register shifts)</li>
+</ul>
+
+<strong>Research Value:</strong>
+<ul class="content-list">
+<li>Controlled comparison (same semantic content) - Clear temporal boundaries - Identifiable translator decisions - Direct evidence of perceived archaism</li>
+</ul>
+
+<p>When a translator updates &quot;archaic&quot; Greek to &quot;modern&quot; Greek, their choices reveal what features have become obsolete or marked.</p>
+      </div>
+      <span class="slide-number">25</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Passive Retranslation Explained</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Occurs when:</strong> A previous translation becomes inaccessible or unintelligible to contemporary speakers
+
+
+<strong>Example: Modern Greek Translations of the Old Testament</strong>
+
+<ul class="content-list">
+<li>The Septuagint (c. 150 BCE) became no longer intelligible to modern speakers</li>
+<li>This necessitated new translation work for contemporary audiences</li>
+</ul>
+      </div>
+      <span class="slide-number">26</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Active Retranslation Explained</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Occurs when:</strong> New translations offer competing perspectives based on different theological, doctrinal, or interpretive preferences
+
+<strong>Example: English Bible Translations (19th-20th centuries)</strong>
+
+<ul class="content-list">
+<li>Protestant versions</li>
+<li>Catholic versions</li>
+<li>Each reflecting different theological and doctrinal preferences</li>
+</ul>
+      </div>
+      <span class="slide-number">27</span>
+    </section>
+    
+
+    <section class="slide slide--section">
+      <div class="accent-bar"></div>
+      <h1>Language Families in the Corpus</h1>
+      <p>The CVL-CDSAML corpus includes texts from **three Indo-European language families:</p>
+      <span class="slide-number">28</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>The Three Language Families</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<p>1. <strong>Hellenic</strong></p>
+<ul class="content-list">
+<li>Greek (across all historical periods)</li>
+</ul>
+
+<p>2. <strong>Germanic</strong></p>
+<ul class="content-list">
+<li>English (various historical stages)</li>
+</ul>
+
+<p>3. <strong>Romance</strong></p>
+<ul class="content-list">
+<li>Latin</li>
+<li>French</li>
+</ul>
+      </div>
+      <span class="slide-number">29</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Why These Languages?</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Strategic Selection Based On:</strong>
+
+<ul class="content-list">
+<li>Significant <strong>attested history</strong> of written contact</li>
+<li>Long <strong>documented traditions</strong></li>
+<li>Rich <strong>translation practices</strong></li>
+<li>Extensive <strong>historical records</strong></li>
+</ul>
+      </div>
+      <span class="slide-number">30</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>The Role of Original Texts</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Original influential texts are included as:</strong>
+
+<ul class="content-list">
+<li><strong>Source texts</strong> for translation analysis</li>
+<li><strong>Control group</strong> to identify and filter:</li>
+<li>Source language influences</li>
+<li>Unique characteristics of translations</li>
+<li>&quot;Translationese&quot; phenomena</li>
+</ul>
+
+<em>(Toury 1995)</em>
+      </div>
+      <span class="slide-number">31</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>The Core Hellenic Tradition</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Greek: The Longest Historical Record</strong>
+
+<ul class="content-list">
+<li>Written documents from <strong>Mycenaean era</strong> to present day</li>
+<li>Unparalleled <strong>continuity</strong> of documentation</li>
+<li>Critical for understanding <strong>long-term language change</strong></li>
+</ul>
+      </div>
+      <span class="slide-number">32</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Focus on Post-Classical Development</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<p>The CVL-CDSAML corpus examines:</p>
+
+<ul class="content-list">
+<li><strong>Koine Greek</strong> (Hellenistic and Roman periods)</li>
+<li><strong>Byzantine Greek</strong> (Medieval period)</li>
+<li><strong>Modern Greek</strong> varieties</li>
+</ul>
+
+<strong>Why?</strong> This period represents a crucial time for studying Greek grammar shift
+      </div>
+      <span class="slide-number">33</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Grammatical Shift: Synthetic to Analytic</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Major Transition in Greek:</strong>
+
+<ul class="content-list">
+<li>From <strong>synthetic structures</strong> (morphologically complex)</li>
+<li>To <strong>analytic structures</strong> (syntactically complex)</li>
+</ul>
+
+<strong>Key Research Question:</strong> How and when did this shift occur?
+
+<em>(Browning 1983; Horrocks 2010)</em>
+      </div>
+      <span class="slide-number">34</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Dual Methodology Approach</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Philological Curation:</strong>
+<ul class="content-list">
+<li>Expert text selection - Critical edition standards - Historical authenticity</li>
+</ul>
+
+<strong>+</strong>
+
+<strong>Computational Processing:</strong>
+
+<ul class="content-list">
+<li>Systematic analysis - Large-scale pattern detection - Reproducible results</li>
+</ul>
+      </div>
+      <span class="slide-number">35</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Classical Greek Baseline</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Herodotus&#x27; <em>Histories</em> provides:</strong>
+
+<ul class="content-list">
+<li>Evidence for <strong>register variation</strong> in Classical Greek</li>
+<li>Contextual baseline for <strong>later developments</strong></li>
+<li>Comparison point for <strong>linguistic change</strong></li>
+</ul>
+      </div>
+      <span class="slide-number">36</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>The Koine Greek Core</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Foundation of the Early Corpus:</strong>
+
+<ul class="content-list">
+<li><strong>Septuagint</strong> (Greek Old Testament, c. 150 BCE)</li>
+<li><strong>New Testament</strong> (1st-2nd century CE)</li>
+<li>Other Koine texts from the <strong>Hellenistic and Roman periods</strong></li>
+</ul>
+      </div>
+      <span class="slide-number">37</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Significance of Koine Greek</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Why Koine is Central:</strong>
+
+<ul class="content-list">
+<li>Transition period between Classical and Medieval Greek - Extensive <strong>translation activity</strong> (Hebrew → Greek) - <strong>Widespread use</strong> across the Mediterranean - Rich evidence for <strong>language contact</strong> phenomena - Foundation for <strong>Byzantine</strong> and <strong>Modern Greek</strong></li>
+</ul>
+      </div>
+      <span class="slide-number">38</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Summary: A Comprehensive Resource</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<p>The CVL-CDSAML corpus provides:</p>
+
+<ul class="content-list">
+<li><strong>More than 100 texts</strong> across multiple languages - <strong>Three millennia</strong> of language history - <strong>Systematic methodology</strong> combining philology and computation - <strong>Translation-based</strong> approach to language contact - Foundation for <strong>diachronic valency research</strong></li>
+</ul>
+      </div>
+      <span class="slide-number">39</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Detailed Example: The Septuagint as a Translation Corpus</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Historical Context:</strong>
+<ul class="content-list">
+<li>Translated in Alexandria, Egypt (3rd-2nd century BCE) - Hebrew Bible → Koine Greek - Major cultural and linguistic bridge</li>
+</ul>
+
+<strong>Research Value:</strong>
+<ul class="content-list">
+<li>Evidence of <strong>Hebrew-Greek language contact</strong> - Translation strategies and techniques - Lexical and syntactic innovations</li>
+</ul>
+      </div>
+      <span class="slide-number">40</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Example: Septuagint Translation Patterns</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Hebrew Source Influence:</strong>
+
+<pre class="code-block">Hebrew: wayhi → Greek: kai egeneto (literal calque)
+<p>&quot;and it came to pass&quot;</pre></p>
+
+<strong>Translationese Features:</strong>
+
+<ul class="content-list">
+<li>Word-for-word translation approach - Preservation of Hebrew syntax patterns - Creation of new Greek semantic extensions</li>
+</ul>
+      </div>
+      <span class="slide-number">41</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>New Testament: A Koine Greek Case Study</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+  <strong>Corpus Characteristics:</strong>
+
+<ul class="content-list">
+<li>Written in <strong>Koine Greek</strong> (1st-2nd century CE) - Multiple <strong>authors</strong> with varying linguistic backgrounds - Different <strong>registers</strong> and styles</li>
+</ul>
+
+
+<strong>Linguistic Features:</strong>
+
+<ul class="content-list">
+<li>Vernacular Koine grammar - Semitic influences from bilingual authors - Range from &quot;sophisticated&quot; to &quot;simple&quot; Greek</li>
+</ul>
+      </div>
+      <span class="slide-number">42</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Example: Gospel Language Variation</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Luke&#x27;s Gospel:</strong>
+<ul class="content-list">
+<li>More <strong>literary</strong> Koine style - Classical influences - Sophisticated vocabulary</li>
+</ul>
+
+<strong>Mark&#x27;s Gospel:</strong>
+<ul class="content-list">
+<li>More <strong>colloquial</strong> style - Simpler syntax - Oral narrative features</li>
+</ul>
+
+
+<em>Same content, different linguistic realizations</em>
+      </div>
+      <span class="slide-number">43</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Byzantine Greek: The Medieval Transition</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Time Period:</strong> 4th-15th centuries CE
+
+<strong>Key Changes:</strong>
+
+<ul class="content-list">
+<li>Loss of <strong>dative case</strong> (replaced by prepositional phrases)</li>
+<li>Simplification of <strong>infinitive</strong> system</li>
+<li>Development of <strong>periphrastic constructions</strong></li>
+</ul>
+      </div>
+      <span class="slide-number">44</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Example: Dative Case Replacement</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Classical/Koine Greek:</strong>
+
+<pre class="code-block">τῷ ἀνθρώπῳ (tō anthrōpō)
+<p>&quot;to the man&quot; (dative case)</pre></p>
+
+<strong>Byzantine/Modern Greek:</strong>
+
+<pre class="code-block">στον άνθρωπο (ston ánthropo)
+<p>&quot;to the man&quot; (preposition + accusative)</pre></p>
+      </div>
+      <span class="slide-number">45</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Modern Greek in the Corpus</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Varieties Included:</strong>
+<ul class="content-list">
+<li><strong>Katharevousa</strong> (formal, archaic) - <strong>Dimotiki</strong> (vernacular, spoken) - Modern translations of ancient texts</li>
+</ul>
+
+<strong>Research Focus:</strong>
+
+<ul class="content-list">
+<li>Completion of the synthetic→analytic shift - Standardization processes - Contemporary translation practices</li>
+</ul>
+      </div>
+      <span class="slide-number">46</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Example: Multiple Greek Translations Compared</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Source:</strong> Old Testament passage
+
+<strong>Septuagint</strong> (150 BCE): Literal from Hebrew
+<strong>Byzantine translation</strong> (10th century): Simplified syntax
+<strong>Modern translation</strong> (20th century): Contemporary idiom
+
+<strong>Analysis:</strong> How do valency patterns change across 2000+ years?
+      </div>
+      <span class="slide-number">47</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Germanic Language Family: English Corpus</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Historical Stages Included:</strong>
+
+<ul class="content-list">
+<li><strong>Old English</strong> (Anglo-Saxon Bible translations)</li>
+<li><strong>Middle English</strong> (Wycliffe Bible, 14th century)</li>
+<li><strong>Early Modern English</strong> (King James Bible, 1611)</li>
+<li><strong>Modern English</strong> (20th-21st century translations)</li>
+</ul>
+      </div>
+      <span class="slide-number">48</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Example: English Bible Translation Evolution</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Same Verse Across Time:</strong>
+
+<strong>Wycliffe (1382):</strong>
+<em>&quot;In the bigynnyng God made of nouyt heuene and erthe&quot;</em>
+
+<strong>King James (1611):</strong>
+<em>&quot;In the beginning God created the heaven and the earth&quot;</em>
+
+<strong>NIV (1978):</strong>
+<em>&quot;In the beginning God created the heavens and the earth&quot;</em>
+      </div>
+      <span class="slide-number">49</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Romance Languages: Latin Foundation</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Latin Corpus Components:</strong>
+
+<ul class="content-list">
+<li><strong>Vulgate</strong> (Jerome&#x27;s Latin Bible, 4th century CE) - Medieval Latin texts - Original Latin works for comparison</li>
+</ul>
+
+<strong>Why Latin?</strong>
+
+<ul class="content-list">
+<li>Source language for Romance translations - Direct influence on ecclesiastical Greek - Control for translation directionality</li>
+</ul>
+      </div>
+      <span class="slide-number">50</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Example: Latin Vulgate Influence</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Vulgate Latin:</strong>
+
+<pre class="code-block">&quot;Fiat lux&quot; (let there be light)</pre>
+
+<strong>Influenced translations in:</strong>
+
+<ul class="content-list">
+<li>French: &quot;Que la lumière soit&quot;</li>
+<li>Italian: &quot;Sia la luce&quot;</li>
+<li>Spanish: &quot;Hágase la luz&quot;</li>
+</ul>
+      </div>
+      <span class="slide-number">51</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>French in the Corpus</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Stages Represented:</strong>
+
+<ul class="content-list">
+<li><strong>Old French</strong> Bible translations</li>
+<li><strong>Middle French</strong> versions</li>
+<li><strong>Modern French</strong> translations</li>
+</ul>
+
+<strong>Research Questions:</strong>
+
+<ul class="content-list">
+<li>How did French develop its analytical structures?</li>
+<li>What role did Latin play in French syntax?</li>
+</ul>
+      </div>
+      <span class="slide-number">52</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Digitization process</h1>
+      <div class="question-box">
+        <p>• How are printed texts digitized?</p>
+<p>• What quality control measures are in place?</p>
+      </div>
+      <span class="slide-number">53</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Computational Processing Pipeline</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Stage 1: Text Digitization</strong>
+<ul class="content-list">
+<li>OCR for printed sources  - Quality verification (double-checking, error correction)</li>
+</ul>
+
+<p>Digitization is the foundation of the entire project: physical texts must be converted to machine-readable format. For printed texts (19th-21st century), we use OCR technology trained on historical fonts; OCR output is manually reviewed. For manuscripts and early printed books, researchers create electronic editions preserving orthographic features. Some texts undergo re-digitization. The corpus includes metadata tracking digitization method and quality for each text.</p>
+      </div>
+      <span class="slide-number">54</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Annotation layers</h1>
+      <div class="question-box">
+        <p>• How are words segmented?</p>
+<p>• How are lemmas identified?</p>
+<p>• How is morphology tagged?</p>
+      </div>
+      <span class="slide-number">55</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Computational Processing Pipeline (2)</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Stage 2: Linguistic Annotation</strong>
+<ul class="content-list">
+<li><strong>Tokenization</strong> (word segmentation using language-specific rules) - <strong>Lemmatization</strong> (dictionary form identification via lookup tables) - <strong>Morphological tagging</strong> (grammatical features: case, tense, number, etc.) - <strong>Syntactic parsing</strong> (sentence structure: dependency or constituent analysis)</li>
+</ul>
+
+<p>Linguistic annotation adds layers of linguistic information to raw text. Tokenization segments text into words, handling clitics and contractions appropriately for each language. Lemmatization links inflected forms to lexicon entries (e.g., ἔδωκεν → δίδωμι). Morphological tagging assigns grammatical features using taggers trained on historical language data. Syntactic parsing identifies grammatical relations between words, which is crucial for valency extraction. All annotation undergoes manual quality control, with inter-annotator agreement.</p>
+      </div>
+      <span class="slide-number">56</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Lexicon design</h1>
+      <div class="question-box">
+        <p>• What information does each entry contain?</p>
+<p>• How are frames linked to examples?</p>
+<p>• What enables complex queries?</p>
+      </div>
+      <span class="slide-number">57</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Computational Processing Pipeline (3)</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Stage 3: Valency Extraction</strong>
+<ul class="content-list">
+<li>Identify predicates (verbs, adjectives, nouns requiring arguments) - Extract <strong>argument structures</strong> (what depends on the predicate) - Code <strong>valency frames</strong> (abstract patterns, e.g., NOM+ACC+DAT) - Track changes across time periods (compare frames diachronically)</li>
+</ul>
+
+<p>Each predicate instance is checked for its arguments (subject, objects, complements, adjuncts), and these are abstracted into valency frames. For example, from 100 instances of δίδωμι in a Koine text, the system extracts frame &quot;NOM+ACC+DAT&quot; occurring 87 times and &quot;NOM+ACC&quot; occurring 13 times. This quantitative data will flow into the lexicon, documenting both dominant and minority patterns.</p>
+      </div>
+      <span class="slide-number">58</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Example: Valency Pattern Extraction</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Predicate:</strong> δίδωμι (didōmi) &quot;to give&quot;
+
+<strong>Classical Greek Valency:</strong>
+
+<ul class="content-list">
+<li>SUBJ (nominative) + OBJ1 (accusative) + OBJ2 (dative)</li>
+<li><em>&quot;X gives Y to Z&quot;</em></li>
+</ul>
+
+<strong>Modern Greek Valency:</strong>
+
+<ul class="content-list">
+<li>SUBJ + OBJ1 + prepositional phrase (σε + accusative)</li>
+<li><em>&quot;X gives Y to Z&quot;</em> (different realization)</li>
+</ul>
+      </div>
+      <span class="slide-number">59</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Valency Lexicon Structure</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Each Entry Contains:</strong>
+<ul class="content-list">
+<li>Lemma (base form) - Time period - Source text - Valency frame(s) - Example sentences - Frequency data</li>
+</ul>
+
+<p>The valency lexicon is structured as a relational database where each predicate entry links to multiple frames, and each frame links to attested examples from the corpus. The database schema will include tables for predicates, frames, arguments, and attestations, allowing complex queries like &quot;all verbs that gained a prepositional complement between Classical and Byzantine periods.&quot; This structured approach will enable both linguistic research and computational applications.</p>
+      </div>
+      <span class="slide-number">60</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What will the database schema look like?</h1>
+      <div class="question-box">
+        
+      </div>
+      <span class="slide-number">61</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1></h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <p>The relational structure will allow efficient querying across time periods, languages, and semantic classes. Researchers will extract all frames for a given predicate, all predicates with a specific frame type, or all changes between periods. The schema separates abstract frame descriptions from concrete corpus attestations, enabling statistical analysis of frame frequencies.</p>
+      </div>
+      <span class="slide-number">62</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Statistical overview</h1>
+      <div class="question-box">
+        <p>• How many texts total?</p>
+<p>• How many tokens?</p>
+<p>• What is the distribution across periods?</p>
+      </div>
+      <span class="slide-number">63</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Corpus Statistics Overview</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Total Corpus Size:</strong>
+<ul class="content-list">
+<li><strong>More than 100 texts</strong> across all languages - Approximately <strong>4 million tokens</strong> (words) - Coverage: <strong>3000+ years</strong> of linguistic history</li>
+</ul>
+
+<strong>Greek Subcorpus:</strong> - <strong>50+ texts</strong> from Classical to Modern Greek - Dense coverage of <strong>Koine</strong> and <strong>Byzantine</strong> periods - Multiple versions of key texts (translations, retranslations)
+      </div>
+      <span class="slide-number">64</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Genre diversity</h1>
+      <div class="question-box">
+        <p>• What genres are represented?</p>
+<p>• Why is genre diversity important?</p>
+<p>• How does genre affect valency?</p>
+      </div>
+      <span class="slide-number">65</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Genre Distribution</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Major Categories:</strong>
+<ul class="content-list">
+<li><strong>Religious texts</strong> (Bible, liturgy, patristics): 40% - <strong>Historical/narrative</strong> (chronicles, histories): 25% - <strong>Technical/scientific</strong> (medical, legal): 15% - <strong>Literary</strong> (poetry, fiction): 15% - <strong>Documentary</strong> (papyri, inscriptions): 5%</li>
+</ul>
+
+<strong>Rationale:</strong>
+<p>Genre affects language use significantly. By including multiple genres, we can examine the role of genre in variation and change.</p>
+      </div>
+      <span class="slide-number">66</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Alignment methodology</h1>
+      <div class="question-box">
+        <p>• How are parallel texts matched?</p>
+<p>• What level of alignment is used?</p>
+<p>• What tools support alignment?</p>
+      </div>
+      <span class="slide-number">67</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Parallel Text Alignment</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Alignment Levels:</strong>          (mainly future work)
+
+<ul class="content-list">
+<li><strong>Document level:</strong> Matching entire texts (e.g., Genesis in Hebrew vs. Greek) - <strong>Chapter/section level:</strong> Subdivisions for navigation - <strong>Verse/sentence level:</strong> Fine-grained correspondence - <strong>Word level:</strong> For detailed translation analysis</li>
+</ul>
+
+<strong>Tools Used:</strong>
+<ul class="content-list">
+<li>Manual verification - Existing biblical reference systems (chapter:verse) - Custom alignment for non-biblical texts</li>
+</ul>
+      </div>
+      <span class="slide-number">68</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Standards compliance</h1>
+      <div class="question-box">
+        <p>• What international standards apply?</p>
+<p>• How is interoperability ensured?</p>
+<p>• What metadata is recorded?</p>
+      </div>
+      <span class="slide-number">69</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Annotation Standards</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <strong>Key Standards:</strong>
+<ul class="content-list">
+<li><strong>TEI</strong> (Text Encoding Initiative) for text markup - <strong>PROIEL</strong> tagset for historical languages - <strong>ISO 639</strong> for language codes</li>
+</ul>
+
+<strong>Benefits:</strong>
+<ul class="content-list">
+<li>Interoperability with other corpora - Reusability of tools and methods - Long-term data preservation - Community standards compliance</li>
+</ul>
+      </div>
+      <span class="slide-number">70</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>PROIEL integration</h1>
+      <div class="question-box">
+        <p>• What is PROIEL?</p>
+<p>• How does it support this project?</p>
+<p>• What data does it provide?</p>
+      </div>
+      <span class="slide-number">71</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>PROIEL Framework Integration</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>PROIEL (Pragmatic Resources in Old Indo-European Languages):</strong>
+<ul class="content-list">
+<li>Established corpus of ancient Indo-European texts - High-quality dependency annotation - Verified morphological analysis - Existing valency research</li>
+</ul>
+
+<strong>Integration Benefits:</strong>
+<ul class="content-list">
+<li>Leverages existing annotation work - Builds on proven methodologies - Enables comparison with related projects - Contributes back to PROIEL community</li>
+</ul>
+      </div>
+      <span class="slide-number">72</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Quality assurance</h1>
+      <div class="question-box">
+        <p>• How is annotation quality verified?</p>
+<p>• What inter-annotator agreement is achieved?</p>
+<p>• How are errors corrected?</p>
+      </div>
+      <span class="slide-number">73</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Quality Control Measures           (ongoing and future work)</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Annotation Quality:</strong>
+<ul class="content-list">
+<li><strong>Double annotation</strong> for critical texts - <strong>Expert third review</strong> for difficult cases - <strong>Automatic consistency checks</strong></li>
+</ul>
+
+<strong>Error Correction:</strong>
+<ul class="content-list">
+<li>Regular quality audits - Feedback integration - Version control for all changes - Documented correction history</li>
+</ul>
+      </div>
+      <span class="slide-number">74</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Multiglossia concept</h1>
+      <div class="question-box">
+        <p>• What does &quot;grammatical multiglossia&quot; mean?</p>
+<p>• How does it affect historical texts?</p>
+<p>• Why is it important for this research?</p>
+      </div>
+      <span class="slide-number">75</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Grammatical Multiglossia</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Definition:</strong>
+
+<p>The coexistence of multiple grammatical registers or varieties within a single speech community or textual tradition.</p>
+
+<strong>In Greek Context:</strong>
+<ul class="content-list">
+<li>Learned texts using archaic grammar - Vernacular texts using contemporary forms - Mixed texts showing both features</li>
+</ul>
+
+<strong>Research Implications:</strong>
+<ul class="content-list">
+<li>Cannot assume uniform grammar for any period - Must track register alongside time - Translations may show register shifts</li>
+</ul>
+      </div>
+      <span class="slide-number">76</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Byzantine evidence</h1>
+      <div class="question-box">
+        <p>• What registers coexist in Byzantine Greek?</p>
+<p>• How do texts vary?</p>
+<p>• What does this tell us about language change?</p>
+      </div>
+      <span class="slide-number">77</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Byzantine Multiglossia Example</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>High Register (Learned):</strong>
+<ul class="content-list">
+<li>Atticizing style imitating Classical Greek - Preserved case system - Archaic vocabulary</li>
+</ul>
+
+<strong>Low Register (Vernacular):</strong>
+<ul class="content-list">
+<li>Simplified case system - Analytic constructions - Contemporary vocabulary</li>
+</ul>
+
+<strong>Mixed Texts:</strong>
+<ul class="content-list">
+<li>Chronicles often show both features - Religious texts vary by purpose - Official documents vs. private correspondence</li>
+</ul>
+      </div>
+      <span class="slide-number">78</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Chronicle significance</h1>
+      <div class="question-box">
+        <p>• Why are chronicles valuable?</p>
+<p>• What linguistic features do they show?</p>
+<p>• Which chronicles are included?</p>
+      </div>
+      <span class="slide-number">79</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Byzantine Chronicles in the Corpus</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Included Chronicles:</strong>
+<ul class="content-list">
+<li><strong>Malalas&#x27; Chronicle</strong> (6th century) - <strong>Theophanes&#x27; Chronicle</strong> (9th century) - <strong>Chronicle of Morea</strong> (14th century)</li>
+</ul>
+
+
+<strong>Linguistic Value:</strong>
+
+<ul class="content-list">
+<li>Narrative prose (natural syntax) - Range of registers - Datable compositions - Evidence for vernacular features</li>
+</ul>
+
+<p>Chronicles are particularly valuable because they often show more colloquial features than theological or literary texts.</p>
+      </div>
+      <span class="slide-number">80</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>What are the key findings so far?</h1>
+      <div class="question-box">
+        <p>• What patterns have emerged?</p>
+<p>• What changes are documented?</p>
+<p>• What surprises have been found?</p>
+      </div>
+      <span class="slide-number">81</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Preliminary Research Findings</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Documented Patterns:</strong>
+<ul class="content-list">
+<li><strong>Dative loss:</strong> Systematic across verb classes - <strong>Infinitive replacement:</strong> By να + finite verb - <strong>Preposition increase:</strong> Compensating for case loss - <strong>Word order shifts:</strong> More fixed SVO patterns</li>
+</ul>
+
+<strong>Unexpected Findings:</strong>
+<ul class="content-list">
+<li>Earlier vernacular features in &quot;learned&quot; texts - Translation influence on standard grammar - Register-specific preservation of archaic forms</li>
+</ul>
+      </div>
+      <span class="slide-number">82</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Case study</h1>
+      <div class="question-box">
+        <p>• Which verb shows clear change?</p>
+<p>• What are the before/after patterns?</p>
+<p>• When did the change occur?</p>
+      </div>
+      <span class="slide-number">83</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Case Study: The Verb πείθω (peíthō) &#x27;to persuade&#x27;</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Classical Greek:</strong>
+
+<ul class="content-list">
+<li>Active: NOM + ACC (persuade someone) - Middle: NOM + DAT (obey someone)</li>
+</ul>
+
+<strong>Byzantine Greek:</strong>
+
+<ul class="content-list">
+<li>Active: unchanged - Middle: NOM + ACC (dative lost)</li>
+</ul>
+
+<strong>Modern Greek:</strong>
+
+<ul class="content-list">
+<li>NOM + ACC only - Middle: NOM + PP   (semantic change)</li>
+</ul>
+
+<p>This verb illustrates the broader pattern of dative loss affecting verb valency.</p>
+      </div>
+      <span class="slide-number">84</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Verb class patterns</h1>
+      <div class="question-box">
+        <p>• Which semantic classes change most?</p>
+<p>• Are some classes more stable?</p>
+<p>• What predicts change?</p>
+      </div>
+      <span class="slide-number">85</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Verb Classes and Valency Change</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Most Changed Classes:</strong>
+<ul class="content-list">
+<li><strong>Ditransitive verbs:</strong> Dative recipient → prepositional phrase - <strong>Verbs of perception:</strong> Genitive → accusative - <strong>Impersonal verbs:</strong> Dative experiencer → nominative subject</li>
+</ul>
+
+<strong>Most Stable Classes:</strong>
+<ul class="content-list">
+<li><strong>Basic transitive verbs:</strong> NOM + ACC preserved - <strong>Motion verbs:</strong> Directional arguments stable - <strong>Speech verbs:</strong> Core arguments unchanged</li>
+</ul>
+
+<p>Semantic factors (animacy, volitionality) influence which argument marking changes.</p>
+      </div>
+      <span class="slide-number">86</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Translation effects</h1>
+      <div class="question-box">
+        <p>• Do translations show different patterns?</p>
+<p>• Can translation introduce new structures?</p>
+<p>• How long do translation effects last?</p>
+      </div>
+      <span class="slide-number">87</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Translation Effects on Valency</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Observed Effects:</strong>
+<ul class="content-list">
+<li><strong>Source language calques:</strong> Hebrew patterns in Septuagint Greek  - <strong>Conservatism:</strong> Translations often preserve archaic structures   - <strong>Innovation:</strong> New constructions to render foreign structures</li>
+</ul>
+
+<strong>Example:</strong>
+<p>The Hebrew cognate accusative construction (e.g., &quot;he feared a great fear&quot;) appears in Septuagint Greek but is rare in native Greek texts.</p>
+<strong>Research Question:</strong>
+<p>Did Septuagint Greek influence later Byzantine developments?</p>
+      </div>
+      <span class="slide-number">88</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>English comparison</h1>
+      <div class="question-box">
+        <p>• How has English valency changed?</p>
+<p>• What parallels Greek?</p>
+<p>• What differs?</p>
+      </div>
+      <span class="slide-number">89</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>English Valency Change: Parallels to Greek</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Similar Patterns:</strong>
+<ul class="content-list">
+<li>Case loss (Old English → Middle English) - Increased preposition use - Fixed word order development</li>
+</ul>
+
+<strong>Differences:</strong> 
+<ul class="content-list">
+<li>English: Almost complete case loss - Greek: Retained nominative/accusative distinction - English: Stronger word order constraints</li>
+</ul>
+
+<strong>Research Value:</strong>
+<p>Comparison reveals which changes are language-specific vs. typologically common.</p>
+      </div>
+      <span class="slide-number">90</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Technical challenges</h1>
+      <div class="question-box">
+        <p>• What are the main processing difficulties?</p>
+<p>• How are historical languages handled?</p>
+<p>• What NLP limitations exist?</p>
+      </div>
+      <span class="slide-number">91</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Computational Challenges</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        <strong>Historical Language Processing:</strong>
+<ul class="content-list">
+<li><strong>Limited training data</strong> for NLP models - <strong>Orthographic variation</strong> (no standardization) - <strong>Ambiguity</strong> without native speaker intuition</li>
+</ul>
+
+<strong>Solutions:</strong>  
+<ul class="content-list">
+<li>Custom models trained on annotated historical texts - Rule-based preprocessing for normalization - Human-in-the-loop verification - Cross-linguistic transfer learning</li>
+</ul>
+
+<p>Modern NLP achieves 90%+ accuracy on modern languages; historical languages can reach 80% with specialized models???</p>
+      </div>
+      <span class="slide-number">92</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Long-term planning</h1>
+      <div class="question-box">
+        <p>• How will data be preserved?</p>
+<p>• How will the project continue after funding?</p>
+<p>• What open access provisions exist?</p>
+      </div>
+      <span class="slide-number">93</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Sustainability and Open Access</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Data Preservation:</strong>
+<ul class="content-list">
+<li>Multiple backup locations - Standard formats for longevity - Institutional repository hosting</li>
+</ul>
+
+<strong>Open Access Commitment:</strong>
+<ul class="content-list">
+<li>Corpus freely available upon completion - Documentation and tools shared - CC-BY licensing for derived works</li>
+</ul>
+
+<strong>Continuation Plans:</strong>
+<ul class="content-list">
+<li>Integration with existing digital humanities infrastructure - Community maintenance model - Ongoing annotation contributions</li>
+</ul>
+      </div>
+      <span class="slide-number">94</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Collaborative network</h1>
+      <div class="question-box">
+        <p>• What institutions are involved?</p>
+<p>• What expertise is contributed?</p>
+<p>• How is collaboration structured?</p>
+      </div>
+      <span class="slide-number">95</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>International Collaborations</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Partner Institutions:</strong>
+<ul class="content-list">
+<li><strong>University of Oslo</strong> (PROIEL project)</li>
+<li><strong>Harvard CHS</strong> (Digital resources)</li>
+</ul>
+
+<strong>Collaboration Benefits:</strong>
+<ul class="content-list">
+<li>Shared methodological expertise - Access to existing resources - Broader linguistic coverage - International validation</li>
+</ul>
+      </div>
+      <span class="slide-number">96</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Teaching uses</h1>
+      <div class="question-box">
+        <p>• How can the corpus support education?</p>
+<p>• What learning resources will be created?</p>
+<p>• Who are the target learners?</p>
+      </div>
+      <span class="slide-number">97</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Educational Applications</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>For Students:</strong>
+<ul class="content-list">
+<li>Interactive valency exploration - Historical grammar exercises - Translation comparison tools</li>
+</ul>
+
+<strong>For Teachers:</strong>
+<ul class="content-list">
+<li>Ready-made example sets - Progression tracking resources - Cross-linguistic comparison materials</li>
+</ul>
+
+<strong>For Researchers:</strong>
+<ul class="content-list">
+<li>Training data for NLP - Benchmark datasets - Reproducible research resources</li>
+</ul>
+      </div>
+      <span class="slide-number">98</span>
+    </section>
+    
+
+    <section class="slide slide--question">
+      <p class="label">Discussion Question</p>
+      <h1>Future plans</h1>
+      <div class="question-box">
+        <p>• What languages might be added?</p>
+<p>• What features will be developed?</p>
+<p>• What is the long-term vision?</p>
+      </div>
+      <span class="slide-number">99</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Future Extensions</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Planned Additions:</strong>
+<ul class="content-list">
+<li><strong>More languages:</strong> Slavic, Armenian - <strong>More genres:</strong> Technical, legal, epistolary - <strong>More periods:</strong> Archaic Greek, Late Latin</li>
+</ul>
+
+<strong>Feature Development:</strong>
+<ul class="content-list">
+<li>Enhanced visualization tools - Automated change detection - Machine learning integration</li>
+</ul>
+      </div>
+      <span class="slide-number">100</span>
+    </section>
+    
+
+    <section class="slide slide--section">
+      <div class="accent-bar"></div>
+      <h1>**Future Phases:**</h1>
+      <p>- Corpus expansion</p>
+      <span class="slide-number">101</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Broader Impact: Digital Humanities</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Contribution to Field:</strong>
+
+<ul class="content-list">
+<li>Model for <strong>large-scale</strong> historical corpus projects</li>
+<li>Integration of <strong>traditional</strong> and <strong>digital</strong> methods</li>
+<li><strong>Sustainable</strong> infrastructure design</li>
+<li><strong>Replicable</strong> methodology</li>
+</ul>
+      </div>
+      <span class="slide-number">102</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Theoretical Significance</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Why This Matters:</strong>
+
+<ul class="content-list">
+<li>Understanding <strong>mechanisms</strong> of language change</li>
+<li>Documenting <strong>long-term</strong> syntactic evolution</li>
+<li>Revealing <strong>contact effects</strong> in written language</li>
+<li>Building <strong>empirical foundation</strong> for diachronic theory</li>
+</ul>
+      </div>
+      <span class="slide-number">103</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Practical Applications Beyond Academia</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Real-World Uses:</strong>
+
+<ul class="content-list">
+<li><strong>Translation technology</strong> (machine translation of historical texts)</li>
+<li><strong>Language learning</strong> resources</li>
+<li><strong>Cultural heritage</strong> preservation</li>
+<li><strong>Digital archive</strong> infrastructure</li>
+</ul>
+      </div>
+      <span class="slide-number">104</span>
+    </section>
+    
+
+    <section class="slide slide--content">
+      <div class="slide-header">
+        <h1>Contact and Resources</h1>
+        <div class="title-underline"></div>
+      </div>
+      <div class="slide-body">
+        
+<strong>Project Website:</strong> https://athdgc.github.io/ [Coming soon] 
+<strong>Institution:</strong> University of Athens
+<strong>Funding:</strong> H.F.R.I. - ELIDEK Excellence Grant
+      </div>
+      <span class="slide-number">105</span>
+    </section>
+    
+
+    <section class="slide slide--ending">
+      <div class="accent-bar"></div>
+      <h1>Thank You!</h1>
+      <p style="color: var(--gold); font-size: 1.5rem; margin-top: 1rem;">Questions & Discussion</p>
+      <div class="divider" style="margin: 2rem 0;"></div>
+      <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">CVL-CDSAML Project · Athens Digital Glossa Chronos</p>
+      <span class="slide-number">106</span>
+    </section>
+    
+  </div>
+</body>
+</html>

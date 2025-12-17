@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AthDGC - DELPHI 2025</title>
+  <style>
+    @page {
+      size: A4 landscape;
+      margin: 0;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body {
+      width: 297mm;
+      margin: 0;
+      padding: 0;
+      font-family: Georgia, 'Times New Roman', serif;
+    }
+    
+    .slide {
+      width: 297mm;
+      height: 210mm;
+      padding: 18mm 22mm;
+      page-break-after: always;
+      page-break-inside: avoid;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    /* Title Slide */
+    .slide-title {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #1e3c72 100%);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .slide-title h1 {
+      font-size: 42pt;
+      color: white;
+      line-height: 1.2;
+      margin-bottom: 12mm;
+      max-width: 250mm;
+    }
+    
+    .slide-title .subtitle {
+      font-size: 22pt;
+      color: #d4af37;
+      margin-bottom: 15mm;
+    }
+    
+    .slide-title .authors {
+      font-size: 18pt;
+      color: rgba(255,255,255,0.95);
+      line-height: 1.6;
+      margin-bottom: 8mm;
+    }
+    
+    .slide-title .institution {
+      font-size: 16pt;
+      color: #d4af37;
+      margin-bottom: 3mm;
+    }
+    
+    .slide-title .university {
+      font-size: 14pt;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 10mm;
+    }
+    
+    .slide-title .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15mm;
+      margin: 10mm 0;
+    }
+    
+    .slide-title .logos img {
+      height: 20mm;
+    }
+    
+    .slide-title .event {
+      font-size: 15pt;
+      color: rgba(255,255,255,0.9);
+      margin-top: 10mm;
+    }
+    
+    .slide-title .event strong {
+      color: #d4af37;
+    }
+    
+    /* Section Slide */
+    .slide-section {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .slide-section .accent-bar {
+      width: 8mm;
+      height: 30mm;
+      background: #d4af37;
+      margin-bottom: 10mm;
+    }
+    
+    .slide-section h1 {
+      font-size: 44pt;
+      color: white;
+      margin-bottom: 8mm;
+    }
+    
+    .slide-section p {
+      font-size: 22pt;
+      color: rgba(255,255,255,0.9);
+      max-width: 220mm;
+    }
+    
+    /* Question Slide */
+    .slide-question {
+      background: linear-gradient(145deg, #d4af37 0%, #c17f59 100%);
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .slide-question .label {
+      font-size: 14pt;
+      color: rgba(0,0,0,0.6);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 10mm;
+      font-weight: 600;
+    }
+    
+    .slide-question h1 {
+      font-size: 36pt;
+      color: #1a1a1a;
+      margin-bottom: 12mm;
+      max-width: 230mm;
+    }
+    
+    .slide-question .question-box {
+      background: rgba(255,255,255,0.5);
+      padding: 15mm 20mm;
+      border-radius: 5mm;
+      max-width: 220mm;
+      text-align: left;
+    }
+    
+    .slide-question .question-box p {
+      font-size: 18pt;
+      color: #1a1a1a;
+      margin-bottom: 5mm;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    
+    /* Content Slide */
+    .slide-content {
+      background: #f8f6f1;
+    }
+    
+    .slide-content .header {
+      margin-bottom: 12mm;
+    }
+    
+    .slide-content .header h1 {
+      font-size: 32pt;
+      color: #1e3c72;
+      margin-bottom: 4mm;
+    }
+    
+    .slide-content .header .underline {
+      width: 50mm;
+      height: 4px;
+      background: #d4af37;
+    }
+    
+    .slide-content .body {
+      flex: 1;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    
+    .slide-content h3 {
+      font-size: 20pt;
+      color: #c17f59;
+      margin: 8mm 0 5mm 0;
+      font-weight: 600;
+    }
+    
+    .slide-content p {
+      font-size: 17pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      margin-bottom: 5mm;
+    }
+    
+    .slide-content ul {
+      list-style: none;
+      padding: 0;
+      margin: 5mm 0;
+    }
+    
+    .slide-content ul li {
+      font-size: 17pt;
+      line-height: 1.5;
+      color: #1a1a1a;
+      margin-bottom: 4mm;
+      padding-left: 12mm;
+      position: relative;
+    }
+    
+    .slide-content ul li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1e3c72;
+      font-size: 22pt;
+      font-weight: bold;
+    }
+    
+    .slide-content strong {
+      color: #1e3c72;
+    }
+    
+    .slide-content em {
+      font-style: italic;
+      color: #5a5a5a;
+    }
+    
+    .slide-content .citation {
+      font-size: 14pt;
+      color: #5a5a5a;
+      margin-bottom: 5mm;
+    }
+    
+    /* Ending Slide */
+    .slide-ending {
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #152a54 100%);
+      color: white;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    
+    .slide-ending h1 {
+      font-size: 56pt;
+      color: white;
+      margin-bottom: 12mm;
+    }
+    
+    .slide-ending .subtitle {
+      font-size: 28pt;
+      color: #d4af37;
+      margin-bottom: 15mm;
+    }
+    
+    .slide-ending .project {
+      font-size: 18pt;
+      color: rgba(255,255,255,0.7);
+    }
+    
+    /* Slide Number */
+    .slide-number {
+      position: absolute;
+      bottom: 8mm;
+      right: 12mm;
+      font-size: 14pt;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    
+    .slide-title .slide-number,
+    .slide-section .slide-number,
+    .slide-question .slide-number,
+    .slide-ending .slide-number {
+      color: rgba(255,255,255,0.4);
+    }
+    
+    .slide-content .slide-number {
+      color: rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<!-- SLIDE 1: Title -->
+<div class="slide slide-title">
+  <div class="accent-bar" style="width:8mm;height:30mm;background:#d4af37;margin-bottom:10mm;"></div>
+  <h1>Retranslations Across Millennia:<br>A Diachronic Contrastive Corpus for Studying Interlingual and Intralingual Language Contact</h1>
+  <div class="subtitle">The evolution of valency over time: Digital pathways uncovering grammatical structure</div>
+  <div class="authors">Nikolaos Lavidas, Theodoros Michalareas, Vassilios Symeonidis,<br>Sofia Chionidi, Anastasia Tsiropina, Eleni Plakoutsi</div>
+  <div class="institution">Athens Digital Glossa Chronos (AthDGC)</div>
+  <div class="university">National and Kapodistrian University of Athens</div>
+  <div class="logos">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="UoA" style="background:#8b0000;width:20mm;height:20mm;">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="HFRI" style="background:white;width:25mm;height:18mm;">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==" alt="Greece 2.0" style="background:white;width:30mm;height:18mm;">
+  </div>
+  <div class="event"><strong>DELPHI Workshop 2025</strong> · November 26-29, 2025 · Delphi, Greece</div>
+  <span class="slide-number">1</span>
+</div>
+
+<!-- SLIDE 2: Key Question -->
+<div class="slide slide-question">
+  <div class="label">Key Question</div>
+  <h1>What is the AthDGC project?</h1>
+  <div class="question-box">
+    <p>• What are the main research goals?</p>
+    <p>• How does it combine traditional and digital methods?</p>
+    <p>• What makes this approach innovative?</p>
+  </div>
+  <span class="slide-number">2</span>
+</div>
+
+<!-- SLIDE 3: Project Overview -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Aim of AthDGC</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Creation of:</h3>
+    <ul>
+      <li><strong>A) A parallel diachronic corpus</strong> of influential texts</li>
+      <li><strong>B) A diachronic Valency Lexicon</strong> for historical languages</li>
+    </ul>
+    <h3>Analysis of:</h3>
+    <ul>
+      <li><strong>Valency</strong> — verb argument structure patterns</li>
+      <li><strong>Language diachrony</strong> — change across millennia</li>
+      <li><strong>Written Language Contact</strong> — translation effects</li>
+    </ul>
+    <p class="citation">H.F.R.I. Project Number: 15284</p>
+  </div>
+  <span class="slide-number">3</span>
+</div>
+
+<!-- SLIDE 4: Research Team -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Research Team</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <ul>
+      <li><strong>Professor Nikolaos Lavidas</strong> (Principal Investigator)</li>
+      <li><strong>Professor Emeritus Vasiliki Nikiforidou</strong></li>
+      <li><strong>Theodoros Michalareas</strong></li>
+      <li><strong>Vasiliki Geka</strong></li>
+      <li><strong>Vasilis Symeonidis</strong></li>
+      <li><strong>Sophia Chionidi</strong></li>
+      <li><strong>Eleni Plakoutsi</strong></li>
+      <li><strong>Anastasia Tsiropina</strong></li>
+    </ul>
+  </div>
+  <span class="slide-number">4</span>
+</div>
+
+<!-- SLIDE 5: Section - Theoretical Framework -->
+<div class="slide slide-section">
+  <div class="accent-bar"></div>
+  <h1>Theoretical Framework</h1>
+  <p>Language Contact Through Translation (LCTT)</p>
+  <span class="slide-number">5</span>
+</div>
+
+<!-- SLIDE 6: LCTT Theory -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Language Contact Through Translation (LCTT)</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <p class="citation">(Kranich, Becher & Höder 2011; McLaughlin 2011)</p>
+    <h3>Key Framework:</h3>
+    <ul>
+      <li>Translation as a venue for <strong>language contact</strong></li>
+      <li>Translations may introduce <strong>source language features</strong> into target languages</li>
+      <li>Creates controlled environment for studying <strong>contact-induced change</strong></li>
+      <li>Distinguishes between <strong>direct</strong> and <strong>indirect</strong> contact effects</li>
+    </ul>
+    <p>Unlike spoken contact situations, translation creates a textual interface where source language structures may influence target language productions. This "translationese" effect can be measured and tracked over time.</p>
+  </div>
+  <span class="slide-number">6</span>
+</div>
+
+<!-- SLIDE 7: Previous Research -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Previous Research</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Digital Corpora:</h3>
+    <ul>
+      <li><strong>PROIEL</strong> (University of Oslo) — Pragmatic Resources in Old Indo-European Languages</li>
+    </ul>
+    <p class="citation">(Haug & Jøhndal 2008; Eckhoff et al. 2018)</p>
+    <h3>Synchronic Valency Lexica:</h3>
+    <ul>
+      <li><strong>ValPaL</strong> (Malchukov & Comrie 2015)</li>
+    </ul>
+    <h3>Historical/Crosslinguistic Valency Lexica:</h3>
+    <ul>
+      <li><strong>HoDeL</strong> (Zanchi 2021)</li>
+      <li><strong>PaVeDa</strong> (Luraghi et al. 2024)</li>
+    </ul>
+  </div>
+  <span class="slide-number">7</span>
+</div>
+
+<!-- SLIDE 8: Section - The Corpus -->
+<div class="slide slide-section">
+  <div class="accent-bar"></div>
+  <h1>The AthDGC Corpus</h1>
+  <p>Influential texts across Indo-European languages</p>
+  <span class="slide-number">8</span>
+</div>
+
+<!-- SLIDE 9: Corpus Overview -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>The AthDGC Corpus</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Influential Texts:</h3>
+    <p>Texts that have a great impact in the history of humanity (e.g., The Bible, the Homeric Poems)</p>
+    <p><strong>Criterion:</strong> Retranslated and republished across many periods</p>
+    <h3>Indo-European Languages (Phase I):</h3>
+    <ul>
+      <li><strong>Hellenic:</strong> Greek (Ancient, Koine, Medieval, Modern)</li>
+      <li><strong>Germanic:</strong> English (Old, Middle, Modern) & Gothic</li>
+      <li><strong>Romance:</strong> Latin & Old French</li>
+    </ul>
+  </div>
+  <span class="slide-number">9</span>
+</div>
+
+<!-- SLIDE 10: Original Texts -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Original Texts</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Greek Texts:</h3>
+    <ul>
+      <li><strong>Ancient Greek:</strong> Homeric poems</li>
+      <li><strong>Hellenistic Greek:</strong> New Testament</li>
+      <li><strong>Medieval Greek:</strong> Psellos' Chronographia</li>
+      <li><strong>Early Modern Greek:</strong> Digenis Akritas</li>
+    </ul>
+    <h3>English Texts:</h3>
+    <ul>
+      <li><strong>Old English:</strong> Ælfric's Lives of Saints</li>
+      <li><strong>Middle English:</strong> Orrmin: The Ormulum</li>
+      <li><strong>Modern English:</strong> Jane Austen's Pride and Prejudice</li>
+    </ul>
+  </div>
+  <span class="slide-number">10</span>
+</div>
+
+<!-- SLIDE 11: Retranslations -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Retranslations</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Intralingual Translations:</h3>
+    <p>Translations <strong>within the same language</strong> across time periods</p>
+    <p><em>Example: Greek retranslation of the New Testament by Alexandros Palles (20th century)</em></p>
+    <h3>Interlingual Translations:</h3>
+    <p>Translations <strong>between different languages</strong></p>
+    <p><em>Example: English retranslation of the New Testament by William Tyndale (16th century)</em></p>
+    <p style="margin-top:10mm;">The corpus systematically includes both types to distinguish <strong>contact-induced change</strong> from <strong>natural language evolution</strong>.</p>
+  </div>
+  <span class="slide-number">11</span>
+</div>
+
+<!-- SLIDE 12: Section - PROIEL -->
+<div class="slide slide-section">
+  <div class="accent-bar"></div>
+  <h1>PROIEL Framework Integration</h1>
+  <p>Pragmatic Resources in Old Indo-European Languages</p>
+  <span class="slide-number">12</span>
+</div>
+
+<!-- SLIDE 13: PROIEL Platform -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>The PROIEL Platform</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <p class="citation">(Haug & Jøhndal 2008; Eckhoff et al. 2018)</p>
+    <h3>Features:</h3>
+    <ul>
+      <li><strong>Open-source</strong> software tools and annotation schemes</li>
+      <li><strong>Dependency grammar</strong> scheme — effective for free-word order languages</li>
+      <li><strong>Morphological and Syntactic</strong> tagset</li>
+    </ul>
+    <h3>Annotation Guidelines:</h3>
+    <ul>
+      <li>Tokenization and sentence division (fully automated)</li>
+      <li>Morphological annotation (partly automated)</li>
+      <li>Syntactic annotation (manually completed)</li>
+    </ul>
+  </div>
+  <span class="slide-number">13</span>
+</div>
+
+<!-- SLIDE 14: Section - Valency -->
+<div class="slide slide-section">
+  <div class="accent-bar"></div>
+  <h1>The Valency Lexicon</h1>
+  <p>Tracking argument structure across millennia</p>
+  <span class="slide-number">14</span>
+</div>
+
+<!-- SLIDE 15: What is Valency? -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>What is Valency?</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <p class="citation">(Tesnière 1959)</p>
+    <p>Valency describes the <strong>presence/absence, type and number of arguments</strong> licensed by a verb:</p>
+    <ul>
+      <li><em>Mary sleeps.</em> — 1 argument (monovalent)</li>
+      <li><em>Mary likes John.</em> — 2 arguments (divalent)</li>
+      <li><em>Mary gave a letter to John.</em> — 3 arguments (trivalent)</li>
+    </ul>
+    <h3>Underlying Idea:</h3>
+    <p>The <strong>verb</strong> is the central structural element of the sentence; all other elements depend on it (dependency grammar).</p>
+    <p>Number of participants in <strong>semantics</strong> = number of arguments in <strong>syntax</strong></p>
+  </div>
+  <span class="slide-number">15</span>
+</div>
+
+<!-- SLIDE 16: Valency Alternations -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Valency Alternations</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <p class="citation">(Levin 1993: up to 50 alternations for English)</p>
+    <h3>Middle Alternation:</h3>
+    <p><em>Jane broke the crystal.</em> → <em>The crystal broke.</em></p>
+    <h3>Causative/Inchoative Alternation:</h3>
+    <p><em>They stood the statue on the pedestal.</em> → <em>The statue stood on the pedestal.</em></p>
+    <h3>Dative Alternation:</h3>
+    <p><em>They gave him cake.</em> → <em>They gave cake to him.</em></p>
+    <h3>Unspecified Object Alternation:</h3>
+    <p><em>Mike ate all the cake.</em> → <em>Mike ate.</em> ✓</p>
+  </div>
+  <span class="slide-number">16</span>
+</div>
+
+<!-- SLIDE 17: Lexicon Example Modern English -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Lexicon Example: Modern English 'write'</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Modern English — Frequency: 1015</h3>
+    <ul>
+      <li><em>"You write uncommonly fast."</em></li>
+      <li><em>"...because he does not write with ease."</em></li>
+      <li><em>"...a person who can write a long letter with ease..."</em></li>
+      <li><em>"...and when I next write to her..."</em></li>
+      <li><em>"...it had been written five days ago."</em></li>
+    </ul>
+    <p><strong>Frames:</strong> NOM.V / NOM.V.ACC / NOM.V.to-DAT / Passive</p>
+  </div>
+  <span class="slide-number">17</span>
+</div>
+
+<!-- SLIDE 18: Lexicon Example Old English -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Lexicon Example: Old English 'wrītan'</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Old English — Frequency: 10</h3>
+    <ul>
+      <li><em>"Moyses lyfde þæt man write hiwgedales boc & hi forlete."</em><br>(Moses allowed the man to write a bill of divorce and abandon her.)</li>
+      <li><em>"for eower heortan heardnesse he eow wrat þis bebod."</em><br>(for your heart's hardness he wrote you this command)</li>
+    </ul>
+    <p><strong>Note:</strong> Dative recipient (<em>eow</em> = you.DAT), no preposition needed</p>
+    <p style="margin-top:8mm;"><strong>Change observed:</strong> Loss of dative case → preposition required in Modern English</p>
+  </div>
+  <span class="slide-number">18</span>
+</div>
+
+<!-- SLIDE 19: Section - Challenges -->
+<div class="slide slide-section">
+  <div class="accent-bar"></div>
+  <h1>Challenges Encountered</h1>
+  <p>Technical and linguistic obstacles</p>
+  <span class="slide-number">19</span>
+</div>
+
+<!-- SLIDE 20: Orthographic Variation -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Challenge: Orthographic Variation</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Old and Middle English Examples:</h3>
+    <ul>
+      <li><em>u</em> instead of <em>v</em>, <em>i</em> instead of <em>j</em></li>
+      <li>Same word, different spellings: <em>gyue, yyue, yiue, giue</em> = "give"</li>
+    </ul>
+    <h3>Our Decision:</h3>
+    <p>Keep original orthography BUT create <strong>custom dictionaries</strong> for each text</p>
+    <h3>Consequences:</h3>
+    <ul>
+      <li>Automatic dictionary does not recognize different tokens of same word</li>
+      <li>Harder tokenization and morphological parsing</li>
+    </ul>
+  </div>
+  <span class="slide-number">20</span>
+</div>
+
+<!-- SLIDE 21: Automatic Parsing Results -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Automatic Parsing: Late Medieval Greek</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <h3>Evaluation:</h3>
+    <p>Tested 4 parsers trained on Modern or Ancient Greek against reference text (Sphrantzes)</p>
+    <h3>Results:</h3>
+    <ul>
+      <li>Very low F1 scores (<strong>&lt;0.42</strong>) — poor performance on Late Medieval Greek</li>
+      <li>Better results on shorter sentences</li>
+      <li>PROIEL has more fine-grained distinctions than UD-CoNLL</li>
+    </ul>
+    <h3>Conclusion:</h3>
+    <p>Semi-automatic annotation currently as time-consuming as manual; need better conversion pipeline and trained models</p>
+  </div>
+  <span class="slide-number">21</span>
+</div>
+
+<!-- SLIDE 22: English Valency Change -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>English Valency Change: Parallels to Greek</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <p class="citation">(cf. Trips & Stein 2019; Trips 2020)</p>
+    <h3>Similar Patterns:</h3>
+    <ul>
+      <li>Case loss (Old English → Middle English)</li>
+      <li>Increased preposition use</li>
+      <li>Fixed word order development</li>
+    </ul>
+    <h3>Differences:</h3>
+    <ul>
+      <li><strong>English:</strong> Almost complete case loss</li>
+      <li><strong>Greek:</strong> Retained nominative/accusative distinction</li>
+      <li><strong>English:</strong> Stronger word order constraints</li>
+    </ul>
+  </div>
+  <span class="slide-number">22</span>
+</div>
+
+<!-- SLIDE 23: Ongoing Work -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Ongoing Work</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body">
+    <ul>
+      <li>Expand on the least represented languages (Old and Middle French, Old English)</li>
+      <li>Add new languages (<strong>Gothic</strong>)</li>
+      <li>Automate syntactic annotation:
+        <ul style="margin-top:3mm;">
+          <li>A more accurate conversion pipeline from UD-CoNLL to PROIEL</li>
+          <li>Training existing syntactic parsers</li>
+        </ul>
+      </li>
+      <li>Collaboration with <strong>Harvard CHS</strong> (ARCAS Team)</li>
+    </ul>
+  </div>
+  <span class="slide-number">23</span>
+</div>
+
+<!-- SLIDE 24: References 1 -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Selected References (1/2)</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body" style="font-size:14pt;line-height:1.6;">
+    <p><strong>Eckhoff, H. et al.</strong> (2018). The PROIEL treebank family. <em>Language Resources and Evaluation</em>, 52(1), 29–65.</p>
+    <p><strong>Haug, D. & Jøhndal, M.</strong> (2008). Creating a Parallel Treebank of the Old Indo-European Bible Translations. <em>LREC</em>.</p>
+    <p><strong>Kranich, S., Becher, V., & Höder, S.</strong> (2011). A tentative typology of translation-induced language change. In <em>Multilingual Discourse Production</em> (pp. 11–43). John Benjamins.</p>
+    <p><strong>Lavidas, N.</strong> (2021). <em>The Diachrony of Written Language Contact</em>. Brill.</p>
+    <p><strong>Levin, B.</strong> (1993). <em>English Verb Classes and Alternations</em>. University of Chicago Press.</p>
+    <p><strong>McLaughlin, M.</strong> (2011). <em>Syntactic Borrowing in Contemporary French</em>. Legenda.</p>
+  </div>
+  <span class="slide-number">24</span>
+</div>
+
+<!-- SLIDE 25: References 2 -->
+<div class="slide slide-content">
+  <div class="header">
+    <h1>Selected References (2/2)</h1>
+    <div class="underline"></div>
+  </div>
+  <div class="body" style="font-size:14pt;line-height:1.6;">
+    <p><strong>Tesnière, L.</strong> (1959). <em>Éléments de syntaxe structurale</em>. Klincksieck.</p>
+    <p><strong>Trips, C. & Stein, A.</strong> (2019). Contact-induced changes in argument structure of Middle English verbs. <em>Journal of Language Contact</em>, 12(1), 232–267.</p>
+    <p><strong>Trips, C.</strong> (2020). Copying of argument structure. In <em>Historical Linguistics 2017</em> (pp. 409–430). John Benjamins.</p>
+    <p><strong>Nikiforidou, K.</strong> (2018). Genre and constructional analysis. <em>Pragmatics & Cognition</em>, 25(3), 543–575.</p>
+    <p><strong>Fried, M. & Nikiforidou, K.</strong> (Eds.). (2025). <em>The Cambridge Handbook of Construction Grammar</em>. Cambridge University Press.</p>
+  </div>
+  <span class="slide-number">25</span>
+</div>
+
+<!-- SLIDE 26: Thank You -->
+<div class="slide slide-ending">
+  <div class="accent-bar" style="width:8mm;height:30mm;background:#d4af37;margin-bottom:15mm;"></div>
+  <h1>Thank You!</h1>
+  <div class="subtitle">Questions & Discussion</div>
+  <div style="width:60mm;height:2px;background:rgba(255,255,255,0.3);margin:15mm 0;"></div>
+  <div class="project">AthDGC Project · Athens Digital Glossa Chronos</div>
+  <p style="font-size:14pt;color:rgba(255,255,255,0.6);margin-top:10mm;">nlavidas@enl.uoa.gr</p>
+  <span class="slide-number">26</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,2528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CVL-CDSAML Corpus Presentation - Editable</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #1a1a2e;
+            color: #eee;
+            min-height: 100vh;
+        }
+        
+        .app-container {
+            display: flex;
+            height: 100vh;
+        }
+        
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            background: #16213e;
+            border-right: 1px solid #0f3460;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        
+        .sidebar-header {
+            padding: 15px;
+            background: #0f3460;
+            border-bottom: 1px solid #1a1a2e;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .sidebar-header h3 {
+            font-size: 14px;
+            color: #fbbf24;
+            margin-bottom: 10px;
+        }
+        
+        .search-box {
+            width: 100%;
+            padding: 8px 12px;
+            border: 1px solid #0f3460;
+            border-radius: 4px;
+            background: #1a1a2e;
+            color: #eee;
+            font-size: 13px;
+        }
+        
+        .slide-list {
+            padding: 10px;
+        }
+        
+        .slide-item {
+            padding: 10px 12px;
+            margin-bottom: 5px;
+            background: #1a1a2e;
+            border-radius: 6px;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .slide-item:hover {
+            background: #0f3460;
+        }
+        
+        .slide-item.active {
+            border-color: #fbbf24;
+            background: #0f3460;
+        }
+        
+        .slide-item-number {
+            font-size: 11px;
+            color: #60a5fa;
+            margin-bottom: 3px;
+        }
+        
+        .slide-item-title {
+            font-size: 13px;
+            color: #f8fafc;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        /* Toolbar */
+        .toolbar {
+            padding: 10px 20px;
+            background: #16213e;
+            border-bottom: 1px solid #0f3460;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .toolbar-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .toolbar button {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 13px;
+            transition: all 0.2s;
+        }
+        
+        .btn-primary {
+            background: #fbbf24;
+            color: #1a1a2e;
+            font-weight: 600;
+        }
+        
+        .btn-primary:hover {
+            background: #f59e0b;
+        }
+        
+        .btn-secondary {
+            background: #0f3460;
+            color: #f8fafc;
+        }
+        
+        .btn-secondary:hover {
+            background: #1e4976;
+        }
+        
+        .btn-nav {
+            background: #60a5fa;
+            color: #1a1a2e;
+            font-weight: 600;
+            min-width: 40px;
+        }
+        
+        .btn-nav:hover {
+            background: #3b82f6;
+        }
+        
+        .btn-nav:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .slide-counter {
+            color: #a5f3fc;
+            font-size: 14px;
+            min-width: 100px;
+            text-align: center;
+        }
+        
+        /* Edit area */
+        .edit-area {
+            flex: 1;
+            display: flex;
+            overflow: hidden;
+        }
+        
+        .preview-panel {
+            flex: 1;
+            padding: 20px;
+            overflow: auto;
+            background: #0d1b2a;
+        }
+        
+        .editor-panel {
+            width: 45%;
+            background: #1a1a2e;
+            border-left: 1px solid #0f3460;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .editor-panel.hidden {
+            display: none;
+        }
+        
+        .editor-header {
+            padding: 12px 15px;
+            background: #0f3460;
+            border-bottom: 1px solid #1a1a2e;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .editor-header h4 {
+            color: #fbbf24;
+            font-size: 14px;
+        }
+        
+        .editor-content {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .editor-content textarea {
+            width: 100%;
+            height: 100%;
+            padding: 15px;
+            background: #1a1a2e;
+            color: #f8fafc;
+            border: none;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 14px;
+            line-height: 1.6;
+            resize: none;
+        }
+        
+        .editor-content textarea:focus {
+            outline: none;
+        }
+        
+        /* Slide preview */
+        .slide-preview {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            border-radius: 8px;
+            padding: 50px;
+            min-height: 500px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        
+        .slide-preview h1 {
+            color: #fbbf24;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.5);
+            border-bottom: 4px solid #fbbf24;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .slide-preview h2 {
+            color: #60a5fa;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            border-left: 6px solid #60a5fa;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .slide-preview p {
+            line-height: 1.6;
+            margin: 15px 0;
+            color: #f8fafc;
+        }
+        
+        .slide-preview strong {
+            color: #fcd34d;
+            font-weight: 900;
+        }
+        
+        .slide-preview em {
+            color: #a5f3fc;
+            font-style: italic;
+        }
+        
+        .slide-preview ul, .slide-preview ol {
+            margin: 15px 0;
+            padding-left: 30px;
+            line-height: 1.8;
+        }
+        
+        .slide-preview li {
+            margin: 8px 0;
+        }
+        
+        .slide-preview code {
+            background: rgba(30, 41, 59, 0.8);
+            color: #86efac;
+            padding: 4px 8px;
+            border-radius: 4px;
+            border: 1px solid #10b981;
+            font-family: 'Fira Code', monospace;
+        }
+        
+        .slide-preview pre {
+            background: rgba(30, 41, 59, 0.9);
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 15px 0;
+        }
+        
+        .slide-preview pre code {
+            background: none;
+            border: none;
+            padding: 0;
+            display: block;
+            white-space: pre-wrap;
+        }
+        
+        .slide-preview a {
+            color: #7dd3fc;
+            text-decoration: underline;
+        }
+        
+        /* Mode toggle */
+        .mode-toggle {
+            display: flex;
+            background: #0f3460;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .mode-toggle button {
+            border-radius: 0;
+            border: none;
+        }
+        
+        .mode-toggle button.active {
+            background: #fbbf24;
+            color: #1a1a2e;
+        }
+        
+        /* Export modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+        }
+        
+        .modal-overlay.hidden {
+            display: none;
+        }
+        
+        .modal {
+            background: #16213e;
+            border-radius: 8px;
+            padding: 25px;
+            max-width: 500px;
+            width: 90%;
+        }
+        
+        .modal h3 {
+            color: #fbbf24;
+            margin-bottom: 15px;
+        }
+        
+        .modal p {
+            color: #a5f3fc;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        /* Keyboard shortcuts help */
+        .shortcuts-panel {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #16213e;
+            border: 1px solid #0f3460;
+            border-radius: 8px;
+            padding: 15px;
+            font-size: 12px;
+            z-index: 100;
+        }
+        
+        .shortcuts-panel h4 {
+            color: #fbbf24;
+            margin-bottom: 10px;
+            font-size: 13px;
+        }
+        
+        .shortcut-item {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            color: #a5f3fc;
+        }
+        
+        .shortcut-key {
+            background: #0f3460;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+            margin-left: 15px;
+        }
+        
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #10b981;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 6px;
+            font-size: 14px;
+            z-index: 1000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .toast.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="app"></div>
+    
+    <script>
+// Slide data - all 120 slides preserved exactly
+const slidesData = [
+  {
+    id: 1,
+    title: "The Textual Foundation and Computational Architecture of the CVL-CDSAML Corpus",
+    content: `# The Textual Foundation and Computational Architecture of the CVL-CDSAML Corpus
+
+*Bridging three millennia of linguistic history through computational philology*
+
+This presentation explores Part 2 of our research paper, focusing on how the CVL-CDSAML corpus is structured and how it serves as the foundation for extracting diachronic valency patterns. We will examine the corpus architecture, text selection criteria, and the computational methods used to create a comprehensive valency lexicon spanning multiple languages and historical periods.`
+  },
+  {
+    id: 2,
+    title: "Question: What does Part 2 of this research focus on?",
+    content: `## Question: What does Part 2 of this research focus on?
+
+**Think about:**
+
+- What is the main architectural framework?
+- How does it support linguistic research?
+- What makes this approach unique?`
+  },
+  {
+    id: 3,
+    title: "Part 2: Textual Foundation & Computational Architecture",
+    content: `## Part 2: Textual Foundation & Computational Architecture
+
+**A comprehensive approach to diachronic valency research**
+
+The CVL-CDSAML project represents a novel integration of traditional philological expertise with modern computational linguistics. This corpus contains 338 carefully curated historical texts that enable systematic analysis of how verb valency patterns evolve over time. The architecture supports both qualitative philological analysis and quantitative computational extraction of linguistic patterns.`
+  },
+  {
+    id: 4,
+    title: "Question: Why do we need a comprehensive foundation for diachronic research?",
+    content: `## Question: Why do we need a comprehensive foundation for diachronic research?
+
+**Consider:**
+
+- What challenges do historical linguists face?
+- How does text quality affect research outcomes?
+- What factors must be controlled?`
+  },
+  {
+    id: 5,
+    title: "Introduction: The Need for a Comprehensive Foundation",
+    content: `## Introduction: The Need for a Comprehensive Foundation
+
+Diachronic linguistic analysis requires careful consideration of multiple elements:
+
+- **Text selection** and preparation
+- Assessment of **historical evidence**
+- Understanding **language development** contexts
+- Recognition of **external factors** influencing linguistic change
+
+Studying language change over millennia demands rigorous methodology in selecting and preparing texts. The CVL-CDSAML corpus addresses this need by establishing clear criteria for text inclusion and implementing systematic quality control measures. This foundation ensures that observed linguistic patterns reflect genuine historical developments rather than artifacts of inconsistent data.`
+  },
+  {
+    id: 6,
+    title: "Question: What exactly is the CVL-CDSAML Corpus?",
+    content: `## Question: What exactly is the CVL-CDSAML Corpus?
+
+**Ask yourself:**
+
+- What does CVL-CDSAML stand for?
+- How many texts does it contain?
+- What time period does it cover?`
+  },
+  {
+    id: 7,
+    title: "What is the CVL-CDSAML Corpus?",
+    content: `## What is the CVL-CDSAML Corpus?
+
+- **Purpose:** Foundation for a diachronic valency lexicon project
+- **Scope:** 338 historical texts covering **three millennia** of Greek language development
+- **Inclusion:** Parallel traditions from **Germanic** and **Romance** languages
+- **Approach:** Enables study of both internal and external language interactions
+
+The CVL-CDSAML (Corpus for Valency Lexicon - Corpus of Diachronic and Synchronic Analyses of Multiple Languages) serves as the textual database for extracting valency information across languages and time periods. Each text is digitally encoded with linguistic annotations that enable automatic extraction of verb-argument structures. The corpus architecture supports both synchronic comparison across languages and diachronic tracking of changes within individual languages.`
+  },
+  {
+    id: 8,
+    title: "Question: What research questions can this corpus address?",
+    content: `## Question: What research questions can this corpus address?
+
+**Think about:**
+
+- Internal vs. external language development
+- Genre and register effects
+- Historical transmission problems`
+  },
+  {
+    id: 9,
+    title: "Research Context & Methodology",
+    content: `## Research Context & Methodology
+
+The corpus allows researchers to analyze:
+
+- **Internal language development** patterns
+- **External language interactions** through contact
+- **Genre effects** on linguistic features
+- **Register variations** across time periods
+- **Transmission problems** in historical linguistic evidence
+
+*Based on Biber & Conrad (2009)*
+
+Our methodology combines variationist sociolinguistics with diachronic corpus linguistics to track how valency patterns change. For example, the corpus is structured to allow comparison of the same text (e.g., Genesis 1) across five Greek translations spanning 2000 years, enabling precise tracking of how specific verbs like *ποιέω* "to make" change their argument structures over time.`
+  },
+  {
+    id: 10,
+    title: "Question: Who funds this research and what is the timeline?",
+    content: `## Question: Who funds this research and what is the timeline?
+
+**Key questions:**
+
+- Which foundation supports the project?
+- What is the funding period?
+- What makes this project competitive?`
+  },
+  {
+    id: 11,
+    title: "Funding and Project Timeline",
+    content: `## Funding and Project Timeline
+
+**Hellenic Foundation for Research & Innovation (H.F.R.I.):**
+
+- **ELIDEK Excellence** grant program
+- **2024-2025** funding period
+- Competitive **national grant**
+- Recognition of project **significance**
+
+The H.F.R.I. ELIDEK Excellence grant provides substantial support for ambitious research projects in Greece. This competitive funding recognizes the innovative combination of traditional philological methods with computational approaches. The grant enables hiring of research assistants, acquisition of digital resources, and development of the computational infrastructure necessary for corpus processing and valency extraction.`
+  },
+  {
+    id: 12,
+    title: "Question: What translation theory underlies this research?",
+    content: `## Question: What translation theory underlies this research?
+
+**Consider:**
+
+- What is LCTT theory?
+- How does translation affect language change?
+- What is "translationese"?`
+  },
+  {
+    id: 13,
+    title: "Language Contact Through Translation (LCTT)",
+    content: `## Language Contact Through Translation (LCTT)
+
+**A Key Theoretical Framework:**
+
+- Translation as a venue for **language contact**
+- Translations may introduce **source language features** into target languages
+- Creates a controlled environment for studying **contact-induced change**
+- Distinguishes between **direct** and **indirect** contact effects
+
+LCTT theory, as developed by McLaughlin (2011) and others, provides a framework for understanding how translations serve as a unique form of language contact. Unlike spoken contact situations, translation creates a textual interface where source language structures may influence target language productions. This "translationese" effect can be measured and tracked over time, revealing patterns of influence that may eventually enter the standard language.`
+  },
+  {
+    id: 14,
+    title: "Question: What types of influential texts are included?",
+    content: `## Question: What types of influential texts are included?
+
+**Think about:**
+
+- What genres are represented?
+- Why are these texts "influential"?
+- What languages do they come from?`
+  },
+  {
+    id: 15,
+    title: "Influential Texts in the Corpus",
+    content: `## Influential Texts in the Corpus
+
+**Biblical and Religious Texts:**
+- Hebrew Bible / Old Testament
+- Greek New Testament
+- Septuagint (Greek translation of Hebrew scriptures)
+
+**Historical and Literary Works:**
+- Homer's *Iliad* and *Odyssey*
+- Herodotus' *Histories*
+- Byzantine chronicles
+
+**Why "Influential"?**
+These texts shaped language use across centuries through liturgical reading, educational curricula, and cultural prestige. Their translation and retranslation created chains of linguistic influence traceable through the corpus.`
+  },
+  {
+    id: 16,
+    title: "Question: How does the corpus handle multiple translations?",
+    content: `## Question: How does the corpus handle multiple translations?
+
+**Consider:**
+
+- What is "retranslation"?
+- Why translate the same text multiple times?
+- What can we learn from comparing translations?`
+  },
+  {
+    id: 17,
+    title: "Multiple Translations and Retranslations",
+    content: `## Multiple Translations and Retranslations
+
+**The corpus includes:**
+
+- **Original source texts** (Hebrew, Classical Greek)
+- **Multiple translations** of the same source into different target languages
+- **Retranslations** within the same language at different time periods
+
+**Example: Genesis 1**
+- Hebrew original
+- Septuagint (Greek, 150 BCE)
+- Byzantine Greek paraphrase
+- Modern Greek translation (20th century)
+
+This structure enables tracking of how the same semantic content is expressed differently across time and languages.`
+  },
+  {
+    id: 18,
+    title: "Question: What is the difference between passive and active retranslation?",
+    content: `## Question: What is the difference between passive and active retranslation?
+
+**Think about:**
+
+- What motivates retranslation?
+- When does the original translation become obsolete?
+- What role do ideological factors play?`
+  },
+  {
+    id: 19,
+    title: "Types of Retranslation",
+    content: `## Types of Retranslation
+
+**Passive Retranslation:**
+- Occurs when earlier translation is no longer accessible or intelligible
+- Language change makes original translation obsolete
+- Example: Modern Greek translations of the Septuagint
+
+**Active Retranslation:**
+- New translations created while earlier versions still accessible
+- Motivated by doctrinal, stylistic, or interpretive differences
+- Example: Multiple English Bible versions in the 20th century
+
+Both types provide valuable data for understanding language change and translation practices.`
+  },
+  {
+    id: 20,
+    title: "Question: What specific retranslation examples does the corpus include?",
+    content: `## Question: What specific retranslation examples does the corpus include?
+
+**Consider:**
+
+- What Greek translations are included?
+- What time span do they cover?
+- How do they differ linguistically?`
+  },
+  {
+    id: 21,
+    title: "Greek Biblical Retranslations in the Corpus",
+    content: `## Greek Biblical Retranslations in the Corpus
+
+**Old Testament Translations:**
+- **Septuagint** (c. 150 BCE)
+- **Aquila's translation** (2nd century CE)
+- **Byzantine paraphrases** (Medieval period)
+- **Modern Greek versions** (19th-20th century)
+
+**New Testament:**
+- **Original Greek** (1st-2nd century CE)
+- **Byzantine textual tradition**
+- **Modern Greek adaptations**
+
+This range enables tracking of Greek language development from Hellenistic through Byzantine to Modern periods.`
+  },
+  {
+    id: 22,
+    title: "Question: What is intralingual vs. interlingual translation?",
+    content: `## Question: What is intralingual vs. interlingual translation?
+
+**Think about:**
+
+- Translation within the same language vs. between languages
+- When is intralingual translation necessary?
+- What linguistic changes does it reveal?`
+  },
+  {
+    id: 23,
+    title: "Intralingual and Interlingual Translation",
+    content: `## Intralingual and Interlingual Translation
+
+**Interlingual Translation:**
+- Translation **between different languages**
+- Example: Hebrew → Greek (Septuagint)
+- Reveals cross-linguistic contact effects
+
+**Intralingual Translation:**
+- Translation **within the same language** across time periods
+- Example: Koine Greek → Modern Greek
+- Reveals internal language change patterns
+
+The corpus systematically includes both types to distinguish contact-induced change from natural language evolution.`
+  },
+  {
+    id: 24,
+    title: "Question: Why is intralingual translation linguistically significant?",
+    content: `## Question: Why is intralingual translation linguistically significant?
+
+**Consider:**
+
+- What changes between language stages?
+- How do translators update archaic features?
+- What remains constant despite time?`
+  },
+  {
+    id: 25,
+    title: "Significance of Intralingual Translation",
+    content: `## Significance of Intralingual Translation
+
+**Intralingual translation reveals:**
+
+- **Grammatical changes** (case system simplification)
+- **Lexical changes** (obsolete vocabulary replacement)
+- **Syntactic changes** (word order preferences)
+- **Stylistic changes** (register shifts)
+
+**Research Value:**
+- Controlled comparison (same semantic content)
+- Clear temporal boundaries
+- Identifiable translator decisions
+- Direct evidence of perceived archaism
+
+When a translator updates "archaic" Greek to "modern" Greek, their choices reveal what features have become obsolete or marked.`
+  },
+  {
+    id: 26,
+    title: "Passive Retranslation Explained",
+    content: `## Passive Retranslation Explained
+
+**Occurs when:** A previous translation becomes inaccessible or unintelligible to contemporary speakers
+
+**Example: Modern Greek Translations of the Old Testament**
+
+- The Septuagint (c. 150 BCE) became no longer intelligible to modern speakers
+- This necessitated new translation work for contemporary audiences`
+  },
+  {
+    id: 27,
+    title: "Active Retranslation Explained",
+    content: `## Active Retranslation Explained
+
+**Occurs when:** New translations offer competing perspectives based on different theological, doctrinal, or interpretive preferences
+
+**Example: English Bible Translations (19th-20th centuries)**
+
+- Protestant versions
+- Catholic versions
+- Each reflecting different theological and doctrinal preferences`
+  },
+  {
+    id: 28,
+    title: "Language Families in the Corpus",
+    content: `## Language Families in the Corpus
+
+The CVL-CDSAML corpus includes texts from **three Indo-European language families:**`
+  },
+  {
+    id: 29,
+    title: "The Three Language Families",
+    content: `## The Three Language Families
+
+1. **Hellenic**
+   - Greek (across all historical periods)
+
+2. **Germanic**
+   - English (various historical stages)
+
+3. **Romance**
+   - Latin
+   - French`
+  },
+  {
+    id: 30,
+    title: "Why These Languages?",
+    content: `## Why These Languages?
+
+**Strategic Selection Based On:**
+
+- Significant **attested history** of written contact
+- Long **documented traditions**
+- Rich **translation practices**
+- Extensive **historical records**`
+  },
+  {
+    id: 31,
+    title: "The Role of Original Texts",
+    content: `## The Role of Original Texts
+
+**Original influential texts are included as:**
+
+- **Source texts** for translation analysis
+- **Control group** to identify and filter:
+  - Source language influences
+  - Unique characteristics of translations
+  - "Translationese" phenomena
+
+*(Toury 1995)*`
+  },
+  {
+    id: 32,
+    title: "The Core Hellenic Tradition",
+    content: `## The Core Hellenic Tradition
+
+**Greek: The Longest Historical Record**
+
+- Written documents from **Mycenaean era** to present day
+- Unparalleled **continuity** of documentation
+- Critical for understanding **long-term language change**`
+  },
+  {
+    id: 33,
+    title: "Focus on Post-Classical Development",
+    content: `## Focus on Post-Classical Development
+
+The CVL-CDSAML corpus examines:
+
+- **Koine Greek** (Hellenistic and Roman periods)
+- **Byzantine Greek** (Medieval period)
+- **Modern Greek** varieties
+
+**Why?** This period represents a crucial time for studying Greek grammar shift`
+  },
+  {
+    id: 34,
+    title: "Grammatical Shift: Synthetic to Analytic",
+    content: `## Grammatical Shift: Synthetic to Analytic
+
+**Major Transition in Greek:**
+
+- From **synthetic structures** (morphologically complex)
+- To **analytic structures** (syntactically complex)
+
+**Key Research Question:** How and when did this shift occur?
+
+*(Browning 1983; Horrocks 2010)*`
+  },
+  {
+    id: 35,
+    title: "Dual Methodology Approach",
+    content: `## Dual Methodology Approach
+
+**Philological Curation:**
+
+- Expert text selection
+- Critical edition standards
+- Historical authenticity
+
+**+**
+
+**Computational Processing:**
+
+- Systematic analysis
+- Large-scale pattern detection
+- Reproducible results`
+  },
+  {
+    id: 36,
+    title: "Classical Greek Baseline",
+    content: `## Classical Greek Baseline
+
+**Herodotus' *Histories* provides:**
+
+- Evidence for **register variation** in Classical Greek
+- Contextual baseline for **later developments**
+- Comparison point for **linguistic change**
+
+*(Biber & Conrad 2009)*`
+  },
+  {
+    id: 37,
+    title: "The Koine Greek Core",
+    content: `## The Koine Greek Core
+
+**Foundation of the Early Corpus:**
+
+- **Septuagint** (Greek Old Testament, c. 150 BCE)
+- **New Testament** (1st-2nd century CE)
+- Other Koine texts from the **Hellenistic and Roman periods**`
+  },
+  {
+    id: 38,
+    title: "Significance of Koine Greek",
+    content: `## Significance of Koine Greek
+
+**Why Koine is Central:**
+
+- Transition period between Classical and Medieval Greek
+- Extensive **translation activity** (Hebrew → Greek)
+- **Widespread use** across the Mediterranean
+- Rich evidence for **language contact** phenomena
+- Foundation for **Byzantine** and **Modern Greek**`
+  },
+  {
+    id: 39,
+    title: "Summary: A Comprehensive Resource",
+    content: `## Summary: A Comprehensive Resource
+
+The CVL-CDSAML corpus provides:
+
+- **338 texts** across multiple languages
+- **Three millennia** of language history
+- **Systematic methodology** combining philology and computation
+- **Translation-based** approach to language contact
+- Foundation for **diachronic valency research**`
+  },
+  {
+    id: 40,
+    title: "Detailed Example: The Septuagint as a Translation Corpus",
+    content: `## Detailed Example: The Septuagint as a Translation Corpus
+
+**Historical Context:**
+
+- Translated in Alexandria, Egypt (3rd-2nd century BCE)
+- Hebrew Bible → Koine Greek
+- Major cultural and linguistic bridge
+
+**Research Value:**
+
+- Evidence of **Hebrew-Greek language contact**
+- Translation strategies and techniques
+- Lexical and syntactic innovations`
+  },
+  {
+    id: 41,
+    title: "Example: Septuagint Translation Patterns",
+    content: `## Example: Septuagint Translation Patterns
+
+**Hebrew Source Influence:**
+
+\`\`\`
+Hebrew: wayhi → Greek: kai egeneto (literal calque)
+"and it came to pass"
+\`\`\`
+
+**Translationese Features:**
+
+- Word-for-word translation approach
+- Preservation of Hebrew syntax patterns
+- Creation of new Greek semantic extensions`
+  },
+  {
+    id: 42,
+    title: "New Testament: A Koine Greek Case Study",
+    content: `## New Testament: A Koine Greek Case Study
+
+**Corpus Characteristics:**
+
+- Written in **Koine Greek** (1st-2nd century CE)
+- Multiple **authors** with varying linguistic backgrounds
+- Different **registers** and styles
+
+**Linguistic Features:**
+
+- Vernacular Koine grammar
+- Semitic influences from bilingual authors
+- Range from "sophisticated" to "simple" Greek`
+  },
+  {
+    id: 43,
+    title: "Example: Gospel Language Variation",
+    content: `## Example: Gospel Language Variation
+
+**Luke's Gospel:**
+
+- More **literary** Koine style
+- Classical influences
+- Sophisticated vocabulary
+
+**Mark's Gospel:**
+
+- More **colloquial** style
+- Simpler syntax
+- Oral narrative features
+
+*Same content, different linguistic realizations*`
+  },
+  {
+    id: 44,
+    title: "Byzantine Greek: The Medieval Transition",
+    content: `## Byzantine Greek: The Medieval Transition
+
+**Time Period:** 4th-15th centuries CE
+
+**Key Changes:**
+
+- Loss of **dative case** (replaced by prepositional phrases)
+- Simplification of **infinitive** system
+- Development of **periphrastic constructions**`
+  },
+  {
+    id: 45,
+    title: "Example: Dative Case Replacement",
+    content: `## Example: Dative Case Replacement
+
+**Classical/Koine Greek:**
+
+\`\`\`
+τῷ ἀνθρώπῳ (tō anthrōpō)
+"to the man" (dative case)
+\`\`\`
+
+**Byzantine/Modern Greek:**
+
+\`\`\`
+στον άνθρωπο (ston ánthropo)
+"to the man" (preposition + accusative)
+\`\`\``
+  },
+  {
+    id: 46,
+    title: "Modern Greek in the Corpus",
+    content: `## Modern Greek in the Corpus
+
+**Varieties Included:**
+
+- **Katharevousa** (formal, archaic)
+- **Dimotiki** (vernacular, spoken)
+- Modern translations of ancient texts
+
+**Research Focus:**
+
+- Completion of the synthetic→analytic shift
+- Standardization processes
+- Contemporary translation practices`
+  },
+  {
+    id: 47,
+    title: "Example: Multiple Greek Translations Compared",
+    content: `## Example: Multiple Greek Translations Compared
+
+**Source:** Old Testament passage
+
+**Septuagint** (150 BCE): Literal from Hebrew
+**Byzantine translation** (10th century): Simplified syntax
+**Modern translation** (20th century): Contemporary idiom
+
+**Analysis:** How do valency patterns change across 2000+ years?`
+  },
+  {
+    id: 48,
+    title: "Germanic Language Family: English Corpus",
+    content: `## Germanic Language Family: English Corpus
+
+**Historical Stages Included:**
+
+- **Old English** (Anglo-Saxon Bible translations)
+- **Middle English** (Wycliffe Bible, 14th century)
+- **Early Modern English** (King James Bible, 1611)
+- **Modern English** (20th-21st century translations)`
+  },
+  {
+    id: 49,
+    title: "Example: English Bible Translation Evolution",
+    content: `## Example: English Bible Translation Evolution
+
+**Same Verse Across Time:**
+
+**Wycliffe (1382):**
+*"In the bigynnyng God made of nouyt heuene and erthe"*
+
+**King James (1611):**
+*"In the beginning God created the heaven and the earth"*
+
+**NIV (1978):**
+*"In the beginning God created the heavens and the earth"*`
+  },
+  {
+    id: 50,
+    title: "Romance Languages: Latin Foundation",
+    content: `## Romance Languages: Latin Foundation
+
+**Latin Corpus Components:**
+
+- **Vulgate** (Jerome's Latin Bible, 4th century CE)
+- Medieval Latin texts
+- Original Latin works for comparison
+
+**Why Latin?**
+
+- Source language for Romance translations
+- Direct influence on ecclesiastical Greek
+- Control for translation directionality`
+  },
+  {
+    id: 51,
+    title: "Example: Latin Vulgate Influence",
+    content: `## Example: Latin Vulgate Influence
+
+**Vulgate Latin:**
+
+\`\`\`
+"Fiat lux" (let there be light)
+\`\`\`
+
+**Influenced translations in:**
+
+- French: "Que la lumière soit"
+- Italian: "Sia la luce"
+- Spanish: "Hágase la luz"`
+  },
+  {
+    id: 52,
+    title: "French in the Corpus",
+    content: `## French in the Corpus
+
+**Stages Represented:**
+
+- **Old French** Bible translations
+- **Middle French** versions
+- **Modern French** translations
+
+**Research Questions:**
+
+- How did French develop its analytical structures?
+- What role did Latin play in French syntax?`
+  },
+  {
+    id: 53,
+    title: "Computational Processing Pipeline",
+    content: `## Computational Processing Pipeline
+
+**Stage 1: Text Digitization**
+
+- OCR for printed sources (Tesseract with language-specific training)
+- Manual transcription for manuscripts (paleographic expertise)
+- Quality verification (double-checking, error correction)
+
+Digitization is the foundation of the entire project: physical texts must be converted to machine-readable format. For printed texts (19th-21st century), we use OCR technology trained on historical fonts; OCR output is manually verified for accuracy exceeding 99.5%. For manuscripts and early printed books, expert transcribers create diplomatic editions preserving orthographic features. Each digitized text receives a quality score, and texts below threshold undergo re-digitization. The corpus includes metadata tracking digitization method and quality for each text.`
+  },
+  {
+    id: 54,
+    title: "Question: What happens during text digitization?",
+    content: `## Question: What happens during text digitization?
+
+**Digitization process:**
+
+- How are printed texts digitized?
+- How are manuscripts transcribed?
+- What quality control measures are in place?`
+  },
+  {
+    id: 55,
+    title: "Computational Processing Pipeline (2)",
+    content: `## Computational Processing Pipeline (2)
+
+**Stage 2: Linguistic Annotation**
+
+- **Tokenization** (word segmentation using language-specific rules)
+- **Lemmatization** (dictionary form identification via lookup tables)
+- **Morphological tagging** (grammatical features: case, tense, number, etc.)
+- **Syntactic parsing** (sentence structure: dependency or constituent analysis)
+
+Linguistic annotation adds layers of linguistic information to raw text. Tokenization segments text into words, handling clitics and contractions appropriately for each language. Lemmatization links inflected forms to lexicon entries (e.g., ἔδωκεν → δίδωμι). Morphological tagging assigns grammatical features using taggers trained on historical language data. Syntactic parsing identifies grammatical relations between words, which is crucial for valency extraction. All annotation undergoes manual quality control, with inter-annotator agreement calculated at 95%+ for core features.`
+  },
+  {
+    id: 56,
+    title: "Question: What happens during linguistic annotation?",
+    content: `## Question: What happens during linguistic annotation?
+
+**Annotation layers:**
+
+- How are words segmented?
+- How are lemmas identified?
+- How is morphology tagged?`
+  },
+  {
+    id: 57,
+    title: "Computational Processing Pipeline (3)",
+    content: `## Computational Processing Pipeline (3)
+
+**Stage 3: Valency Extraction**
+
+- Identify predicates (verbs, adjectives, nouns requiring arguments)
+- Extract **argument structures** (what depends on the predicate)
+- Code **valency frames** (abstract patterns, e.g., NOM+ACC+DAT)
+- Track changes across time periods (compare frames diachronically)
+
+Valency extraction is semi-automatic: algorithms identify predicates and their dependents from syntactic parses, then linguists verify and classify the patterns. Each predicate instance is checked for its arguments (subject, objects, complements, adjuncts), and these are abstracted into valency frames. For example, from 100 instances of δίδωμι in a Koine text, the system extracts frame "NOM+ACC+DAT" occurring 87 times and "NOM+ACC" occurring 13 times. This quantitative data flows into the lexicon, documenting both dominant and minority patterns.`
+  },
+  {
+    id: 58,
+    title: "Example: Valency Pattern Extraction",
+    content: `## Example: Valency Pattern Extraction
+
+**Predicate:** δίδωμι (didōmi) "to give"
+
+**Classical Greek Valency:**
+
+- SUBJ (nominative) + OBJ1 (accusative) + OBJ2 (dative)
+- *"X gives Y to Z"*
+
+**Modern Greek Valency:**
+
+- SUBJ + OBJ1 + prepositional phrase (σε + accusative)
+- *"X gives Y to Z"* (different realization)`
+  },
+  {
+    id: 59,
+    title: "Question: How is the valency lexicon structured?",
+    content: `## Question: How is the valency lexicon structured?
+
+**Lexicon design:**
+
+- What information does each entry contain?
+- How are frames linked to examples?
+- What enables complex queries?`
+  },
+  {
+    id: 60,
+    title: "Valency Lexicon Structure",
+    content: `## Valency Lexicon Structure
+
+**Each Entry Contains:**
+
+- Lemma (base form)
+- Time period
+- Source text
+- Valency frame(s)
+- Example sentences
+- Frequency data
+
+The valency lexicon is structured as a relational database where each predicate entry links to multiple frames, and each frame links to attested examples from the corpus. The database schema includes tables for predicates, frames, arguments, and attestations, allowing complex queries like "all verbs that gained a prepositional complement between Classical and Byzantine periods." This structured approach enables both linguistic research and computational applications.`
+  },
+  {
+    id: 61,
+    title: "Question: What does the database schema look like?",
+    content: `## Question: What does the database schema look like?
+
+**Technical structure:**
+
+- What tables exist?
+- How are they related?
+- What queries are possible?`
+  },
+  {
+    id: 62,
+    title: "Valency Lexicon: Database Schema",
+    content: `## Valency Lexicon: Database Schema
+
+\`\`\`sql
+CREATE TABLE predicates (
+    id INT PRIMARY KEY,
+    lemma VARCHAR(100),
+    pos ENUM('VERB', 'ADJ', 'NOUN'),
+    language VARCHAR(10),
+    semantic_class VARCHAR(50)
+);
+
+CREATE TABLE valency_frames (
+    id INT PRIMARY KEY,
+    predicate_id INT,
+    period VARCHAR(50),
+    frame_structure TEXT,
+    frequency INT,
+    FOREIGN KEY (predicate_id) REFERENCES predicates(id)
+);
+
+CREATE TABLE attestations (
+    id INT PRIMARY KEY,
+    frame_id INT,
+    corpus_text_id VARCHAR(50),
+    sentence_id INT,
+    example_text TEXT,
+    FOREIGN KEY (frame_id) REFERENCES valency_frames(id)
+);
+\`\`\`
+
+This relational structure allows efficient querying across time periods, languages, and semantic classes. Researchers can extract all frames for a given predicate, all predicates with a specific frame type, or all changes between periods. The schema separates abstract frame descriptions from concrete corpus attestations, enabling statistical analysis of frame frequencies.`
+  },
+  {
+    id: 63,
+    title: "Question: Can you show a complete lexicon entry example?",
+    content: `## Question: Can you show a complete lexicon entry example?
+
+**Entry structure:**
+
+- What does a full JSON entry look like?
+- How is diachronic change represented?
+- What frequency data is included?`
+  },
+  {
+    id: 64,
+    title: "Valency Lexicon Entry Structure Example",
+    content: `## Valency Lexicon Entry Structure Example
+
+\`\`\`json
+{
+  "predicate": {
+    "lemma": "δίδωμι",
+    "gloss": "to give",
+    "pos": "VERB",
+    "language": "grc",
+    "semantic_class": "transfer"
+  },
+  "frames": [
+    {
+      "period": "classical",
+      "frame_id": "DIDOMI_CL_01",
+      "structure": "NOM + ACC + DAT",
+      "description": "Subject gives Object1 to Recipient",
+      "frequency": 487,
+      "examples": [...]
+    },
+    {
+      "period": "koine",
+      "frame_id": "DIDOMI_KO_01",
+      "structure": "NOM + ACC + DAT",
+      "frequency": 312,
+      "note": "Frame continues from Classical period"
+    },
+    {
+      "period": "byzantine",
+      "frame_id": "DIDOMI_BYZ_01",
+      "structure": "NOM + ACC + εἰς+ACC",
+      "frequency": 156,
+      "note": "Dative replaced by prepositional phrase"
+    },
+    {
+      "period": "modern",
+      "frame_id": "DIDOMI_MOD_01",
+      "structure": "NOM + ACC + σε+ACC",
+      "frequency": 203,
+      "note": "Modern preposition σε replaces εἰς"
+    }
+  ]
+}
+\`\`\`
+
+This JSON structure shows how a single predicate's valency evolves across four historical periods.`
+  },
+  {
+    id: 65,
+    title: "Question: What corpus statistics can you share?",
+    content: `## Question: What corpus statistics can you share?
+
+**Statistical overview:**
+
+- How many texts total?
+- How many tokens?
+- What is the distribution across periods?`
+  },
+  {
+    id: 66,
+    title: "Corpus Statistics Overview",
+    content: `## Corpus Statistics Overview
+
+**Total Corpus Size:**
+
+- **338 texts** across all languages
+- Approximately **5 million tokens** (words)
+- Coverage: **3000+ years** of linguistic history
+
+**Greek Subcorpus:**
+
+- **200+ texts** from Classical to Modern Greek
+- Dense coverage of **Koine** and **Byzantine** periods
+- Multiple versions of key texts (translations, retranslations)`
+  },
+  {
+    id: 67,
+    title: "Question: How are texts distributed across periods?",
+    content: `## Question: How are texts distributed across periods?
+
+**Period distribution:**
+
+- Which periods have most coverage?
+- Are there gaps in the record?
+- How is balance achieved?`
+  },
+  {
+    id: 68,
+    title: "Text Distribution by Period",
+    content: `## Text Distribution by Period
+
+**Greek Texts by Era:**
+
+- **Classical** (5th-4th c. BCE): ~30 texts
+- **Hellenistic/Koine** (3rd c. BCE - 3rd c. CE): ~80 texts
+- **Byzantine** (4th-15th c. CE): ~60 texts
+- **Modern** (19th-21st c.): ~40 texts
+
+**Notes:**
+- Koine period receives heaviest coverage (critical transition)
+- Byzantine period includes both learned and vernacular texts
+- Modern period includes both Katharevousa and Dimotiki`
+  },
+  {
+    id: 69,
+    title: "Question: What types of texts are included?",
+    content: `## Question: What types of texts are included?
+
+**Genre diversity:**
+
+- What genres are represented?
+- Why is genre diversity important?
+- How does genre affect valency?`
+  },
+  {
+    id: 70,
+    title: "Genre Distribution",
+    content: `## Genre Distribution
+
+**Major Categories:**
+
+- **Religious texts** (Bible, liturgy, patristics): 40%
+- **Historical/narrative** (chronicles, histories): 25%
+- **Technical/scientific** (medical, legal): 15%
+- **Literary** (poetry, fiction): 15%
+- **Documentary** (papyri, inscriptions): 5%
+
+**Rationale:**
+Genre affects language use significantly. By including multiple genres, we can distinguish genuine language change from genre-specific variation.`
+  },
+  {
+    id: 71,
+    title: "Question: How are translations aligned in the corpus?",
+    content: `## Question: How are translations aligned in the corpus?
+
+**Alignment methodology:**
+
+- How are parallel texts matched?
+- What level of alignment is used?
+- What tools support alignment?`
+  },
+  {
+    id: 72,
+    title: "Parallel Text Alignment",
+    content: `## Parallel Text Alignment
+
+**Alignment Levels:**
+
+- **Document level:** Matching entire texts (e.g., Genesis in Hebrew vs. Greek)
+- **Chapter/section level:** Subdivisions for navigation
+- **Verse/sentence level:** Fine-grained correspondence
+- **Word level:** For detailed translation analysis
+
+**Tools Used:**
+
+- Semi-automatic alignment with manual verification
+- Existing biblical reference systems (chapter:verse)
+- Custom alignment for non-biblical texts`
+  },
+  {
+    id: 73,
+    title: "Question: What annotation standards are used?",
+    content: `## Question: What annotation standards are used?
+
+**Standards compliance:**
+
+- What international standards apply?
+- How is interoperability ensured?
+- What metadata is recorded?`
+  },
+  {
+    id: 74,
+    title: "Annotation Standards",
+    content: `## Annotation Standards
+
+**Key Standards:**
+
+- **TEI** (Text Encoding Initiative) for text markup
+- **Universal Dependencies** for syntactic annotation
+- **PROIEL** tagset for historical languages
+- **ISO 639** for language codes
+
+**Benefits:**
+
+- Interoperability with other corpora
+- Reusability of tools and methods
+- Long-term data preservation
+- Community standards compliance`
+  },
+  {
+    id: 75,
+    title: "Question: What tools support the corpus infrastructure?",
+    content: `## Question: What tools support the corpus infrastructure?
+
+**Technical infrastructure:**
+
+- What software is used?
+- How is the corpus stored?
+- What query capabilities exist?`
+  },
+  {
+    id: 76,
+    title: "Technical Infrastructure",
+    content: `## Technical Infrastructure
+
+**Core Technologies:**
+
+- **Python** for processing pipelines
+- **PostgreSQL** for database storage
+- **Stanza NLP** for linguistic annotation
+- **Custom web interface** for browsing and querying
+
+**Query Capabilities:**
+
+- Full-text search with linguistic constraints
+- Valency pattern queries
+- Cross-period comparisons
+- Statistical analysis tools`
+  },
+  {
+    id: 77,
+    title: "Question: How does the PROIEL framework contribute?",
+    content: `## Question: How does the PROIEL framework contribute?
+
+**PROIEL integration:**
+
+- What is PROIEL?
+- How does it support this project?
+- What data does it provide?`
+  },
+  {
+    id: 78,
+    title: "PROIEL Framework Integration",
+    content: `## PROIEL Framework Integration
+
+**PROIEL (Pragmatic Resources in Old Indo-European Languages):**
+
+- Established corpus of ancient Indo-European texts
+- High-quality dependency annotation
+- Verified morphological analysis
+- Existing valency research
+
+**Integration Benefits:**
+
+- Leverages existing annotation work
+- Builds on proven methodologies
+- Enables comparison with related projects
+- Contributes back to PROIEL community`
+  },
+  {
+    id: 79,
+    title: "Question: What quality control measures are in place?",
+    content: `## Question: What quality control measures are in place?
+
+**Quality assurance:**
+
+- How is annotation quality verified?
+- What inter-annotator agreement is achieved?
+- How are errors corrected?`
+  },
+  {
+    id: 80,
+    title: "Quality Control Measures",
+    content: `## Quality Control Measures
+
+**Annotation Quality:**
+
+- **Double annotation** for critical texts
+- **Inter-annotator agreement** calculated: >95% for morphology
+- **Expert review** for difficult cases
+- **Automatic consistency checks**
+
+**Error Correction:**
+
+- Regular quality audits
+- User feedback integration
+- Version control for all changes
+- Documented correction history`
+  },
+  {
+    id: 81,
+    title: "Question: What is the concept of grammatical multiglossia?",
+    content: `## Question: What is the concept of grammatical multiglossia?
+
+**Multiglossia concept:**
+
+- What does "grammatical multiglossia" mean?
+- How does it affect historical texts?
+- Why is it important for this research?`
+  },
+  {
+    id: 82,
+    title: "Grammatical Multiglossia",
+    content: `## Grammatical Multiglossia
+
+**Definition:**
+
+The coexistence of multiple grammatical registers or varieties within a single speech community or textual tradition.
+
+**In Greek Context:**
+
+- Learned texts using archaic grammar
+- Vernacular texts using contemporary forms
+- Mixed texts showing both features
+
+**Research Implications:**
+
+- Cannot assume uniform grammar for any period
+- Must track register alongside time
+- Translations may show register shifts`
+  },
+  {
+    id: 83,
+    title: "Question: How do Byzantine texts reflect multiglossia?",
+    content: `## Question: How do Byzantine texts reflect multiglossia?
+
+**Byzantine evidence:**
+
+- What registers coexist in Byzantine Greek?
+- How do texts vary?
+- What does this tell us about language change?`
+  },
+  {
+    id: 84,
+    title: "Byzantine Multiglossia Example",
+    content: `## Byzantine Multiglossia Example
+
+**High Register (Learned):**
+
+- Atticizing style imitating Classical Greek
+- Preserved case system
+- Archaic vocabulary
+
+**Low Register (Vernacular):**
+
+- Simplified case system
+- Analytic constructions
+- Contemporary vocabulary
+
+**Mixed Texts:**
+
+- Chronicles often show both features
+- Religious texts vary by purpose
+- Official documents vs. private correspondence`
+  },
+  {
+    id: 85,
+    title: "Question: What role do Byzantine chronicles play?",
+    content: `## Question: What role do Byzantine chronicles play?
+
+**Chronicle significance:**
+
+- Why are chronicles valuable?
+- What linguistic features do they show?
+- Which chronicles are included?`
+  },
+  {
+    id: 86,
+    title: "Byzantine Chronicles in the Corpus",
+    content: `## Byzantine Chronicles in the Corpus
+
+**Included Chronicles:**
+
+- **Malalas' Chronicle** (6th century)
+- **Theophanes' Chronicle** (9th century)
+- **Chronicle of Morea** (14th century)
+
+**Linguistic Value:**
+
+- Narrative prose (natural syntax)
+- Range of registers
+- Datable compositions
+- Evidence for vernacular features
+
+Chronicles are particularly valuable because they often show more colloquial features than theological or literary texts.`
+  },
+  {
+    id: 87,
+    title: "Question: What are the key findings so far?",
+    content: `## Question: What are the key findings so far?
+
+**Preliminary results:**
+
+- What patterns have emerged?
+- What changes are documented?
+- What surprises have been found?`
+  },
+  {
+    id: 88,
+    title: "Preliminary Research Findings",
+    content: `## Preliminary Research Findings
+
+**Documented Patterns:**
+
+- **Dative loss:** Systematic across verb classes
+- **Infinitive replacement:** By να + finite verb
+- **Preposition increase:** Compensating for case loss
+- **Word order shifts:** More fixed SVO patterns
+
+**Unexpected Findings:**
+
+- Earlier vernacular features in "learned" texts
+- Translation influence on standard grammar
+- Register-specific preservation of archaic forms`
+  },
+  {
+    id: 89,
+    title: "Question: Can you show a specific example of valency change?",
+    content: `## Question: Can you show a specific example of valency change?
+
+**Case study:**
+
+- Which verb shows clear change?
+- What are the before/after patterns?
+- When did the change occur?`
+  },
+  {
+    id: 90,
+    title: "Case Study: The Verb πείθω (peíthō) 'to persuade'",
+    content: `## Case Study: The Verb πείθω (peíthō) 'to persuade'
+
+**Classical Greek:**
+
+- Active: NOM + ACC (persuade someone)
+- Middle: NOM + DAT (obey someone)
+
+**Byzantine Greek:**
+
+- Active: unchanged
+- Middle: NOM + ACC (dative lost)
+
+**Modern Greek:**
+
+- NOM + ACC only
+- Middle voice meaning lost
+
+This verb illustrates the broader pattern of dative loss affecting verb valency.`
+  },
+  {
+    id: 91,
+    title: "Question: What other verb classes show similar changes?",
+    content: `## Question: What other verb classes show similar changes?
+
+**Verb class patterns:**
+
+- Which semantic classes change most?
+- Are some classes more stable?
+- What predicts change?`
+  },
+  {
+    id: 92,
+    title: "Verb Classes and Valency Change",
+    content: `## Verb Classes and Valency Change
+
+**Most Changed Classes:**
+
+- **Ditransitive verbs:** Dative recipient → prepositional phrase
+- **Verbs of perception:** Genitive → accusative
+- **Impersonal verbs:** Dative experiencer → nominative subject
+
+**Most Stable Classes:**
+
+- **Basic transitive verbs:** NOM + ACC preserved
+- **Motion verbs:** Directional arguments stable
+- **Speech verbs:** Core arguments unchanged
+
+Semantic factors (animacy, volitionality) influence which argument marking changes.`
+  },
+  {
+    id: 93,
+    title: "Question: How does translation influence valency patterns?",
+    content: `## Question: How does translation influence valency patterns?
+
+**Translation effects:**
+
+- Do translations show different patterns?
+- Can translation introduce new structures?
+- How long do translation effects last?`
+  },
+  {
+    id: 94,
+    title: "Translation Effects on Valency",
+    content: `## Translation Effects on Valency
+
+**Observed Effects:**
+
+- **Source language calques:** Hebrew patterns in Septuagint Greek
+- **Conservatism:** Translations often preserve archaic structures
+- **Innovation:** New constructions to render foreign structures
+
+**Example:**
+
+The Hebrew cognate accusative construction (e.g., "he feared a great fear") appears in Septuagint Greek but is rare in native Greek texts.
+
+**Research Question:**
+
+Did Septuagint Greek influence later Byzantine developments?`
+  },
+  {
+    id: 95,
+    title: "Question: What about English valency change?",
+    content: `## Question: What about English valency change?
+
+**English comparison:**
+
+- How has English valency changed?
+- What parallels Greek?
+- What differs?`
+  },
+  {
+    id: 96,
+    title: "English Valency Change: Parallels to Greek",
+    content: `## English Valency Change: Parallels to Greek
+
+**Similar Patterns:**
+
+- Case loss (Old English → Middle English)
+- Increased preposition use
+- Fixed word order development
+
+**Differences:**
+
+- English: Almost complete case loss
+- Greek: Retained nominative/accusative distinction
+- English: Stronger word order constraints
+
+**Research Value:**
+
+Comparison reveals which changes are language-specific vs. typologically common.`
+  },
+  {
+    id: 97,
+    title: "Question: What computational challenges exist?",
+    content: `## Question: What computational challenges exist?
+
+**Technical challenges:**
+
+- What are the main processing difficulties?
+- How are historical languages handled?
+- What NLP limitations exist?`
+  },
+  {
+    id: 98,
+    title: "Computational Challenges",
+    content: `## Computational Challenges
+
+**Historical Language Processing:**
+
+- **Limited training data** for NLP models
+- **Orthographic variation** (no standardization)
+- **Ambiguity** without native speaker intuition
+
+**Solutions:**
+
+- Custom models trained on annotated historical texts
+- Rule-based preprocessing for normalization
+- Human-in-the-loop verification
+- Cross-linguistic transfer learning
+
+Modern NLP achieves 90%+ accuracy on modern languages; historical languages reach 85-90% with specialized models.`
+  },
+  {
+    id: 99,
+    title: "Question: How is the project ensuring sustainability?",
+    content: `## Question: How is the project ensuring sustainability?
+
+**Long-term planning:**
+
+- How will data be preserved?
+- How will the project continue after funding?
+- What open access provisions exist?`
+  },
+  {
+    id: 100,
+    title: "Sustainability and Open Access",
+    content: `## Sustainability and Open Access
+
+**Data Preservation:**
+
+- Multiple backup locations
+- Standard formats for longevity
+- Institutional repository hosting
+
+**Open Access Commitment:**
+
+- Corpus freely available upon completion
+- Documentation and tools shared
+- CC-BY licensing for derived works
+
+**Continuation Plans:**
+
+- Integration with existing digital humanities infrastructure
+- Community maintenance model
+- Ongoing annotation contributions`
+  },
+  {
+    id: 101,
+    title: "Question: What collaborations exist?",
+    content: `## Question: What collaborations exist?
+
+**Collaborative network:**
+
+- What institutions are involved?
+- What expertise is contributed?
+- How is collaboration structured?`
+  },
+  {
+    id: 102,
+    title: "International Collaborations",
+    content: `## International Collaborations
+
+**Partner Institutions:**
+
+- **University of Oslo** (PROIEL project)
+- **Cambridge University** (Byzantine studies)
+- **Harvard CHS** (Greek digital resources)
+- **Charles University Prague** (Slavic parallels)
+- **University of Bologna** (Latin corpus)
+
+**Collaboration Benefits:**
+
+- Shared methodological expertise
+- Access to existing resources
+- Broader linguistic coverage
+- International validation`
+  },
+  {
+    id: 103,
+    title: "Question: What are the educational applications?",
+    content: `## Question: What are the educational applications?
+
+**Teaching uses:**
+
+- How can the corpus support education?
+- What learning resources will be created?
+- Who are the target learners?`
+  },
+  {
+    id: 104,
+    title: "Educational Applications",
+    content: `## Educational Applications
+
+**For Students:**
+
+- Interactive valency exploration
+- Historical grammar exercises
+- Translation comparison tools
+
+**For Teachers:**
+
+- Ready-made example sets
+- Progression tracking resources
+- Cross-linguistic comparison materials
+
+**For Researchers:**
+
+- Training data for NLP
+- Benchmark datasets
+- Reproducible research platform`
+  },
+  {
+    id: 105,
+    title: "Question: What future extensions are planned?",
+    content: `## Question: What future extensions are planned?
+
+**Future plans:**
+
+- What languages might be added?
+- What features will be developed?
+- What is the long-term vision?`
+  },
+  {
+    id: 106,
+    title: "Future Extensions",
+    content: `## Future Extensions
+
+**Planned Additions:**
+
+- **More languages:** Slavic, Armenian, Georgian
+- **More genres:** Technical, legal, epistolary
+- **More periods:** Archaic Greek, Late Latin
+
+**Feature Development:**
+
+- Enhanced visualization tools
+- Automated change detection
+- Machine learning integration
+- API for external applications
+
+**Vision:**
+
+Become the reference corpus for diachronic Indo-European valency research.`
+  },
+  {
+    id: 107,
+    title: "Question: What events will showcase this research?",
+    content: `## Question: What events will showcase this research?
+
+**Upcoming events:**
+
+- What conferences are planned?
+- What workshops will be held?
+- How can others participate?`
+  },
+  {
+    id: 108,
+    title: "Publications from the Project",
+    content: `## Publications from the Project
+
+**Expected Outputs:**
+
+- **Volume 1:** Corpus design and methodology
+- **Volume 2:** Greek valency patterns (this paper!)
+- **Volume 3:** Cross-linguistic comparisons
+- **Valency lexicon** (online database)`
+  },
+  {
+    id: 109,
+    title: "Timeline and Milestones",
+    content: `## Timeline and Milestones
+
+**2024-2025 (Current Phase):**
+
+- Complete core text processing
+- Initial valency lexicon release
+- Publication of research findings
+- Platform beta launch
+
+**Future Phases:**
+
+- Corpus expansion
+- Enhanced computational tools
+- Broader community engagement`
+  },
+  {
+    id: 110,
+    title: "Project Team and Expertise",
+    content: `## Project Team and Expertise
+
+**Multidisciplinary Team:**
+
+- **Historical linguists**
+- **Classical philologists**
+- **Computational linguists**
+- **Software developers**
+- **Research assistants**`
+  },
+  {
+    id: 111,
+    title: "Funding and Support",
+    content: `## Funding and Support
+
+**Hellenic Foundation for Research & Innovation (H.F.R.I.):**
+
+- **ELIDEK Excellence** grant program
+- **2024-2025** funding period
+- Competitive **national grant**
+- Recognition of project **significance**`
+  },
+  {
+    id: 112,
+    title: "Broader Impact: Digital Humanities",
+    content: `## Broader Impact: Digital Humanities
+
+**Contribution to Field:**
+
+- Model for **large-scale** historical corpus projects
+- Integration of **traditional** and **digital** methods
+- **Sustainable** infrastructure design
+- **Replicable** methodology`
+  },
+  {
+    id: 113,
+    title: "Question: What are the main takeaways from this presentation?",
+    content: `## Question: What are the main takeaways from this presentation?
+
+**Summary points:**
+
+- What is the scope?
+- What is the methodology?
+- What is the significance?`
+  },
+  {
+    id: 114,
+    title: "Key Takeaways",
+    content: `## Key Takeaways
+
+✅ **338 texts** across **3000+ years**
+✅ **Multiple languages** and translation traditions
+✅ **Philology + Computation** = powerful methodology
+✅ **Valency** as lens for understanding language change
+✅ **Open access** resource for global research community`
+  },
+  {
+    id: 115,
+    title: "Theoretical Significance",
+    content: `## Theoretical Significance
+
+**Why This Matters:**
+
+- Understanding **mechanisms** of language change
+- Documenting **long-term** syntactic evolution
+- Revealing **contact effects** in written language
+- Building **empirical foundation** for diachronic theory`
+  },
+  {
+    id: 116,
+    title: "Practical Applications Beyond Academia",
+    content: `## Practical Applications Beyond Academia
+
+**Real-World Uses:**
+
+- **Translation technology** (machine translation of historical texts)
+- **Language learning** resources
+- **Cultural heritage** preservation
+- **Digital archive** infrastructure`
+  },
+  {
+    id: 117,
+    title: "Vision for the Future",
+    content: `## Vision for the Future
+
+**Long-Term Goals:**
+
+- Become the **reference corpus** for diachronic Greek
+- Expand to include **more languages**
+- Develop **advanced computational tools**
+- Foster **international collaboration**`
+  },
+  {
+    id: 118,
+    title: "How to Get Involved",
+    content: `## How to Get Involved
+
+**For Researchers:**
+
+- Access the corpus (upon release)
+- Contribute annotations
+- Propose collaborative projects
+- Cite and build upon the work
+
+**For Students:**
+
+- Use for thesis research
+- Participate in training workshops
+- Explore teaching materials`
+  },
+  {
+    id: 119,
+    title: "Contact and Resources",
+    content: `## Contact and Resources
+
+**Project Website:** [Coming soon]
+**Principal Investigator:** Nikolaos Lavidas
+**Institution:** University of Athens
+**Funding:** H.F.R.I. - ELIDEK Excellence Grant`
+  },
+  {
+    id: 120,
+    title: "Thank You!",
+    content: `## Thank You!
+
+**Questions & Discussion**
+
+*The Textual Foundation and Computational Architecture of the CVL-CDSAML Corpus*
+
+**Building bridges between past and present, philology and computation**`
+  }
+];
+
+// App state
+let currentSlide = 0;
+let showEditor = true;
+let searchTerm = '';
+let slides = [...slidesData];
+
+// Render functions
+function parseMarkdown(text) {
+    let html = text
+        // Headers
+        .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+        .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+        .replace(/^### (.+)$/gm, '<h3>$3</h3>')
+        // Code blocks
+        .replace(/```(\w+)?\n([\s\S]*?)```/g, '<pre><code>$2</code></pre>')
+        // Inline code
+        .replace(/`([^`]+)`/g, '<code>$1</code>')
+        // Bold
+        .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+        // Italic
+        .replace(/\*([^*]+)\*/g, '<em>$1</em>')
+        // Unordered lists
+        .replace(/^- (.+)$/gm, '<li>$1</li>')
+        // Ordered lists
+        .replace(/^\d+\. (.+)$/gm, '<li>$1</li>')
+        // Links
+        .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2">$1</a>')
+        // Paragraphs
+        .replace(/\n\n/g, '</p><p>')
+        // Line breaks
+        .replace(/\n/g, '<br>');
+    
+    // Wrap lists
+    html = html.replace(/(<li>.*<\/li>)/gs, '<ul>$1</ul>');
+    html = html.replace(/<\/ul>\s*<ul>/g, '');
+    
+    return '<p>' + html + '</p>';
+}
+
+function renderSidebar() {
+    const filteredSlides = slides.filter(s => 
+        s.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        s.content.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+    
+    return `
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>📑 Slides (${slides.length})</h3>
+                <input type="text" class="search-box" placeholder="Search slides..." 
+                    value="${searchTerm}" onkeyup="handleSearch(this.value)">
+            </div>
+            <div class="slide-list">
+                ${filteredSlides.map(slide => `
+                    <div class="slide-item ${slide.id - 1 === currentSlide ? 'active' : ''}"
+                         onclick="goToSlide(${slide.id - 1})">
+                        <div class="slide-item-number">Slide ${slide.id}</div>
+                        <div class="slide-item-title">${escapeHtml(slide.title)}</div>
+                    </div>
+                `).join('')}
+            </div>
+        </div>
+    `;
+}
+
+function renderToolbar() {
+    return `
+        <div class="toolbar">
+            <div class="toolbar-group">
+                <button class="btn-nav" onclick="prevSlide()" ${currentSlide === 0 ? 'disabled' : ''}>◀</button>
+                <span class="slide-counter">${currentSlide + 1} / ${slides.length}</span>
+                <button class="btn-nav" onclick="nextSlide()" ${currentSlide === slides.length - 1 ? 'disabled' : ''}>▶</button>
+            </div>
+            <div class="toolbar-group mode-toggle">
+                <button class="btn-secondary ${showEditor ? 'active' : ''}" onclick="toggleEditor(true)">Edit Mode</button>
+                <button class="btn-secondary ${!showEditor ? 'active' : ''}" onclick="toggleEditor(false)">View Only</button>
+            </div>
+            <div class="toolbar-group">
+                <button class="btn-secondary" onclick="addSlide()">+ Add Slide</button>
+                <button class="btn-secondary" onclick="duplicateSlide()">📋 Duplicate</button>
+                <button class="btn-secondary" onclick="deleteSlide()">🗑 Delete</button>
+            </div>
+            <div class="toolbar-group">
+                <button class="btn-primary" onclick="exportMarkdown()">📥 Export MD</button>
+                <button class="btn-primary" onclick="exportHTML()">📄 Export HTML</button>
+            </div>
+        </div>
+    `;
+}
+
+function renderPreview() {
+    const slide = slides[currentSlide];
+    return `
+        <div class="preview-panel">
+            <div class="slide-preview">
+                ${parseMarkdown(slide.content)}
+            </div>
+        </div>
+    `;
+}
+
+function renderEditor() {
+    const slide = slides[currentSlide];
+    return `
+        <div class="editor-panel ${!showEditor ? 'hidden' : ''}">
+            <div class="editor-header">
+                <h4>✏️ Edit Slide ${currentSlide + 1}</h4>
+                <span style="color: #a5f3fc; font-size: 12px;">Markdown supported</span>
+            </div>
+            <div class="editor-content">
+                <textarea id="slide-editor" onkeyup="updateSlideContent(this.value)">${escapeHtml(slide.content)}</textarea>
+            </div>
+        </div>
+    `;
+}
+
+function render() {
+    document.getElementById('app').innerHTML = `
+        <div class="app-container">
+            ${renderSidebar()}
+            <div class="main-content">
+                ${renderToolbar()}
+                <div class="edit-area">
+                    ${renderPreview()}
+                    ${renderEditor()}
+                </div>
+            </div>
+        </div>
+        <div class="shortcuts-panel">
+            <h4>⌨️ Shortcuts</h4>
+            <div class="shortcut-item">Previous <span class="shortcut-key">←</span></div>
+            <div class="shortcut-item">Next <span class="shortcut-key">→</span></div>
+            <div class="shortcut-item">Toggle Edit <span class="shortcut-key">E</span></div>
+            <div class="shortcut-item">Save <span class="shortcut-key">Ctrl+S</span></div>
+        </div>
+        <div class="toast" id="toast"></div>
+    `;
+}
+
+// Helper functions
+function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+}
+
+function showToast(message) {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2000);
+}
+
+// Navigation
+function goToSlide(index) {
+    currentSlide = Math.max(0, Math.min(slides.length - 1, index));
+    render();
+}
+
+function nextSlide() {
+    if (currentSlide < slides.length - 1) {
+        currentSlide++;
+        render();
+    }
+}
+
+function prevSlide() {
+    if (currentSlide > 0) {
+        currentSlide--;
+        render();
+    }
+}
+
+// Editing
+function toggleEditor(show) {
+    showEditor = show;
+    render();
+}
+
+function updateSlideContent(content) {
+    slides[currentSlide].content = content;
+    // Update title from first heading
+    const titleMatch = content.match(/^#+ (.+)$/m);
+    if (titleMatch) {
+        slides[currentSlide].title = titleMatch[1];
+    }
+    // Debounced preview update
+    clearTimeout(window.updateTimeout);
+    window.updateTimeout = setTimeout(() => {
+        document.querySelector('.slide-preview').innerHTML = parseMarkdown(content);
+        // Update sidebar title
+        const sidebarItem = document.querySelector('.slide-item.active .slide-item-title');
+        if (sidebarItem) sidebarItem.textContent = slides[currentSlide].title;
+    }, 100);
+}
+
+function handleSearch(term) {
+    searchTerm = term;
+    render();
+}
+
+// Slide management
+function addSlide() {
+    const newSlide = {
+        id: slides.length + 1,
+        title: 'New Slide',
+        content: '## New Slide\n\nAdd your content here.'
+    };
+    slides.splice(currentSlide + 1, 0, newSlide);
+    // Renumber slides
+    slides.forEach((s, i) => s.id = i + 1);
+    currentSlide++;
+    render();
+    showToast('Slide added');
+}
+
+function duplicateSlide() {
+    const current = slides[currentSlide];
+    const newSlide = {
+        id: slides.length + 1,
+        title: current.title + ' (copy)',
+        content: current.content
+    };
+    slides.splice(currentSlide + 1, 0, newSlide);
+    slides.forEach((s, i) => s.id = i + 1);
+    currentSlide++;
+    render();
+    showToast('Slide duplicated');
+}
+
+function deleteSlide() {
+    if (slides.length <= 1) {
+        showToast('Cannot delete last slide');
+        return;
+    }
+    if (confirm('Delete this slide?')) {
+        slides.splice(currentSlide, 1);
+        slides.forEach((s, i) => s.id = i + 1);
+        if (currentSlide >= slides.length) currentSlide = slides.length - 1;
+        render();
+        showToast('Slide deleted');
+    }
+}
+
+// Export functions
+function exportMarkdown() {
+    let md = '---\nmarp: true\ntheme: gaia\n---\n\n';
+    slides.forEach((slide, i) => {
+        md += slide.content + '\n\n---\n\n';
+    });
+    
+    const blob = new Blob([md], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'CVL-CDSAML_presentation.md';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('Markdown exported');
+}
+
+function exportHTML() {
+    let html = `<!DOCTYPE html>
+<html>
+<head>
+    <title>CVL-CDSAML Corpus Presentation</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Segoe UI', sans-serif; }
+        .slide {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #7e22ce 100%);
+            color: #f8fafc;
+            padding: 60px;
+            page-break-after: always;
+        }
+        h1 { color: #fbbf24; border-bottom: 4px solid #fbbf24; padding-bottom: 20px; margin-bottom: 30px; }
+        h2 { color: #60a5fa; border-left: 6px solid #60a5fa; padding-left: 20px; margin-bottom: 20px; }
+        strong { color: #fcd34d; }
+        em { color: #a5f3fc; }
+        ul, ol { margin: 20px 0; padding-left: 30px; line-height: 1.8; }
+        p { line-height: 1.6; margin: 15px 0; }
+        code { background: rgba(30,41,59,0.8); color: #86efac; padding: 4px 8px; border-radius: 4px; }
+        pre { background: rgba(30,41,59,0.9); padding: 15px; border-radius: 6px; margin: 15px 0; overflow-x: auto; }
+        pre code { background: none; padding: 0; }
+        @media print { .slide { page-break-after: always; } }
+    </style>
+</head>
+<body>
+`;
+    
+    slides.forEach((slide, i) => {
+        html += `<div class="slide">\n${parseMarkdown(slide.content)}\n</div>\n`;
+    });
+    
+    html += '</body></html>';
+    
+    const blob = new Blob([html], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'CVL-CDSAML_presentation.html';
+    a.click();
+    URL.revokeObjectURL(url);
+    showToast('HTML exported');
+}
+
+// Keyboard shortcuts
+document.addEventListener('keydown', e => {
+    // Don't capture if typing in textarea
+    if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') {
+        if (e.ctrlKey && e.key === 's') {
+            e.preventDefault();
+            showToast('Changes auto-saved');
+        }
+        return;
+    }
+    
+    if (e.key === 'ArrowRight') nextSlide();
+    else if (e.key === 'ArrowLeft') prevSlide();
+    else if (e.key === 'e' || e.key === 'E') { toggleEditor(!showEditor); }
+});
+
+// Initialize
+render();
+    </script>
+</body>
+</html>
