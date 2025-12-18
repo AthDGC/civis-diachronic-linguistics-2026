@@ -245,14 +245,14 @@
         <div class="container text-center">
             <h2>Join Us in 2026</h2>
             <p class="lead">Applications open for BA, MA, and PhD students from CIVIS Alliance universities</p>
-            <p><strong>Application Deadline:</strong> <span id="deadline-date">October 30, 2026</span></p>
+            <p><strong>Spring School:</strong> April 20–24, 2026</p>
             <div class="social-share">
                 <span>Share this programme: </span>
                 <a href="#" class="social-link" onclick="shareOnFacebook()"><i class="fab fa-facebook-f"></i></a>
                 <a href="#" class="social-link" onclick="shareOnTwitter()"><i class="fab fa-twitter"></i></a>
                 <a href="#" class="social-link" onclick="shareOnLinkedIn()"><i class="fab fa-linkedin-in"></i></a>
             </div>
-            <a href="registration.html" class="btn-large">Apply Now <i class="fas fa-arrow-right"></i></a>
+            <a href="program.html" class="btn-large">View Full Programme <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -415,15 +415,15 @@
     <div id="countdown-modal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <h3>Application Deadline</h3>
-            <p>Apply before October 30, 2026</p>
+            <h3>First Class Countdown</h3>
+            <p>Spring School starts in April 2026</p>
             <div id="countdown-timer" class="countdown">
                 <div class="countdown-item"><span id="days">00</span><small>Days</small></div>
                 <div class="countdown-item"><span id="hours">00</span><small>Hours</small></div>
                 <div class="countdown-item"><span id="minutes">00</span><small>Minutes</small></div>
                 <div class="countdown-item"><span id="seconds">00</span><small>Seconds</small></div>
             </div>
-            <a href="registration.html" class="btn-primary">Apply Now</a>
+            <a href="program.html" class="btn-primary">View Programme</a>
         </div>
     </div>
 
@@ -461,7 +461,7 @@
 
             // Countdown Timer
             function updateCountdown() {
-                const deadline = new Date('October 30, 2026 23:59:59').getTime();
+                const deadline = new Date('April 20, 2026 09:00:00').getTime();
                 const now = new Date().getTime();
                 const difference = deadline - now;
 
@@ -476,7 +476,7 @@
                     document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
                     document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
                 } else {
-                    document.getElementById('countdown-timer').innerHTML = '<div class="countdown-item"><span>Applications Closed</span></div>';
+                    document.getElementById('countdown-timer').innerHTML = '<div class="countdown-item"><span>Spring School Started!</span></div>';
                 }
             }
 

@@ -1033,3 +1033,18 @@ footer {
     color: white;
     transform: translateY(-3px);
 }
+
+/* Page Header Visibility Fix */
+.page-header {
+    background: linear-gradient(rgba(0, 54, 105, 0.85), rgba(0, 54, 105, 0.85)) !important;
+    color: white !important;
+    margin-top: 0 !important;
+}
+
+/* Ensure proper contrast on all sub-pages */
+.professors-section,
+.contact-section,
+.venue-section {
+    background: white !important;
+    padding-top: 2rem !important;
+}
