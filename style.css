@@ -69,8 +69,8 @@ a:hover { opacity: 0.7; }
     padding: 0 2rem;
 }
 
-.text-center { text-center; }
-.mb-large { margin-bottom: 4rem; }
+.text-center { text-align: center; }
+.mb-large { margin-bottom: 3.5rem; }
 
 /* ==== Navigation ==== */
 nav {
@@ -84,14 +84,14 @@ nav {
 .nav-container {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 1.5rem 2rem;
+    padding: 1.25rem 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .nav-brand h1 {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     margin: 0;
     font-weight: 700;
 }
@@ -100,17 +100,31 @@ nav {
     font-size: 0.875rem;
     color: var(--gray);
     margin: 0;
+    font-weight: 400;
 }
 
 .nav-menu {
     display: flex;
     gap: 2rem;
     list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu li {
+    margin: 0;
+    padding: 0;
 }
 
 .nav-menu a {
     color: var(--gray-dark);
     font-weight: 500;
+    font-size: 0.9375rem;
+    text-decoration: none;
+}
+
+.nav-menu a:hover {
+    color: var(--accent);
 }
 
 .mobile-toggle {
@@ -119,12 +133,13 @@ nav {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    color: var(--gray-dark);
 }
 
 /* ==== Hero Large ==== */
 .hero-large {
     position: relative;
-    height: 600px;
+    height: 500px;
     overflow: hidden;
 }
 
@@ -140,7 +155,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.45);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -155,12 +170,12 @@ nav {
 
 .hero-text h1 {
     color: white;
-    font-size: 4rem;
-    margin-bottom: 1.5rem;
+    font-size: 3.5rem;
+    margin-bottom: 1.25rem;
 }
 
 .hero-text p {
-    font-size: 1.5rem;
+    font-size: 1.375rem;
     margin-bottom: 2rem;
     opacity: 0.95;
 }
@@ -221,7 +236,7 @@ nav {
 .facts-bar {
     background: var(--white);
     border-bottom: 1px solid var(--border);
-    padding: 3rem 0;
+    padding: 2.5rem 0;
 }
 
 .facts-grid {
@@ -244,7 +259,7 @@ nav {
 
 /* ==== Content Sections ==== */
 .content-section {
-    padding: 5rem 0;
+    padding: 4rem 0;
 }
 
 .bg-light {
@@ -270,7 +285,7 @@ nav {
 
 /* ==== Feature Cards ==== */
 .feature-cards {
-    padding: 5rem 0;
+    padding: 4rem 0;
     background: var(--bg-light);
 }
 
@@ -367,7 +382,7 @@ nav {
 }
 
 .venue-text {
-    padding: 5rem 4rem;
+    padding: 4rem 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -392,7 +407,7 @@ nav {
 
 /* ==== CTA Section ==== */
 .cta-section {
-    padding: 5rem 0;
+    padding: 4rem 0;
     text-align: center;
     background: var(--bg-light);
 }
@@ -414,6 +429,38 @@ footer {
     background: var(--gray-dark);
     color: var(--gray-light);
     padding: 4rem 0 2rem;
+}
+
+/* ==== Faculty List ==== */
+.faculty-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+.faculty-compact {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.faculty-compact div {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.faculty-compact strong {
+    display: block;
+    font-size: 1.0625rem;
+    color: var(--black);
+    margin-bottom: 0.25rem;
+}
+
+.faculty-compact p {
+    color: var(--gray);
+    font-size: 0.9375rem;
+    margin: 0;
 }
 
 .footer-grid {
@@ -462,7 +509,8 @@ footer {
     .card-grid-3,
     .split-content,
     .venue-content,
-    .footer-grid {
+    .footer-grid,
+    .faculty-list {
         grid-template-columns: 1fr;
     }
     
