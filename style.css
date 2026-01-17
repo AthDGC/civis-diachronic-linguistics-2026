@@ -13,7 +13,10 @@
     --gray-light: #999999;
     --border: #dddddd;
     --white: #ffffff;
-    --bg-light: #f8f8f8;
+    --bg-page: #fbf7ef;
+    --bg-surface: #ffffff;
+    --bg-soft: #f6f2e8;
+    --border-light: #ebe3d6;
     --accent: #0066cc;
     --accent-light: #e6f2ff;
     --accent-dark: #0052a3;
@@ -31,6 +34,7 @@ body {
     font-size: 16px;
     line-height: 1.6;
     color: var(--gray-dark);
+    background-color: var(--bg-page);
 }
 
 /* ==== Typography ==== */
@@ -107,8 +111,8 @@ a:hover {
 
 /* ==== Navigation ==== */
 nav {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-light);
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -188,7 +192,7 @@ nav {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: linear-gradient(135deg, rgba(251, 247, 239, 0.85) 0%, rgba(246, 242, 232, 0.9) 50%, rgba(251, 247, 239, 0.85) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -196,13 +200,13 @@ nav {
 
 .hero-text {
     text-align: center;
-    color: white;
+    color: var(--gray-dark);
     max-width: 800px;
     padding: 2rem;
 }
 
 .hero-text h1 {
-    color: white;
+    color: var(--black);
     font-size: 3.5rem;
     margin-bottom: 1.25rem;
 }
@@ -295,8 +299,8 @@ nav {
 
 /* ==== Facts Bar ==== */
 .facts-bar {
-    background: var(--white);
-    border-bottom: 1px solid var(--border);
+    background: var(--bg-surface);
+    border-bottom: 1px solid var(--border-light);
     padding: 2.5rem 0;
 }
 
@@ -324,7 +328,7 @@ nav {
 }
 
 .bg-light {
-    background: var(--bg-light);
+    background: var(--bg-soft);
 }
 
 .split-content {
@@ -347,7 +351,7 @@ nav {
 /* ==== Feature Cards ==== */
 .feature-cards {
     padding: 4rem 0;
-    background: var(--bg-light);
+    background: var(--bg-soft);
 }
 
 .card-grid-3 {
@@ -357,7 +361,7 @@ nav {
 }
 
 .feature-card {
-    background: white;
+    background: var(--bg-surface);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
 }
@@ -433,7 +437,7 @@ nav {
 
 /* ==== Venue Feature ==== */
 .venue-feature {
-    background: var(--white);
+    background: var(--bg-surface);
 }
 
 .venue-content {
@@ -447,6 +451,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: var(--black);
 }
 
 .venue-text h2 {
@@ -456,7 +461,6 @@ nav {
 .venue-text p {
     font-size: 1.125rem;
     line-height: 1.8;
-    color: var(--gray);
     margin-bottom: 2rem;
 }
 
@@ -470,11 +474,12 @@ nav {
 .cta-section {
     padding: 4rem 0;
     text-align: center;
-    background: var(--bg-light);
+    background: var(--white);
 }
 
 .cta-section h2 {
     margin-bottom: 1rem;
+    color: var(--black);
 }
 
 .cta-section .lead {
@@ -483,13 +488,15 @@ nav {
 
 .cta-section p {
     margin-bottom: 2rem;
+    color: var(--gray);
 }
 
 /* ==== Footer ==== */
 footer {
-    background: var(--gray-dark);
-    color: var(--gray-light);
+    background: var(--white);
+    color: var(--black);
     padding: 4rem 0 2rem;
+    border-top: 1px solid var(--border-light);
 }
 
 /* ==== Faculty List ==== */
@@ -532,7 +539,7 @@ footer {
 }
 
 .footer-col h4 {
-    color: white;
+    color: var(--black);
     font-size: 1rem;
     margin-bottom: 1rem;
 }
@@ -546,11 +553,11 @@ footer {
 }
 
 .footer-col a {
-    color: var(--gray-light);
+    color: var(--gray);
 }
 
 .footer-col a:hover {
-    color: white;
+    color: var(--accent);
 }
 
 .footer-bottom {
