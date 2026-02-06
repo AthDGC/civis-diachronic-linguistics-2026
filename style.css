@@ -508,5 +508,56 @@
         });
     </script>
 </body>
+/* IMPROVED NAVIGATION STYLING - Add to your CSS */
 
+/* Better navigation appearance */
+nav {
+    background: rgba(255, 255, 255, 0.98) !important;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+
+.nav-menu {
+    background: transparent !important;
+}
+
+.nav-menu li a {
+    color: #333 !important;
+    font-weight: 500 !important;
+    padding: 0.75rem 1.5rem !important;
+    border-radius: 6px !important;
+    transition: all 0.3s ease !important;
+}
+
+.nav-menu li a:hover {
+    background: rgba(0, 102, 204, 0.1) !important;
+    color: #0066cc !important;
+}
+
+/* Mobile menu improvements */
+@media (max-width: 768px) {
+    .nav-menu {
+        background: white !important;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15) !important;
+        border-radius: 8px !important;
+        margin-top: 0.5rem !important;
+    }
+    
+    .nav-menu li a {
+        padding: 1rem 1.5rem !important;
+        border-bottom: 1px solid #f0f0f0 !important;
+    }
+    
+    .nav-menu li:last-child a {
+        border-bottom: none !important;
+    }
+}
+
+.mobile-toggle {
+    background: #0066cc !important;
+    color: white !important;
+    padding: 0.5rem !important;
+    border-radius: 4px !important;
+}
 </html>
