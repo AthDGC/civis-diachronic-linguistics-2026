@@ -167,6 +167,7 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            align-items: center;
         }
 
         .nav-menu li {
@@ -185,6 +186,61 @@
             color: var(--accent);
         }
 
+        /* ---- Dropdown Styles (New) ---- */
+        .nav-menu li.dropdown {
+            position: relative;
+        }
+
+        .nav-menu .dropdown-toggle {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+
+        .nav-menu .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--bg-surface);
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            padding: 0.5rem 0;
+            min-width: 220px;
+            z-index: 1001;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        /* Show dropdown on hover for desktop */
+        .nav-menu li.dropdown:hover .dropdown-menu {
+            display: flex;
+        }
+
+        .nav-menu .dropdown-menu li {
+            margin: 0;
+            width: 100%;
+        }
+
+        .nav-menu .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border-light);
+            font-size: 0.9rem;
+        }
+
+        .nav-menu .dropdown-menu li:last-child a {
+            border-bottom: none;
+        }
+
+        .nav-menu .dropdown-menu a:hover {
+            background: var(--bg-soft);
+            color: var(--accent);
+        }
+
+
         /* Mobile menu */
         @media (max-width: 768px) {
             .nav-menu {
@@ -198,10 +254,15 @@
                 border-bottom: 1px solid var(--border);
                 padding: 1rem;
                 gap: 0;
+                align-items: flex-start;
             }
 
             .nav-menu.active {
                 display: flex;
+            }
+
+            .nav-menu li {
+                width: 100%;
             }
 
             .nav-menu li a {
@@ -216,6 +277,38 @@
 
             .mobile-toggle {
                 display: block;
+            }
+
+            /* Mobile Dropdown Styles */
+            .nav-menu li.dropdown {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-menu .dropdown-menu {
+                position: static; /* Not absolute on mobile */
+                display: flex; /* Always show on mobile, or use JS to toggle */
+                box-shadow: none;
+                border: none;
+                background: transparent;
+                padding: 0 0 0 1.5rem; /* Indent sub-items */
+                width: 100%;
+            }
+
+            .nav-menu .dropdown-toggle {
+                width: 100%;
+                justify-content: space-between;
+                border-bottom: 1px solid #f0f0f0;
+            }
+             .nav-menu .dropdown-toggle i {
+                 display: none; /* Hide caret on mobile if always expanded */
+             }
+
+            .nav-menu .dropdown-menu a {
+                padding: 0.75rem 0;
+                border-bottom: 1px solid var(--border-light);
+                font-size: 0.9rem;
+                 color: var(--gray);
             }
         }
 
@@ -834,8 +927,16 @@
                 <li><a href="#speakers">Professors</a></li>
                 <li><a href="#venue">Venue</a></li>
                 <li><a href="#registration">Apply</a></li>
+                
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" onclick="return false;">Previous <i class="fas fa-caret-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="https://conferences.uoa.gr/event/92/page/705-diachronic-linguistics-in-the-21st-century" target="_blank">2025 Programme</a></li>
+                        <li><a href="https://conferences.uoa.gr/event/92/page/715-previous-years" target="_blank">Older Years (2024 & before)</a></li>
+                    </ul>
+                </li>
+                
                 <li><a href="#contact">Contact</a></li>
-                <li><a href="https://conferences.uoa.gr/event/92/page/715-previous-years" target="_blank">Previous</a></li>
             </ul>
             <button class="mobile-toggle">☰</button>
         </div>
@@ -1042,40 +1143,40 @@
             <div class="faculty-list">
                 <div class="faculty-compact">
                     <div>
-                        <strong>Nikolaos Lavidas</strong>
-                        <p>Professor of Diachronic Linguistics, National and Kapodistrian University of Athens
+                        <strong>Professor Nikolaos Lavidas</strong>
+                        <p>Associate Professor of Diachronic Linguistics, National and Kapodistrian University of Athens
                         </p>
                     </div>
                     <div>
-                        <strong>Antonio R. Revuelta Puigdollers</strong>
+                        <strong>Professor Antonio R. Revuelta Puigdollers</strong>
                         <p>Associate Professor of Ancient and Modern Greek, Universidad Autónoma de Madrid</p>
                     </div>
                     <div>
-                        <strong>Katrin Axel-Tober</strong>
+                        <strong>Professor Katrin Axel-Tober</strong>
                         <p>Professor of German Linguistics, Eberhard Karls Universität Tübingen</p>
                     </div>
                     <div>
-                        <strong>Artemij Keidan</strong>
-                        <p>Professor of Linguistics, Sapienza Università di Roma</p>
+                        <strong>Professor Artemij Keidan</strong>
+                        <p>Associate Professor of Linguistics, Sapienza Università di Roma</p>
                     </div>
                 </div>
 
                 <div class="faculty-compact">
                     <div>
-                        <strong>Flavia Pompeo</strong>
-                        <p>Professor of Historical and General Linguistics, Sapienza Università di Roma</p>
+                        <strong>Professor Flavia Pompeo</strong>
+                        <p>Associate Professor of Historical and General Linguistics, Sapienza Università di Roma</p>
                     </div>
                     <div>
-                        <strong>Joanna Kopaczyk</strong>
+                        <strong>Professor Joanna Kopaczyk</strong>
                         <p>Professor in Scots and English, University of Glasgow</p>
                     </div>
                     <div>
-                        <strong>Adina Dragomirescu</strong>
-                        <p>Professor of Linguistics, University of Bucharest & Senior Researcher, Romanian
+                        <strong>Professor Adina Dragomirescu</strong>
+                        <p>Associate Professor of Linguistics, University of Bucharest & Senior Researcher, Romanian
                             Academy</p>
                     </div>
                     <div>
-                        <strong>Alexandru Nicolae</strong>
+                        <strong>Professor Alexandru Nicolae</strong>
                         <p>Associate Professor of Linguistics, University of Bucharest & Researcher, Romanian Academy
                         </p>
                     </div>
@@ -1083,21 +1184,24 @@
 
                 <div class="faculty-compact">
                     <div>
-                        <strong>Ljuba Veselinova</strong>
+                        <strong>Professor Ljuba Veselinova</strong>
                         <p>Professor of Linguistics, Stockholm University</p>
                     </div>
                     <div>
-                        <strong>Matthias Heinz</strong>
+                        <strong>Professor Matthias Heinz</strong>
                         <p>Dean - Kulturwissenschaftlichen Fakultät, Paris Lodron University of Salzburg</p>
                     </div>
                     <div>
-                        <strong>Linda Pillière</strong>
+                        <strong>Professor Linda Pillière</strong>
                         <p>Professor of English Language and Linguistics, Aix-Marseille Université</p>
                     </div>
                 </div>
             </div>
 
             <div class="text-center" style="margin-top: 2rem;">
+                <a href="speakers.html" class="btn-link">View Complete Faculty Biographies →</a>
+            </div>
+        </div>
     </section>
 
     <section id="venue" class="venue-feature">
@@ -1107,15 +1211,11 @@
                 <p>Experience the Summer School on the stunning island of Naxos in the Cyclades archipelago. Where
                     ancient Greek heritage meets cutting-edge computational linguistics — the perfect fusion of
                     historical depth and technological innovation.</p>
-<a href="https://athdgc.github.io/naxos-summer-school-2026/venue.html" target="_blank" class="btn-link">
-    Explore Naxos &rarr;
-</a>
+                <a href="https://athdgc.github.io/naxos-summer-school-2026/venue.html" target="_blank" class="btn-link">
+                    Explore Naxos &rarr;
+                </a>
             </div>
         </div>
-
-
-
-                    
     </section>
 
     <section id="registration" class="cta-section">
@@ -1185,6 +1285,7 @@
 
             <div
                 style="background: #dbeafe; border-left: 4px solid #2563eb; padding: 1.5rem; border-radius: 0.5rem; margin: 3rem 0; text-align: center;">
+                <strong>Response Time:</strong> We aim to respond to all inquiries within 2-3 business days.
             </div>
         </div>
     </section>
