@@ -39,8 +39,10 @@
     </nav>
 
     <!-- Hero -->
-    <section id="home" class="hero-large">
-        <div class="hero-overlay">
+    <section id="home" class="hero-large"
+        style="background-image: url(assets/images/pexels-athena-3009971.jpg); background-size: cover; background-position: center;">
+        <div class="hero-overlay"
+            style="background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,51,102,0.9) 50%, rgba(0,0,0,0.85) 100%);">
             <div class="hero-text">
                 <div class="hero-badge">CIVIS Blended Intensive Programme</div>
                 <h2 class="hero-main-subtitle"
@@ -63,30 +65,6 @@
                 </div>
             </div>
         </div>
-        
-        <!-- Add the background image directly in CSS -->
-        <style>
-        #home {
-            background-image: url('assets/images/pexels-athena-3009971.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 70vh;
-            min-height: 500px;
-            max-height: 700px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-overlay {
-            background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,51,102,0.9) 50%, rgba(0,0,0,0.85) 100%);
-        }
-        
-        /* Ensure content after hero starts properly */
-        .facts-bar {
-            margin-top: 0;
-            clear: both;
-        }
-        </style>
     </section>
 
     <!-- Facts Bar -->
