@@ -16,10 +16,87 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-</head>
+
+    <style>
+        /* IMPROVED NAVIGATION STYLING - Add to your CSS */
+
+        /* Better navigation appearance */
+        nav {
+            background: rgba(255, 255, 255, 0.98) !important;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+            border-bottom: 1px solid #e5e5e5 !important;
+        }
+
+        .nav-menu {
+            background: transparent !important;
+        }
+
+        .nav-menu li a {
+            color: #333 !important;
+            font-weight: 500 !important;
+            padding: 0.75rem 1.5rem !important;
+            border-radius: 6px !important;
+            transition: all 0.3s ease !important;
+        }
+
+        .nav-menu li a:hover {
+            background: rgba(0, 102, 204, 0.1) !important;
+            color: #0066cc !important;
+        }
+
+        /* Mobile menu improvements */
+        @media (max-width: 768px) {
+            .nav-container {
+                position: relative;
+            }
+
+            .nav-menu {
+                background: white !important;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+                border-radius: 8px !important;
+                margin-top: 0.5rem !important;
+                /* Added crucial styles for mobile toggling */
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                display: none;
+                flex-direction: column;
+            }
+
+            .nav-menu.active {
+                 display: flex !important;
+            }
+
+            .nav-menu li {
+                width: 100%;
+            }
+
+            .nav-menu li a {
+                padding: 1rem 1.5rem !important;
+                border-bottom: 1px solid #f0f0f0 !important;
+                display: block;
+            }
+
+            .nav-menu li:last-child a {
+                border-bottom: none !important;
+            }
+        }
+
+        .mobile-toggle {
+            background: #0066cc !important;
+            color: white !important;
+            padding: 0.5rem 0.75rem !important;
+            border-radius: 4px !important;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+        }
+    </style>
+    </head>
 
 <body>
-    <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="nav-brand">
@@ -38,7 +115,6 @@
         </div>
     </nav>
 
-    <!-- Hero -->
     <section id="home" class="hero-large"
         style="background-image: url(assets/images/pexels-athena-3009971.jpg); background-size: cover; background-position: center;">
         <div class="hero-overlay"
@@ -51,12 +127,18 @@
                 <h3 class="hero-meta-subtitle"
                     style="background: rgba(255,255,255,0.9); padding: 0.75rem 2rem; border-radius: 8px; display: inline-block; color: #004040; font-weight: 700; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
                     Meta-Digital Diachronic Linguistics</h3>
-                <p class="hero-subtitle" style="background: rgba(255,255,255,0.9); padding: 1rem 2rem; border-radius: 8px; color: #333; font-weight: 500; max-width: 600px; margin: 1rem auto;">Bridging traditional philology with cutting-edge AI and NLP techniques to study
+                <p class="hero-subtitle"
+                    style="background: rgba(255,255,255,0.9); padding: 1rem 2rem; border-radius: 8px; color: #333; font-weight: 500; max-width: 600px; margin: 1rem auto;">
+                    Bridging traditional philology with cutting-edge AI and NLP techniques to study
                     language evolution across centuries</p>
-                <div class="hero-meta" style="background: rgba(255,255,255,0.9); padding: 1rem 2rem; border-radius: 8px; display: inline-block; margin: 1rem 0;">
-                    <span style="color: #333; font-weight: 500;"><i class="fas fa-calendar-alt"></i> April–July 2026</span>
-                    <span style="color: #333; font-weight: 500; margin: 0 1rem;"><i class="fas fa-map-marker-alt"></i> Online + Naxos, Greece</span>
-                    <span style="color: #333; font-weight: 500;"><i class="fas fa-graduation-cap"></i> 6 ECTS Credits</span>
+                <div class="hero-meta"
+                    style="background: rgba(255,255,255,0.9); padding: 1rem 2rem; border-radius: 8px; display: inline-block; margin: 1rem 0;">
+                    <span style="color: #333; font-weight: 500;"><i class="fas fa-calendar-alt"></i> April–July
+                        2026</span>
+                    <span style="color: #333; font-weight: 500; margin: 0 1rem;"><i
+                            class="fas fa-map-marker-alt"></i> Online + Naxos, Greece</span>
+                    <span style="color: #333; font-weight: 500;"><i class="fas fa-graduation-cap"></i> 6 ECTS
+                        Credits</span>
                 </div>
                 <div class="hero-buttons">
                     <a href="#registration" class="btn-primary">Admissions Announced <i
@@ -67,7 +149,6 @@
         </div>
     </section>
 
-    <!-- Facts Bar -->
     <section class="facts-bar">
         <div class="container-wide">
             <div class="facts-grid">
@@ -91,7 +172,6 @@
         </div>
     </section>
 
-    <!-- About -->
     <section class="content-section">
         <div class="container">
             <div class="text-center mb-large">
@@ -112,7 +192,6 @@
         </div>
     </section>
 
-    <!-- Programme Structure -->
     <section class="content-section bg-light">
         <div class="container">
             <div class="text-center mb-large">
@@ -155,7 +234,6 @@
         </div>
     </section>
 
-    <!-- Programme Details -->
     <section id="program" class="content-section bg-light">
         <div class="container">
             <div class="text-center mb-large">
@@ -228,12 +306,11 @@
         </div>
     </section>
 
-    <!-- Faculty Highlight -->
     <section id="speakers" class="content-section">
         <div class="container">
             <div class="text-center mb-large">
                 <h2>Distinguished Faculty</h2>
-                <p class="lead">Learn from leading experts in computational linguistics from 11 European universities
+                <p class="lead">Learn from leading experts in linguistics from European universities
                 </p>
             </div>
 
@@ -241,64 +318,66 @@
                 <div class="faculty-compact">
                     <div>
                         <strong>Professor Nikolaos Lavidas</strong>
-                        <p>National and Kapodistrian University of Athens</p>
+                        <p>Associate Professor of Diachronic Linguistics, National and Kapodistrian University of Athens
+                        </p>
                     </div>
                     <div>
                         <strong>Professor Antonio R. Revuelta Puigdollers</strong>
-                        <p>Universidad Autónoma de Madrid</p>
+                        <p>Associate Professor of Ancient and Modern Greek, Universidad Autónoma de Madrid</p>
                     </div>
                     <div>
                         <strong>Professor Katrin Axel-Tober</strong>
-                        <p>Eberhard Karls Universität Tübingen</p>
+                        <p>Professor of German Linguistics, Eberhard Karls Universität Tübingen</p>
                     </div>
                     <div>
                         <strong>Professor Artemij Keidan</strong>
-                        <p>Sapienza University of Rome</p>
+                        <p>Associate Professor of Linguistics, Sapienza Università di Roma</p>
                     </div>
                 </div>
 
                 <div class="faculty-compact">
                     <div>
                         <strong>Professor Flavia Pompeo</strong>
-                        <p>Sapienza University of Rome</p>
+                        <p>Associate Professor of Historical and General Linguistics, Sapienza Università di Roma</p>
                     </div>
                     <div>
                         <strong>Professor Joanna Kopaczyk</strong>
-                        <p>University of Glasgow</p>
+                        <p>Professor in Scots and English, University of Glasgow</p>
                     </div>
                     <div>
                         <strong>Professor Adina Dragomirescu</strong>
-                        <p>University of Bucharest</p>
+                        <p>Associate Professor of Linguistics, University of Bucharest & Senior Researcher, Romanian
+                            Academy</p>
                     </div>
                     <div>
                         <strong>Professor Alexandru Nicolae</strong>
-                        <p>University of Bucharest</p>
+                        <p>Associate Professor of Linguistics, University of Bucharest & Researcher, Romanian Academy
+                        </p>
                     </div>
                 </div>
 
                 <div class="faculty-compact">
                     <div>
                         <strong>Professor Ljuba Veselinova</strong>
-                        <p>Stockholm University</p>
+                        <p>Professor of Linguistics, Stockholm University</p>
                     </div>
                     <div>
                         <strong>Professor Matthias Heinz</strong>
-                        <p>Stockholm University</p>
+                        <p>Dean - Kulturwissenschaftlichen Fakultät, Paris Lodron University of Salzburg</p>
                     </div>
                     <div>
                         <strong>Professor Linda Pillière</strong>
-                        <p>Aix-Marseille University</p>
+                        <p>Professor of English Language and Linguistics, Aix-Marseille Université</p>
                     </div>
                 </div>
             </div>
 
             <div class="text-center" style="margin-top: 2rem;">
-                <a href="speakers.html" class="btn-link">View Full Faculty Profiles →</a>
+                <a href="speakers.html" class="btn-link">View Complete Faculty Biographies →</a>
             </div>
         </div>
     </section>
 
-    <!-- Venue Feature -->
     <section id="venue" class="venue-feature">
         <div class="venue-content">
             <div class="venue-text">
@@ -311,7 +390,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section id="registration" class="cta-section">
         <div class="container text-center">
             <h2>Admissions Announced</h2>
@@ -344,7 +422,6 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="content-section">
         <div class="container">
             <div class="text-center mb-large">
@@ -385,7 +462,6 @@
         </div>
     </section>
 
-    <!-- CIVIS Universities Section -->
     <section class="content-section bg-light">
         <div class="container">
             <div class="text-center mb-large">
@@ -393,22 +469,45 @@
                 <p class="lead">Part of a collaborative network of leading European institutions</p>
             </div>
 
-            <div style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
-                <a href="https://en.uoa.gr" target="_blank" style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University of Athens</a>
-                <a href="https://www.uni-tuebingen.de/en/" target="_blank" style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University of Tübingen</a>
-                <a href="https://www.uam.es/uam/en/inicio" target="_blank" style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Universidad Autónoma de Madrid</a>
-                <a href="https://www.gla.ac.uk" target="_blank" style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University of Glasgow</a>
-                <a href="https://www.unibuc.ro/en/" target="_blank" style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University of Bucharest</a>
-                <a href="https://www.su.se/english/" target="_blank" style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Stockholm University</a>
+            <div
+                style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
+                <a href="https://en.uoa.gr" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
+                    of Athens</a>
+                <a href="https://www.uni-tuebingen.de/en/" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
+                    of Tübingen</a>
+                <a href="https://www.uam.es/uam/en/inicio" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Universidad
+                    Autónoma de Madrid</a>
+                <a href="https://www.gla.ac.uk" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
+                    of Glasgow</a>
+                <a href="https://www.unibuc.ro/en/" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
+                    of Bucharest</a>
+                <a href="https://www.su.se/english/" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Stockholm
+                    University</a>
+                <a href="https://www.univ-amu.fr/en" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Aix-Marseille
+                    University</a>
+                <a href="https://www.uniroma1.it/en/" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Sapienza
+                    University of Rome</a>
+                <a href="https://www.plus.ac.at/en/" target="_blank"
+                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
+                    of Salzburg</a>
             </div>
 
             <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://civis.eu" target="_blank" style="color: #7c3aed; text-decoration: none; font-size: 1.1rem; font-weight: 600;">Visit CIVIS Alliance →</a>
+                <a href="https://civis.eu" target="_blank"
+                    style="color: #7c3aed; text-decoration: none; font-size: 1.1rem; font-weight: 600;">Visit CIVIS
+                    Alliance →</a>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-simple">
@@ -432,13 +531,14 @@
         </div>
     </footer>
 
-    <!-- Newsletter Signup -->
     <div class="newsletter-banner">
         <div class="container">
             <div class="newsletter-content">
                 <h4>Stay Updated</h4>
                 <p>Subscribe to our newsletter for programme updates</p>
-                <form action="https://forms.gle/zFvaP7PbKLPfuX9f6" method="POST" target="_blank" class="newsletter-form">
+                <form
+                    action="https://docs.google.com/forms/d/e/1FAIpQLSe8vGxH7Q2JkL5nO3wX9mP2sR4tE1yW8uI3oP6qA5zS9dF2gH/formResponse"
+                    method="POST" target="_blank" class="newsletter-form">
                     <input name="entry.123456789" type="email" placeholder="Your email address" required>
                     <button type="submit" class="btn-primary">Subscribe</button>
                 </form>
@@ -446,7 +546,6 @@
         </div>
     </div>
 
-    <!-- Back to Top Button -->
     <button id="back-to-top" class="back-to-top">
         <i class="fas fa-arrow-up"></i>
     </button>
@@ -476,7 +575,10 @@
                 });
 
                 backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
                 });
             }
 
