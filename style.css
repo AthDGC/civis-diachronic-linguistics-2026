@@ -223,6 +223,28 @@ nav {
     justify-content: center;
 }
 
+/* Add this to your style.css or in a <style> tag in the HTML head */
+
+.hero-large {
+    position: relative !important;
+    min-height: 70vh !important;
+    height: auto !important;
+    margin-bottom: 0 !important;
+}
+
+.content-section {
+    position: relative !important;
+    z-index: 10 !important;
+    margin-top: 0 !important;
+    padding-top: 4rem !important;
+}
+
+.facts-bar {
+    position: relative !important;
+    z-index: 10 !important;
+    margin-top: 0 !important;
+}
+
 /* ==== Buttons ==== */
 .btn-primary,
 .btn-secondary,
