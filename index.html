@@ -13,7 +13,7 @@
     <link rel="icon" type="image/jpg" href="assets/logos/athdgc-favicon.jpg">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="icon" type="image/jpeg" href="assets/logos/athdgc-favicon.jpg?v=1">
-<link rel="apple-touch-icon" href="assets/logos/athdgc-favicon.jpg">
+    <link rel="apple-touch-icon" href="assets/logos/athdgc-favicon.jpg">
     <style>
         /* ==== Reset ==== */
         * {
@@ -183,7 +183,7 @@
             color: var(--accent);
         }
 
-        /* ---- Dropdown Styles (New) ---- */
+        /* ---- Dropdown Styles ---- */
         .nav-menu li.dropdown {
             position: relative;
         }
@@ -211,7 +211,6 @@
             gap: 0;
         }
 
-        /* Show dropdown on hover for desktop */
         .nav-menu li.dropdown:hover .dropdown-menu {
             display: flex;
         }
@@ -237,8 +236,6 @@
             color: var(--accent);
         }
 
-
-        /* Mobile menu */
         @media (max-width: 768px) {
             .nav-menu {
                 display: none;
@@ -276,19 +273,18 @@
                 display: block;
             }
 
-            /* Mobile Dropdown Styles */
             .nav-menu li.dropdown {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
             .nav-menu .dropdown-menu {
-                position: static; /* Not absolute on mobile */
-                display: flex; /* Always show on mobile, or use JS to toggle */
+                position: static;
+                display: flex;
                 box-shadow: none;
                 border: none;
                 background: transparent;
-                padding: 0 0 0 1.5rem; /* Indent sub-items */
+                padding: 0 0 0 1.5rem;
                 width: 100%;
             }
 
@@ -297,15 +293,16 @@
                 justify-content: space-between;
                 border-bottom: 1px solid #f0f0f0;
             }
-             .nav-menu .dropdown-toggle i {
-                 display: none; /* Hide caret on mobile if always expanded */
-             }
+
+            .nav-menu .dropdown-toggle i {
+                display: none;
+            }
 
             .nav-menu .dropdown-menu a {
                 padding: 0.75rem 0;
                 border-bottom: 1px solid var(--border-light);
                 font-size: 0.9rem;
-                 color: var(--gray);
+                color: var(--gray);
             }
         }
 
@@ -329,12 +326,6 @@
             overflow: hidden;
         }
 
-        .hero-large img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -354,25 +345,6 @@
             padding: 2rem;
         }
 
-        .hero-text h1 {
-            color: var(--black);
-            font-size: 3.8rem;
-            margin-bottom: 1.25rem;
-        }
-
-        .hero-text p {
-            font-size: 1.5rem;
-            margin-bottom: 2rem;
-            opacity: 0.95;
-        }
-
-        .hero-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-        }
-
-        /* Hero Enhancements */
         .hero-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.9);
@@ -408,6 +380,12 @@
             align-items: center;
             gap: 0.5rem;
             font-size: 1.1rem;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
         }
 
         /* ==== Buttons ==== */
@@ -485,7 +463,6 @@
             padding: 2.5rem 0;
             position: relative !important;
             z-index: 10 !important;
-            margin-top: 0 !important;
         }
 
         .facts-grid {
@@ -511,8 +488,6 @@
             padding: 4rem 0;
             position: relative !important;
             z-index: 10 !important;
-            margin-top: 0 !important;
-            padding-top: 4rem !important;
         }
 
         .bg-light {
@@ -524,10 +499,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
             align-items: center;
-        }
-
-        .split-text h3 {
-            margin-bottom: 1.5rem;
         }
 
         /* ==== Feature Cards ==== */
@@ -623,17 +594,7 @@
             margin: 0;
         }
 
-        /* ==== Venue Feature ==== */
-        .venue-feature {
-            background: var(--bg-surface);
-        }
-
-        .venue-content {
-            display: grid;
-            grid-template-columns: 1fr;
-            min-height: auto;
-        }
-
+        /* ==== Venue ==== */
         .venue-text {
             padding: 4rem 3rem;
             display: flex;
@@ -644,38 +605,7 @@
             text-align: center;
         }
 
-        .venue-text h2 {
-            margin-bottom: 1.5rem;
-        }
-
-        .venue-text p {
-            font-size: 1.125rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        /* ==== CTA Section ==== */
-        .cta-section {
-            padding: 4rem 0;
-            text-align: center;
-            background: var(--white);
-        }
-
-        .cta-section h2 {
-            margin-bottom: 1rem;
-            color: var(--black);
-        }
-
-        .cta-section .lead {
-            margin-bottom: 1.5rem;
-        }
-
-        .cta-section p {
-            margin-bottom: 2rem;
-            color: var(--gray);
-        }
-
-        /* ==== Contact Grid ==== */
+        /* ==== Contact ==== */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -698,25 +628,10 @@
             gap: 2rem;
         }
 
-        .footer-main h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .footer-main p {
-            color: var(--gray);
-            margin-bottom: 1.5rem;
-        }
-
         .footer-links {
             display: flex;
             gap: 1.5rem;
             flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: var(--accent);
-            font-weight: 500;
         }
 
         .footer-secondary p {
@@ -743,12 +658,6 @@
             margin: 0 auto;
         }
 
-        .newsletter-content h4 {
-            margin: 0;
-            color: var(--accent-dark);
-            font-size: 1.25rem;
-        }
-
         .newsletter-form {
             display: flex;
             gap: 1rem;
@@ -763,13 +672,7 @@
             min-width: 250px;
         }
 
-        .newsletter-form input:focus {
-            outline: none;
-            border-color: var(--accent);
-            box-shadow: 0 0 0 2px rgba(0, 102, 204, 0.2);
-        }
-
-        /* Back to Top Button */
+        /* Back to Top */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -786,127 +689,24 @@
             justify-content: center;
             font-size: 1.25rem;
             box-shadow: var(--shadow);
-            transition: var(--transition);
             z-index: 1000;
-        }
-
-        .back-to-top:hover {
-            background: var(--accent-dark);
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-hover);
         }
 
         /* ==== Responsive ==== */
         @media (max-width: 1024px) {
-            .facts-grid,
-            .overview-grid {
+            .facts-grid, .overview-grid, .faculty-list {
                 grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .faculty-list {
-                 grid-template-columns: repeat(2, 1fr);
             }
         }
 
         @media (max-width: 768px) {
-            .hero-text h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-text p {
-                font-size: 1.125rem;
-            }
-
-            .hero-buttons {
-                flex-direction: column;
-            }
-
-            .facts-grid,
-            .split-content,
-            .overview-grid,
-            .faculty-list,
-            .contact-grid {
+            .hero-text h1 { font-size: 2.5rem; }
+            .facts-grid, .split-content, .overview-grid, .faculty-list, .contact-grid {
                 grid-template-columns: 1fr;
             }
-            
-            .split-content {
-                gap: 2rem;
-            }
-            
-            .newsletter-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .newsletter-form {
-                flex-direction: column;
-                width: 100%;
-            }
-            
-            .newsletter-form input {
-                width: 100%;
-                min-width: auto;
-            }
-            
-            .footer-simple {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .footer-links {
-                justify-content: center;
-            }
-            
-            .footer-secondary p {
-                text-align: center;
-            }
-            
-            .nav-menu {
-                /* Mobile menu styles are handled in the main nav section */
-            }
-
-            .venue-text {
-                padding: 3rem 2rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.75rem;
-            }
-
-            .hero-text h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-meta {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-            
-            .hero-meta span {
-                margin: 0;
-            }
-        }
-
-        /* Page Header Visibility Fix */
-        .page-header {
-            background: linear-gradient(rgba(0, 54, 105, 0.85), rgba(0, 54, 105, 0.85)) !important;
-            color: white !important;
-            margin-top: 0 !important;
-        }
-
-        /* Ensure proper contrast on all sub-pages */
-        .professors-section,
-        .contact-section,
-        .venue-section {
-            background: white !important;
-            padding-top: 2rem !important;
+            .newsletter-content { flex-direction: column; text-align: center; }
+            .newsletter-form { flex-direction: column; width: 100%; }
+            .newsletter-form input { width: 100%; min-width: auto; }
         }
     </style>
 </head>
@@ -956,16 +756,12 @@
                     language evolution across centuries</p>
                 <div class="hero-meta"
                     style="background: rgba(255,255,255,0.9); padding: 1rem 2rem; border-radius: 8px; display: inline-block; margin: 1rem 0;">
-                    <span style="color: #333; font-weight: 500;"><i class="fas fa-calendar-alt"></i> April–July
-                        2026</span>
-                    <span style="color: #333; font-weight: 500; margin: 0 1rem;"><i
-                            class="fas fa-map-marker-alt"></i> Online + Naxos, Greece</span>
-                    <span style="color: #333; font-weight: 500;"><i class="fas fa-graduation-cap"></i> 6 ECTS
-                        Credits</span>
+                    <span style="color: #333; font-weight: 500;"><i class="fas fa-calendar-alt"></i> April–July 2026</span>
+                    <span style="color: #333; font-weight: 500; margin: 0 1rem;"><i class="fas fa-map-marker-alt"></i> Online + Naxos, Greece</span>
+                    <span style="color: #333; font-weight: 500;"><i class="fas fa-graduation-cap"></i> 6 ECTS Credits</span>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#registration" class="btn-primary">Admissions Announced <i
-                            class="fas fa-arrow-right"></i></a>
+                    <a href="#registration" class="btn-primary">Admissions Announced <i class="fas fa-arrow-right"></i></a>
                     <a href="#program" class="btn-secondary">View Program Details</a>
                 </div>
             </div>
@@ -999,8 +795,7 @@
         <div class="container">
             <div class="text-center mb-large">
                 <h2>Where Computation Meets Language History</h2>
-                <p class="lead">Combining traditional philology with cutting-edge computational methods to study
-                    language evolution</p>
+                <p class="lead">Combining traditional philology with cutting-edge computational methods to study language evolution</p>
             </div>
 
             <div class="split-content">
@@ -1038,8 +833,7 @@
                         <h3>Online Workshops</h3>
                         <p class="phase-date">May 2026</p>
                         <p>Collaborative online sessions on corpus analysis, statistical modeling, and machine learning
-                            applications. Work on individual "From Texts to Grammar" projects with faculty mentorship.
-                        </p>
+                            applications. Work on individual "From Texts to Grammar" projects with faculty mentorship.</p>
                     </div>
                 </div>
 
@@ -1049,8 +843,9 @@
                         <h3>Summer School • Naxos</h3>
                         <p class="phase-date">July 20–24, 2026</p>
                         <p>Present research findings on the stunning Cycladic island of Naxos. Five days of advanced
-                            seminars, project presentations, and cultural immersion in the heart of ancient Greek
-                            heritage.</p>
+                            seminars, project presentations, and cultural immersion in the heart of ancient Greek heritage.</p>
+                        <p>Program and onsite information: <a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank">https://athdgc.github.io/naxos-summer-school-2026/</a>. 
+                        <br><small>Note: Admitted CIVIS Students (of the CIVIS BIP Course) do not have to register for the summer school.</small></p>
                     </div>
                 </div>
             </div>
@@ -1110,8 +905,7 @@
                         <h3>Online Workshops</h3>
                         <p class="phase-date">May 2026</p>
                         <p>Collaborative online sessions on corpus analysis, statistical modeling, and machine learning
-                            applications. Work on individual "From Texts to Grammar" projects with faculty mentorship.
-                        </p>
+                            applications. Work on individual "From Texts to Grammar" projects with faculty mentorship.</p>
                     </div>
                 </div>
 
@@ -1121,8 +915,11 @@
                         <h3>Summer School • Naxos</h3>
                         <p class="phase-date">July 20–24, 2026</p>
                         <p>Present research findings on the stunning Cycladic island of Naxos. Five days of advanced
-                            seminars, project presentations, and cultural immersion in the heart of ancient Greek
-                            heritage.</p>
+                            seminars, project presentations, and cultural immersion in the heart of ancient Greek heritage.</p>
+                        <p>The program and further information about the onsite week of the CIVIS BIP Program will be available here: 
+                            <a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank">https://athdgc.github.io/naxos-summer-school-2026/</a>.
+                            <br><small>Note: Admitted CIVIS Students (of the CIVIS BIP Course) do not have to register for the summer school.</small>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -1133,16 +930,14 @@
         <div class="container">
             <div class="text-center mb-large">
                 <h2>Distinguished Faculty</h2>
-                <p class="lead">Learn from leading experts in linguistics from European universities
-                </p>
+                <p class="lead">Learn from leading experts in linguistics from European universities</p>
             </div>
 
             <div class="faculty-list">
                 <div class="faculty-compact">
                     <div>
                         <strong>Professor Nikolaos Lavidas</strong>
-                        <p>Associate Professor of Diachronic Linguistics, National and Kapodistrian University of Athens
-                        </p>
+                        <p>Associate Professor of Diachronic Linguistics, National and Kapodistrian University of Athens</p>
                     </div>
                     <div>
                         <strong>Professor Antonio R. Revuelta Puigdollers</strong>
@@ -1169,13 +964,11 @@
                     </div>
                     <div>
                         <strong>Professor Adina Dragomirescu</strong>
-                        <p>Associate Professor of Linguistics, University of Bucharest & Senior Researcher, Romanian
-                            Academy</p>
+                        <p>Associate Professor of Linguistics, University of Bucharest & Senior Researcher, Romanian Academy</p>
                     </div>
                     <div>
                         <strong>Professor Alexandru Nicolae</strong>
-                        <p>Associate Professor of Linguistics, University of Bucharest & Researcher, Romanian Academy
-                        </p>
+                        <p>Associate Professor of Linguistics, University of Bucharest & Researcher, Romanian Academy</p>
                     </div>
                 </div>
 
@@ -1206,8 +999,7 @@
             <div class="venue-text">
                 <h2>Naxos, Cyclades</h2>
                 <p>Experience the Summer School on the stunning island of Naxos in the Cyclades archipelago. Where
-                    ancient Greek heritage meets cutting-edge computational linguistics — the perfect fusion of
-                    historical depth and technological innovation.</p>
+                    ancient Greek heritage meets cutting-edge computational linguistics.</p>
                 <a href="https://athdgc.github.io/naxos-summer-school-2026/venue.html" target="_blank" class="btn-link">
                     Explore Naxos &rarr;
                 </a>
@@ -1220,30 +1012,19 @@
             <h2>Admissions Announced</h2>
             <p class="lead" style="margin-bottom: 2rem;">Application deadline: September–October 2026</p>
 
-            <div
-                style="background: rgba(255,255,255,0.95); padding: 2.5rem; border-radius: 12px; max-width: 800px; margin: 0 auto 2rem; text-align: left;">
+            <div style="background: rgba(255,255,255,0.95); padding: 2.5rem; border-radius: 12px; max-width: 800px; margin: 0 auto 2rem; text-align: left;">
                 <h3 style="color: #2563eb; margin-bottom: 1.5rem; text-align: center;">Application Options</h3>
-
                 <div style="margin-bottom: 2rem;">
                     <h4 style="color: #1a4d8f; margin-bottom: 0.75rem;">Summer School 2026 Only</h4>
-                    <p style="margin-bottom: 0.5rem;">Apply now for the <strong><a
-                                href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank"
-                                style="color: #2563eb; text-decoration: underline;">Naxos Summer School (July 20–24,
-                                2026)</a></strong> as a standalone program.</p>
-                    <p style="font-size: 0.95rem; color: #5a6c7d;">Perfect if you want to experience the summer school
-                        component independently.</p>
+                    <p style="margin-bottom: 0.5rem;">Apply now for the <strong><a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank" style="color: #2563eb; text-decoration: underline;">Naxos Summer School (July 20–24, 2026)</a></strong>.</p>
                 </div>
-
                 <div>
                     <h4 style="color: #1a4d8f; margin-bottom: 0.75rem;">Full CIVIS Programme 2027</h4>
-                    <p style="margin-bottom: 0.5rem;">Applications for the complete three-phase programme (Spring
-                        School, Online Workshops, Summer School) will open in <strong>September 2026</strong>.</p>
-                    <p style="font-size: 0.95rem; color: #5a6c7d;">Deadline: October 2026 for the 2027 edition.</p>
+                    <p style="margin-bottom: 0.5rem;">Applications for the complete edition will open in <strong>September 2026</strong>.</p>
                 </div>
             </div>
 
-            <a href="mailto:nlavidas@enl.uoa.gr" class="btn-large">Contact for Applications <i
-                    class="fas fa-arrow-right"></i></a>
+            <a href="mailto:nlavidas@enl.uoa.gr" class="btn-large">Contact for Applications <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
 
@@ -1257,78 +1038,19 @@
             <div class="contact-grid" style="margin-top: 3rem;">
                 <div style="background: #f9fafb; padding: 2rem; border-radius: 0.5rem; text-align: center;">
                     <h3 style="color: #2563eb; margin-bottom: 1rem;">Email</h3>
-                    <a href="mailto:nlavidas@enl.uoa.gr"
-                        style="color: #2563eb; font-weight: 500;">nlavidas@enl.uoa.gr</a>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">Programme Coordinator: Prof.
-                        Nikolaos Lavidas</p>
+                    <a href="mailto:nlavidas@enl.uoa.gr" style="color: #2563eb; font-weight: 500;">nlavidas@enl.uoa.gr</a>
                 </div>
 
                 <div style="background: #f9fafb; padding: 2rem; border-radius: 0.5rem; text-align: center;">
                     <h3 style="color: #2563eb; margin-bottom: 1rem;">CIVIS Course Page</h3>
                     <a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version"
                         target="_blank" style="color: #2563eb; font-weight: 500;">Visit CIVIS Website</a>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">Official course information and
-                        updates</p>
                 </div>
 
                 <div style="background: #f9fafb; padding: 2rem; border-radius: 0.5rem; text-align: center;">
                     <h3 style="color: #2563eb; margin-bottom: 1rem;">Moodle Platform</h3>
-                    <a href="https://moodle.civis.eu/" target="_blank"
-                        style="color: #2563eb; font-weight: 500;">moodle.civis.eu</a>
-                    <p style="margin-top: 1rem; font-size: 0.9rem; color: #6b7280;">Course materials (available after
-                        acceptance)</p>
+                    <a href="https://moodle.civis.eu/" target="_blank" style="color: #2563eb; font-weight: 500;">moodle.civis.eu</a>
                 </div>
-            </div>
-
-            <div
-                style="background: #dbeafe; border-left: 4px solid #2563eb; padding: 1.5rem; border-radius: 0.5rem; margin: 3rem 0; text-align: center;">
-                <strong>Response Time:</strong> We aim to respond to all inquiries within 2-3 business days.
-            </div>
-        </div>
-    </section>
-
-    <section class="content-section bg-light">
-        <div class="container">
-            <div class="text-center mb-large">
-                <h2>CIVIS European University Alliance</h2>
-                <p class="lead">Part of a collaborative network of leading European institutions</p>
-            </div>
-
-            <div
-                style="display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 2rem; margin: 2rem 0;">
-                <a href="https://en.uoa.gr" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
-                    of Athens</a>
-                <a href="https://www.uni-tuebingen.de/en/" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
-                    of Tübingen</a>
-                <a href="https://www.uam.es/uam/en/inicio" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Universidad
-                    Autónoma de Madrid</a>
-                <a href="https://www.gla.ac.uk" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
-                    of Glasgow</a>
-                <a href="https://www.unibuc.ro/en/" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
-                    of Bucharest</a>
-                <a href="https://www.su.se/english/" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Stockholm
-                    University</a>
-                <a href="https://www.univ-amu.fr/en" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Aix-Marseille
-                    University</a>
-                <a href="https://www.uniroma1.it/en/" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">Sapienza
-                    University of Rome</a>
-                <a href="https://www.plus.ac.at/en/" target="_blank"
-                    style="color: #1a4d8f; text-decoration: none; font-weight: 600; padding: 0.5rem 1rem; border: 2px solid #1a4d8f; border-radius: 6px; transition: all 0.3s;">University
-                    of Salzburg</a>
-            </div>
-
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="https://civis.eu" target="_blank"
-                    style="color: #7c3aed; text-decoration: none; font-size: 1.1rem; font-weight: 600;">Visit CIVIS
-                    Alliance →</a>
             </div>
         </div>
     </section>
@@ -1356,79 +1078,20 @@
         </div>
     </footer>
 
-    <div class="newsletter-banner">
-        <div class="container">
-            <div class="newsletter-content">
-                <h4>Stay Updated</h4>
-                <p>Subscribe to our newsletter for programme updates</p>
-                <form
-                    action="https://docs.google.com/forms/d/e/1FAIpQLSe8vGxH7Q2JkL5nO3wX9mP2sR4tE1yW8uI3oP6qA5zS9dF2gH/formResponse"
-                    method="POST" target="_blank" class="newsletter-form">
-                    <input name="entry.123456789" type="email" placeholder="Your email address" required>
-                    <button type="submit" class="btn-primary">Subscribe</button>
-                </form>
-            </div>
-        </div>
-    </div>
+    <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
-    <button id="back-to-top" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="script.js"></script>
     <script>
-        // Mobile menu toggle
         document.addEventListener('DOMContentLoaded', function () {
             const toggle = document.querySelector('.mobile-toggle');
             const menu = document.querySelector('.nav-menu');
-
             if (toggle && menu) {
-                toggle.addEventListener('click', function () {
-                    menu.classList.toggle('active');
-                });
+                toggle.addEventListener('click', () => menu.classList.toggle('active'));
             }
-
-            // Back to top button
             const backToTopBtn = document.getElementById('back-to-top');
-            if (backToTopBtn) {
-                window.addEventListener('scroll', () => {
-                    if (window.pageYOffset > 300) {
-                        backToTopBtn.style.display = 'block';
-                    } else {
-                        backToTopBtn.style.display = 'none';
-                    }
-                });
-
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-            }
-
-            // Lazy loading for images
-            const lazyImages = document.querySelectorAll('img[loading="lazy"]');
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            img.src = img.dataset.src;
-                            imageObserver.unobserve(img);
-                        }
-                    });
-                });
-
-                lazyImages.forEach(img => {
-                    imageObserver.observe(img);
-                });
-            } else {
-                // Fallback for browsers without IntersectionObserver
-                lazyImages.forEach(img => {
-                    img.src = img.dataset.src;
-                });
-            }
+            window.addEventListener('scroll', () => {
+                backToTopBtn.style.display = window.pageYOffset > 300 ? 'flex' : 'none';
+            });
+            backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
         });
     </script>
 </body>
