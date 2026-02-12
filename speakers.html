@@ -7,24 +7,59 @@
     <meta name="description"
         content="Meet the distinguished faculty of Diachronic Linguistics in the 21st Century 2026">
     <title>Professors | Diachronic Linguistics 2026</title>
-    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/d34d370b9537835d2b01df73f3394c92?family=Katsoulidis+W01+Regular"
         rel="stylesheet" type="text/css">
     <style>
-        .page-header {
-            background: none;
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            background-color: #f3f4f6;
+            color: #1f2937;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        /* Navbar Styles (Basic Reconstruction) */
+        .navbar {
+            background-color: #1e3a8a; /* Dark Blue */
             color: white;
-            padding: 8rem 0 4rem;
-            margin-top: 70px;
+            padding: 1rem 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .nav-brand h1 {
+            margin: 0;
+            font-size: 1.25rem;
+        }
+        .nav-subtitle {
+            margin: 0;
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        .page-header {
+            background: #1e3a8a; /* Matching header background */
+            color: white;
+            padding: 4rem 0;
             text-align: center;
+            margin-bottom: 2rem;
         }
 
         .page-header h1 {
             color: white;
             margin-bottom: 1rem;
+            font-size: 2.5rem;
         }
 
         .page-header p {
@@ -32,10 +67,11 @@
             opacity: 0.95;
             max-width: 700px;
             margin: 0 auto;
+            line-height: 1.6;
         }
 
         .professors-section {
-            padding: 4rem 0;
+            padding: 2rem 0 4rem;
         }
 
         .professor-card {
@@ -64,11 +100,11 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background: none;
+            background: #2563eb;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: white;
             font-weight: 700;
             margin-right: 1.5rem;
@@ -80,23 +116,25 @@
         }
 
         .professor-title h3 {
-            margin-bottom: 0.5rem;
-            color: #2563eb;
+            margin: 0 0 0.5rem 0;
+            color: #1e3a8a;
+            font-size: 1.5rem;
         }
 
         .professor-role {
-            color: #6b7280;
+            color: #4b5563;
             font-weight: 600;
             margin-bottom: 0.25rem;
         }
 
         .professor-university {
-            color: #9ca3af;
+            color: #6b7280;
             font-size: 0.95rem;
+            font-style: italic;
         }
 
         .professor-bio {
-            color: #4b5563;
+            color: #374151;
             line-height: 1.7;
         }
 
@@ -110,6 +148,7 @@
             font-weight: 600;
             color: #2563eb;
             margin-bottom: 0.5rem;
+            display: inline-block;
         }
 
         .back-link {
@@ -117,44 +156,89 @@
             margin-bottom: 2rem;
             color: #2563eb;
             font-weight: 600;
+            text-decoration: none;
         }
 
         .back-link:hover {
             text-decoration: underline;
         }
+
+        /* Teaching Assistant Specific */
+        .ta-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+        @media (max-width: 768px) {
+            .ta-grid { grid-template-columns: 1fr; }
+            .professor-header { flex-direction: column; text-align: center; align-items: center; }
+            .professor-avatar { margin-right: 0; margin-bottom: 1rem; }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #111827;
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        .footer h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+        }
+        .footer ul li { margin-bottom: 0.8rem; }
+        .footer a {
+            color: #9ca3af;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer a:hover { color: white; }
+        .footer-bottom {
+            border-top: 1px solid #374151;
+            padding-top: 2rem;
+            text-align: center;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
     </style>
 </head>
 
 <body>
-    <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
             <div class="nav-brand">
                 <h1>Diachronic Linguistics 2026</h1>
                 <p class="nav-subtitle">CIVIS Blended Intensive Programme</p>
             </div>
-
-                <span></span>
-                <span></span>
+            <div id="navToggle" style="cursor: pointer; display: none;">
+                <span style="display: block; width: 25px; height: 3px; background: white; margin: 5px 0;"></span>
+                <span style="display: block; width: 25px; height: 3px; background: white; margin: 5px 0;"></span>
+                <span style="display: block; width: 25px; height: 3px; background: white; margin: 5px 0;"></span>
             </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <header class="page-header">
         <div class="container">
             <h1>Distinguished Faculty</h1>
-            <p>Learn from leading experts in theoretical linguistics, diachronic linguistics, computational historical linguistics and digital humanities from across the
-                CIVIS Alliance</p>
+            <p>Learn from leading experts in theoretical linguistics, diachronic linguistics, computational historical linguistics and digital humanities from across the CIVIS Alliance</p>
         </div>
     </header>
 
-    <!-- Professors Section -->
     <section class="professors-section">
         <div class="container">
             <a href="index.html" class="back-link">← Back to Home</a>
 
-            <!-- Professor 1 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">NL</div>
@@ -179,7 +263,6 @@
                 </div>
             </div>
 
-            <!-- Professor 2 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">AR</div>
@@ -203,7 +286,6 @@
                 </div>
             </div>
 
-            <!-- Professor 3 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">KA</div>
@@ -228,7 +310,6 @@
                 </div>
             </div>
 
-            <!-- Professor 4 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">AK</div>
@@ -253,7 +334,6 @@
                 </div>
             </div>
 
-            <!-- Professor 5 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">FP</div>
@@ -277,7 +357,6 @@
                 </div>
             </div>
 
-            <!-- Professor 6 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">JK</div>
@@ -304,7 +383,6 @@
                 </div>
             </div>
 
-            <!-- Professor 7 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">AD</div>
@@ -331,7 +409,6 @@
                 </div>
             </div>
 
-            <!-- Professor 8 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">AN</div>
@@ -360,7 +437,6 @@
                 </div>
             </div>
 
-            <!-- Professor 9 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">LV</div>
@@ -389,7 +465,6 @@
                 </div>
             </div>
 
-            <!-- Professor 10 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">MH</div>
@@ -413,7 +488,6 @@
                 </div>
             </div>
 
-            <!-- Professor 11 -->
             <div class="professor-card">
                 <div class="professor-header">
                     <div class="professor-avatar">LP</div>
@@ -440,10 +514,29 @@
                 </div>
             </div>
 
+            <div class="professor-card" style="background: #f8fafc; border: 1px solid #e5e7eb;">
+                <div class="professor-header" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
+                    <div class="professor-avatar" style="background: #0f172a; color: #fff;">TA</div>
+                    <div class="professor-title">
+                        <h3 style="margin-bottom: 0.5rem;">Teaching Assistants</h3>
+                        <div class="professor-role" style="font-weight: 400; opacity: 0.8;">Academic Support Team</div>
+                    </div>
+                </div>
+                <div class="ta-grid" style="padding-top: 1.5rem; border-top: 1px solid #e2e8f0; margin-top: 1rem;">
+                    <div class="ta-member">
+                        <h4 style="margin: 0; color: #1e3a8a; font-size: 1.2rem;">Sofia Chionidi</h4>
+                        <p style="margin: 0.2rem 0 0; color: #6b7280;">Teaching Assistant</p>
+                    </div>
+                    <div class="ta-member">
+                        <h4 style="margin: 0; color: #1e3a8a; font-size: 1.2rem;">Eleni Plakoutsi</h4>
+                        <p style="margin: 0.2rem 0 0; color: #6b7280;">Teaching Assistant</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -476,9 +569,7 @@
                 </div>
                 <div class="footer-column">
                     <h3>Contact</h3>
-                    <p>Email: <a href="/cdn-cgi/l/email-protection#096765687f606d687a496c6765277c6668276e7b"><span
-                                class="__cf_email__"
-                                data-cfemail="385654594e515c594b785d5654164d5759165f4a">[email&#160;protected]</span></a>
+                    <p>Email: <a href="mailto:nlavidas@enl.uoa.gr" style="color: white;">nlavidas@enl.uoa.gr</a>
                     </p>
                     <p>Follow CIVIS on social media for updates</p>
                 </div>
@@ -487,7 +578,7 @@
                 <div class="footer-logos">
                     <p>Co-funded by the European Union</p>
                 </div>
-                <p class="copyright">&copy; 2025 National and Kapodistrian University of Athens. All rights reserved.
+                <p class="copyright">&copy; 2026 National and Kapodistrian University of Athens. All rights reserved.
                 </p>
                 <p class="disclaimer">Views and opinions expressed do not necessarily reflect those of the European
                     Union or the European Education and Culture Executive Agency (EACEA). Neither can be held
@@ -496,7 +587,14 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script>
         const navToggle = document.getElementById('navToggle');
-        co
+        // Simple placeholder for toggle logic if you decide to implement the mobile menu
+        if(navToggle) {
+            navToggle.addEventListener('click', () => {
+                console.log('Toggle menu clicked');
+            });
+        }
+    </script>
+</body>
+</html>
