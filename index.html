@@ -3,222 +3,251 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CIVIS Diachronic Linguistics 2026 | NKUA</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --accent: #2d5a27; /* Academic Green */
-            --accent-light: #e9f0e8;
-            --text-dark: #1a3317;
-            --white: #ffffff;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; scroll-behavior: smooth; }
-        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; color: var(--text-dark); }
-
-        /* Navigation */
-        nav { background: var(--white); border-bottom: 2px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-menu { display: flex; gap: 1.5rem; list-style: none; }
-        .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; }
-        .nav-menu a:hover { color: var(--accent); }
-
-        /* Hero with Background Image */
-        .hero { 
-            height: 85vh; 
-            background: linear-gradient(rgba(45, 90, 39, 0.2), rgba(45, 90, 39, 0.2)), 
-                        url('https://images.unsplash.com/photo-1516483642777-6f387c51441c?auto=format&fit=crop&q=80&w=1920'); 
-            background-size: cover; 
-            background-position: center;
-            display: flex; align-items: center; justify-content: center; text-align: center; color: var(--white);
-        }
-        .hero-content { background: rgba(255, 255, 255, 0.9); padding: 3rem; border-radius: 4px; border-top: 8px solid var(--accent); max-width: 800px; }
-        .hero-content h1 { font-size: 3.5rem; margin-bottom: 1rem; color: var(--accent); }
-        .hero-content p { font-size: 1.2rem; color: #444; margin-bottom: 2rem; }
-
-        /* Sections */
-        .section { padding: 6rem 2rem; max-width: 1100px; margin: 0 auto; }
-        .bg-soft { background-color: var(--accent-light); }
-        h2.section-title { font-size: 3rem; text-align: center; margin-bottom: 3rem; position: relative; }
-        h2.section-title::after { content: ''; display: block; width: 80px; height: 3px; background: var(--accent); margin: 10px auto; }
-
-        /* Program Styling */
-        .program-card { background: var(--white); padding: 2.5rem; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 2.5rem; border-left: 6px solid var(--accent); }
-        .phase-header { background: var(--accent); color: var(--white); padding: 0.75rem 1.5rem; display: inline-block; margin-bottom: 1.5rem; font-weight: 700; border-radius: 4px; }
-        .schedule-item { display: grid; grid-template-columns: 150px 1fr; gap: 2rem; padding: 1.5rem 0; border-bottom: 1px solid #eee; }
-        .schedule-item:last-child { border-bottom: none; }
-        .time { font-weight: 700; color: var(--accent); }
-
-        /* Coordinator Cards */
-        .coord-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-        .coord-card { background: var(--white); padding: 2rem; text-align: center; box-shadow: 0 5px 15px rgba(0,0,0,0.05); border-radius: 8px; border-bottom: 4px solid var(--accent); transition: 0.3s; }
-        .coord-card:hover { transform: translateY(-5px); }
-        .coord-card h4 { font-size: 1.6rem; margin-bottom: 0.5rem; }
-
-        /* Registration/Apply Box */
-        .apply-box { background: var(--white); padding: 3rem; border: 2px solid var(--accent); border-radius: 12px; }
-        .btn-main { background: var(--accent); color: white; padding: 1rem 2rem; text-decoration: none; font-weight: 700; border-radius: 4px; display: inline-block; transition: 0.3s; }
-        .btn-main:hover { background: var(--accent-dark); transform: scale(1.05); }
-
-        /* Footer & Logos */
-        .logo-bar { padding: 4rem 2rem; display: flex; justify-content: center; align-items: center; gap: 5rem; flex-wrap: wrap; background: #fff; }
-        .logo-bar img { height: 80px; filter: grayscale(20%); opacity: 0.85; transition: 0.3s; }
-        .logo-bar img:hover { filter: grayscale(0); opacity: 1; }
-        footer { padding: 3rem; text-align: center; border-top: 1px solid #eee; color: #666; font-size: 0.9rem; }
-    </style>
+    <title>Program - CIVIS Diachronic Linguistics 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-    <nav>
-        <div class="nav-container">
-            <div class="nav-brand"><h1>CIVIS Diachronic Linguistics</h1></div>
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html">CIVIS Diachronic Linguistics 2026</a>
+            </div>
             <ul class="nav-menu">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#program">Program</a></li>
-                <li><a href="#coordinators">Co-ordinators</a></li>
-                <li><a href="#venue">Venue</a></li>
-                <li><a href="#registration">Apply</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="program.html" class="active">Program</a></li>
+                <li><a href="speakers.html">Co-ordinators of the CIVIS BIP Course</a></li>
+                <li><a href="registration.html">Registration</a></li>
+                <li><a href="venue.html">Venue</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <section id="home" class="hero">
-        <div class="hero-overlay">
-            <div class="hero-content">
-                <h1>Diachronic Linguistics in the 21st Century</h1>
-                <p>Meta-Digital Diachronic Linguistics: Bridging Philology and AI</p>
-                <a href="#registration" class="btn-main">View Application Tracks</a>
-            </div>
+    <section class="page-header">
+        <div class="container">
+            <h1>Program Schedule</h1>
+            <p>April 20 - July 25, 2026 | Online Spring School + Naxos Summer School</p>
         </div>
     </section>
 
-    <section id="program" class="section">
-        <h2 class="section-title">Course Program</h2>
-
-        <div class="program-card">
-            <div class="phase-header">Phase 1: Online Spring School | April 20 – 23, 2026</div>
-            <div class="schedule-item">
-                <div class="time">Monday Apr 20</div>
-                <div class="activity">
-                    <h4>Diachronic Linguistics Reimagined. Part I</h4>
-                    <p><strong>Speaker:</strong> Professor Nikolaos Lavidas (University of Athens)</p>
-                </div>
-            </div>
-            <div class="schedule-item">
-                <div class="time">14:00 - 15:00</div>
-                <div class="activity">
-                    <h4>Workshop: Historical Corpora & Text Analysis</h4>
-                    <p>S. Chionidi, E. Plakoutsi, N. Lavidas</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="program-card">
-            <div class="phase-header">Phase 2: Online Workshops | May – June 2026</div>
-            <div class="schedule-item">
-                <div class="time">May 2026</div>
-                <div class="activity">
-                    <h4>Hands-on Workshop I: Corpus Annotation (1 Hour)</h4>
-                    <p>Development of morphological tagging standards for student research projects.</p>
-                </div>
-            </div>
-            <div class="schedule-item">
-                <div class="time">June 2026</div>
-                <div class="activity">
-                    <h4>Hands-on Workshop II: Data Visualization (1 Hour)</h4>
-                    <p>Computational tools for mapping diachronic trends in language evolution.</p>
-                </div>
-            </div>
-        </div>
-
-        <div class="program-card">
-            <div class="phase-header">Phase 3: Summer School Naxos | July 20 – 24, 2026</div>
-            <div class="schedule-item">
-                <div class="time">July 20-24</div>
-                <div class="activity">
-                    <h4>Naxos Physical Mobility Week</h4>
-                    <p>Final project presentations, guest seminars, and archaeological tours of the Portara and Ancient Town.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="coordinators" class="section bg-soft">
-        <h2 class="section-title">Course Co-ordinators</h2>
-        <div class="coord-grid">
-            <div class="coord-card">
-                <h4>Professor Nikolaos Lavidas</h4>
-                <p>National and Kapodistrian University of Athens</p>
-            </div>
-            <div class="coord-card">
-                <h4>Professor Artemij Keidan</h4>
-                <p>Sapienza Università di Roma</p>
-            </div>
-            <div class="coord-card">
-                <h4>Professor Ljuba Veselinova</h4>
-                <p>Stockholm University</p>
-            </div>
-            <div class="coord-card">
-                <h4>Professor Maria Isabel Jimenez Martinez</h4>
-                <p>Universidad Autónoma de Madrid</p>
-            </div>
-            <div class="coord-card" style="grid-column: span 2; max-width: 500px; margin: 0 auto;">
-                <p><a href="speakers.html" style="color: var(--accent); font-weight: 700;">View Full Faculty & Guest Speakers List →</a></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="venue" class="section">
-        <h2 class="section-title">The Venue: Naxos</h2>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
-            <img src="https://images.unsplash.com/photo-1621259214757-b0881938367d?auto=format&fit=crop&q=80&w=800" alt="Naxos Apollo Temple" style="width: 100%; border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
-            <div>
-                <p>The Summer School is hosted in the heart of the Cyclades on the island of Naxos. Physical mobility participants will enjoy academic sessions against the backdrop of the iconic <strong>Portara (Temple of Apollo)</strong> and the Medieval Kastro.</p>
-                <p style="margin-top: 1rem;">Naxos offers a unique environment where the evolution of the Greek language can be traced from ancient epigraphy to modern dialects.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="registration" class="section bg-soft">
-        <h2 class="section-title">Applications & Deadlines</h2>
-        <div class="apply-box">
-            <p style="margin-bottom: 2rem; color: #b22222; font-weight: 700;">Important: The deadline for the Full 2026 CIVIS BIP mobility cycle has passed. Please see current options below:</p>
+    <section class="section">
+        <div class="container">
             
-            <div style="margin-bottom: 2rem; border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                <h3>Option 1: Naxos Summer School Only (2026)</h3>
-                <p>Direct applications for the physical Summer School (July 20-24, 2026) are still being accepted for non-BIP track participants.</p>
-                <a href="https://athdgc.github.io/naxos-summer-school-2026/" class="btn-main" style="margin-top: 1rem;">Apply for Naxos Track</a>
+            <h2 class="section-title">Online Spring School</h2>
+            <p style="text-align: center; margin-bottom: 2rem; color: #666;">
+                Athens/Bucharest: EEST (UTC+3) | Marseille/Madrid/Rome/Stockholm: CEST (UTC+2) | Glasgow: BST (UTC+1)
+            </p>
+
+            <div class="program-day">
+                <h3>Monday, April 20, 2026</h3>
+                <div class="schedule-item">
+                    <div class="time">
+                        10:00 - 11:30 EEST<br>
+                        09:00 - 10:30 CEST<br>
+                        08:00 - 09:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>Diachronic Linguistics Reimagined: Contemporary Perspectives. Part I</h4>
+                        <p class="speaker">Professor Nikolaos Lavidas (University of Athens)</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">
+                        12:00 - 13:30 EEST<br>
+                        11:00 - 12:30 CEST<br>
+                        10:00 - 11:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>Ancient Greek Onomastics: the case of the Styra tablets</h4>
+                        <p class="speaker">Professor Francesca Dell’Oro (University of Bologna)</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">
+                        14:00 - 15:00 EEST<br>
+                        13:00 - 14:00 CEST<br>
+                        12:00 - 13:00 BST
+                    </div>
+                    <div class="activity">
+                        <h4>Workshop: Exploring how to work with historical and diachronic corpora</h4>
+                        <p class="speaker">Sophia Chionidi, Eleni Plakoutsi, Professor Nikolaos Lavidas (University of Athens)</p>
+                    </div>
+                </div>
             </div>
 
-            <div style="border-left: 4px solid var(--accent); padding-left: 1.5rem;">
-                <h3>Option 2: Full CIVIS BIP Cycle 2027</h3>
-                <p>Applications for the 2027 Blended Intensive Programme (Online School + Naxos) will open in <strong>September – October 2026</strong> via the CIVIS portal.</p>
+            <div class="program-day">
+                <h3>Tuesday, April 21, 2026</h3>
+                <div class="schedule-item">
+                    <div class="time">
+                        10:00 - 11:30 EEST<br>
+                        09:00 - 10:30 CEST<br>
+                        08:00 - 09:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>Verb-nominal collocations in diachrony: from Latin to Romance languages</h4>
+                        <p class="speaker">Professor Maria Isabel Jimenez Martinez (Autonomous University of Madrid)</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">
+                        12:00 - 13:30 EEST<br>
+                        11:00 - 12:30 CEST<br>
+                        10:00 - 11:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>Construction Grammar, corpus-based methods and the recent history of the English Objoid Construction</h4>
+                        <p class="speaker">Professor Tamara Bouso Rivas (University of Santiago de Compostela)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-day">
+                <h3>Wednesday, April 22, 2026</h3>
+                <div class="schedule-item">
+                    <div class="time">
+                        10:00 - 11:30 EEST<br>
+                        09:00 - 10:30 CEST<br>
+                        08:00 - 09:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>Diachronic Linguistics Reimagined: Contemporary Perspectives. Part II</h4>
+                        <p class="speaker">Professor Nikolaos Lavidas (University of Athens)</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">
+                        12:00 - 13:30 EEST<br>
+                        11:00 - 12:30 CEST<br>
+                        10:00 - 11:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>The history of διότι: from Cause to Substantive Subordinator, and back again</h4>
+                        <p class="speaker">Jesus Polo Arrondo (Autonomous University of Madrid)</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-day">
+                <h3>Thursday, April 23, 2026</h3>
+                <div class="schedule-item">
+                    <div class="time">
+                        10:00 - 11:30 EEST<br>
+                        09:00 - 10:30 CEST<br>
+                        08:00 - 09:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>Descriptive linguistics in the time of AI: a multistratal approach</h4>
+                        <p class="speaker">Professor Artemij Keidan (Sapienza University of Rome)</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">
+                        12:00 - 13:30 EEST<br>
+                        11:00 - 12:30 CEST<br>
+                        10:00 - 11:30 BST
+                    </div>
+                    <div class="activity">
+                        <h4>The evolution of negation examined via two cyclical models: Jespersen vs. Croft</h4>
+                        <p class="speaker">Professor Ljuba Veselinova (Stockholm University)</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 4rem 0; border: 0; border-top: 1px dashed #ccc;">
+
+            <h2 class="section-title">Online Workshops & Mentorship</h2>
+            <div class="program-day">
+                <h3>May – June 2026: Hands-on Development</h3>
+                <div class="schedule-item">
+                    <div class="time">May 2026</div>
+                    <div class="activity">
+                        <h4>Hands-on Workshop I: Corpus Annotation (1 Hour)</h4>
+                        <p>Practical sessions on morphological tagging standards for research projects.</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">June 2026</div>
+                    <div class="activity">
+                        <h4>Hands-on Workshop II: Data Visualization (1 Hour)</h4>
+                        <p>Computational tools for mapping language change trends.</p>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="margin: 4rem 0; border: 0; border-top: 1px dashed #ccc;">
+
+            <h2 class="section-title">Naxos Summer School</h2>
+            
+            <div class="program-day">
+                <h3>Sunday, July 20, 2026 - Arrival & Welcome</h3>
+                <div class="schedule-item">
+                    <div class="time">14:00 - 18:00</div>
+                    <div class="activity">
+                        <h4>Registration & Check-in</h4>
+                        <p>Participants arrive and check into accommodation</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">19:00 - 21:00</div>
+                    <div class="activity">
+                        <h4>Welcome Reception</h4>
+                        <p class="location">Location: Hotel Terrace</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="program-day">
+                <h3>Monday, July 21, 2026 - Theoretical Foundations</h3>
+                <div class="schedule-item">
+                    <div class="time">09:00 - 10:30</div>
+                    <div class="activity">
+                        <h4>Opening Lecture: Introduction to Diachronic Linguistics</h4>
+                        <p class="speaker">Professor Nikolaos Lavidas (University of Athens)</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">11:00 - 12:30</div>
+                    <div class="activity">
+                        <h4>Lecture: Comparing Diachronies Across Languages</h4>
+                        <p class="speaker">International Faculty</p>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">14:00 - 15:30</div>
+                    <div class="activity">
+                        <h4>Workshop: Corpus Methods in Historical Linguistics</h4>
+                    </div>
+                </div>
+                <div class="schedule-item">
+                    <div class="time">16:00 - 17:30</div>
+                    <div class="activity">
+                        <h4>Student Presentations (Session 1)</h4>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+
+    <div style="background: white; padding: 2rem 0; border-top: 2px solid #e0e0e0; margin-top: 4rem;">
+        <div class="container" style="text-align: center;">
+            <div style="display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap;">
+                <img src="assets/logos/civis-logo.png" alt="CIVIS Logo" style="height: 60px; max-width: 200px; object-fit: contain;">
+                <img src="assets/logos/erasmus-logo.png" alt="Erasmus+ Logo" style="height: 60px; max-width: 200px; object-fit: contain;">
+                <img src="assets/logos/uoa-logo.png" alt="NKUA Logo" style="height: 70px; max-width: 200px; object-fit: contain;">
             </div>
         </div>
-    </section>
-
-    <section id="contact" class="section">
-        <h2 class="section-title">Contact Information</h2>
-        <div style="text-align: center; font-size: 1.2rem;">
-            <p>For academic and registration inquiries, please contact the Course Lead:</p>
-            <p style="margin-top: 1.5rem; font-weight: 700;">Professor Nikolaos Lavidas</p>
-            <a href="mailto:nlavidas@enl.uoa.gr" style="color: var(--accent); font-size: 1.5rem;">nlavidas@enl.uoa.gr</a>
-        </div>
-    </section>
-
-    <div class="logo-bar">
-        <img src="https://civis.eu/storage/862/civis-logo-header.png" alt="CIVIS Logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Erasmus_logo.svg/1280px-Erasmus_logo.svg.png" alt="Erasmus Logo">
-        <img src="https://en.uoa.gr/fileadmin/user_upload/uoa-logo.png" alt="NKUA Logo">
     </div>
 
     <footer>
-        <p>&copy; 2026 National and Kapodistrian University of Athens | Diachronic Linguistics in the 21st Century</p>
-        <p>This project is co-funded by the Erasmus+ Programme of the European Union.</p>
+        <div class="container">
+            <p>&copy; 2026 CIVIS: Diachronic Linguistics in the 21st Century</p>
+            <p>National and Kapodistrian University of Athens</p>
+            <p style="margin-top: 1rem;">
+                <a href="https://athdgc.github.io/">AthDGC Research Network</a> | 
+                <a href="https://en.uoa.gr/">University of Athens</a>
+            </p>
+        </div>
     </footer>
-
 </body>
 </html>
