@@ -1,389 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Venue information for Diachronic Linguistics in the 21st Century 2026 - Naxos, Greece">
-    <title>Venue | Diachronic Linguistics 2026</title>
+    <title>Venue - CIVIS Diachronic Linguistics 2026</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://db.onlinewebfonts.com/c/d34d370b9537835d2b01df73f3394c92?family=Katsoulidis+W01+Regular"
-        rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
-        .page-header {
-            background: none;
-            color: white;
-            padding: 8rem 0 4rem;
-            margin-top: 70px;
-            text-align: center;
-        }
-
-        .page-header h1 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .page-header p {
-            font-size: 1.25rem;
-            opacity: 0.95;
-        }
-
-        .venue-section {
-            padding: 4rem 0;
-        }
-
-        .venue-card {
-            background: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .venue-card h2 {
-            color: #2563eb;
-            margin-bottom: 1.5rem;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .feature-item {
-            background-color: #f9fafb;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            text-align: center;
-        }
-
-        .feature-icon {
-            display: none;
-        }
-
-        .feature-item h3 {
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-            color: #2563eb;
-        }
-
-        .highlight-box {
-            background: none;
-            color: white;
-            padding: 2rem;
-            border-radius: 1rem;
-            margin: 2rem 0;
-        }
-
-        .highlight-box h3 {
-            color: white;
-            margin-bottom: 1rem;
-        }
-
-        .info-box {
-            background-color: #dbeafe;
-            border-left: 4px solid #2563eb;
-            padding: 1.5rem;
-            border-radius: 0.5rem;
-            margin: 1.5rem 0;
-        }
+        :root { --accent: #2d5a27; --bg-soft: #f4f7f4; }
+        body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.8; }
+        .hero-venue { height: 60vh; background: url('assets/images/naxos-apollo.jpg') center/cover; display: flex; align-items: center; justify-content: center; position: relative; }
+        .hero-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); }
+        .hero-text { position: relative; color: white; text-align: center; z-index: 2; }
+        .section { padding: 5rem 2rem; max-width: 1000px; margin: 0 auto; }
+        h1, h2 { font-family: 'Cormorant Garamond', serif; color: var(--accent); }
+        .info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 3rem; margin-top: 3rem; }
     </style>
 </head>
-
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="container">
-            <div class="nav-brand">
-                <h1>Diachronic Linguistics 2026</h1>
-                <p class="nav-subtitle">CIVIS Blended Intensive Programme</p>
-            </div>
-            <ul class="nav-menu" id="navMenu">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="program.html">Program</a></li>
-                <li><a href="speakers.html">Professors</a></li>
-                <li><a href="venue.html" class="active">Venue</a></li>
-                <li><a href="registration.html">Apply</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
+    <nav class="nav-container" style="justify-content: center; gap: 2rem; padding: 1rem;">
+        <a href="index.html" style="color: var(--accent); font-weight: 700; text-decoration: none;">HOME</a>
+        <a href="index.html#program" style="color: var(--accent); font-weight: 700; text-decoration: none;">PROGRAM</a>
+        <a href="speakers.html" style="color: var(--accent); font-weight: 700; text-decoration: none;">FACULTY</a>
     </nav>
 
-    <!-- Page Header -->
-    <header class="page-header" style="background-image: url('');">
-        <div class="container">
-            <h1 style="margin-top: 0;">Summer School Venue</h1>
-            <p>Naxos, Cyclades, Greece | 20-24 July 2026</p>
-            <p class="image-attribution" style="margin-top: 1rem; opacity: 0.9;">Photo: Naxos Island, Cyclades, Greece
-            </p>
+    <header class="hero-venue">
+        <div class="hero-overlay"></div>
+        <div class="hero-text">
+            <h1 style="color: white; font-size: 3.5rem;">Naxos, Greece</h1>
+            <p style="font-size: 1.5rem;">The Cycladic Heart of the Summer School</p>
         </div>
     </header>
 
-    <!-- Venue Section -->
-    <section class="venue-section">
-        <div class="container">
+    <main class="section">
+        <h2>About the Venue</h2>
+        <p>The physical mobility phase takes place on the island of Naxos, the largest and most fertile of the Cycladic islands. The school combines intensive academic study with the rich archaeological heritage of the region.</p>
 
-            <!-- About Naxos -->
-            <div class="venue-card">
-                <h2> Discover Naxos</h2>
-                <p><strong>Where Digital Innovation Meets Mediterranean Inspiration</strong></p>
-                <p>Complete your interdisciplinary journey with five transformative days on the stunning island of Naxos
-                    in the Cyclades archipelago. Ancient heritage provides the perfect backdrop for cutting-edge
-                    computational linguistics.</p>
-
-                <p style="margin-top: 1.5rem;">Naxos is the largest island in the Cyclades, offering a unique blend of:
-                </p>
-                <ul style="margin-left: 2rem; margin-top: 1rem;">
-                    <li>Rich historical and linguistic heritage dating back to ancient Greek civilization</li>
-                    <li>Beautiful Mediterranean landscapes and beaches</li>
-                    <li>Charming traditional villages and modern facilities</li>
-                    <li>Excellent infrastructure for academic work</li>
-                    <li>Inspiring environment conducive to learning and networking</li>
-                </ul>
-
-                <div class="info-box" style="margin-top: 2rem;">
-                    <strong> Why Naxos?</strong> Experience the perfect fusion of historical depth and technological
-                    innovation, where the island's rich linguistic heritage enhances your understanding of language
-                    evolution through the ages.
-                </div>
-
-                <div style="margin-top: 2rem;">
-                    <h3>Key Features of Naxos:</h3>
-                    <ul>
-                        <li>Rich historical and archaeological sites</li>
-                        <li>Beautiful traditional Cycladic architecture</li>
-                        <li>Stunning Mediterranean landscapes</li>
-                    </ul>
-                </div>
-
-                <!-- Facilities -->
-                <div class="venue-card">
-                    <h2> Facilities & Learning Environment</h2>
-                    <p>The summer school will take place in modern facilities designed for intensive academic work.</p>
-
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <h3>Lecture Halls</h3>
-                            <p>Modern classrooms with comfortable seating</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Collaboration Spaces</h3>
-                            <p>Dedicated areas for group work</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Outdoor Spaces</h3>
-                            <p>Terraces and gardens for relaxation</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Accommodation -->
-                <div class="venue-card">
-                    <h2> Accommodation</h2>
-                    <p>Accommodation during the summer school (20-24 July 2026) is covered by the Erasmus+ mobility
-                        grant
-                        for selected students.</p>
-
-                    <div class="highlight-box">
-                        <h3>What's Included</h3>
-                        <ul style="margin-left: 1.5rem;">
-                            <li>5 nights of accommodation (19-24 July 2026)</li>
-                            <li>Clean, comfortable rooms (typically shared double or triple occupancy)</li>
-                            <li>Basic amenities and Wi-Fi access</li>
-                            <li>Walking distance to the learning facilities</li>
-                            <li>Breakfast included</li>
-                        </ul>
-                    </div>
-
-                    <p style="margin-top: 1.5rem;"><strong>Note:</strong> Specific accommodation details will be
-                        provided to
-                        accepted students in the spring of 2026.</p>
-                </div>
-
-                <!-- Getting There -->
-                <div class="venue-card">
-                    <h2> Getting to Naxos</h2>
-                    <p>Naxos is accessible by both air and sea, with regular connections from Athens and other Greek
-                        islands.</p>
-
-                    <h3 style="margin-top: 2rem; color: #2563eb;">By Air</h3>
-                    <ul style="margin-left: 2rem;">
-                        <li><strong>Naxos Island National Airport (JNX):</strong> Direct flights from Athens
-                            (approximately
-                            45 minutes)</li>
-                        <li>Several daily flights operated by Olympic Air and Sky Express</li>
-                        <li>The airport is located about 3 km from Naxos Town (Chora)</li>
-                    </ul>
-
-                    <h3 style="margin-top: 2rem; color: #2563eb;">By Ferry</h3>
-                    <ul style="margin-left: 2rem;">
-                        <li><strong>From Piraeus Port (Athens):</strong> Regular ferry services (3.5-6 hours depending
-                            on
-                            ferry type)</li>
-                        <li><strong>High-speed ferries:</strong> Faster but more expensive option</li>
-                        <li><strong>Conventional ferries:</strong> Slower but more economical</li>
-                        <li>Multiple daily departures in summer</li>
-                    </ul>
-
-                    <div class="info-box" style="margin-top: 2rem;">
-                        <strong> Travel Covered by Grant:</strong> The Erasmus+ mobility grant helps cover your travel
-                        expenses to and from Naxos. Detailed travel arrangements and reimbursement procedures will be
-                        provided to accepted students.
-                    </div>
-                </div>
-
-                <!-- What to Expect -->
-                <div class="venue-card">
-                    <h2> What to Expect in July</h2>
-
-                    <h3 style="color: #2563eb;">Weather</h3>
-                    <p>July in Naxos offers ideal summer weather:</p>
-                    <ul style="margin-left: 2rem;">
-                        <li><strong>Temperature:</strong> Average highs of 27-29°C (81-84°F)</li>
-                        <li><strong>Sunshine:</strong> Abundant sunshine with minimal rainfall</li>
-                        <li><strong>Sea temperature:</strong> Warm and perfect for swimming (24-25°C)</li>
-                        <li><strong>Conditions:</strong> Generally dry with a pleasant breeze</li>
-                    </ul>
-
-                    <h3 style="margin-top: 2rem; color: #2563eb;">What to Pack</h3>
-                    <ul style="margin-left: 2rem;">
-                        <li>Light, comfortable clothing for warm weather</li>
-                        <li>Sunscreen and sun hat</li>
-                        <li>Laptop and any required study materials</li>
-                        <li>Comfortable walking shoes</li>
-                        <li>Swimsuit (for free time)</li>
-                        <li>Light jacket for air-conditioned rooms</li>
-                        <li>Power adapter (EU plugs, 220V)</li>
-                    </ul>
-                </div>
-
-                <!-- Beyond the Classroom -->
-                <div class="venue-card">
-                    <h2> Beyond the Classroom</h2>
-                    <p>While the focus is on intensive learning, there will be opportunities to experience the beauty
-                        and
-                        culture of Naxos:</p>
-
-                    <div class="feature-grid">
-                        <div class="feature-item">
-                            <h3>Historical Sites</h3>
-                            <p>Visit ancient temples, the Portara, and Venetian castle</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Beaches</h3>
-                            <p>Relax on beautiful beaches during free time</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Local Cuisine</h3>
-                            <p>Experience authentic Greek food and hospitality</p>
-                        </div>
-                        <div class="feature-item">
-                            <h3>Chora (Old Town)</h3>
-                            <p>Explore charming alleyways and traditional architecture</p>
-                        </div>
-                    </div>
-
-                    <div class="info-box" style="margin-top: 2rem;">
-                        <strong> Meals:</strong> Breakfast is included with accommodation. There will be organized lunch
-                        breaks, and you'll have free time to explore local restaurants for dinner. The grant includes
-                        some
-                        meal allowances.
-                    </div>
-                </div>
-
-                <!-- Networking -->
-                <div class="highlight-box">
-                    <h3> Networking & Social Activities</h3>
-                    <p>The summer school includes planned social activities to foster connections among participants:
-                    </p>
-                    <ul style="margin-left: 1.5rem; margin-top: 1rem;">
-                        <li>Welcome reception on arrival day</li>
-                        <li>Group dinners with faculty and fellow students</li>
-                        <li>Evening sessions for informal academic discussions</li>
-                        <li>Optional cultural excursions</li>
-                        <li>Closing ceremony and farewell dinner</li>
-                    </ul>
-                    <p style="margin-top: 1rem;">These activities are designed to build lasting international
-                        collaborations
-                        and friendships!</p>
-                </div>
-
-                <div class="info-box" style="margin-top: 2rem;">
-                    <strong>Application Status:</strong> Admission for the 2026 summer school will open in September
-                    2025.
-                    Please check back then for application details.
-                </div>
-
+        <div class="info-grid">
+            <div>
+                <h3>Academic Center</h3>
+                <p>Lectures are held in the historic center of Naxos town, providing an atmosphere that bridges modern linguistic research with ancient history.</p>
             </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>About</h3>
-                    <p>CIVIS Blended Intensive Programme: Diachronic Linguistics in the 21st Century is organized by the
-                        National and Kapodistrian University of Athens in collaboration with CIVIS partner universities.
-                    </p>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="program.html">Program</a></li>
-                        <li><a href="speakers.html">Professors</a></li>
-                        <li><a href="venue.html">Venue</a></li>
-                        <li><a href="registration.html">Apply</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>External Links</h3>
-                    <ul>
-                        <li><a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version"
-                                target="_blank">CIVIS Course Page</a></li>
-                        <li><a href="https://moodle.civis.eu/" target="_blank">CIVIS Moodle</a></li>
-                        <li><a href="https://civis.eu/" target="_blank">CIVIS Alliance</a></li>
-                        <li><a href="https://www.uoa.gr/" target="_blank">University of Athens</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="/cdn-cgi/l/email-protection#7d13111c0b14191c0e3d1813115308121c531a0f"><span
-                                class="__cf_email__"
-                                data-cfemail="8ce2e0edfae5e8edffcce9e2e0a2f9e3eda2ebfe">[email&#160;protected]</span></a>
-                    </p>
-                    <p>Follow CIVIS on social media for updates</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-logos">
-                    <img src="elidek-logo.jpg" alt="ELIDEK Logo" style="height: 50px;">
-                    <img src="greece-logo.jpg" alt="Greek Government Logo" style="height: 50px;">
-                    <p>Co-funded by the European Union</p>
-                </div>
-                <p class="copyright">&copy; 2025 National and Kapodistrian University of Athens. All rights reserved.
-                </p>
-                <p class="disclaimer">Views and opinions expressed do not necessarily reflect those of the European
-                    Union or the European Education and Culture Executive Agency (EACEA). Neither can be held
-                    responsible for them.</p>
+            <div>
+                <h3>Cultural Heritage</h3>
+                <p>Participants will visit the Temple of Apollo (Portara) and the Archaeological Museum of Naxos, which houses significant artifacts from the Cycladic civilization.</p>
             </div>
         </div>
-    </footer>
-
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script>
-        const navToggle = document.getElementById('navToggle');
-        co
+        
+        <div style="margin-top: 4rem; padding: 2rem; background: var(--bg-soft); border-left: 5px solid var(--accent);">
+            <h3>Practical Information</h3>
+            <p>Naxos is accessible by ferry from Piraeus (Athens) or by direct flight from Athens International Airport. Detailed travel and accommodation guides will be provided to all admitted students.</p>
+        </div>
+    </main>
+</body>
+</html>
