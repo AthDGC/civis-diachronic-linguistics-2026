@@ -11,91 +11,55 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        /* ==== Core Professional Styles ==== */
+        /* ==== Restored Academic Green Theme ==== */
         :root {
-            --accent: #0066cc;
-            --accent-dark: #004d99;
-            --bg-soft: #fbf7ef;
-            --text-dark: #333;
-            --white: #ffffff;
+            --accent: #2d5a27; /* Professional Green */
+            --accent-dark: #1e3d1a;
+            --bg-soft: #f4f7f4;
+            --text-dark: #2c3e50;
         }
 
-        body {
-            font-family: 'Roboto', sans-serif;
-            background-color: var(--bg-soft);
-            color: var(--text-dark);
-            line-height: 1.6;
-            scroll-behavior: smooth;
-        }
+        body { font-family: 'Roboto', sans-serif; background-color: #fff; color: var(--text-dark); line-height: 1.6; scroll-behavior: smooth; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 700; color: #1a3317; }
 
-        h1, h2, h3, h4 {
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 700;
-        }
-
-        /* ==== Navigation ==== */
-        nav { background: #fff; border-bottom: 1px solid #ebe3d6; position: sticky; top: 0; z-index: 1000; }
+        /* Navigation */
+        nav { background: #fff; border-bottom: 2px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-menu { display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0; }
-        .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.95rem; }
+        .nav-menu { display: flex; gap: 1.5rem; list-style: none; margin: 0; }
+        .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
         .nav-menu a:hover { color: var(--accent); }
 
-        /* ==== Program Section Styling ==== */
-        .program-day {
-            background: #fff;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            border-left: 6px solid var(--accent);
+        /* Hero Section Fix */
+        .hero-large { 
+            height: 80vh; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            background: url('assets/images/pexels-athena-3009971.jpg') no-repeat center center/cover; 
+            position: relative; 
         }
-        .schedule-item {
-            display: grid;
-            grid-template-columns: 200px 1fr;
-            gap: 2rem;
-            padding: 1.5rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        .schedule-item:last-child { border-bottom: none; }
-        .time-box { font-weight: 700; color: #666; font-size: 0.95rem; }
-        .activity-box h4 { font-size: 1.3rem; color: var(--accent); margin-bottom: 0.5rem; }
-        .speaker-label { font-style: italic; color: #555; }
-
-        /* ==== Coordinator Cards ==== */
-        .coord-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        .coord-card {
-            background: #fff;
-            padding: 2.5rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease;
-            border-bottom: 4px solid var(--accent);
-            text-align: center;
-        }
-        .coord-card:hover { transform: translateY(-5px); }
-        .coord-card h4 { font-size: 1.6rem; margin-bottom: 0.5rem; color: #003366; }
-        .coord-card p { font-size: 0.95rem; color: #666; font-weight: 500; margin: 0; }
-
-        .phase-banner {
-            background: #eef6ff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin: 2rem 0;
-            border: 1px solid #cce5ff;
-            text-align: center;
+        .hero-overlay { 
+            position: absolute; 
+            top: 0; left: 0; width: 100%; height: 100%; 
+            background: rgba(255, 255, 255, 0.8); /* Light overlay to keep text readable but image visible */
+            display: flex; align-items: center; justify-content: center; 
         }
 
-        /* ==== Hero ==== */
-        .hero-large { height: 75vh; display: flex; align-items: center; justify-content: center; text-align: center; background-size: cover; position: relative; }
-        .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(251, 247, 239, 0.85); display: flex; align-items: center; justify-content: center; }
-        .btn-primary { background: var(--accent); color: #fff; padding: 1rem 2rem; border-radius: 5px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; }
+        /* Program Styling */
+        .program-day { background: #fff; padding: 2rem; margin-bottom: 2rem; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-top: 4px solid var(--accent); }
+        .schedule-item { display: grid; grid-template-columns: 180px 1fr; gap: 1.5rem; padding: 1rem 0; border-bottom: 1px solid #eee; }
+        .time-box { font-weight: 700; color: var(--accent); }
+        
+        /* Faculty Cards */
+        .coord-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
+        .coord-card { background: var(--bg-soft); padding: 1.5rem; border-radius: 6px; text-align: center; border: 1px solid #ddd; }
+        .coord-card h4 { margin-bottom: 0.25rem; font-size: 1.4rem; }
+
+        .btn-primary { background: var(--accent); color: #fff; padding: 0.8rem 1.8rem; border-radius: 4px; text-decoration: none; font-weight: 700; transition: 0.3s; }
         .btn-primary:hover { background: var(--accent-dark); }
-        .btn-secondary { border: 2px solid var(--accent); color: var(--accent); padding: 0.9rem 2rem; border-radius: 5px; text-decoration: none; font-weight: 700; margin-left: 1rem; }
+        
+        .logo-bar { background: #fff; padding: 3rem 0; border-top: 1px solid #eee; text-align: center; }
+        .logo-container { display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap; }
     </style>
 </head>
 
@@ -103,13 +67,12 @@
     <nav>
         <div class="nav-container">
             <div class="nav-brand">
-                <h1 style="font-size: 1.5rem; margin: 0;">Diachronic Linguistics 2026</h1>
-                <p style="font-size: 0.8rem; margin: 0; color: #666;">CIVIS Blended Intensive Programme</p>
+                <h1 style="font-size: 1.4rem; margin: 0;">Diachronic Linguistics 2026</h1>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#program">Program</a></li>
-                <li><a href="#coordinators">Co-ordinators</a></li>
+                <li><a href="speakers.html">Co-ordinators</a></li>
                 <li><a href="#venue">Venue</a></li>
                 <li><a href="#registration">Apply</a></li>
                 <li><a href="#contact">Contact</a></li>
@@ -117,27 +80,25 @@
         </div>
     </nav>
 
-    <section id="home" class="hero-large" style="background-image: url(assets/images/pexels-athena-3009971.jpg);">
+    <section id="home" class="hero-large">
         <div class="hero-overlay">
-            <div class="hero-content">
-                <h2 style="font-size: 3.5rem; margin-bottom: 1rem; color: #003366;">Meta-Digital Diachronic Linguistics</h2>
-                <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto 2.5rem;">Integrating historical philology with AI and computational corpora.</p>
-                <div style="margin-bottom: 2.5rem; font-weight: 700;">
-                    <span><i class="fas fa-calendar-alt"></i> April – July 2026</span> | 
-                    <span><i class="fas fa-map-marker-alt"></i> Online & Naxos, Greece</span>
+            <div class="hero-text" style="max-width: 900px; text-align: center; padding: 2rem;">
+                <h2 style="font-size: 3.5rem; color: var(--accent-dark); margin-bottom: 1rem;">Diachronic Linguistics in the 21st Century</h2>
+                <h3 style="font-size: 1.8rem; margin-bottom: 2rem; font-family: 'Roboto', sans-serif; font-weight: 300;">Meta-Digital Diachronic Linguistics</h3>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">Bridging traditional philology with cutting-edge AI and NLP techniques.</p>
+                <div style="margin-bottom: 3rem;">
+                    <a href="#registration" class="btn-primary">Apply Now</a>
                 </div>
-                <a href="#registration" class="btn-primary">Apply Now</a>
-                <a href="#program" class="btn-secondary">View Schedule</a>
             </div>
         </div>
     </section>
 
-    <section id="program" style="padding: 6rem 0;">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 3.2rem; margin-bottom: 3.5rem;">Program Schedule</h2>
-            
-            <div class="phase-banner">
-                <strong>Phase 1: Online Spring School</strong> | April 20 – 23, 2026
+    <section id="program" style="padding: 5rem 0;">
+        <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="text-align: center; font-size: 2.8rem; margin-bottom: 3rem;">Course Schedule</h2>
+
+            <div style="background: var(--accent); color: white; padding: 1rem; border-radius: 4px; margin-bottom: 2rem;">
+                <h3 style="color: white; margin: 0;">Phase 1: Online Spring School | April 20 – 23, 2026</h3>
             </div>
 
             <div class="program-day">
@@ -145,91 +106,64 @@
                 <div class="schedule-item">
                     <div class="time-box">10:00 - 11:30 EEST</div>
                     <div class="activity-box">
-                        <h4>Diachronic Linguistics Reimagined: Contemporary Perspectives. Part I</h4>
-                        <p class="speaker-label">Professor Nikolaos Lavidas (National and Kapodistrian University of Athens)</p>
+                        <h4>Diachronic Linguistics Reimagined. Part I</h4>
+                        <p><strong>Speaker:</strong> Professor Nikolaos Lavidas (University of Athens)</p>
                     </div>
                 </div>
                 <div class="schedule-item">
                     <div class="time-box">12:00 - 13:30 EEST</div>
                     <div class="activity-box">
-                        <h4>Ancient Greek Onomastics: the case of the Styra tablets</h4>
-                        <p class="speaker-label">Professor Francesca Dell’Oro (University of Bologna)</p>
+                        <h4>Ancient Greek Onomastics: The Styra Tablets</h4>
+                        <p><strong>Speaker:</strong> Professor Francesca Dell’Oro (University of Bologna)</p>
                     </div>
                 </div>
                 <div class="schedule-item">
                     <div class="time-box">14:00 - 15:00 EEST</div>
                     <div class="activity-box">
-                        <h4>Workshop: Exploring how to work with historical and diachronic corpora</h4>
-                        <p class="speaker-label">S. Chionidi, E. Plakoutsi, N. Lavidas (Athens)</p>
+                        <h4>Workshop: Historical & Diachronic Corpora</h4>
+                        <p><strong>Speakers:</strong> S. Chionidi, E. Plakoutsi, N. Lavidas (Athens)</p>
                     </div>
                 </div>
             </div>
 
-            <div class="program-day">
-                <h3>Tuesday, April 21, 2026</h3>
-                <div class="schedule-item">
-                    <div class="time-box">10:00 - 11:30 EEST</div>
-                    <div class="activity-box">
-                        <h4>Verb-nominal collocations in diachrony: from Latin to Romance languages</h4>
-                        <p class="speaker-label">Professor Maria Isabel Jimenez Martinez (Madrid)</p>
-                    </div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time-box">12:00 - 13:30 EEST</div>
-                    <div class="activity-box">
-                        <h4>The English Objoid Construction: A Corpus Study</h4>
-                        <p class="speaker-label">Professor Tamara Bouso Rivas (Santiago de Compostela)</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="phase-banner">
-                <strong>Phase 2: Online Workshops & Project Mentorship</strong> | May – June 2026
+            <div style="background: var(--accent); color: white; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; margin-top: 4rem;">
+                <h3 style="color: white; margin: 0;">Phase 2: Online Workshops & Mentorship | May – June 2026</h3>
             </div>
             <div class="program-day">
-                <h3>Hands-on Development Sessions</h3>
+                <h3>Stage 2: "From Texts to Grammar" Development</h3>
                 <div class="schedule-item">
                     <div class="time-box">May 2026</div>
                     <div class="activity-box">
-                        <h4>Hands-on Workshop I: Corpus Annotation Standards (1 Hour)</h4>
-                        <p>Practical application of morphological and syntactic tagging to individual student projects.</p>
+                        <h4>Hands-on Workshop I (1 Hour)</h4>
+                        <p>Specialized online workshop focusing on morphological and syntactic annotation of individual student datasets.</p>
                     </div>
                 </div>
                 <div class="schedule-item">
                     <div class="time-box">June 2026</div>
                     <div class="activity-box">
-                        <h4>Hands-on Workshop II: Data Visualization for Historical Linguistics (1 Hour)</h4>
-                        <p>Mapping language change trends using computational tools for final presentation preparation.</p>
+                        <h4>Hands-on Workshop II (1 Hour)</h4>
+                        <p>Computational tools for data visualization and trends analysis in historical linguistics.</p>
                     </div>
                 </div>
             </div>
 
-            <div class="phase-banner">
-                <strong>Phase 3: Naxos Summer School</strong> | July 20 – 24, 2026
+            <div style="background: var(--accent); color: white; padding: 1rem; border-radius: 4px; margin-bottom: 2rem; margin-top: 4rem;">
+                <h3 style="color: white; margin: 0;">Phase 3: Naxos Summer School | July 20 – 24, 2026</h3>
             </div>
             <div class="program-day">
-                <h3>Physical Mobility Week - Naxos</h3>
-                <div class="schedule-item">
-                    <div class="time-box">Sunday, July 20</div>
-                    <div class="activity-box"><h4>Arrival & Welcome Reception</h4></div>
-                </div>
-                <div class="schedule-item">
-                    <div class="time-box">July 21-24</div>
-                    <div class="activity-box"><h4>Advanced Seminars & Research Presentations</h4><p>Detailed thematic sessions in Naxos concluding with student findings.</p></div>
-                </div>
+                <h3>Physical Mobility Week</h3>
+                <p>Five days of advanced seminars and final research project presentations on the island of Naxos.</p>
             </div>
         </div>
     </section>
 
-    <section id="coordinators" style="padding: 6rem 0; background: #f6f2e8;">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 3.2rem; margin-bottom: 1rem;">Co-ordinators of the CIVIS BIP Course</h2>
-            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 3.5rem; color: #666;">Distinguished International Faculty</p>
-            
+    <section id="coordinators" style="padding: 5rem 0; background: var(--bg-soft);">
+        <div class="container" style="max-width: 1100px; margin: 0 auto; padding: 0 2rem;">
+            <h2 style="text-align: center; font-size: 2.8rem;">Course Co-ordinators</h2>
             <div class="coord-grid">
                 <div class="coord-card">
                     <h4>Professor Nikolaos Lavidas</h4>
-                    <p>National and Kapodistrian University of Athens</p>
+                    <p>University of Athens</p>
                 </div>
                 <div class="coord-card">
                     <h4>Professor Francesca Dell’Oro</h4>
@@ -252,42 +186,37 @@
                     <p>University of Santiago de Compostela</p>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 3.5rem;">
-                <a href="speakers.html" class="btn-primary">View Full Faculty Biographies</a>
-            </div>
         </div>
     </section>
 
-    <section id="registration" style="padding: 6rem 0;">
-        <div class="container">
-            <h2 style="text-align: center; font-size: 3.2rem; margin-bottom: 3.5rem;">Admissions & Applications</h2>
-            <div style="background: #fff; padding: 3.5rem; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); max-width: 900px; margin: 0 auto;">
-                
-                <div style="margin-bottom: 2.5rem; border-bottom: 1px solid #eee; padding-bottom: 2.5rem;">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">Track 1: Naxos Summer School 2026 (Only)</h3>
-                    <p style="margin-bottom: 1.5rem;">Apply specifically for the physical mobility week in <strong>Naxos (July 20–24, 2026)</strong>. This track is designed for those focusing on the summer intensive sessions.</p>
-                    <a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank" style="color: var(--accent); font-weight: 700; text-decoration: underline;">Apply for Naxos 2026 →</a>
+    <section id="registration" style="padding: 5rem 0;">
+        <div class="container" style="max-width: 900px; margin: 0 auto; text-align: center;">
+            <h2 style="font-size: 2.8rem; margin-bottom: 2rem;">Admissions & Applications</h2>
+            <div style="background: #fff; padding: 3rem; border: 1px solid #ddd; border-radius: 8px; text-align: left;">
+                <div style="margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 2rem;">
+                    <h3 style="color: var(--accent);">Option A: Naxos Summer School 2026 (Only)</h3>
+                    <p>Register specifically for the physical mobility week in Naxos. Applications are currently open.</p>
+                    <a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank" style="color: var(--accent); font-weight: 700;">Summer School Portal →</a>
                 </div>
-
-                <div style="margin-bottom: 1rem;">
-                    <h3 style="color: var(--accent); margin-bottom: 1rem;">Track 2: Full CIVIS BIP Programme 2027</h3>
-                    <p style="margin-bottom: 1.5rem;">Applications for the complete cycle (Spring School, Online Workshops, and Summer School) for the 2027 edition will open in the fall.</p>
-                    <p><strong>Application Period:</strong> September – October 2026</p>
-                </div>
-
-                <div style="text-align: center; margin-top: 3.5rem;">
-                    <p style="margin-bottom: 1.5rem; font-style: italic; color: #666;">For specific administrative inquiries or mobility grant details:</p>
-                    <a href="mailto:nlavidas@enl.uoa.gr" class="btn-primary">Email the Lead Coordinator</a>
+                <div>
+                    <h3 style="color: var(--accent);">Option B: Full CIVIS BIP Programme 2027</h3>
+                    <p>Applications for the complete 2027 cycle (Spring/Workshops/Summer) will open in <strong>September – October 2026</strong>.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 5rem 0; background: #fff; border-top: 1px solid #ddd; text-align: center;">
+    <div class="logo-bar">
         <div class="container">
-            <p style="margin-bottom: 1rem;">&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
-            <p style="color: #999; font-size: 0.85rem;">Co-funded by the Erasmus+ Programme of the European Union</p>
+            <div class="logo-container">
+                <img src="elidek-logo.jpg" alt="HFRI/ELIDEK Logo" style="height: 65px;">
+                <img src="greece-logo.jpg" alt="Greece 2.0 Logo" style="height: 65px;">
+            </div>
         </div>
+    </div>
+
+    <footer style="padding: 3rem 0; text-align: center; border-top: 1px solid #eee;">
+        <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
     </footer>
 
 </body>
