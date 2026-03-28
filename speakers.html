@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,36 +11,58 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     
     <style>
-        .page-header { background: #fbf7ef; padding: 5rem 0; border-bottom: 1px solid #ebe3d6; text-align: center; }
-        .speaker-grid { display: grid; grid-template-columns: 1fr; gap: 4rem; padding: 4rem 0; }
+        :root {
+            --accent: #2d5a27; /* Academic Green */
+            --accent-dark: #1e3d1a;
+            --bg-soft: #f4f7f4;
+        }
+
+        body { font-family: 'Roboto', sans-serif; background-color: #fff; color: #333; line-height: 1.8; }
+        h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 700; color: #1a3317; }
+
+        /* Navigation */
+        nav { background: #fff; border-bottom: 2px solid var(--accent); position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-menu { display: flex; gap: 1.5rem; list-style: none; margin: 0; }
+        .nav-menu a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; text-transform: uppercase; }
+        .nav-menu a:hover, .nav-menu a.active { color: var(--accent); }
+
+        /* Header */
+        .page-header { background: var(--bg-soft); padding: 5rem 0; border-bottom: 1px solid #ddd; text-align: center; }
+        .page-header h1 { font-size: 3.2rem; margin-bottom: 1rem; }
+
+        /* Speaker Cards */
+        .speaker-section { padding: 5rem 0; }
         .speaker-card { 
             background: #fff; 
-            border-radius: 12px; 
-            padding: 3.5rem; 
-            box-shadow: 0 4px 30px rgba(0,0,0,0.06); 
-            border-top: 8px solid var(--accent);
+            border-radius: 8px; 
+            padding: 3rem; 
+            margin-bottom: 4rem; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05); 
+            border-left: 8px solid var(--accent);
             display: flex;
             flex-direction: column;
             gap: 1.5rem;
         }
-        .speaker-header h2 { font-family: 'Cormorant Garamond', serif; font-size: 2.8rem; color: #003366; margin: 0; }
-        .speaker-header .title { font-weight: 700; color: var(--accent); font-size: 1.3rem; margin-top: 0.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        .speaker-header h2 { font-size: 2.6rem; color: var(--accent-dark); margin: 0; }
+        .speaker-header .role { font-weight: 700; color: var(--accent); font-size: 1.2rem; text-transform: uppercase; margin-top: 0.5rem; }
         .speaker-header .uni { color: #666; font-style: italic; font-size: 1.1rem; }
-        .speaker-bio { line-height: 1.9; color: #333; font-size: 1.1rem; text-align: justify; }
-        .research-interests { background: #fdfaf0; padding: 1.8rem; border-radius: 8px; border-left: 4px solid var(--accent); }
-        .research-interests h4 { margin-bottom: 0.75rem; color: #003366; font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+        .speaker-bio { font-size: 1.1rem; text-align: justify; }
         
-        /* TA Section */
-        .ta-section { background: #f6f2e8; padding: 4rem 0; margin-top: 2rem; border-radius: 12px; }
-        .ta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 2rem; }
-        .ta-card { background: #fff; padding: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 2px 15px rgba(0,0,0,0.05); }
+        .research-box { background: #f9f9f9; padding: 1.5rem; border-radius: 6px; border: 1px solid #eee; }
+        .research-box h4 { margin-bottom: 0.5rem; font-size: 1.3rem; }
+
+        /* TA Grid */
+        .ta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem; }
+        .ta-card { background: var(--bg-soft); padding: 2rem; border-radius: 6px; text-align: center; border-bottom: 3px solid var(--accent); }
     </style>
 </head>
+
 <body>
     <nav>
         <div class="nav-container">
             <div class="nav-brand">
-                <h1>Diachronic Linguistics 2026</h1>
+                <h1 style="font-size: 1.4rem; margin: 0;"><a href="index.html" style="text-decoration: none; color: inherit;">Diachronic Linguistics 2026</a></h1>
             </div>
             <ul class="nav-menu">
                 <li><a href="index.html">Home</a></li>
@@ -52,131 +75,127 @@
     </nav>
 
     <header class="page-header">
-        <div class="container">
+        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 2rem;">
             <h1>Co-ordinators of the CIVIS BIP Course</h1>
-            <p class="lead" style="max-width: 800px; margin: 1rem auto;">A distinguished international faculty bridging the gap between historical philology and modern computational science.</p>
+            <p style="font-size: 1.2rem; color: #555;">Meet the distinguished international faculty leading the 2026 academic sessions.</p>
         </div>
     </header>
 
-    <main class="container">
-        <div class="speaker-grid">
+    <main class="speaker-section">
+        <div class="container" style="max-width: 1000px; margin: 0 auto; padding: 0 2rem;">
 
             <div class="speaker-card">
                 <div class="speaker-header">
                     <h2>Professor Nikolaos Lavidas</h2>
-                    <p class="title">Professor of Diachronic Linguistics</p>
+                    <p class="role">Professor of Diachronic Linguistics</p>
                     <p class="uni">National and Kapodistrian University of Athens</p>
                 </div>
                 <div class="speaker-bio">
-                    Professor Nikolaos Lavidas is a leading expert in the Department of English Language and Literature. His scholarly work focuses on historical linguistics with a specialized interest in the diachrony of Indo-European languages. As the scientific coordinator of the Athens Diachronic & Geometric Corpus (AthDGC), he has pioneered research into the evolution of syntax and argument structure. His publications explore the intricate relationship between language contact and structural change. Within the CIVIS framework, he leads the scientific design and academic coordination of Blended Intensive Programmes in linguistics.
+                    Professor Nikolaos Lavidas is a leading figure in the Department of English Language and Literature. His extensive research focuses on historical linguistics, specifically the diachrony of Indo-European languages, and the formal analysis of language change. As the lead coordinator of the Athens Diachronic & Geometric Corpus (AthDGC), he has pioneered digital methods for studying syntactic evolution. He serves as the primary scientific coordinator for the CIVIS Blended Intensive Programmes, bridging traditional philological rigor with modern computational techniques.
                 </div>
-                <div class="research-interests">
-                    <h4>Core Research Areas</h4>
-                    <p>Diachronic Syntax, Language Contact, Indo-European Philology, Corpus Design, and Argument Structure Evolution.</p>
+                <div class="research-box">
+                    <h4>Core Expertise</h4>
+                    <p>Historical Syntax, Diachronic Corpora, Language Contact, Indo-European Linguistics.</p>
                 </div>
             </div>
 
             <div class="speaker-card">
                 <div class="speaker-header">
                     <h2>Professor Francesca Dell’Oro</h2>
-                    <p class="title">Associate Professor</p>
+                    <p class="role">Associate Professor</p>
                     <p class="uni">University of Bologna</p>
                 </div>
                 <div class="speaker-bio">
-                    Professor Francesca Dell’Oro specializes in Ancient Greek and Indo-European comparative linguistics. Her research is at the forefront of digital humanities, where she applies computational methods to epigraphic and onomastic data. She has conducted extensive studies on the Styra tablets and the diachronic development of local Greek dialects. Her work provides critical insights into the evolution of the Greek language through the lens of ancient inscriptions and historical manuscripts.
+                    Professor Francesca Dell’Oro is an expert in Ancient Greek and Indo-European comparative linguistics. Her research often intersects with digital humanities, specifically in the fields of epigraphy and onomastics. She has conducted landmark studies on the Styra tablets and the diachronic development of local Greek dialects. Within the CIVIS program, she provides critical philological insights into the evolution of ancient texts and their digital preservation.
                 </div>
-                <div class="research-interests">
-                    <h4>Core Research Areas</h4>
-                    <p>Greek Onomastics, Epigraphy, Digital Humanities, and Comparative Indo-European Linguistics.</p>
+                <div class="research-box">
+                    <h4>Core Expertise</h4>
+                    <p>Ancient Greek Philology, Epigraphy, Onomastics, Comparative Linguistics.</p>
                 </div>
             </div>
 
             <div class="speaker-card">
                 <div class="speaker-header">
                     <h2>Professor Artemij Keidan</h2>
-                    <p class="title">Associate Professor of Linguistics</p>
+                    <p class="role">Associate Professor of Linguistics</p>
                     <p class="uni">Sapienza Università di Roma</p>
                 </div>
                 <div class="speaker-bio">
-                    Professor Artemij Keidan teaches General Linguistics and Sanskrit at Sapienza. His research bridges the divide between traditional grammatical traditions and contemporary computational modeling. He is a primary advocate for "multistratal" approaches to linguistics, exploring how Artificial Intelligence can assist in the structural analysis and formalization of historical texts. His work often focuses on the formalization of ancient grammatical rules and their application in modern NLP environments.
+                    Professor Artemij Keidan teaches General Linguistics and Sanskrit at Sapienza. His research bridges the gap between ancient grammatical traditions and contemporary computational models. He is a primary advocate for the multistratal approach to descriptive linguistics, exploring how Artificial Intelligence can be used to formalize and analyze historical linguistic structures.
                 </div>
-                <div class="research-interests">
-                    <h4>Core Research Areas</h4>
-                    <p>AI in Linguistics, Sanskrit Philology, Computational Modeling of Grammar, and Linguistic Theory.</p>
+                <div class="research-box">
+                    <h4>Core Expertise</h4>
+                    <p>Computational Linguistics, AI in Humanities, Sanskrit, General Linguistic Theory.</p>
                 </div>
             </div>
 
             <div class="speaker-card">
                 <div class="speaker-header">
                     <h2>Professor Ljuba Veselinova</h2>
-                    <p class="title">Professor of Linguistics</p>
+                    <p class="role">Professor of Linguistics</p>
                     <p class="uni">Stockholm University</p>
                 </div>
                 <div class="speaker-bio">
-                    Professor Ljuba Veselinova is an internationally recognized typologist focusing on language change, grammaticalization, and the diachrony of specific grammatical categories. Her research into negation systems—specifically the Jespersen and Croft cycles—is widely cited in diachronic studies. She utilizes large-scale cross-linguistic databases to identify universal patterns in how languages evolve over time, contributing significantly to our understanding of the lifecycle of grammatical structures.
+                    Professor Ljuba Veselinova is a prominent typologist whose research focuses on language change and grammaticalization. She is internationally recognized for her work on the diachrony of negation systems and cyclical models of language change. Her research utilizes large-scale cross-linguistic data to understand how grammatical structures emerge and shift across different language families.
                 </div>
-                <div class="research-interests">
-                    <h4>Core Research Areas</h4>
-                    <p>Language Typology, Grammaticalization, Diachrony of Negation, and Cross-linguistic Data Analysis.</p>
+                <div class="research-box">
+                    <h4>Core Expertise</h4>
+                    <p>Linguistic Typology, Grammaticalization, Diachrony of Negation.</p>
                 </div>
             </div>
 
             <div class="speaker-card">
                 <div class="speaker-header">
                     <h2>Professor Maria Isabel Jimenez Martinez</h2>
-                    <p class="title">Professor of Ancient and Modern Greek</p>
+                    <p class="role">Professor of Ancient and Modern Greek</p>
                     <p class="uni">Universidad Autónoma de Madrid</p>
                 </div>
                 <div class="speaker-bio">
-                    Professor Maria Isabel Jimenez Martinez is a specialist in the diachronic development of Greek and Latin. Her research focus lies in the transition from Latin to the Romance languages, with a particular interest in verb-nominal collocations and their stability across historical periods. She integrates classical philology with modern syntactic analysis, providing a comparative framework that connects ancient linguistic roots to modern Mediterranean language structures.
+                    Professor Maria Isabel Jimenez Martinez specializes in the diachrony of Greek and Latin, focusing on the historical transition into the Romance family. Her recent research examines verb-nominal collocations and their structural stability over long periods. She brings a deep comparative perspective to the program, linking classical roots to modern linguistic behavior.
                 </div>
-                <div class="research-interests">
-                    <h4>Core Research Areas</h4>
-                    <p>Latin and Romance Diachrony, Comparative Syntax, Verb-Nominal Collocations, and Medieval Philology.</p>
+                <div class="research-box">
+                    <h4>Core Expertise</h4>
+                    <p>Latin Diachrony, Romance Linguistics, Comparative Syntax, Collocations.</p>
                 </div>
             </div>
 
             <div class="speaker-card">
                 <div class="speaker-header">
                     <h2>Professor Tamara Bouso Rivas</h2>
-                    <p class="title">Researcher & Faculty Member</p>
+                    <p class="role">Faculty Researcher</p>
                     <p class="uni">University of Santiago de Compostela</p>
                 </div>
                 <div class="speaker-bio">
-                    Professor Tamara Bouso Rivas focuses on English historical linguistics through the lens of cognitive and constructionist theories. Her work is deeply rooted in corpus-based methods, investigating the development of complex syntactic structures in English. She is a prominent expert in Construction Grammar (CxG), specifically analyzing how "Objoid" constructions and other syntactic patterns emerge and shift diachronically within the English language family.
+                    Professor Tamara Bouso Rivas focuses on English historical linguistics through the lens of cognitive and constructionist models. Her work employs corpus-based methods to investigate syntactic shifts in English, particularly the development of complex "Objoid" constructions. She is a specialist in applying Construction Grammar (CxG) to diachronic linguistic data.
                 </div>
-                <div class="research-interests">
-                    <h4>Core Research Areas</h4>
-                    <p>Construction Grammar, English Historical Syntax, Corpus Linguistics, and Cognitive Diachronic Analysis.</p>
+                <div class="research-box">
+                    <h4>Core Expertise</h4>
+                    <p>Construction Grammar, English Historical Syntax, Corpus Linguistics.</p>
                 </div>
             </div>
 
-        </div>
-
-        <section class="ta-section">
-            <div class="container">
-                <h2 style="text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 2.5rem;">Teaching Assistants</h2>
+            <div style="margin-top: 6rem; text-align: center;">
+                <h2 style="font-size: 2.8rem; margin-bottom: 1rem;">Teaching Assistants</h2>
                 <div class="ta-grid">
                     <div class="ta-card">
-                        <h4 style="color: var(--accent); font-size: 1.4rem;">Sofia Chionidi</h4>
+                        <h4>Sofia Chionidi</h4>
                         <p>National and Kapodistrian University of Athens</p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #666;">Research focus on corpus annotation and diachronic syntax.</p>
+                        <p><small>Expertise: Diachronic Syntax & Corpus Annotation</small></p>
                     </div>
                     <div class="ta-card">
-                        <h4 style="color: var(--accent); font-size: 1.4rem;">Eleni Plakoutsi</h4>
+                        <h4>Eleni Plakoutsi</h4>
                         <p>National and Kapodistrian University of Athens</p>
-                        <p style="font-size: 0.9rem; margin-top: 0.5rem; color: #666;">Specialist in digital tools for historical language analysis.</p>
+                        <p><small>Expertise: Digital Humanities & Text Analysis</small></p>
                     </div>
                 </div>
             </div>
-        </section>
+
+        </div>
     </main>
 
-    <footer style="margin-top: 5rem;">
-        <div class="container" style="text-align: center; padding: 4rem 0; border-top: 1px solid #eee;">
-            <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
-            <p style="color: #999; margin-top: 1rem;"><small>Co-funded by the European Union</small></p>
-        </div>
+    <footer style="padding: 4rem 0; border-top: 1px solid #eee; text-align: center; background: #fff;">
+        <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
     </footer>
+
 </body>
 </html>
