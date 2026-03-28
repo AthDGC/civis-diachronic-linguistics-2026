@@ -1,600 +1,119 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Meet the distinguished faculty of Diachronic Linguistics in the 21st Century 2026">
-    <title>Professors | Diachronic Linguistics 2026</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link href="https://db.onlinewebfonts.com/c/d34d370b9537835d2b01df73f3394c92?family=Katsoulidis+W01+Regular"
-        rel="stylesheet" type="text/css">
+    <title>Co-ordinators - CIVIS Diachronic Linguistics 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            background-color: #f3f4f6;
-            color: #1f2937;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
-
-        /* Navbar Styles (Basic Reconstruction) */
-        .navbar {
-            background-color: #1e3a8a; /* Dark Blue */
-            color: white;
-            padding: 1rem 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .navbar .container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        .nav-brand h1 {
-            margin: 0;
-            font-size: 1.25rem;
-        }
-        .nav-subtitle {
-            margin: 0;
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-
-        .page-header {
-            background: #1e3a8a; /* Matching header background */
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .page-header h1 {
-            color: white;
-            margin-bottom: 1rem;
-            font-size: 2.5rem;
-        }
-
-        .page-header p {
-            font-size: 1.25rem;
-            opacity: 0.95;
-            max-width: 700px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-
-        .professors-section {
-            padding: 2rem 0 4rem;
-        }
-
-        .professor-card {
-            background-color: white;
-            border-radius: 1rem;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            margin-bottom: 2rem;
-            transition: all 0.3s ease;
-        }
-
-        .professor-card:hover {
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-            transform: translateY(-5px);
-        }
-
-        .professor-header {
-            display: flex;
-            align-items: flex-start;
-            margin-bottom: 1.5rem;
-            border-bottom: 2px solid #e5e7eb;
-            padding-bottom: 1.5rem;
-        }
-
-        .professor-avatar {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: #2563eb;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: white;
-            font-weight: 700;
-            margin-right: 1.5rem;
-            flex-shrink: 0;
-        }
-
-        .professor-title {
-            flex-grow: 1;
-        }
-
-        .professor-title h3 {
-            margin: 0 0 0.5rem 0;
-            color: #1e3a8a;
-            font-size: 1.5rem;
-        }
-
-        .professor-role {
-            color: #4b5563;
-            font-weight: 600;
-            margin-bottom: 0.25rem;
-        }
-
-        .professor-university {
-            color: #6b7280;
-            font-size: 0.95rem;
-            font-style: italic;
-        }
-
-        .professor-bio {
-            color: #374151;
-            line-height: 1.7;
-        }
-
-        .professor-expertise {
-            margin-top: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid #e5e7eb;
-        }
-
-        .expertise-label {
-            font-weight: 600;
-            color: #2563eb;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: #2563eb;
-            font-weight: 600;
-            text-decoration: none;
-        }
-
-        .back-link:hover {
-            text-decoration: underline;
-        }
-
-        /* Teaching Assistant Specific */
-        .ta-grid {
+        .speaker-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            border-top: 5px solid var(--accent);
         }
-        @media (max-width: 768px) {
-            .ta-grid { grid-template-columns: 1fr; }
-            .professor-header { flex-direction: column; text-align: center; align-items: center; }
-            .professor-avatar { margin-right: 0; margin-bottom: 1rem; }
-        }
-
-        /* Footer */
-        .footer {
-            background-color: #111827;
-            color: white;
-            padding: 4rem 0 2rem;
-        }
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        .footer h3 {
-            color: white;
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-        }
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
-        .footer ul li { margin-bottom: 0.8rem; }
-        .footer a {
-            color: #9ca3af;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        .footer a:hover { color: white; }
-        .footer-bottom {
-            border-top: 1px solid #374151;
-            padding-top: 2rem;
-            text-align: center;
-            color: #6b7280;
-            font-size: 0.9rem;
-        }
+        .speaker-header h2 { color: var(--accent); margin-bottom: 0.5rem; font-size: 2rem; }
+        .speaker-header p { font-weight: 600; color: #555; font-size: 1.1rem; }
+        .speaker-bio { line-height: 1.8; color: #444; }
     </style>
 </head>
-
 <body>
     <nav class="navbar">
         <div class="container">
-            <div class="nav-brand">
-                <h1>Diachronic Linguistics 2026</h1>
-                <p class="nav-subtitle">CIVIS Blended Intensive Programme</p>
-            </div>
-            <div id="navToggle" style="cursor: pointer; display: none;">
-                <span style="display: block; width: 25px; height: 3px; background: white; margin: 5px 0;"></span>
-                <span style="display: block; width: 25px; height: 3px; background: white; margin: 5px 0;"></span>
-                <span style="display: block; width: 25px; height: 3px; background: white; margin: 5px 0;"></span>
-            </div>
+            <div class="nav-brand"><a href="index.html">CIVIS Diachronic Linguistics 2026</a></div>
+            <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#program">Program</a></li>
+                <li><a href="speakers.html" class="active">Co-ordinators of the CIVIS BIP Course</a></li>
+                <li><a href="index.html#registration">Apply</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
         </div>
     </nav>
 
     <header class="page-header">
         <div class="container">
-            <h1>Distinguished Faculty</h1>
-            <p>Learn from leading experts in theoretical linguistics, diachronic linguistics, computational historical linguistics and digital humanities from across the CIVIS Alliance</p>
+            <h1>Co-ordinators of the CIVIS BIP Course</h1>
+            <p>Meet the international faculty leading the 2026 edition</p>
         </div>
     </header>
 
-    <section class="professors-section">
+    <section class="section">
         <div class="container">
-            <a href="index.html" class="back-link">← Back to Home</a>
-
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">NL</div>
-                    <div class="professor-title">
-                        <h3>Nikolaos Lavidas</h3>
-                        <div class="professor-role">Diachronic Linguistics</div>
-                        <div class="professor-university">National and Kapodistrian University of Athens (Greece)</div>
-                    </div>
+            
+            <div class="speaker-card">
+                <div class="speaker-header">
+                    <h2>Prof. Nikolaos Lavidas</h2>
+                    <p>National and Kapodistrian University of Athens</p>
                 </div>
-                <div class="professor-bio">
-                    <p>Nikolaos Lavidas is Professor of Diachronic Linguistics at the National and
-                        Kapodistrian University of Athens (Department of Language-Linguistics, Faculty of English,
-                        School of Philosophy). His research covers a range of topics associated with Indo-European
-                        historical linguistics and the directions of language change, with particular focus on the
-                        development of transitivity and voice in Indo-European languages, syntax-semantics interface,
-                        historical language contact, and historical corpora.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Indo-European historical linguistics, transitivity and voice development, syntax-semantics
-                        interface, language contact, historical corpora</p>
+                <div class="speaker-bio">
+                    Associate Professor of Diachronic Linguistics. Lead coordinator for the AthDGC Research Network and the CIVIS Blended Intensive Programme.
                 </div>
             </div>
 
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">AR</div>
-                    <div class="professor-title">
-                        <h3>Professor Antonio R. Revuelta Puigdollers</h3>
-                        <div class="professor-role">Ancient and Modern Greek</div>
-                        <div class="professor-university">Universidad Autónoma de Madrid (Spain)</div>
-                    </div>
+            <div class="speaker-card">
+                <div class="speaker-header">
+                    <h2>Prof. Francesca Dell’Oro</h2>
+                    <p>University of Bologna</p>
                 </div>
-                <div class="professor-bio">
-                    <p>Antonio R. Revuelta Puigdollers is Associate Professor of Ancient and Modern Greek at the
-                        Universidad Autónoma de Madrid and a sworn translator of Modern Greek. His main research areas
-                        are the semantics, syntax and pragmatics of Greek. His work also includes incursions into other
-                        languages such as Latin. He is the co-author of a new syntax of Ancient Greek and has authored
-                        several entries in Brill's Encyclopaedia of Ancient Greek Language and Linguistics.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Ancient and Modern Greek semantics, syntax, and pragmatics, comparative linguistics with Latin
-                    </p>
+                <div class="speaker-bio">
+                    Expert in Ancient Greek Onomastics and Indogermanic linguistics, focusing on the diachronic evolution of epigraphic texts.
                 </div>
             </div>
 
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">KA</div>
-                    <div class="professor-title">
-                        <h3>Katrin Axel-Tober</h3>
-                        <div class="professor-role">German Linguistics</div>
-                        <div class="professor-university">Eberhard Karls Universität Tübingen (Germany)</div>
-                    </div>
+            <div class="speaker-card">
+                <div class="speaker-header">
+                    <h2>Prof. Artemij Keidan</h2>
+                    <p>Sapienza University of Rome</p>
                 </div>
-                <div class="professor-bio">
-                    <p>Katrin Axel-Tober is Professor of German Linguistics at the University of Tübingen, Germany. Her
-                        research focuses on the synchronic and diachronic syntax of German. She has published the books
-                        "Studies on Old High German Syntax: Left Sentence Periphery, Verb Placement and Verb-Second"
-                        (Benjamins, 2007) and "(Nicht-)kanonische Nebensätze im Deutschen: Synchrone und diachrone
-                        Aspekte" (Walter de Gruyter, 2012), as well as several articles on sentence structure,
-                        complementizers, null subjects, and modal verbs.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>German historical syntax, sentence structure, verb placement, complementizers, null subjects,
-                        modal verbs</p>
+                <div class="speaker-bio">
+                    Specialist in computational approaches to descriptive linguistics and the integration of AI tools in historical research.
                 </div>
             </div>
 
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">AK</div>
-                    <div class="professor-title">
-                        <h3>Artemij Keidan</h3>
-                        <div class="professor-role">Linguistics</div>
-                        <div class="professor-university">Sapienza Università di Roma, Italian Institute of Oriental
-                            Studies (Italy)</div>
-                    </div>
+            <div class="speaker-card">
+                <div class="speaker-header">
+                    <h2>Prof. Ljuba Veselinova</h2>
+                    <p>Stockholm University</p>
                 </div>
-                <div class="professor-bio">
-                    <p>Artemij Keidan is Professor of Linguistics at the Italian Institute of Oriental
-                        Studies, Sapienza Università di Roma. His main areas of expertise include the history of
-                        grammatical thought, Indo-European morphology, philosophy of language, and issues in syntax and
-                        phonology, both general and applied to ancient languages (such as Sanskrit, Latin, Gothic,
-                        Slavic languages) and modern languages.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>History of grammatical thought, Indo-European morphology, philosophy of language, syntax and
-                        phonology of ancient and modern languages</p>
+                <div class="speaker-bio">
+                    Expert in linguistic typology and the diachronic evolution of negation systems across diverse language families.
                 </div>
             </div>
 
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">FP</div>
-                    <div class="professor-title">
-                        <h3>Flavia Pompeo</h3>
-                        <div class="professor-role">Historical and General Linguistics</div>
-                        <div class="professor-university">Sapienza Università di Roma (Italy)</div>
-                    </div>
+            <div class="speaker-card">
+                <div class="speaker-header">
+                    <h2>Prof. Maria Isabel Jimenez Martinez</h2>
+                    <p>Autonomous University of Madrid</p>
                 </div>
-                <div class="professor-bio">
-                    <p>Flavia Pompeo is Professor of Historical and General Linguistics at the Department of
-                        Letters and Modern Cultures (Dipartimento di Lettere e Culture moderne), Sapienza Università di
-                        Roma. Her research interests focus on historical linguistics, historical sociolinguistics and
-                        cognitive linguistics, and in particular, on topics regarding the morphosyntax and semantics of
-                        Ancient Greek and Old Iranian.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Historical linguistics, historical sociolinguistics, cognitive linguistics, Ancient Greek
-                        morphosyntax and semantics, Old Iranian</p>
+                <div class="speaker-bio">
+                    Leading researcher in Latin and Romance diachrony, specifically regarding verb-nominal collocations.
                 </div>
             </div>
 
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">JK</div>
-                    <div class="professor-title">
-                        <h3>Joanna Kopaczyk</h3>
-                        <div class="professor-role">Scots and English (English Language & Linguistics)
-                        </div>
-                        <div class="professor-university">University of Glasgow (UK)</div>
-                    </div>
+            <div class="speaker-card">
+                <div class="speaker-header">
+                    <h2>Prof. Tamara Bouso Rivas</h2>
+                    <p>University of Santiago de Compostela</p>
                 </div>
-                <div class="professor-bio">
-                    <p>Joanna Kopaczyk is Professor in Scots and English (English Language & Linguistics) at the
-                        University of Glasgow. She is a historical linguist with a special interest in the medieval and
-                        early modern history of the Scots language. She uses corpus-driven methods to uncover textual
-                        standardisation and she is also interested in formulaicity in language, as revealed through all
-                        kinds of repetitive patterns. She has recently co-edited books on "Applications of
-                        Pattern-Driven Methods in Corpus Linguistics" (John Benjamins, 2018) and on "Binomials in the
-                        History of English" (Cambridge University Press, 2017).</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Medieval and early modern Scots, corpus-driven methods, textual standardisation, formulaicity in
-                        language, repetitive patterns</p>
-                </div>
-            </div>
-
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">AD</div>
-                    <div class="professor-title">
-                        <h3>Adina Dragomirescu</h3>
-                        <div class="professor-role">Linguistics</div>
-                        <div class="professor-university">University of Bucharest & Romanian Academy (Romania)</div>
-                    </div>
-                </div>
-                <div class="professor-bio">
-                    <p>Adina Dragomirescu is Professor of Linguistics at the University of Bucharest
-                        (Department of Linguistics, Faculty of Letters) and Senior Researcher at (as well as head of)
-                        the "Iorgu Iordan – Al. Rosetti" Institute of Linguistics (Romanian Academy). Her main research
-                        areas are Romanian and Romance Syntax, historical syntax, and language contact. She wrote two
-                        single-authored books (on unaccusative verbs in Romanian, and on the Romanian supine), and she
-                        contributed to collective works such as: The Oxford History of Romanian Morphology (2021), The
-                        Oxford Guide to the Romance Languages (2016), The Cambridge Handbook of Romance Linguistics
-                        (2022), The [Oxford] Grammar of Romanian (2013), The [Oxford] Syntax of old Romanian (2016).</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Romanian and Romance syntax, historical syntax, language contact, unaccusative verbs, Romanian
-                        supine</p>
-                </div>
-            </div>
-
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">AN</div>
-                    <div class="professor-title">
-                        <h3>Alexandru Nicolae</h3>
-                        <div class="professor-role">Linguistics</div>
-                        <div class="professor-university">University of Bucharest & Romanian Academy (Romania)</div>
-                    </div>
-                </div>
-                <div class="professor-bio">
-                    <p>Alexandru Nicolae is Associate Professor of Linguistics at the University of Bucharest
-                        (Department of Linguistics, Faculty of Letters) and Researcher at the "Iorgu Iordan – Al.
-                        Rosetti" Institute of Linguistics (Romanian Academy). His research focuses on comparative and
-                        diachronic linguistics, and covers a range of topics associated with Romanian, the Romance
-                        languages and the Balkan Sprachbund (e.g., grammaticalization, language contact, word order,
-                        definiteness, cliticization, genitives, etc.). Nicolae contributed to reference works like The
-                        Oxford Guide to the Romance Languages (2016), The Cambridge Handbook of Romance Linguistics
-                        (2022), The [Oxford] Grammar of Romanian (2013), The [Oxford] Syntax of old Romanian (2016), and
-                        published three single-authored monographs, two of which are devoted to word order change and
-                        other diachronic phenomena in Romanian.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Comparative and diachronic linguistics, Romance languages, Balkan Sprachbund, grammaticalization,
-                        word order change</p>
-                </div>
-            </div>
-
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">LV</div>
-                    <div class="professor-title">
-                        <h3>Ljuba Veselinova</h3>
-                        <div class="professor-role">Linguistics</div>
-                        <div class="professor-university">Stockholm University (Sweden)</div>
-                    </div>
-                </div>
-                <div class="professor-bio">
-                    <p>Ljuba Veselinova is a Professor of Linguistics at Stockholm University, Sweden. Her main
-                        interests lie in linguistic typology, the shaping of grammar and lexicon via processes of
-                        grammaticalization and lexicalization, numerical concepts and their linguistic expressions, and
-                        cyclical processes in language change. She has done extensive work on exceptions to
-                        morphological patterns (e.g., suppletion), on negation (specifically its lexical encoding and
-                        independence as a functional domain), and on the evolution of negation and lexical restructuring
-                        as a cyclical process. Another prominent direction in her research is language as a geographical
-                        phenomenon and the use of Geographical Information Systems for language studies and linguistic
-                        cartography. She has contributed to projects such as the World Atlas of Language Structures
-                        (2005 and online edition 2013), EMELD and LL-Map.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Linguistic typology, grammaticalization, lexicalization, negation, suppletion, cyclical language
-                        change, GIS for linguistics, linguistic cartography</p>
-                </div>
-            </div>
-
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">MH</div>
-                    <div class="professor-title">
-                        <h3>Matthias Heinz</h3>
-                        <div class="professor-role">Dean - Kulturwissenschaftlichen Fakultät</div>
-                        <div class="professor-university">Paris Lodron University of Salzburg (Austria)</div>
-                    </div>
-                </div>
-                <div class="professor-bio">
-                    <p>Matthias Heinz is Dean of the Kulturwissenschaftlichen Fakultät at Paris Lodron University of
-                        Salzburg. He is a scholar in Romance philology and linguistics with research experience in the
-                        fields of lexicology and lexicography, language contact, phonological/prosodic and grammatical
-                        typology of the Romance languages, and historical linguistics. His research, publications, and
-                        teaching encompass Italian, French, and Spanish linguistics.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Romance philology, lexicology and lexicography, language contact, Romance typology, historical
-                        linguistics of Italian, French, and Spanish</p>
-                </div>
-            </div>
-
-            <div class="professor-card">
-                <div class="professor-header">
-                    <div class="professor-avatar">LP</div>
-                    <div class="professor-title">
-                        <h3>Linda Pillière</h3>
-                        <div class="professor-role">English Language and Linguistics</div>
-                        <div class="professor-university">Aix-Marseille Université (France)</div>
-                    </div>
-                </div>
-                <div class="professor-bio">
-                    <p>Linda Pillière is Professor of English Language and Linguistics at Aix-Marseille Université. Her
-                        main fields of research are in language diversity and change and especially intralingual
-                        translation, prescriptivism, and stylistics. She is co-editor of "The Routledge Handbook of
-                        Intralingual Translation" (2023) and "Standardising English: Norms and Margins in the History of
-                        the English Language" (Cambridge University Press, 2018). She has published a single-authored
-                        monograph "Intralingual Translation of British Novels: A Multimodal Stylistic Perspective"
-                        (Bloomsbury Academic, 2021) and has contributed to various volumes on stylistics and language
-                        prescription.</p>
-                </div>
-                <div class="professor-expertise">
-                    <div class="expertise-label">Research Areas:</div>
-                    <p>Language diversity and change, intralingual translation, prescriptivism, stylistics, language
-                        standardisation</p>
-                </div>
-            </div>
-
-            <div class="professor-card" style="background: #f8fafc; border: 1px solid #e5e7eb;">
-                <div class="professor-header" style="border-bottom: none; margin-bottom: 0.5rem; padding-bottom: 0;">
-                    <div class="professor-avatar" style="background: #0f172a; color: #fff;">TA</div>
-                    <div class="professor-title">
-                        <h3 style="margin-bottom: 0.5rem;">Teaching Assistants</h3>
-                        <div class="professor-role" style="font-weight: 400; opacity: 0.8;">Academic Support Team</div>
-                    </div>
-                </div>
-                <div class="ta-grid" style="padding-top: 1.5rem; border-top: 1px solid #e2e8f0; margin-top: 1rem;">
-                    <div class="ta-member">
-                        <h4 style="margin: 0; color: #1e3a8a; font-size: 1.2rem;">Sofia Chionidi</h4>
-                        <p style="margin: 0.2rem 0 0; color: #6b7280;">Teaching Assistant</p>
-                    </div>
-                    <div class="ta-member">
-                        <h4 style="margin: 0; color: #1e3a8a; font-size: 1.2rem;">Eleni Plakoutsi</h4>
-                        <p style="margin: 0.2rem 0 0; color: #6b7280;">Teaching Assistant</p>
-                    </div>
+                <div class="speaker-bio">
+                    Expert in Construction Grammar and the application of corpus-based methods to English historical syntax.
                 </div>
             </div>
 
         </div>
     </section>
 
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column">
-                    <h3>About</h3>
-                    <p>CIVIS Blended Intensive Programme: Diachronic Linguistics in the 21st Century is organized by the
-                        National and Kapodistrian University of Athens in collaboration with CIVIS partner universities.
-                    </p>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="program.html">Program</a></li>
-                        <li><a href="speakers.html">Professors</a></li>
-                        <li><a href="venue.html">Venue</a></li>
-                        <li><a href="registration.html">Apply</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>External Links</h3>
-                    <ul>
-                        <li><a href="https://civis.eu/en/learn/civis-courses/diachronic-linguistics-in-the-21st-century-2026-version"
-                                target="_blank">CIVIS Course Page</a></li>
-                        <li><a href="https://moodle.civis.eu/" target="_blank">CIVIS Moodle</a></li>
-                        <li><a href="https://civis.eu/" target="_blank">CIVIS Alliance</a></li>
-                        <li><a href="https://www.uoa.gr/" target="_blank">University of Athens</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Contact</h3>
-                    <p>Email: <a href="mailto:nlavidas@enl.uoa.gr" style="color: white;">nlavidas@enl.uoa.gr</a>
-                    </p>
-                    <p>Follow CIVIS on social media for updates</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="footer-logos">
-                    <p>Co-funded by the European Union</p>
-                </div>
-                <p class="copyright">&copy; 2026 National and Kapodistrian University of Athens. All rights reserved.
-                </p>
-                <p class="disclaimer">Views and opinions expressed do not necessarily reflect those of the European
-                    Union or the European Education and Culture Executive Agency (EACEA). Neither can be held
-                    responsible for them.</p>
-            </div>
+            <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
         </div>
     </footer>
-
-    <script>
-        const navToggle = document.getElementById('navToggle');
-        // Simple placeholder for toggle logic if you decide to implement the mobile menu
-        if(navToggle) {
-            navToggle.addEventListener('click', () => {
-                console.log('Toggle menu clicked');
-            });
-        }
-    </script>
 </body>
 </html>
