@@ -274,12 +274,26 @@
         </div>
     </section>
 
-    <section class="logo-bar">
-        <img src="assets/logo_ekpa_new.png" alt="NKUA Logo" class="logo-uoa">
-        <img src="assets/civis.png" alt="CIVIS Logo" class="logo-civis">
-        <img src="assets/funded%20by%20EU.png" alt="EU Funded Logo" class="logo-eu">
-    </section>
+/* ==== Improved Logos Bar ==== */
+.logo-bar {
+    padding: 4rem 0;
+    border-top: 1px solid #eee;
+    display: flex;
+    /* Μικρή αλλαγή: switch to space-evenly for perfect horizontal balance */
+    justify-content: space-evenly;
+    align-items: center;
+    /* gap: 5rem; */ /* Κάντε σχόλιο (ή σβήστε) αυτή τη γραμμή. Δεν χρειάζεται με το space-evenly. */
+    flex-wrap: wrap;
+    background: #fff;
+}
+.logo-bar img { width: auto; object-fit: contain; }
+.logo-uoa { height: 95px; } /* Tall logo */
 
+/* Μικρή αλλαγή: αύξηση του ύψους για οπτική συμμετρία */
+.logo-civis { height: 80px; } /* από 50px */
+
+.logo-eu { height: 80px; } /* Rectangular logo */
+    
     <footer style="padding: 3rem; text-align: center; border-top: 1px solid #eee; background: #fff;">
         <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
     </footer>
