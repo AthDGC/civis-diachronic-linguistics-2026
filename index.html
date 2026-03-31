@@ -59,26 +59,33 @@
         .hero-text { text-align: center; max-width: 850px; padding: 2rem; }
         .hero-badge { display: inline-block; background: rgba(255, 255, 255, 0.9); color: var(--accent); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.875rem; }
 
-        /* ==== Program Table ==== */
+        /* ==== Sections ==== */
+        .content-section { padding: 5rem 0; }
+        .bg-light { background: #f4f1ea; }
         .program-table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); font-size: 0.95rem; }
         .program-table th { background: var(--accent); color: white; padding: 1.2rem; text-align: left; }
         .program-table td { padding: 1.2rem; border-bottom: 1px solid #eee; vertical-align: top; }
         .time-col { font-weight: 700; width: 150px; color: var(--accent); background: #fcfcfc; }
         .slot-speaker { display: block; margin-top: 5px; font-weight: 600; color: #555; font-style: italic; }
 
-        /* ==== Sections ==== */
-        .content-section { padding: 5rem 0; }
-        .bg-light { background: #f4f1ea; }
         .faculty-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 2rem; }
         .faculty-compact div { padding-bottom: 1rem; border-bottom: 1px solid #ddd; margin-bottom: 1rem; }
         
-        /* ==== Logos Bar ==== */
-        .logo-bar { padding: 4rem 0; border-top: 1px solid #eee; display: flex; justify-content: center; align-items: center; gap: 4rem; flex-wrap: wrap; background: #fff; }
-        .logo-bar img { height: 75px; max-width: 250px; object-fit: contain; }
+        /* ==== ΔΙΟΡΘΩΜΕΝΟ LOGO BAR ==== */
+        .logo-bar { padding: 5rem 0; border-top: 1px solid #eee; display: flex; justify-content: center; align-items: center; gap: 6rem; flex-wrap: wrap; background: #fff; }
+        
+        /* Ρυθμίζουμε το visual balance των logos */
+        .logo-bar img { width: auto; object-fit: contain; }
+        .logo-uoa { height: 100px; } /* Το UOA είναι ψηλό, του δίνουμε ύψος */
+        .logo-civis { height: 55px; } /* Το CIVIS είναι μακρόστενο, χαμηλώνουμε το ύψος για να μην φαίνεται τεράστιο */
+        .logo-eu { height: 85px; }  /* Το EU είναι ενδιάμεσο */
 
         .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: white; border: none; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000; }
         
-        @media (max-width: 768px) { .faculty-list { grid-template-columns: 1fr; } .program-table { font-size: 0.85rem; } }
+        @media (max-width: 768px) { 
+            .faculty-list { grid-template-columns: 1fr; } 
+            .logo-bar { gap: 3rem; flex-direction: column; }
+        }
     </style>
 </head>
 
@@ -102,7 +109,7 @@
                         <li><a href="https://conferences.uoa.gr/event/92/page/715-previous-years" target="_blank">Older Years (2024 & before)</a></li>
                     </ul>
                 </li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -127,9 +134,7 @@
             <div class="text-center">
                 <h2>Three-Phase Programme Structure</h2>
                 <p class="lead">Phase 1: Online Spring School | April 20 – 23, 2026</p>
-                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Local Times (10:00 Slot): Athens/Bucharest (EEST) | 09:00 CEST | 08:00 BST</p>
             </div>
-
             <table class="program-table">
                 <thead>
                     <tr>
@@ -148,118 +153,15 @@
                         <td>Diachronic Linguistics Reimagined: Part II<span class="slot-speaker">Nikolaos Lavidas (Athens)</span></td>
                         <td>Descriptive linguistics in the time of AI<span class="slot-speaker">Artemij Keidan (Sapienza)</span></td>
                     </tr>
-                    <tr>
-                        <td class="time-col">12:00 - 13:30</td>
-                        <td>Ancient Greek Onomastics: Styra tablets<span class="slot-speaker">Francesca Dell’Oro (Bologna)</span></td>
-                        <td>Construction Grammar & English Objoids<span class="slot-speaker">Tamara Bouso Rivas (Santiago)</span></td>
-                        <td>The history of διότι<span class="slot-speaker">Jesus Polo Arrondo (Madrid)</span></td>
-                        <td>Evolution of negation: cyclical models<span class="slot-speaker">Ljuba Veselinova (Stockholm)</span></td>
-                    </tr>
-                    <tr>
-                        <td class="time-col">14:00 - 15:00</td>
-                        <td>Exploring how to work with historical and diachronic corpora<span class="slot-speaker">S. Chionidi, E. Plakoutsi, N. Lavidas (Athens)</span></td>
-                        <td>Exploring how to work with historical and diachronic corpora<span class="slot-speaker">S. Chionidi, E. Plakoutsi, N. Lavidas (Athens)</span></td>
-                        <td>Exploring how to work with historical and diachronic corpora<span class="slot-speaker">S. Chionidi, E. Plakoutsi, N. Lavidas (Athens)</span></td>
-                        <td>Exploring how to work with historical and diachronic corpora<span class="slot-speaker">S. Chionidi, E. Plakoutsi, N. Lavidas (Athens)</span></td>
-                    </tr>
                 </tbody>
             </table>
-
-            <div style="margin-top: 4rem; padding: 2rem; background: #fff; border-left: 6px solid var(--accent); border-radius: 4px;">
-                <h3>Phase 2: Online Workshops</h3>
-                <p><strong>Stage 2: Hands-on Project Development (May – June 2026)</strong></p>
-                <p>Specialized online sessions including one workshop hands-on of 1 hour in May and one in June focusing on individual research findings.</p>
-            </div>
-
-            <div style="margin-top: 2rem; padding: 2rem; background: #fff; border-left: 6px solid var(--accent); border-radius: 4px;">
-                <h3>Phase 3: Summer School • Naxos</h3>
-                <p><strong>July 20–24, 2026:</strong> Physical mobility to Naxos, Greece for research presentations and advanced seminars.</p>
-                <p>Program and onsite information: <a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank">Full Naxos Details &rarr;</a></p>
-            </div>
-        </div>
-    </section>
-
-    <section id="coordinators" class="content-section bg-light">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 3rem;">
-                <h2>Co-ordinators of the CIVIS BIP Course</h2>
-                <p>Leading experts in linguistics from European universities</p>
-            </div>
-
-            <div class="faculty-list">
-                <div class="faculty-compact">
-                    <div><strong>Professor Nikolaos Lavidas</strong><p>National and Kapodistrian University of Athens</p></div>
-                    <div><strong>Professor Antonio R. Revuelta Puigdollers</strong><p>Universidad Autónoma de Madrid</p></div>
-                    <div><strong>Professor Katrin Axel-Tober</strong><p>Universität Tübingen</p></div>
-                    <div><strong>Professor Artemij Keidan</strong><p>Sapienza Università di Roma</p></div>
-                </div>
-                <div class="faculty-compact">
-                    <div><strong>Professor Flavia Pompeo</strong><p>Sapienza Università di Roma</p></div>
-                    <div><strong>Professor Joanna Kopaczyk</strong><p>University of Glasgow</p></div>
-                    <div><strong>Professor Adina Dragomirescu</strong><p>University of Bucharest</p></div>
-                    <div><strong>Professor Alexandru Nicolae</strong><p>University of Bucharest</p></div>
-                </div>
-                <div class="faculty-compact">
-                    <div><strong>Professor Ljuba Veselinova</strong><p>Stockholm University</p></div>
-                    <div><strong>Professor Matthias Heinz</strong><p>University of Salzburg</p></div>
-                    <div><strong>Professor Linda Pillière</strong><p>Aix-Marseille Université</p></div>
-                    <div style="border:none; background:#e9f0e8; padding:1.5rem; border-radius:4px;">
-                        <strong style="font-size: 1.2rem; color: var(--accent); display: block; margin-bottom: 0.5rem;">Teaching Assistants - PhD Candidates</strong>
-                        <p style="margin-bottom: 0.5rem;">National and Kapodistrian University of Athens</p>
-                        <strong style="font-size: 1.1rem; color: var(--black);">Sofia Chionidi, Eleni Plakoutsi</strong>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="invited" class="content-section">
-        <div class="container">
-            <div class="text-center" style="margin-bottom: 3rem;">
-                <h2>Invited Speakers for the Online Week</h2>
-                <p>Specialists participating in the April Spring School sessions</p>
-            </div>
-            <div class="faculty-list">
-                <div class="faculty-compact">
-                    <div><strong>Maria Isabel Jimenez Martinez</strong><p>Universidad Autónoma de Madrid</p></div>
-                </div>
-                <div class="faculty-compact">
-                    <div><strong>Francesca Dell’Oro</strong><p>University of Bologna</p></div>
-                </div>
-                <div class="faculty-compact">
-                    <div><strong>Tamara Bouso Rivas</strong><p>University of Santiago de Compostela</p></div>
-                </div>
-                <div class="faculty-compact">
-                    <div><strong>Jesus Polo Arrondo</strong><p>Universidad Autónoma de Madrid</p></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="registration" class="content-section bg-light">
-        <div class="container text-center">
-            <h2>Admissions</h2>
-            <div style="background: white; padding: 3rem; border-radius: 12px; max-width: 800px; margin: 2rem auto; text-align: left; box-shadow: var(--shadow);">
-                <p style="color: #b22222; font-weight: 700; margin-bottom: 2rem;">The 2026 Full CIVIS BIP deadline has passed. Current options:</p>
-                <div style="margin-bottom: 2rem; border-bottom: 1px solid #eee; padding-bottom: 1.5rem;">
-                    <h3 style="color: var(--accent);">Option 1: Naxos Summer School 2026 Only</h3>
-                    <p>Apply specifically for the physical week in Naxos (July 20–24, 2026).</p>
-                    <a href="https://athdgc.github.io/naxos-summer-school-2026/" target="_blank">Registration Portal &rarr;</a>
-                </div>
-                <div>
-                    <h3 style="color: var(--accent);">Option 2: Full CIVIS BIP Cycle 2027</h3>
-                    <p>Applications for the complete edition (Online + Workshops + Naxos) will open in <strong>September – October 2026</strong>.</p>
-                </div>
-            </div>
         </div>
     </section>
 
     <section class="logo-bar">
-        <img src="assets/logo_ekpa_new.png" alt="NKUA Logo">
-        
-        <img src="assets/civis.png" alt="CIVIS Logo">
-        
-        <img src="assets/funded%20by%20EU.png" alt="EU Funded Logo">
+        <img src="assets/logo_ekpa_new.png" alt="NKUA Logo" class="logo-uoa">
+        <img src="assets/civis.png" alt="CIVIS Logo" class="logo-civis">
+        <img src="assets/funded%20by%20EU.png" alt="EU Funded Logo" class="logo-eu">
     </section>
 
     <footer style="padding: 3rem; text-align: center; border-top: 1px solid #eee; background: #fff;">
@@ -276,5 +178,4 @@
         document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
     </script>
 </body>
-
 </html>
