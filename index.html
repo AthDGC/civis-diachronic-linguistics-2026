@@ -4,16 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="CIVIS Blended Intensive Programme on Computational Historical Linguistics - Study language evolution with AI-powered analysis">
-    <meta name="keywords"
-        content="historical linguistics, computational linguistics, CIVIS, language evolution, AI, NLP">
-    <meta name="author" content="National and Kapodistrian University of Athens">
+    <meta name="description" content="CIVIS Blended Intensive Programme on Computational Historical Linguistics">
     <title>CIVIS Diachronic Linguistics 2026 | Computational Historical Linguistics</title>
-    
-    <link rel="icon" type="image/jpg" href="assets/logos/athdgc-favicon.jpg">
-    <link rel="icon" type="image/jpeg" href="assets/logos/athdgc-favicon.jpg?v=1">
-    <link rel="apple-touch-icon" href="assets/logos/athdgc-favicon.jpg">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
@@ -24,7 +16,6 @@
         :root {
             --black: #000000;
             --gray-dark: #333333;
-            --gray: #666666;
             --bg-page: #fbf7ef;
             --bg-surface: #ffffff;
             --accent: #0066cc;
@@ -34,107 +25,117 @@
         }
 
         body { font-family: var(--font-sans); font-size: 18px; line-height: 1.6; color: var(--gray-dark); background-color: var(--bg-page); scroll-behavior: smooth; }
-        h1, h2, h3, h4 { font-family: var(--font-serif); font-weight: 700; color: var(--black); line-height: 1.2; }
-        h1 { font-size: 3.8rem; margin-bottom: 1.5rem; }
-        h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+        h1, h2, h3 { font-family: var(--font-serif); font-weight: 700; color: var(--black); }
         .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
         .text-center { text-align: center; }
 
         /* ==== Navigation ==== */
         nav { background: var(--bg-surface); border-bottom: 1px solid #ebe3d6; position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1.25rem 2rem; display: flex; justify-content: space-between; align-items: center; }
-        .nav-brand h1 { font-size: 1.375rem; margin: 0; font-weight: 700; }
+        .nav-container { max-width: 1400px; margin: 0 auto; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand h1 { font-size: 1.2rem; margin: 0; }
         .nav-menu { display: flex; gap: 1.5rem; list-style: none; align-items: center; }
-        .nav-menu a { color: var(--gray-dark); font-weight: 500; font-size: 0.9375rem; text-decoration: none; }
+        .nav-menu a { color: var(--gray-dark); font-weight: 500; font-size: 0.9rem; text-decoration: none; transition: 0.3s; }
         .nav-menu a:hover { color: var(--accent); }
 
         .dropdown { position: relative; }
-        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--bg-surface); box-shadow: var(--shadow); border: 1px solid #ebe3d6; padding: 0.5rem 0; min-width: 220px; z-index: 1001; }
+        .dropdown-menu { display: none; position: absolute; top: 100%; left: 0; background: var(--bg-surface); box-shadow: var(--shadow); padding: 0.5rem 0; min-width: 200px; }
         .dropdown:hover .dropdown-menu { display: block; }
-        .dropdown-menu a { display: block; padding: 0.75rem 1rem; border-bottom: 1px solid #f0f0f0; font-size: 0.9rem; }
+        .dropdown-menu a { display: block; padding: 0.5rem 1rem; border-bottom: 1px solid #f0f0f0; }
 
-        /* ==== Hero ==== */
-        .hero-large { position: relative; min-height: 75vh; background-image: url(assets/images/pexels-athena-3009971.jpg); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; }
-        .hero-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(135deg, rgba(251, 247, 239, 0.85) 0%, rgba(246, 242, 232, 0.9) 50%, rgba(251, 247, 239, 0.85) 100%); display: flex; align-items: center; justify-content: center; }
-        .hero-text { text-align: center; max-width: 850px; padding: 2rem; }
-        .hero-badge { display: inline-block; background: rgba(255, 255, 255, 0.9); color: var(--accent); padding: 0.5rem 1rem; border-radius: 20px; font-weight: 600; margin-bottom: 1rem; text-transform: uppercase; font-size: 0.875rem; }
+        /* ==== Hero Section ==== */
+        .hero-large { 
+            position: relative; 
+            min-height: 75vh; 
+            background: url('assets/images/pexels-athena-3009971.jpg') center/cover no-repeat; 
+            display: flex; align-items: center; justify-content: center; 
+        }
+        .hero-overlay { 
+            position: absolute; inset: 0; 
+            background: linear-gradient(135deg, rgba(251, 247, 239, 0.9) 0%, rgba(251, 247, 239, 0.7) 100%); 
+        }
+        .hero-content { position: relative; text-align: center; max-width: 900px; padding: 2rem; z-index: 1; }
+        .hero-badge { display: inline-block; background: var(--accent); color: white; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.8rem; margin-bottom: 1rem; }
+        .hero-content h2 { font-size: 3.5rem; margin-bottom: 1rem; line-height: 1.1; }
 
-        /* ==== Sections ==== */
-        .content-section { padding: 5rem 0; }
+        /* ==== Content Sections ==== */
+        .content-section { padding: 6rem 0; }
         .bg-light { background: #f4f1ea; }
-        .program-table { width: 100%; border-collapse: collapse; margin-top: 2rem; background: white; border-radius: 8px; overflow: hidden; box-shadow: var(--shadow); font-size: 0.95rem; }
-        .program-table th { background: var(--accent); color: white; padding: 1.2rem; text-align: left; }
-        .program-table td { padding: 1.2rem; border-bottom: 1px solid #eee; vertical-align: top; }
-        .time-col { font-weight: 700; width: 150px; color: var(--accent); background: #fcfcfc; }
-        .slot-speaker { display: block; margin-top: 5px; font-weight: 600; color: #555; font-style: italic; }
+        
+        /* Table */
+        .program-table { width: 100%; border-collapse: collapse; margin-top: 2.5rem; background: white; box-shadow: var(--shadow); border-radius: 8px; overflow: hidden; }
+        .program-table th { background: var(--accent); color: white; padding: 1rem; text-align: left; }
+        .program-table td { padding: 1rem; border-bottom: 1px solid #eee; vertical-align: top; }
+        .time-col { font-weight: bold; color: var(--accent); width: 140px; }
+        .slot-speaker { display: block; font-size: 0.85rem; font-style: italic; color: #666; margin-top: 4px; }
 
-        .faculty-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; margin-top: 2rem; }
-        .faculty-compact div { padding-bottom: 1rem; border-bottom: 1px solid #ddd; margin-bottom: 1rem; }
-        
-        /* ==== ΔΙΟΡΘΩΜΕΝΟ LOGO BAR ==== */
-        .logo-bar { padding: 5rem 0; border-top: 1px solid #eee; display: flex; justify-content: center; align-items: center; gap: 6rem; flex-wrap: wrap; background: #fff; }
-        
-        /* Ρυθμίζουμε το visual balance των logos */
+        /* Faculty Grid */
+        .faculty-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; margin-top: 3rem; }
+        .faculty-compact div { margin-bottom: 1.5rem; border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; }
+
+        /* ==== Contact Section ==== */
+        #contact-info { background: #fff; padding: 3rem; border-radius: 12px; box-shadow: var(--shadow); max-width: 800px; margin: 0 auto; }
+
+        /* ==== Logo Bar - FIXED SIZES ==== */
+        .logo-bar { padding: 4rem 0; background: #fff; border-top: 1px solid #eee; display: flex; justify-content: center; align-items: center; gap: 5rem; flex-wrap: wrap; }
         .logo-bar img { width: auto; object-fit: contain; }
-        .logo-uoa { height: 100px; } /* Το UOA είναι ψηλό, του δίνουμε ύψος */
-        .logo-civis { height: 55px; } /* Το CIVIS είναι μακρόστενο, χαμηλώνουμε το ύψος για να μην φαίνεται τεράστιο */
-        .logo-eu { height: 85px; }  /* Το EU είναι ενδιάμεσο */
+        .logo-uoa { height: 90px; }
+        .logo-civis { height: 45px; }
+        .logo-eu { height: 75px; }
 
-        .back-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px; border-radius: 50%; background: var(--accent); color: white; border: none; cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 1000; }
-        
-        @media (max-width: 768px) { 
-            .faculty-list { grid-template-columns: 1fr; } 
-            .logo-bar { gap: 3rem; flex-direction: column; }
+        /* Buttons */
+        .btn { padding: 0.8rem 1.8rem; border-radius: 4px; text-decoration: none; font-weight: 600; transition: 0.3s; display: inline-block; }
+        .btn-primary { background: var(--accent); color: white; }
+        .btn-outline { border: 2px solid var(--accent); color: var(--accent); margin-left: 10px; }
+
+        @media (max-width: 768px) {
+            .hero-content h2 { font-size: 2.2rem; }
+            .faculty-list { grid-template-columns: 1fr; }
+            .logo-bar { gap: 2rem; flex-direction: column; }
         }
     </style>
 </head>
 
 <body>
+
     <nav>
         <div class="nav-container">
             <div class="nav-brand">
                 <h1>Diachronic Linguistics 2026</h1>
-                <p>CIVIS Blended Intensive Programme</p>
             </div>
             <ul class="nav-menu">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#program">Program</a></li>
                 <li><a href="#coordinators">Co-ordinators</a></li>
-                <li><a href="#invited">Invited Speakers</a></li>
                 <li><a href="#registration">Apply</a></li>
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" onclick="return false;">Previous <i class="fas fa-caret-down"></i></a>
+                    <a href="#">Previous <i class="fas fa-caret-down"></i></a>
                     <ul class="dropdown-menu">
                         <li><a href="https://conferences.uoa.gr/event/92/page/705-diachronic-linguistics-in-the-21st-century" target="_blank">2025 Programme</a></li>
-                        <li><a href="https://conferences.uoa.gr/event/92/page/715-previous-years" target="_blank">Older Years (2024 & before)</a></li>
                     </ul>
                 </li>
-                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <section id="home" class="hero-large">
-        <div class="hero-overlay">
-            <div class="hero-text">
-                <div class="hero-badge">CIVIS Blended Intensive Programme</div>
-                <h2 style="color: #003366; margin-bottom: 1rem; font-weight: 700; background: rgba(255,255,255,0.9); padding: 1rem 2rem; border-radius: 8px; display: inline-block;">Diachronic Linguistics in the 21st Century</h2>
-                <h3 style="color: #004040; margin-bottom: 2rem; background: rgba(255,255,255,0.9); padding: 0.5rem 1.5rem; border-radius: 8px; display: inline-block;">Meta-Digital Diachronic Linguistics</h3>
-                <p style="font-size: 1.3rem; margin-bottom: 2.5rem; background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 8px;">Bridging traditional philology with cutting-edge AI and NLP techniques to study language evolution across centuries.</p>
-                <div style="display: flex; gap: 1rem; justify-content: center;">
-                    <a href="#registration" style="background: var(--accent); color:white; padding: 1rem 2rem; text-decoration:none; border-radius:4px; font-weight:600;">Apply Now</a>
-                    <a href="#program" style="border: 2px solid var(--accent); color:var(--accent); padding: 1rem 2rem; text-decoration:none; border-radius:4px; font-weight:600; background: white;">View Schedule</a>
-                </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <span class="hero-badge">CIVIS Blended Intensive Programme</span>
+            <h2>Diachronic Linguistics in the 21st Century</h2>
+            <p style="font-size: 1.2rem; margin-bottom: 2rem;">Bridging traditional philology with cutting-edge AI and NLP techniques.</p>
+            <div class="hero-btns">
+                <a href="#registration" class="btn btn-primary">Apply Now</a>
+                <a href="#program" class="btn btn-outline">View Schedule</a>
             </div>
         </div>
     </section>
 
     <section id="program" class="content-section">
         <div class="container">
-            <div class="text-center">
-                <h2>Three-Phase Programme Structure</h2>
-                <p class="lead">Phase 1: Online Spring School | April 20 – 23, 2026</p>
-            </div>
+            <h2 class="text-center">Phase 1: Online Spring School</h2>
+            <p class="text-center">April 20 – 23, 2026</p>
+
             <table class="program-table">
                 <thead>
                     <tr>
@@ -148,34 +149,72 @@
                 <tbody>
                     <tr>
                         <td class="time-col">10:00 - 11:30</td>
-                        <td>Diachronic Linguistics Reimagined: Part I<span class="slot-speaker">Nikolaos Lavidas (Athens)</span></td>
-                        <td>Verb-nominal collocations in diachrony<span class="slot-speaker">Maria Isabel Jimenez Martinez (Madrid)</span></td>
-                        <td>Diachronic Linguistics Reimagined: Part II<span class="slot-speaker">Nikolaos Lavidas (Athens)</span></td>
-                        <td>Descriptive linguistics in the time of AI<span class="slot-speaker">Artemij Keidan (Sapienza)</span></td>
+                        <td>Diachronic Linguistics Reimagined I<span class="slot-speaker">Nikolaos Lavidas (Athens)</span></td>
+                        <td>Verb-nominal collocations<span class="slot-speaker">M. I. Jimenez Martinez (Madrid)</span></td>
+                        <td>Diachronic Linguistics Reimagined II<span class="slot-speaker">Nikolaos Lavidas (Athens)</span></td>
+                        <td>Linguistics in the time of AI<span class="slot-speaker">Artemij Keidan (Sapienza)</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </section>
 
+    <section id="coordinators" class="content-section bg-light">
+        <div class="container">
+            <h2 class="text-center">Co-ordinators</h2>
+            <div class="faculty-list">
+                <div class="faculty-compact">
+                    <div><strong>Prof. Nikolaos Lavidas</strong><p>NKUA</p></div>
+                    <div><strong>Prof. Antonio R. Revuelta Puigdollers</strong><p>UAM</p></div>
+                </div>
+                <div class="faculty-compact">
+                    <div><strong>Prof. Katrin Axel-Tober</strong><p>Tübingen</p></div>
+                    <div><strong>Prof. Artemij Keidan</strong><p>Sapienza</p></div>
+                </div>
+                <div class="faculty-compact">
+                    <div><strong>Prof. Adina Dragomirescu</strong><p>Bucharest</p></div>
+                    <div style="background:#e9f0e8; padding:1rem; border:none; border-radius:5px;">
+                        <strong>Teaching Assistants</strong>
+                        <p>S. Chionidi, E. Plakoutsi (Athens)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="registration" class="content-section">
+        <div class="container text-center">
+            <h2>Admissions</h2>
+            <div style="max-width: 600px; margin: 2rem auto; background: white; padding: 2rem; border-radius: 8px; box-shadow: var(--shadow);">
+                <p>Applications for the 2027 cycle will open in <strong>September 2026</strong>.</p>
+                <br>
+                <a href="https://athdgc.github.io/naxos-summer-school-2026/" class="btn btn-primary" target="_blank">Naxos Summer School 2026 Details</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section bg-light">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 2rem;">Contact Us</h2>
+            <div id="contact-info" class="text-center">
+                <p>For any inquiries regarding the CIVIS BIP Programme, please reach out to:</p>
+                <br>
+                <p><strong>Nikolaos Lavidas</strong></p>
+                <p>Associate Professor, NKUA</p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:nlavidas@enl.uoa.gr" style="color: var(--accent);">nlavidas@enl.uoa.gr</a></p>
+            </div>
+        </div>
+    </section>
+
     <section class="logo-bar">
         <img src="assets/logo_ekpa_new.png" alt="NKUA Logo" class="logo-uoa">
         <img src="assets/civis.png" alt="CIVIS Logo" class="logo-civis">
-        <img src="assets/funded%20by%20EU.png" alt="EU Funded Logo" class="logo-eu">
+        <img src="assets/funded%20by%20EU.png" alt="EU Logo" class="logo-eu">
     </section>
 
-    <footer style="padding: 3rem; text-align: center; border-top: 1px solid #eee; background: #fff;">
+    <footer style="padding: 2rem; text-align: center; background: #fff; font-size: 0.9rem; border-top: 1px solid #eee;">
         <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
     </footer>
 
-    <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
-
-    <script>
-        window.addEventListener('scroll', () => {
-            const btn = document.getElementById('back-to-top');
-            btn.style.display = window.pageYOffset > 400 ? 'flex' : 'none';
-        });
-        document.getElementById('back-to-top').addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
-    </script>
 </body>
 </html>
