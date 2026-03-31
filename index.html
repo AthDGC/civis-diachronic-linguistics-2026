@@ -274,30 +274,48 @@
         </div>
     </section>
 
-/* ==== Improved Logos Bar ==== */
-.logo-bar {
-    padding: 4rem 0;
-    border-top: 1px solid #eee;
-    display: flex;
-    /* Μικρή αλλαγή: switch to space-evenly for perfect horizontal balance */
-    justify-content: space-evenly;
-    align-items: center;
-    /* gap: 5rem; */ /* Κάντε σχόλιο (ή σβήστε) αυτή τη γραμμή. Δεν χρειάζεται με το space-evenly. */
-    flex-wrap: wrap;
-    background: #fff;
-}
-.logo-bar img { width: auto; object-fit: contain; }
-.logo-uoa { height: 95px; } /* Tall logo */
 
-/* Μικρή αλλαγή: αύξηση του ύψους για οπτική συμμετρία */
-.logo-civis { height: 80px; } /* από 50px */
+    <style>
+        /* Εδώ μπαίνει όλο το CSS που βλέπω στο screenshot */
+        .logo-bar {
+            padding: 4rem 0;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            flex-wrap: wrap;
+            background: #fff;
+        }
+        .logo-bar img { width: auto; object-fit: contain; }
+        .logo-uoa { height: 95px; }
+        .logo-civis { height: 80px; }
+        .logo-eu { height: 80px; }
 
-.logo-eu { height: 80px; } /* Rectangular logo */
-    
-    <footer style="padding: 3rem; text-align: center; border-top: 1px solid #eee; background: #fff;">
+        .back-to-top { /* ... ο υπόλοιπος κώδικας ... */ }
+    </style>
+</head> <body> <section id="contact" class="content-section">
+        <div class="container text-center">
+            <div style="margin-top: 1.5rem;">
+                <strong>Professor Nikolaos Lavidas</strong>
+                <p>National and Kapodistrian University of Athens</p>
+                <p style="margin-top: 1rem;">
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:nlavidas@enl.uoa.gr" style="color: var(--accent); text-decoration: none;">nlavidas@enl.uoa.gr</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section class="logo-bar">
+        <img src="assets/logo_ekpa_new.png" alt="NKUA Logo" class="logo-uoa">
+        <img src="assets/civis.png" alt="CIVIS Logo" class="logo-civis">
+        <img src="assets/funded%20by%20EU.png" alt="EU Funded Logo" class="logo-eu">
+    </section>
+
+    <footer>
         <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
     </footer>
-
+    
     <button id="back-to-top" class="back-to-top"><i class="fas fa-arrow-up"></i></button>
 
     <script>
