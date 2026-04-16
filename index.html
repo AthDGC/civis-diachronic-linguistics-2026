@@ -238,6 +238,15 @@
             background: #fcfcfc;
         }
 
+        .time-secondary {
+            color: var(--gray);
+            font-weight: 400;
+            font-size: 0.85rem;
+            display: block;
+            margin-top: 0.4rem;
+            line-height: 1.4;
+        }
+
         .slot-speaker {
             display: block;
             margin-top: 5px;
@@ -453,13 +462,21 @@
             <div class="text-center">
                 <h2>Three-Phase Programme Structure</h2>
                 <p class="lead">Phase 1: Online Spring School | April 20 – 23, 2026</p>
-                <p style="font-size: 0.9rem; color: #666; margin-top: 10px;">Local Times (10:00 Slot): Athens/Bucharest (EEST) | 09:00 CEST | 08:00 BST</p>
+            </div>
+
+            <div style="background: #ffffff; border-radius: 8px; padding: 1.5rem; margin: 2rem auto; border: 1px solid #e0e0e0; text-align: center; max-width: 800px; box-shadow: var(--shadow);">
+                <h3 style="margin-top: 0; margin-bottom: 1rem; color: var(--accent); font-size: 1.15rem; font-family: var(--font-sans);">CIVIS Alliance Time Zones</h3>
+                <p style="margin: 0; line-height: 1.6; font-size: 0.95rem;">
+                    <strong>EEST (UTC+3):</strong> Athens, Bucharest<br>
+                    <strong>CEST (UTC+2):</strong> Tübingen, Madrid, Rome, Marseille, Stockholm, Brussels, Salzburg, Lausanne<br>
+                    <strong>BST (UTC+1):</strong> Glasgow
+                </p>
             </div>
 
             <table class="program-table">
                 <thead>
                     <tr>
-                        <th>Time (EEST)</th>
+                        <th>Time</th>
                         <th>Monday 20/4</th>
                         <th>Tuesday 21/4</th>
                         <th>Wednesday 22/4</th>
@@ -468,21 +485,33 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="time-col">10:00 - 11:30</td>
+                        <td class="time-col">
+                            10:00 - 11:30 EEST
+                            <span class="time-secondary">09:00 - 10:30 CEST</span>
+                            <span class="time-secondary">08:00 - 09:30 BST</span>
+                        </td>
                         <td>Diachronic Linguistics Reimagined: Contemporary Perspectives. Part I<span class="slot-speaker">Nikolaos Lavidas (Athens)</span></td>
                         <td>Verb-nominal collocations in diachrony: from Latin to Romance languages<span class="slot-speaker">Maria Isabel Jimenez Martinez (Madrid)</span></td>
                         <td>Diachronic Linguistics Reimagined: Contemporary Perspectives. Part II<span class="slot-speaker">Nikolaos Lavidas (Athens)</span></td>
                         <td>Descriptive linguistics in the time of AI: a multistratal approach<span class="slot-speaker">Artemij Keidan (Sapienza)</span></td>
                     </tr>
                     <tr>
-                        <td class="time-col">12:00 - 13:30</td>
+                        <td class="time-col">
+                            12:00 - 13:30 EEST
+                            <span class="time-secondary">11:00 - 12:30 CEST</span>
+                            <span class="time-secondary">10:00 - 11:30 BST</span>
+                        </td>
                         <td>Ancient Greek Onomastics: the case of the Styra tablets<span class="slot-speaker">Francesca Dell’Oro (Bologna)</span></td>
                         <td>The history of διότι: from Cause to Substantive Subordinator, and back again<span class="slot-speaker">Jesus Polo Arrondo (Madrid)</span></td>
                         <td>Construction Grammar, corpus-based methods and the recent history of the English Objoid Construction<span class="slot-speaker">Tamara Bouso Rivas (Santiago de Compostela)</span></td>
                         <td>The evolution of negation examined via two cyclical models: Jespersen vs. Croft<span class="slot-speaker">Ljuba Veselinova (Stockholm)</span></td>
                     </tr>
                     <tr>
-                        <td class="time-col">14:00 - 15:00</td>
+                        <td class="time-col">
+                            14:00 - 15:00 EEST
+                            <span class="time-secondary">13:00 - 14:00 CEST</span>
+                            <span class="time-secondary">12:00 - 13:00 BST</span>
+                        </td>
                         <td>Exploring how to work with historical and diachronic corpora<span class="slot-speaker">Sophia Chionidi, Eleni Plakoutsi, Nikolaos Lavidas (Athens)</span></td>
                         <td>Exploring how to work with historical and diachronic corpora<span class="slot-speaker">Sophia Chionidi, Eleni Plakoutsi, Nikolaos Lavidas (Athens)</span></td>
                         <td>Exploring how to work with historical and diachronic corpora<span class="slot-speaker">Sophia Chionidi, Eleni Plakoutsi, Nikolaos Lavidas (Athens)</span></td>
