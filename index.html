@@ -52,25 +52,15 @@
             background-color: var(--bg-page);
         }
 
-        h1,
-        h2,
-        h3,
-        h4 {
+        h1, h2, h3, h4 {
             font-family: var(--font-serif);
             font-weight: 700;
             color: var(--black);
             line-height: 1.2;
         }
 
-        h1 {
-            font-size: 3.8rem;
-            margin-bottom: 1.5rem;
-        }
-
-        h2 {
-            font-size: 2.8rem;
-            margin-bottom: 1rem;
-        }
+        h1 { font-size: 3.8rem; margin-bottom: 1.5rem; }
+        h2 { font-size: 2.8rem; margin-bottom: 1rem; }
 
         .container {
             max-width: 1200px;
@@ -78,13 +68,7 @@
             padding: 0 2rem;
         }
 
-        .text-center {
-            text-align: center;
-        }
-
-        .lead {
-            font-size: 1.15rem;
-        }
+        .text-center { text-align: center; }
 
         /* ==== Navigation ==== */
         nav {
@@ -105,23 +89,14 @@
             gap: 2rem;
         }
 
-        .nav-brand h1 {
-            font-size: 1.375rem;
-            margin: 0;
-            font-weight: 700;
-        }
-
-        .nav-brand p {
-            font-size: 0.95rem;
-            color: var(--gray);
-        }
+        .nav-brand h1 { font-size: 1.375rem; margin: 0; }
+        .nav-brand p { font-size: 0.95rem; color: var(--gray); }
 
         .nav-menu {
             display: flex;
             gap: 1.5rem;
             list-style: none;
             align-items: center;
-            flex-wrap: wrap;
         }
 
         .nav-menu a {
@@ -131,14 +106,9 @@
             text-decoration: none;
         }
 
-        .nav-menu a:hover {
-            color: var(--accent);
-        }
+        .nav-menu a:hover { color: var(--accent); }
 
-        .dropdown {
-            position: relative;
-        }
-
+        .dropdown { position: relative; }
         .dropdown-menu {
             display: none;
             position: absolute;
@@ -149,25 +119,15 @@
             border: 1px solid #ebe3d6;
             padding: 0.5rem 0;
             min-width: 220px;
-            z-index: 1001;
             list-style: none;
         }
-
-        .dropdown:hover .dropdown-menu {
-            display: block;
-        }
-
-        .dropdown-menu a {
-            display: block;
-            padding: 0.75rem 1rem;
-            border-bottom: 1px solid #f0f0f0;
-            font-size: 0.9rem;
-        }
+        .dropdown:hover .dropdown-menu { display: block; }
+        .dropdown-menu a { display: block; padding: 0.75rem 1rem; font-size: 0.9rem; border-bottom: 1px solid #f0f0f0; }
 
         /* ==== Hero ==== */
         .hero-large {
             position: relative;
-            min-height: 75vh;
+            min-height: 70vh;
             background-image: url(assets/images/pexels-athena-3009971.jpg);
             background-size: cover;
             background-position: center;
@@ -178,22 +138,14 @@
 
         .hero-overlay {
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(251, 247, 239, 0.85) 0%, rgba(246, 242, 232, 0.9) 50%, rgba(251, 247, 239, 0.85) 100%);
+            inset: 0;
+            background: linear-gradient(135deg, rgba(251, 247, 239, 0.85) 0%, rgba(246, 242, 232, 0.9) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .hero-text {
-            text-align: center;
-            max-width: 850px;
-            padding: 2rem;
-        }
-
+        .hero-text { text-align: center; max-width: 850px; padding: 2rem; }
         .hero-badge {
             display: inline-block;
             background: rgba(255, 255, 255, 0.9);
@@ -203,7 +155,7 @@
             font-weight: 600;
             margin-bottom: 1rem;
             text-transform: uppercase;
-            font-size: 0.875rem;
+            font-size: 0.8rem;
         }
 
         /* ==== Program Table ==== */
@@ -218,51 +170,28 @@
             font-size: 0.95rem;
         }
 
-        .program-table th {
-            background: var(--accent);
-            color: white;
-            padding: 1.2rem;
-            text-align: left;
-        }
-
-        .program-table td {
-            padding: 1.2rem;
-            border-bottom: 1px solid #eee;
-            vertical-align: top;
-        }
+        .program-table th { background: var(--accent); color: white; padding: 1.2rem; text-align: left; }
+        .program-table td { padding: 1.2rem; border-bottom: 1px solid #eee; vertical-align: top; }
 
         .time-col {
             font-weight: 700;
-            width: 150px;
+            width: 160px;
             color: var(--accent);
             background: #fcfcfc;
         }
 
-        .time-secondary {
-            color: var(--gray);
-            font-weight: 400;
-            font-size: 0.85rem;
-            display: block;
-            margin-top: 0.4rem;
-            line-height: 1.4;
-        }
-
         .slot-speaker {
             display: block;
-            margin-top: 5px;
+            margin-top: 6px;
             font-weight: 600;
             color: #555;
             font-style: italic;
+            font-size: 0.9rem;
         }
 
         /* ==== Sections ==== */
-        .content-section {
-            padding: 5rem 0;
-        }
-
-        .bg-light {
-            background: #f4f1ea;
-        }
+        .content-section { padding: 5rem 0; }
+        .bg-light { background: #f4f1ea; }
 
         .faculty-list {
             display: grid;
@@ -281,8 +210,7 @@
         .eu-footer {
             border-top: 1px solid #e5e5e5;
             background: #ffffff;
-            padding: 2.5rem 1rem 2rem;
-            margin-top: 0;
+            padding: 2.5rem 1rem;
         }
 
         .eu-footer-inner {
@@ -291,30 +219,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 2rem;
             flex-wrap: wrap;
+            gap: 2rem;
         }
 
-        .eu-left img { height: 78px; width: auto; object-fit: contain; }
-        .eu-center img { height: 58px; width: auto; object-fit: contain; }
-        .eu-right img { height: 52px; width: auto; object-fit: contain; }
+        .eu-footer img { height: 60px; width: auto; object-fit: contain; }
 
         .eu-disclaimer {
             text-align: center;
             font-size: 0.75rem;
             color: #666;
             margin-top: 1.5rem;
-            max-width: 920px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.5;
+            max-width: 900px;
+            margin-inline: auto;
         }
 
         footer.site-footer {
             text-align: center;
-            padding: 1.2rem;
+            padding: 1.5rem;
             font-size: 0.85rem;
-            color: #444;
             background: #fbf7ef;
         }
 
@@ -322,8 +245,8 @@
             position: fixed;
             bottom: 2rem;
             right: 2rem;
-            width: 50px;
-            height: 50px;
+            width: 45px;
+            height: 45px;
             border-radius: 50%;
             background: var(--accent);
             color: white;
@@ -333,19 +256,18 @@
             align-items: center;
             justify-content: center;
             z-index: 1000;
-            box-shadow: var(--shadow);
         }
 
         @media (max-width: 992px) {
             .faculty-list { grid-template-columns: 1fr; }
             .nav-container { flex-direction: column; align-items: flex-start; }
-            .nav-menu { gap: 1rem; }
+            .nav-menu { flex-wrap: wrap; gap: 1rem; }
         }
 
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
-            h2 { font-size: 2rem; }
-            .program-table { font-size: 0.85rem; display: block; overflow-x: auto; }
+            h1 { font-size: 2.2rem; }
+            h2 { font-size: 1.8rem; }
+            .program-table { display: block; overflow-x: auto; }
             .eu-footer-inner { flex-direction: column; text-align: center; }
         }
     </style>
@@ -380,12 +302,12 @@
         <div class="hero-overlay">
             <div class="hero-text">
                 <div class="hero-badge">CIVIS Blended Intensive Programme</div>
-                <h2 style="color: #003366; margin-bottom: 1rem; font-weight: 700; background: rgba(255,255,255,0.9); padding: 1rem 2rem; border-radius: 8px; display: inline-block;">Diachronic Linguistics in the 21st Century</h2>
-                <h3 style="color: #004040; margin-bottom: 2rem; background: rgba(255,255,255,0.9); padding: 0.5rem 1.5rem; border-radius: 8px; display: inline-block;">Meta-Digital Diachronic Linguistics</h3>
-                <p style="font-size: 1.3rem; margin-bottom: 2.5rem; background: rgba(255,255,255,0.9); padding: 1rem; border-radius: 8px;">Bridging traditional philology with cutting-edge AI and NLP techniques to study language evolution.</p>
+                <h2 style="color: #003366; background: rgba(255,255,255,0.8); padding: 1rem; border-radius: 8px;">Diachronic Linguistics in the 21st Century</h2>
+                <h3 style="color: #004040; margin-top: 1rem;">Meta-Digital Diachronic Linguistics</h3>
+                <p style="font-size: 1.2rem; margin: 1.5rem 0; background: rgba(255,255,255,0.8); padding: 0.5rem; border-radius: 4px;">Bridging traditional philology with AI and NLP to study language evolution.</p>
                 <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="#registration" style="background: var(--accent); color:white; padding: 1rem 2rem; text-decoration:none; border-radius:4px; font-weight:600;">Apply Now</a>
-                    <a href="#program" style="border: 2px solid var(--accent); color:var(--accent); padding: 1rem 2rem; text-decoration:none; border-radius:4px; font-weight:600; background: white;">View Schedule</a>
+                    <a href="#registration" style="background: var(--accent); color:white; padding: 0.8rem 1.5rem; text-decoration:none; border-radius:4px; font-weight:600;">Apply Now</a>
+                    <a href="#program" style="border: 2px solid var(--accent); color:var(--accent); padding: 0.8rem 1.5rem; text-decoration:none; border-radius:4px; font-weight:600; background: white;">View Schedule</a>
                 </div>
             </div>
         </div>
@@ -393,9 +315,9 @@
 
     <section id="program" class="content-section">
         <div class="container">
-            <div class="text-center">
-                <h2>Three-Phase Programme Structure</h2>
-                <p class="lead">Phase 1: Online Spring School | April 20 – 23, 2026</p>
+            <div class="text-center" style="margin-bottom: 2rem;">
+                <h2>Spring School Programme</h2>
+                <p>Phase 1: Online Sessions | April 20 – 23, 2026</p>
             </div>
 
             <table class="program-table">
@@ -433,27 +355,65 @@
                 </tbody>
             </table>
 
-            <div style="margin-top: 4rem; padding: 2rem; background: #fff; border-left: 6px solid var(--accent); border-radius: 4px;">
-                <h3>Phase 2: Online Workshops</h3>
-                <p><strong>Stage 2: Hands-on Project Development (May – June 2026)</strong></p>
-                <p>Specialized online sessions focusing on individual research findings.</p>
+            <div style="margin-top: 3rem; display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+                <div style="padding: 1.5rem; background: #fff; border-left: 5px solid var(--accent); box-shadow: var(--shadow);">
+                    <h3>Phase 2: Workshops</h3>
+                    <p><strong>May – June 2026:</strong> Specialized online sessions focusing on hands-on project development and research findings.</p>
+                </div>
+                <div style="padding: 1.5rem; background: #fff; border-left: 5px solid var(--accent); box-shadow: var(--shadow);">
+                    <h3>Phase 3: Physical Mobility</h3>
+                    <p><strong>July 20–24, 2026:</strong> Physical mobility to <strong>Naxos, Greece</strong> for advanced seminars and research presentations.</p>
+                </div>
             </div>
+        </div>
+    </section>
 
-            <div style="margin-top: 2rem; padding: 2rem; background: #fff; border-left: 6px solid var(--accent); border-radius: 4px;">
-                <h3>Phase 3: Summer School • Naxos</h3>
-                <p><strong>July 20–24, 2026:</strong> Physical mobility to Naxos, Greece for research presentations.</p>
+    <section id="coordinators" class="content-section bg-light">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 3rem;">
+                <h2>Course Co-ordinators</h2>
+            </div>
+            <div class="faculty-list">
+                <div class="faculty-compact">
+                    <div><strong>Nikolaos Lavidas</strong><p>NKUA (Athens)</p></div>
+                    <div><strong>Antonio R. Revuelta Puigdollers</strong><p>UAM (Madrid)</p></div>
+                    <div><strong>Katrin Axel-Tober</strong><p>Tübingen</p></div>
+                </div>
+                <div class="faculty-compact">
+                    <div><strong>Artemij Keidan</strong><p>Sapienza (Rome)</p></div>
+                    <div><strong>Joanna Kopaczyk</strong><p>Glasgow</p></div>
+                    <div><strong>Adina Dragomirescu</strong><p>Bucharest</p></div>
+                </div>
+                <div class="faculty-compact">
+                    <div><strong>Ljuba Veselinova</strong><p>Stockholm</p></div>
+                    <div><strong>Matthias Heinz</strong><p>Salzburg</p></div>
+                    <div style="background:#eef5ff; padding: 1rem; border:none; border-radius: 4px;">
+                        <strong>Teaching Assistants</strong>
+                        <p>Sofia Chionidi, Eleni Plakoutsi (Athens)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section">
+        <div class="container text-center">
+            <h2>Contact</h2>
+            <div style="background: white; padding: 2rem; border-radius: 8px; max-width: 500px; margin: 2rem auto; box-shadow: var(--shadow);">
+                <p>Coordinator: <strong>Professor Nikolaos Lavidas</strong></p>
+                <p><i class="fas fa-envelope"></i> <a href="mailto:nlavidas@enl.uoa.gr" style="color: var(--accent); text-decoration: none;">nlavidas@enl.uoa.gr</a></p>
             </div>
         </div>
     </section>
 
     <section class="eu-footer">
         <div class="eu-footer-inner">
-            <div class="eu-left"><img src="assets/logo_ekpa_new.png" alt="NKUA"></div>
-            <div class="eu-center"><img src="assets/civis-light-1-1600x1600-resize.png" alt="CIVIS"></div>
-            <div class="eu-right"><img src="assets/funded%20by%20EU.png" alt="EU"></div>
+            <img src="assets/logo_ekpa_new.png" alt="NKUA Logo">
+            <img src="assets/civis-light-1-1600x1600-resize.png" alt="CIVIS Logo">
+            <img src="assets/funded%20by%20EU.png" alt="EU Funded">
         </div>
         <div class="eu-disclaimer">
-            Views and opinions expressed are however those of the author(s) only and do not necessarily reflect those of the European Union or the CIVIS Alliance.
+            Views and opinions expressed are those of the author(s) only and do not necessarily reflect those of the European Union or the CIVIS Alliance.
         </div>
     </section>
 
@@ -461,18 +421,16 @@
         <p>&copy; 2026 National and Kapodistrian University of Athens | CIVIS Alliance</p>
     </footer>
 
-    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+    <button id="back-to-top" class="back-to-top" title="Top">
         <i class="fas fa-arrow-up"></i>
     </button>
 
     <script>
+        const btn = document.getElementById('back-to-top');
         window.addEventListener('scroll', () => {
-            const btn = document.getElementById('back-to-top');
-            btn.style.display = window.pageYOffset > 400 ? 'flex' : 'none';
+            btn.style.display = window.scrollY > 400 ? 'flex' : 'none';
         });
-        document.getElementById('back-to-top').addEventListener('click', () =>
-            window.scrollTo({ top: 0, behavior: 'smooth' })
-        );
+        btn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
     </script>
 </body>
 
